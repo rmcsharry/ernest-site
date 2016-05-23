@@ -38,4 +38,4 @@ Follow us on [Twitter](https://twitter.com/r3labs) and [Facebook](https://www.fa
 
 ## Conduct
 
-Please follow the community [code of conduct](/conduct).
+Please take a moment to read the Ernest community [code of conduct](/conduct).
