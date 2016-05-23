@@ -4,9 +4,7 @@ The ernest.io site is based on the [Hugo Bootstrap Premium theme](https://github
 
 ## Contributing Content
 
-We view this project as a perpetual work in progress that can greatly benefit from and be enriched by the knowledge, wisdom and experience of our community.
-
-We follow the standard Fork-and-Branch GitHub workflow. If you're not familiar with this process, please refer to either of the following excellent guides:
+If you would like to contribute code to Ernest please follow the standard Fork-and-Branch GitHub workflow. If you're not familiar with this process, please refer to either of the following excellent guides:
 
 * ['Forking Projects' GitHub Guide](https://guides.github.com/activities/forking/)
 
@@ -46,5 +44,5 @@ Build the site and start the server:
 hugo server -w
 ```
 
-One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will render Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
+The `-w` switch starts Hugo in live preview mode, so you can see your updated content and layout in real time as you edit.
 
