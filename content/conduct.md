@@ -37,7 +37,7 @@ If you experience or witness unacceptable behaviorâ€”or have any other concernsâ
 
 * Your contact information.
 
-* Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a public IRC logger), please include a link.
+* Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a Slack channel log), please include a link.
 
 * Any additional information that may be helpful.
 
