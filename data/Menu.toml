@@ -1,0 +1,23 @@
+[1about]
+Name = "About"
+URL = "/about"
+
+[2download]
+Name = "Download"
+URL = "/download"
+
+[3documentation]
+Name = "Documentation"
+URL = "/documentation"
+
+[4community]
+Name = "Community"
+URL = "/community"
+
+[5support]
+Name = "Support"
+URL = "/support"
+
+[6blog]
+Name = "Blog"
+URL = "/blog"
