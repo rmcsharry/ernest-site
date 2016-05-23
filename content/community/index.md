@@ -16,9 +16,21 @@ To discuss all things Ernest with other members of the community:
 
 ## Contribute
 
-Ernest is an open source project under the [Mozilla Public License v2.0](/license). You can contribute code to the project on [GitHub](https://github.com/r3labs/ernest). If you would like to make a feature request or have encountered a bug please create a [GitHub Issue](https://github.com/r3labs/ernest/issues).
+Ernest is an open source project under the [Mozilla Public License v2.0](/license). If you would like to help improve Ernest you can:
 
-This site is also an open source project under the [Mozilla Public License v2.0](/license). You can contribute code to the project on [GitHub](https://github.com/r3labs/ernest-site). If you would like to make a feature request or have encountered a bug please create a [GitHub Issue](https://github.com/r3labs/ernest-site/issues).
+* contribute code to the project on [GitHub](https://github.com/r3labs/ernest)
+
+* request a feature as a [GitHub Issue](https://github.com/r3labs/ernest/issues).
+
+* report a bug as a [GitHub Issue](https://github.com/r3labs/ernest/issues).
+
+This site is also an open source project under the [Mozilla Public License v2.0](/license). If you would like to help improve this site you can:
+
+* contribute code to the project on [GitHub](https://github.com/r3labs/ernest-site)
+
+* request a feature as a [GitHub Issue](https://github.com/r3labs/ernest-site/issues).
+
+* report a bug as a [GitHub Issue](https://github.com/r3labs/ernest-site/issues).
 
 ## Social
 
