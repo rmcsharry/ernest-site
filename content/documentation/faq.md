@@ -7,7 +7,7 @@ showChildren=true
   name = "FAQ"
   weight = -50
   identifier = "faq"
-  parent = "Documentation"
+  parent = "Introduction"
 +++
 
 

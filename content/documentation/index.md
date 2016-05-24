@@ -7,7 +7,7 @@ showChildren=true
   name = "Introduction"
   weight = -100
   identifier = "intro"
-  parent = "Documentation"
+  parent = "Introduction"
 +++
 
 

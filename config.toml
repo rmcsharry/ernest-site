@@ -112,3 +112,10 @@ disqusShortname = "shortname"
     plainIdAnchors = true
     extensions = []
     extensionmask = []
+
+[[menu.documentation]]
+  name = "Introduction"
+  weight = 0
+[[menu.documentation]]
+  name = "vCloud"
+  weight = 1

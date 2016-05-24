@@ -7,7 +7,7 @@ showChildren=true
   name = "YAML Structure"
   weight = -70
   identifier = "yaml"
-  parent = "Documentation"
+  parent = "Introduction"
 +++
 
 

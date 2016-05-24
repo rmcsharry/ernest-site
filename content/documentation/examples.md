@@ -7,7 +7,7 @@ showChildren=true
   name = "Use Cases"
   weight = -60
   identifier = "examples"
-  parent = "Documentation"
+  parent = "Introduction"
 +++
 
 

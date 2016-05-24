@@ -7,7 +7,7 @@ showChildren=true
   name = "Getting Started"
   weight = -90
   identifier = "start"
-  parent = "Documentation"
+  parent = "Introduction"
 +++
 
 
