@@ -16,7 +16,7 @@ To discuss all things Ernest with other members of the community:
 
 ## Contribute
 
-Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the [Mozilla Public License v2.0](/license). If you would like to help us improve these projects you can here:
+Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the [Mozilla Public License v2.0](/license). If you would like to help us improve these projects you can do so here:
 
 | Project Name | Contribute Code | Request a Feature | Report a Bug |
 |:---:|:---:|:---:|:---:|
