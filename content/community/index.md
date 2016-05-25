@@ -16,21 +16,13 @@ To discuss all things Ernest with other members of the community:
 
 ## Contribute
 
-Ernest is an open source project under the [Mozilla Public License v2.0](/license). If you would like to help improve Ernest you can:
+Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the [Mozilla Public License v2.0](/license). If you would like to help us improve these projects you can here:
 
-* contribute code to the project on [GitHub](https://github.com/r3labs/ernest)
-
-* request a feature as a [GitHub Issue](https://github.com/r3labs/ernest/issues).
-
-* report a bug as a [GitHub Issue](https://github.com/r3labs/ernest/issues).
-
-This site is also an open source project under the [Mozilla Public License v2.0](/license). If you would like to help improve this site you can:
-
-* contribute code to the project on [GitHub](https://github.com/r3labs/ernest-site)
-
-* request a feature as a [GitHub Issue](https://github.com/r3labs/ernest-site/issues).
-
-* report a bug as a [GitHub Issue](https://github.com/r3labs/ernest-site/issues).
+| Project Name | Contribute Code | Request a Feature | Report a Bug |
+|:---:|:---:|:---:|:---:|
+| Ernest | [GitHub](https://github.com/r3labs/ernest) | [GitHub Issue](https://github.com/r3labs/ernest/issues) | [GitHub Issue](https://github.com/r3labs/ernest/issues) |
+| Ernest CLI | [GitHub](https://github.com/r3labs/ernest-cli) | [GitHub Issue](https://github.com/r3labs/ernest-cli/issues) | [GitHub Issue](https://github.com/r3labs/ernest-cli/issues) |
+| Ernest Site | [GitHub](https://github.com/r3labs/ernest-site) | [GitHub Issue](https://github.com/r3labs/ernest-site/issues) | [GitHub Issue](https://github.com/r3labs/ernest-site/issues) |
 
 ## Social
 
