@@ -32,7 +32,7 @@ After downloading Ernest CLI, move it to a directory that is on the PATH. See [t
 After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:
 
 ```
-$ernest
+$ ernest
 NAME:
    ernest - Command line interface for Ernest
 
@@ -40,29 +40,22 @@ USAGE:
    ernest [global options] command [command options] [arguments...]
    
 VERSION:
-   0.11
+   0.14
    
 COMMANDS:
-   info, i	Display system-wide information.
-   target, t	Configure Ernest target instance.
-   login, l	Login with your Ernest credentials.
-   logout	Clear local authentication credentials.
-   apply, a	Builds or changes infrastructure.
-   destroy, d	Destroy a service.
-   history	Shows the history of a service, a list of builds
-   reset	Reset a service.
-   status, s	Show the current status of a service by its name
-   upgrade, u	Upgrade the Ernest client.
-   monitor, m	Monitor a service.
-   list, ls	Display information.
-   create, c	Manage users & groups of users.
-   help, h	Shows a list of commands or help for one command
-   
+    target  Configure Ernest target instance.
+    info  Display system-wide information.
+    login Login with your Ernest credentials.
+    logout  Clear local authentication credentials.
+    user  User related subcommands
+    group Group related subcommands
+    datacenter  Datacenter related subcommands
+    service Service related subcommands
+
 GLOBAL OPTIONS:
-   --help, -h		show help
-   --version, -v	print the version
-   
-$
+   --help, -h   show help
+   --version, -v  print the version
+
 ```
 
 If you get an error that ernest could not be found, then your PATH environment variable was not setup properly. Please go back and ensure that your PATH variable contains the directory where Ernest CLI was installed.
@@ -86,37 +79,37 @@ Before we can create any infrastructure we will need to connect to Ernest and co
 * Ernest IP address (31.210.241.238)
 * Ernest username/password (user1/xxxxxx)
 * vCloud URL (myvdc.carrenza.net)
-* vCloud organisation (r3-demos)
-* vCloud datacenter (examples)
+* vCloud organisation (r3labs-development)
+* vCloud datacenter (r3-jreid2)
 * vCloud network (DVS-VCD-EXT-665)
-* vCloud username/password (vcloud1/xxxxxx)
+* vCloud username/password (jreid/xxxxxx)
 
 The values in brackets are what we will use for this guide. The Carrenza servicedesk can provide you with information for your own usage.
 
 The first step is to set the IP address of Ernest:
 
 ```
-$ernest target https://31.210.241.238
+$ ernest target https://31.210.241.221
 Target set
-$
+
 ```
 
 Next we login to Ernest:
 
 ```
-$ernest login
+$ ernest login
 Username: user1
-Password: xxxxxx
-Log in successful.
-$
+Password: ******
+Log in succesful.
+
 ```
 
 Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:
 
 ```
-$ernest create datacenter --datacenter-user vcloud1 --datacenter-password xxxxxx --datacenter-org r3-demos examples https://myvdc.carrenza.net DVS-VCD-EXT-665
-SUCCESS: Datacenter examples created
-$
+$ ernest datacenter create --datacenter-user jreid --datacenter-password d7aBMZdFFGu9ZM4fqcBp3RN2yXF9FfDS --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+SUCCESS: Datacenter r3-jreid2 created
+
 ```
 
 ### Define Infrastructure
@@ -126,13 +119,14 @@ Now that we have Ernest setup we need to define the infrastructure we want to bu
 ```
 ---
 name: demo1
-datacenter: examples
+datacenter: r3-jreid2
 bootstrapping: none
+service_ip: 195.3.186.42
 
-firewalls:
-  - name: demo1-fw
+routers: 
+  - name: test1
     rules:
-    - name: in_out_all
+    - name: in_out_any
       source: internal
       from_port: any
       destination: external
@@ -141,31 +135,33 @@ firewalls:
       action: allow
 
     - name: out_in_22
-      source: external
+      source: any
       from_port: any
       destination: internal
       to_port: '22'
       protocol: tcp
       action: allow
 
-networks:
-  - name: web
-    subnet: 10.1.0.0/24
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
 
-port_forwarding:
-  - from_port: '22'
-    to_port: '22'
-    destination: 10.1.0.11
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: '22'
+        to_port: '22'
+        destination: 10.1.0.11
 
 instances:
   - name: web
-    image: images/ubuntu-1404
+    image: r3/ubuntu-1404
     cpus: 1
     memory: 1GB
     count: 1
     networks:
       name: web
       start_ip: 10.1.0.11
+
 ```
 
 ### Create Infrastructure
@@ -173,91 +169,88 @@ instances:
 Now that we have defined our infrastructure we are ready to apply our definition:
 
 ```
-$ernest apply demo1.yml 
+$ ernest service apply demo1.yml
 Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
-Additionally you can trace your service on ernest monit tool with id: 4d6807b8-d1c9-49fd-a604-648d04c1249a
 Starting environment creation
-
-Creating Routers
-  195.3.186.26
+Creating routers:
+  195.3.186.42
 Routers successfully created
-
-Creating networks
+Creating networks:
   - 10.1.0.0/24
 Networks successfully created
-
 Creating instances:
-   - examples-demo1-web-1
+   - r3-jreid2-demo1-web-1
 Instances successfully created
-
+Updating instances:
+   - r3-jreid2-demo1-web-1
+Instances successfully updated
 Setting up firewalls:
 Firewalls Created
-
 Configuring nats
 Nats Created
-
 SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.26
-$
+Your environment endpoint is: 195.3.186.42
+
 ```
 
-Congratulations! You have built your first infrastructure with Ernest. You can now SSH to the server on IP 195.3.186.26 to install and configure your software.
+Congratulations! You have built your first infrastructure with Ernest. You can now SSH to the server on IP 195.3.186.42 to install and configure your software.
 
 If you wish to change the infrastructure update your YAML to show how you want the infrastructure to look, then re-apply the YAML. Ernest will make the appropriate changes to the infrastructure.
 
 For example if we increase the 'web' instance count from 1 to 2 and re-apply the YAML a new server is created:
 
 ```
-$ernest apply demo1.yml
+$ ernest service apply demo1.yml 
 Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
-Additionally you can trace your service on ernest monit tool with id: a4a76fa1-d5e2-437e-a666-47ee24a9c1e4
 Starting environment creation
-
 Creating instances:
-   - examples-demo1-web-2
+   - r3-jreid2-demo1-web-2
 Instances successfully created
-
+Updating instances:
+   - r3-jreid2-demo1-web-2
+Instances successfully updated
 SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.26
-$
+Your environment endpoint is: 195.3.186.42
+
 ```
 
 We can list the services we created:
 
 ```
-$ernest list services
-NAME  LAST BUILD ID       UPDATED       STATUS
-demo1 4d6807b8-d1c9-49fd-a604-648d04c1249a  2016-03-09 10:55:40 +0000 GMT done
-$
+$ ernest service list
+NAME  UPDATED       STATUS  ENDPOINT
+demo1 2016-05-29 14:52:13 +0100 BST done  195.3.186.42
+
 ```
 
 For a given service we can see the history:
 
 ```
-$ernest history demo1
-NAME  BUILD ID        UPDATED       STATUS
-demo1 a4a76fa1-d5e2-437e-a666-47ee24a9c1e4  2016-03-09 11:08:24 +0000 GMT done
-demo1 4d6807b8-d1c9-49fd-a604-648d04c1249a  2016-03-09 10:55:40 +0000 GMT done
-$
+$ ernest service history demo1
+NAME  BUILD ID                UPDATED       STATUS
+demo1 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:52:13 +0100 BST done
+demo1 6799e858-0484-42cb-bbb1-c1bc5f61e500-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:39:56 +0100 BST done
+
 ```
 
 For a given service and build ID we can see the definition we applied:
 
 ```
-$ernest status demo1 --build a4a76fa1-d5e2-437e-a666-47ee24a9c1e4
+$ ernest service definition demo1 --build 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492
 ---
 name: demo1
-datacenter: examples
+datacenter: r3-jreid2
 bootstrapping: none
+service_ip: 195.3.186.42
 
-firewalls:
-  - name: demo1-fw
+routers: 
+  - name: test1
     rules:
-    - name: in_out_all
+    - name: in_out_any
       source: internal
       from_port: any
       destination: external
@@ -266,21 +259,22 @@ firewalls:
       action: allow
 
     - name: out_in_22
-      source: external
+      source: any
       from_port: any
       destination: internal
       to_port: '22'
       protocol: tcp
       action: allow
 
-networks:
-  - name: web
-    subnet: 10.1.0.0/24
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
 
-port_forwarding:
-  - from_port: '22'
-    to_port: '22'
-    destination: 10.1.0.11
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: '22'
+        to_port: '22'
+        destination: 10.1.0.11
 
 instances:
   - name: web
@@ -291,7 +285,7 @@ instances:
     networks:
       name: web
       start_ip: 10.1.0.11
-$
+
 ```
 
 ### Next Step
