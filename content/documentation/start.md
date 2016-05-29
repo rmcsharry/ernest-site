@@ -13,13 +13,11 @@ showChildren=true
 
 # Getting Started With Ernest
 
-Ernest CLI is a command-line interface to drive the Ernest orchestration tool.
+We will assume you have a working instance of Ernest. If not you can get Ernest from [here](/download).
 
 ## Install Ernest CLI
 
 Ernest CLI is distributed as a binary package for all supported platforms and architectures. This page will not cover how to compile Ernest CLI from source.
-
-Refer to the [Ernest installation](http://userdocs.r3labs.io/create/Ernest%20Installation) documentation for how to install Ernest.
 
 ### Installation
 
@@ -68,13 +66,11 @@ Now lets build some infrastructure.
 
 ## Build Infrastructure
 
-With Ernest CLI installed, let's dive right into it and start creating some infrastructure.
-
-We'll build infrastructure on Carrenza vCloud for this guide, but Ernest can manage many providers.
+With Ernest CLI installed, let's dive right into it and start creating some infrastructure. We'll build infrastructure on Carrenza vCloud for this guide.
 
 ### Setup Ernest
 
-Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider, which is the Carrenza vCloud infrastructure for this example. We will need the following information about our Ernest instance and infrastructure provider:
+Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider. We will need the following information about our Ernest instance and infrastructure provider:
 
 * Ernest IP address (31.210.241.238)
 * Ernest username/password (user1/xxxxxx)
@@ -107,7 +103,7 @@ Log in succesful.
 Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:
 
 ```
-$ ernest datacenter create --datacenter-user jreid --datacenter-password d7aBMZdFFGu9ZM4fqcBp3RN2yXF9FfDS --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
 SUCCESS: Datacenter r3-jreid2 created
 
 ```
@@ -298,18 +294,22 @@ In the above example the task of installing and configuring software was left to
 
 ### Define Platform
 
-We will use SALT as our bootstrap provisioner, and add a provisioner section to the instance that will install Chef and converge the server. The new YAML is shown here:
+We will use SALT as our bootstrap provisioner, and add a provisioner section to the instance that will install the Apache HTTP Server. The new YAML is shown here:
 
 ```
 ---
 name: demo2
-datacenter: examples
+datacenter: r3-jreid2
 bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.241.221
+  - 31.210.240.161
 
-firewalls:
-  - name: demo1-fw
+routers: 
+  - name: test2
     rules:
-    - name: in_out_all
+    - name: in_out_any
       source: internal
       from_port: any
       destination: external
@@ -318,21 +318,22 @@ firewalls:
       action: allow
 
     - name: out_in_80
-      source: external
+      source: any
       from_port: any
       destination: internal
       to_port: '80'
       protocol: tcp
       action: allow
 
-networks:
-  - name: web
-    subnet: 10.1.0.0/24
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
 
-port_forwarding:
-  - from_port: '80'
-    to_port: '80'
-    destination: 10.1.0.11
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: '80'
+        to_port: '80'
+        destination: 10.1.0.11
 
 instances:
   - name: web
@@ -347,6 +348,7 @@ instances:
       - exec:
         - 'sudo apt-get update'
         - 'sudo apt-get install apache2 -y'
+
 ```
 
 The first thing to notice is that we have changed 'bootstrapping' from 'none' to 'salt'. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the 'bootstrapping' option must be specified when an environment is created and cannot be changed for that environment.
@@ -360,47 +362,42 @@ Finally, we have added a provisioner section to the instance that will install t
 Now that we have defined our platform we are ready to create it:
 
 ```
-$ernest apply demo2.yml
+$ ernest service apply demo2.yml
 Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
-Additionally you can trace your service on ernest monit tool with id: 0aff961b-53c3-4f2b-bbfa-e4fc90b4a6f4
 Starting environment creation
-
-Creating Routers
-  195.3.186.27
+Creating routers:
+  195.3.186.44
 Routers successfully created
-
-Creating networks
+Creating networks:
   - 10.254.254.0/24
   - 10.1.0.0/24
 Networks successfully created
-
 Creating instances:
-   - examples-demo2-salt-master
-   - examples-demo2-web-1
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
 Instances successfully created
-
+Updating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully updated
 Setting up firewalls:
 Firewalls Created
-
 Configuring nats
 Nats Created
-
 Bootstrapping
 Instances bootstrapped
-
 Running executions
 Executions ran
-
 SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.27
-$
+Your environment endpoint is: 195.3.186.44
+
 ```
 
 Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.
 
-Congratulations! You have built your first platform with Ernest. You should be able to browse to http://195.3.186.27.
+You should be able to browse to http://195.3.186.44. Congratulations! 
 
 If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.
 
