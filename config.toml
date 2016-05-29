@@ -88,7 +88,7 @@ disqusShortname = "shortname"
     
     # Select a syntax highlight.
     # Check the static/css/highlight directory for options.
-    highlight = "default"
+    highlight = "solarized_dark"
 
     # Google Analytics.
     googleAnalytics = "Your Google Analytics tracking code"
