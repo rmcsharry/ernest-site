@@ -31,7 +31,7 @@ After downloading Ernest CLI, move it to a directory that is on the PATH. See [t
 
 After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:
 
-```text
+```
 $ernest
 NAME:
    ernest - Command line interface for Ernest

@@ -75,7 +75,6 @@ disqusShortname = "shortname"
     topline = "Application Orchestration"
     footline = "Ernest Orchetsration Tool"
 
-    PygmentsCodeFencesGuessSyntax = false
 
     # Text for the top menu link, which goes to the root URL for the site.
     # Default (if omitted) is "Home".
