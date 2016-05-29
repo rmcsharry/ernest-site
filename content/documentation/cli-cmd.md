@@ -11,23 +11,7 @@ showChildren=true
 +++
 
 
-# CLI Commands
-
-## Info
-
-```
-NAME:
-   ernest info - Display system-wide information.
-
-USAGE:
-   ernest info
-
-DESCRIPTION:
-   Displays ernest instance information.
-
-   Example:
-    $ ernest info
-```
+# Ernest CLI Commands
 
 ## Target
 
@@ -45,6 +29,22 @@ DESCRIPTION:
     $ ernest target https://myernest.com
 ```
 
+## Info
+
+```
+NAME:
+   ernest info - Display system-wide information.
+
+USAGE:
+   ernest info
+
+DESCRIPTION:
+   Displays ernest instance information.
+
+   Example:
+    $ ernest info
+```
+
 ## Login
 
 ```
@@ -52,7 +52,7 @@ NAME:
    ernest login - Login with your Ernest credentials.
 
 USAGE:
-   ernest login [command options]
+   ernest login [command options]  
 
 DESCRIPTION:
    Logs an user into Ernest instance.
@@ -64,11 +64,11 @@ DESCRIPTION:
 
    Example:
     $ ernest login --user <user> --password <password>
-	
+  
 
 OPTIONS:
-   --user 	User credentials
-   --password 	Password credentials
+   --user   User credentials
+   --password   Password credentials
 ```
 
 ## Logout
@@ -78,7 +78,7 @@ NAME:
    ernest logout - Clear local authentication credentials.
 
 USAGE:
-   ernest logout
+   ernest logout  
 
 DESCRIPTION:
    Logs out an user from Ernest instance.
@@ -87,14 +87,182 @@ DESCRIPTION:
     $ ernest logout
 ```
 
-## Apply
+## User
+
+### List
 
 ```
 NAME:
-   ernest apply - Builds or changes infrastructure.
+   ernest user list - List available users.
 
 USAGE:
-   ernest apply <file.yml>
+   ernest user list  
+
+DESCRIPTION:
+   List available users.
+
+   Example:
+    $ ernest user list
+```
+
+### Create
+
+```
+NAME:
+   ernest user create - Create a new user.
+
+USAGE:
+   ernest user create [command options] <username> <password>
+
+DESCRIPTION:
+   Create a new user on the targeted instance of Ernest.
+
+   Example:
+    $ ernest user create --user <adminuser> --password <adminpassword> <username> <password>
+
+   You can also add an email to the user with the flag --email
+
+   Example:
+    $ ernest user create --user <adminuser> --password <adminpassword> --email username@example.com <username> <password>
+  
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+   --email  Email for the user
+```
+
+### Password
+
+```
+NAME:
+   ernest user password - Change password of available users.
+
+USAGE:
+   ernest user password [command options] <user-id>
+
+DESCRIPTION:
+   Change password of available users.
+
+   Example:
+    $ ernest user password <user-id>
+
+    or changing a password by being admin:
+
+    $ ernest user password --user <adminuser> --password <adminpassword> <user-id>
+  
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+```
+
+### Disable
+
+```
+NAME:
+   ernest user disable - Disable available users.
+
+USAGE:
+   ernest user disable [command options] <username>
+
+DESCRIPTION:
+   Disable available users.
+
+  Example:
+   $ ernest user disable --user <adminuser> --password <adminpassword> <user-id>
+ 
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+```
+
+## Group
+
+### List
+
+```
+NAME:
+   ernest group list - List available groups.
+
+USAGE:
+   ernest group list  
+
+DESCRIPTION:
+   List available groups.
+
+   Example:
+    $ ernest group list
+```
+
+## Datacenter
+
+### List
+
+```
+NAME:
+   ernest datacenter list - List available datacenters.
+
+USAGE:
+   ernest datacenter list  
+
+DESCRIPTION:
+   List available datacenters.
+
+   Example:
+    $ ernest datacenter list
+```
+
+### Create
+
+```
+NAME:
+   ernest datacenter create - Create a new datacenter.
+
+USAGE:
+   ernest datacenter create [command options] <datacenter-name> <vcloud-url> <network-name>
+
+DESCRIPTION:
+   Create a new datacenter on the targeted instance of Ernest.
+
+   Example:
+    $ ernest datacenter create --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
+  
+
+OPTIONS:
+   --datacenter-user    User to be configured with the datacenter
+   --datacenter-password  Password related with user
+   --datacenter-org     vCloud Organization name
+   --vse-url      VSE URL
+```
+
+## Service
+
+### List
+
+```
+NAME:
+   ernest service list - List available services.
+
+USAGE:
+   ernest service list  
+
+DESCRIPTION:
+   List available services and shows its most relevant information.
+
+   Example:
+    $ ernest service list
+```
+
+### Apply
+
+```
+NAME:
+   ernest service apply - Builds or changes infrastructure.
+
+USAGE:
+   ernest service apply <file.yml>
 
 DESCRIPTION:
    Sends a service YAML description file to Ernest to be executed.
@@ -106,30 +274,34 @@ DESCRIPTION:
     $ ernest apply myservice.yml
 ```
 
-## Destroy
+### Destroy
 
 ```
 NAME:
-   ernest destroy - Destroy a service.
+   ernest service destroy - Destroy a service.
 
 USAGE:
-   ernest destroy <service_name>
+   ernest service destroy [command options] <service_name>
 
 DESCRIPTION:
    Destroys a service by its name.
 
    Example:
     $ ernest destroy myservice
+  
+
+OPTIONS:
+   --yes, -y  Force destroy command without asking for permission.
 ```
 
-## History
+### History
 
 ```
 NAME:
-   ernest history - Shows the history of a service, a list of builds
+   ernest service history - Shows the history of a service, a list of builds
 
 USAGE:
-   ernest history <service_name>
+   ernest service history <service_name>
 
 DESCRIPTION:
    Shows the history of a service, a list of builds and its status and basic information.
@@ -138,14 +310,14 @@ DESCRIPTION:
     $ ernest history myservice
 ```
 
-## Reset
+### Reset
 
 ```
 NAME:
-   ernest reset - Reset a service.
+   ernest service reset - Reset an in progress service.
 
 USAGE:
-   ernest reset <service_name>
+   ernest service reset <service_name>
 
 DESCRIPTION:
    Reseting a service creation may cause problems, please make sure you know what are you doing.
@@ -154,184 +326,38 @@ DESCRIPTION:
     $ ernest reset myservice
 ```
 
-## Status
+### Definition
 
 ```
 NAME:
-   ernest status - Show the current status of a service by its name
+   ernest service definition - Show the current definition of a service by its name
 
 USAGE:
-   ernest status [command options] <service_name>
+   ernest service definition [command options] <service_name>
 
 DESCRIPTION:
-   Show the current status of a service by its name getting the definition about the build.
+   Show the current definition of a service by its name getting the definition about the build.
 
    Example:
-    $ ernest status myservice
-	
+    $ ernest service definition myservice
+  
 
 OPTIONS:
-   --build 	Build ID
+   --build  Build ID
 ```
 
-## Upgrade
-
-```
-NAME:
-   ernest upgrade - Upgrade the Ernest client.
-
-USAGE:
-   ernest upgrade
-
-DESCRIPTION:
-   Upgrades the Ernest client to the latest version available.
-
-   Example:
-    $ ernest upgrade
-```
-
-## Monitor
+### Monitor
 
 ```
 NAME:
-   ernest monitor - Monitor a service.
+   ernest service monitor - Monitor a service.
 
 USAGE:
-   ernest monitor <service_id>
+   ernest service monitor <service_id>
 
 DESCRIPTION:
    Monitors a service while it is being built by its service id.
 
    Example:
     $ ernest monitor F94034CE-1A57-4A66-AF49-E1E99C5010A2
-```
-
-## List
-
-### List Datacenters
-
-```
-NAME:
-   ernest list datacenters - List available datacenters.
-
-USAGE:
-   ernest list datacenters
-
-DESCRIPTION:
-   List available datacenters.
-
-   Example:
-    $ ernest list datacenters
-```
-
-### List Services
-
-```
-NAME:
-   ernest list services - List available services.
-
-USAGE:
-   ernest list services
-
-DESCRIPTION:
-   List available services and shows its most relevant information.
-
-   Example:
-    $ ernest list services
-```
-
-### List Users
-
-```
-NAME:
-   ernest list users - List available users.
-
-USAGE:
-   ernest list users
-
-DESCRIPTION:
-   List available users.
-
-   Example:
-    $ ernest list users
-```
-
-### List Groups
-
-```
-NAME:
-   ernest list groups - List available groups.
-
-USAGE:
-   ernest list groups
-
-DESCRIPTION:
-   List available groups.
-
-   Example:
-    $ ernest list groups
-```
-
-## Create
-
-### Create Datacenters
-
-```
-NAME:
-   ernest create datacenter - Create a new datacenter.
-
-USAGE:
-   ernest create datacenter [command options] <datacenter-name> <vcloud-url> <network-name>
-
-DESCRIPTION:
-   Create a new datacenter on the targeted instance of Ernest.
-
-   Example:
-    $ ernest create datacenter --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME mydatacenter https://myernest.com MY-PUBLIC-NETWORK
-	
-
-OPTIONS:
-   --datacenter-user 		User to be configured with the datacenter
-   --datacenter-password 	Password related with user
-   --datacenter-org 		vCloud Organization name
-```
-
-### Create User
-
-```
-NAME:
-   ernest create user - Create a new user.
-
-USAGE:
-   ernest create user [command options] <username> <password>
-
-DESCRIPTION:
-   Create a new user on the targeted instance of Ernest.
-
-   Example:
-    $ ernest create user --user admin --password xxxx username xxxxxx
-
-   You can also add an email to the user with the flag --email
-
-   Example:
-    $ ernest create user --user admin --password xxxx --email username@example.com username xxxxxx
-	
-
-OPTIONS:
-   --user 	Admin user credentials
-   --password 	Admin password credentials
-   --email 	Email for the user
-```
-
-### Create Group
-
-```
-NAME:
-   ernest create group - Create group.
-
-USAGE:
-   ernest create group [arguments...]
-
-DESCRIPTION:
-   Create a group of users.
 ```
