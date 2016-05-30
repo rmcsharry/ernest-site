@@ -284,6 +284,22 @@ instances:
 
 ```
 
+### Destroy Infrastructure
+
+We can also delete anything we build:
+
+```
+$ ernest service destroy demo1
+Are you sure? Please type yes or no and then press enter: yes
+Instances deleted
+Deleting networks:
+  - 10.1.0.0/24
+Networks deleted
+Deleting router:
+Routers deleted
+SUCCESS: your environment has been successfully deleted
+```
+
 ### Next Step
 
 Now that we have created some infrastructure, lets look at how Ernest can be used to install and configure your software for you.
@@ -400,22 +416,6 @@ Notice that Ernest has automatically created a SALT instance for us on network 1
 You should be able to browse to http://195.3.186.44. Congratulations! 
 
 If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.
-
-### Destroy Infrastructure/Platform
-
-We can also delete anything we build:
-
-```
-$ ernest service destroy demo1
-Are you sure? Please type yes or no and then press enter: yes
-Instances deleted
-Deleting networks:
-  - 10.1.0.0/24
-Networks deleted
-Deleting router:
-Routers deleted
-SUCCESS: your environment has been successfully deleted
-```
 
 ## Next Steps
 
