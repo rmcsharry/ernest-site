@@ -401,6 +401,22 @@ You should be able to browse to http://195.3.186.44. Congratulations!
 
 If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.
 
+### Destroy Infrastructure/Platform
+
+We can also delete anything we build:
+
+```
+$ ernest service destroy demo1
+Are you sure? Please type yes or no and then press enter: yes
+Instances deleted
+Deleting networks:
+  - 10.1.0.0/24
+Networks deleted
+Deleting router:
+Routers deleted
+SUCCESS: your environment has been successfully deleted
+```
+
 ## Next Steps
 
 That concludes the Getting Started With Ernest CLI guide. Hopefully you're now able to not only see what Ernest is useful for, but you're also able to put this knowledge to use to improve building your own infrastructure and platforms.
