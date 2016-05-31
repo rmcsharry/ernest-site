@@ -25,7 +25,6 @@
         {{ $currentUrl := .RelPermalink }}
         <ul class="nav navbar-nav navbar-right">
         {{ range $item := .Site.Data.Menu }}
-        {{ $itemPath := $item.Name }}
         {{ $itemUrl := $item.URL }}
 
           <li class="{{ if eq $currentUrl $itemUrl }}active{{ end }}">
