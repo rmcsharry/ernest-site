@@ -22,12 +22,10 @@
 
       </div>
       <div id="navbar" class="collapse navbar-collapse">
-        {{ $currentUrl := .RelPermalink }}
         <ul class="nav navbar-nav navbar-right">
-        {{ range $item := .Site.Data.Menu }}
-        {{ $itemUrl := $item.URL }}
+        {{ range .Site.Data.Menu }}
 
-          <li class="{{ if eq $currentUrl $itemUrl }}active{{ end }}">
+          <li>
           
             <a href="{{ .URL | absURL }}"
             {{ if and ( isset . "Title" ) ( ne .Title "" ) }} title="{{ .Title }}"{{ end }}>
