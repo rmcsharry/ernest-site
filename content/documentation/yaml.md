@@ -7,7 +7,7 @@ showChildren=true
   name = "YAML Structure"
   weight = -70
   identifier = "yaml"
-  parent = "Introduction"
+  parent = "Documentation"
 +++
 
 
@@ -20,13 +20,16 @@ Environments built and managed with Ernest are defined in YAML format.
 ```
 ---
 name: demo
-datacenter: examples
+datacenter: r3-jreid2
 bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.240.161
 
-firewalls:
-  - name: fw
+routers: 
+  - name: demo
     rules:
-    - name: in_out_all
+    - name: in_out_any
       source: internal
       from_port: any
       destination: external
@@ -34,37 +37,37 @@ firewalls:
       protocol: any
       action: allow
 
-    - name: out_in_22
-      source: external
+    - name: out_in_80
+      source: any
       from_port: any
       destination: internal
-      to_port: '22'
+      to_port: '80'
       protocol: tcp
       action: allow
 
-networks:
-  - name: net
-    subnet: 10.1.0.0/24
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
 
-port_forwarding:
-  - from_port: '22'
-    to_port: '22'
-    destination: 10.1.0.11
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: '80'
+        to_port: '80'
+        destination: 10.1.0.11
 
 instances:
-  - name: srv
+  - name: web
     image: r3/ubuntu-1404
     cpus: 1
     memory: 1GB
-    disks:
-     - 10GB
     count: 1
     networks:
-      name: net
+      name: web
       start_ip: 10.1.0.11
     provisioner:
       - exec:
-        - 'uptime'
+        - 'sudo apt-get update'
+        - 'sudo apt-get install apache2 -y'
 ```
 
 ## Field Reference
@@ -73,23 +76,27 @@ instances:
 
 ```
 name: demo
-datacenter: examples
+datacenter: r3-jreid2
 bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.240.161
 ```
 
 Service Options support the following fields:
 
 * **name**
- * String that defines the name of the platform environment to build.
+ * String that defines the name of the service to build.
  * This field is mandatory.
  * This field cannot be null or empty.
  * The value of this field must be 50 characters maximum.
 
 * **datacenter**
- * String that defines the name of the datacenter where the environment is built.
+ * String that defines the name of the datacenter where the service is built.
  * This field is mandatory.
  * This field cannot be null or empty.
  * The value of this field must 50 characters maximum.
+
 
 * **bootstrapping**
  * String [salt, none] that defines if you’re going to be able to execute commands on the servers
@@ -97,13 +104,25 @@ Service Options support the following fields:
  * This field defaults to none.
  * The value of this is restricted to “salt” or “none”
 
-### Firewalls
+* **service_ip**
+ * String that defines the public ip of the router already created on vcloud
+ * This field is optional
+ * This field defaults to none.
+ * The value of this field is an IP, internally defined as https://golang.org/pkg/net/#IP
+
+* **ernest_ip**
+ * Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.
+ * The value of this field is an IP, internally defined as https://golang.org/pkg/net/#IP  
+ * This field is mandatory only if you’ve defined bootstrapping as “salt”
+ * This field defaults to an empty array.
+
+### Networking
 
 ```
-firewalls:
-  - name: fw
+routers: 
+  - name: demo
     rules:
-    - name: in_out_all
+    - name: in_out_any
       source: internal
       from_port: any
       destination: external
@@ -111,23 +130,42 @@ firewalls:
       protocol: any
       action: allow
 
-    - name: out_in_22
-      source: external
+    - name: out_in_80
+      source: any
       from_port: any
       destination: internal
-      to_port: '22'
+      to_port: '80'
       protocol: tcp
       action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: '80'
+        to_port: '80'
+        destination: 10.1.0.11
 ```
 
-Firewalls support the following fields:
+Networking supports the following fields:
 
 * **name**
- * String that defines the name of the platform environment to build.
+ * String that defines the name of the service to build.
  * This field is mandatory.
  * This field cannot be null or empty.
  * This field must be unique by user & manifest.
  * The value of this field can be 50 characters maximum.
+
+**rules**
+
+A firewall rule controls traffic that is allowed to flow between both internal and external routers and networks.
+
+* **name**
+ * String that defines the name of the rule.
+ * This field is mandatory.
+ * This field can’t be null or empty.
 
 * **source**
  * String the source of the network where this firewall acts
@@ -142,7 +180,7 @@ Firewalls support the following fields:
 * **destination**
  * String the destination of the network where this firewall acts
  * This field is mandatory.
- * Values can be:  external | internal | any | named networks | named lb groups | CIDR
+ * Values can be:  external | internal | any | named networks | CIDR
 
 * **to_port**
  * Destination port numbers
@@ -152,72 +190,71 @@ Firewalls support the following fields:
 * **protocol**
  * String with the protocol we are firewalling
  * This field is mandatory.
- * Values can be: tcp | udp | icmp | any | tcp & udp 
+ * Values can be: tcp | udp | icmp | any | tcp & udp
 
 
-### Networks
+**networks**
 
-```
-networks:
-  - name: net
-    subnet: 10.1.0.0/24
-```
-
-Networks support the following fields:
+A network is a virtual network that attaches to a router (in vcloud, other providers will differ). This is what allows us to network/isolate VM’s together.
 
 * **name**
- * String that defines the name of the platform environment to build.
+ * String that defines the name of the service to build.
  * This field is mandatory.
  * This field cannot be null or empty.
  * The value of this field must be 50 characters maximum.
 
 * **subnet**
- * String that defines the name of a network to add to this environment.
- * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless\_Inter-Domain\_Routing 
+ * String that defines the name of a network to add to this service.
+ * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
  * This field is mandatory.
  * This field cannot be null or empty.
  * This field must be unique for this user & all the networks on the manifest.
 
-### Port Forwarding
+* **dns**
+ * Array of IPs to use as dns servers on this service
+ * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
+ * This field is optional.
+ * This field can be empty and it will default to ["8.8.8.8", "4.4.4.4"].
 
-```
-port_forwarding:
-  - from_port: '22'
-    to_port: '22'
-    destination: 10.1.0.11
-```
+**port_forwarding**
 
-Port Forwarding supports the following fields:
+A port forward is something that converts translates a request on a port from one IP to another on a different network. Only tcp port forwarding is supported.
 
 * **from_port**
  * Source port numbers
- * Values can be:  an string ( valid port number, 1 - 65535 ) or any
-
-* **to_port**
- * Destination port numbers
  * Values can be:  an string ( valid port number, 1 - 65535 ) or any
 
 * **destination**
  * String the destination of the IPv4 Address to translate to
  * Values can be: IPv4
 
+* **to_port**
+ * Destination port numbers
+ * Values can be:  an string ( valid port number, 1 - 65535 ) or any
+
+* **source**
+ * String that defines the IP from the provider-specified sub-allocated list of IPs of the router.
+ * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
+ * This field is optional.
+ * This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.
+ * This field must be unique for this user & all the networks on the manifest.
+
 ### Instances
 
 ```
 instances:
-  - name: srv
+  - name: web
     image: r3/ubuntu-1404
     cpus: 1
     memory: 1GB
-    disks:
-     - 10GB
     count: 1
     networks:
-      name: net
+      name: web
       start_ip: 10.1.0.11
     provisioner:
       - exec:
-        - 'uptime'
+        - 'sudo apt-get update'
+        - 'sudo apt-get install apache2 -y'
 ```
 
 Instances support the following fields:
@@ -243,19 +280,17 @@ Instances support the following fields:
  * This field must be greater or equal than 1
 
 * **memory**
- * String that defines the name of a load balancer to add to this environment.
+ * String that defines the name of a load balancer to add to this service.
  * This field is mandatory.
  * This field cannot be null or empty.
- * This field must follow the Binary Prefix format:
- * https://en.wikipedia.org/wiki/Binary\_prefix#Computer\_memory 
+ * This field must follow the Binary Prefix format: https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory 
  * The possible binary prefixes are MB, GB, TB, PB, YB
 
 * **disks:**
  * A list of sizes of hard disks that belongs to the VM
  * This field can be an empty list
  * This field is a list of strings
- * Each element of the string must follow the Binary Prefix format:
- * https://en.wikipedia.org/wiki/Binary\_prefix#Hard\_disk\_drives 
+ * Each element of the string must follow the Binary Prefix format: https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives 
  * The possible binary prefixes are MB, GB, TB, PB, YB
 
 * **count**
@@ -264,21 +299,24 @@ Instances support the following fields:
  * This field cannot be null or empty.
  * This field must be greater or equal that 1
 
-* **network**
- * Network is a map with two fields
+**networks**
+Networks is a map with two fields
 
-* **network:name**
+
+* **name**
  * String that defines the name of a network to attach this instance.
  * This field is mandatory.
  * This field cannot be null or empty.
  * The value of this field should exist on the networks section previously specified.
 
-* **network:start_ip**
+
+* **start_ip**
  * String that defines the starting IP to allocate the VMs to be built.
  * This field is mandatory.
  * This field cannot be null or empty.
  * This field must be a valid IP.
  * This IP should belong to the network already defined on the instance.
+
 
 * **provisioner**
  * Array that contains provisioner types
@@ -286,7 +324,8 @@ Instances support the following fields:
  * This field is optional
  * This field can be empty
 
-* **provisioner - exec**
+
+* **exec**
  * Array of strings, any command characters must be escaped with backslashes: (RFC7159, Section 7)
  * Each command in the exec array is concatenated together and delimited by a semicolon.
  * This field is optional

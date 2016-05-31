@@ -7,7 +7,7 @@ showChildren=true
   name = "CLI Commands"
   weight = -80
   identifier = "cli-cmd"
-  parent = "Introduction"
+  parent = "Documentation"
 +++
 
 
