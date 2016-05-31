@@ -1,23 +1,15 @@
-[1about]
-Name = "About"
-URL = "/about/"
-
-[2download]
+[1-download]
 Name = "Download"
 URL = "/download/"
 
-[3documentation]
+[2-documentation]
 Name = "Documentation"
 URL = "/documentation/"
 
-[4community]
+[3-community]
 Name = "Community"
 URL = "/community/"
 
-[5support]
+[4-support]
 Name = "Support"
 URL = "/support/"
-
-[6blog]
-Name = "Blog"
-URL = "/blog/"
