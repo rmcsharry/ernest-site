@@ -1680,10 +1680,10 @@ Networks is a map with two fields&lt;/p&gt;
     
     <item>
       <title>What is Hugo?</title>
-      <link>/post/what-is-hugo/</link>
+      <link>/2016/04/24/what-is-hugo/</link>
       <pubDate>Sun, 24 Apr 2016 02:50:28 +0200</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/post/what-is-hugo/</guid>
+      <guid>/2016/04/24/what-is-hugo/</guid>
       <description>
 
 &lt;p&gt;Hugo is a general-purpose website framework. Technically speaking, Hugo is
@@ -1857,10 +1857,10 @@ as I have writing it.&lt;/p&gt;
     
     <item>
       <title>Introduction</title>
-      <link>/post/introduction/</link>
+      <link>/2016/04/21/introduction/</link>
       <pubDate>Thu, 21 Apr 2016 02:50:28 +0200</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/post/introduction/</guid>
+      <guid>/2016/04/21/introduction/</guid>
       <description>
 
 &lt;p&gt;Hugo is written in &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt; with support for multiple platforms.&lt;/p&gt;

@@ -5,28 +5,28 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>  &middot; ernest.r3labs.io</title>
+  <title>Introduction  &middot; ernest.r3labs.io</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system." />
+<meta name="description" content="" />
 
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content="  &middot; ernest.r3labs.io ">
+<meta property="og:title" content="Introduction  &middot; ernest.r3labs.io ">
 <meta property="og:site_name" content="ernest.r3labs.io"/>
-<meta property="og:url" content="/community/" />
+<meta property="og:url" content="/2016/04/21/introduction/" />
 <meta property="og:locale" content="en-EN">
 
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content="Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system."/>
-<meta property="og:article:published_time" content="2016-05-17T00:00:00Z" />
-<meta property="og:article:modified_time" content="2016-05-17T00:00:00Z" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2016-04-21T02:50:28&#43;02:00" />
+<meta property="og:article:modified_time" content="2016-04-21T02:50:28&#43;02:00" />
 
   
 
@@ -34,9 +34,9 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@r3labs" />
 <meta name="twitter:creator" content="@r3labs" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:description" content="Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system." />
-<meta name="twitter:url" content="/community/" />
+<meta name="twitter:title" content="Introduction" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="/2016/04/21/introduction/" />
 <meta name="twitter:domain" content="/">
   
 
@@ -44,20 +44,20 @@
   {
     "@context": "http://schema.org",
     "@type": "Article",
-    "headline": "",
+    "headline": "Introduction",
     "author": {
       "@type": "Person",
       "name": "http://profiles.google.com/+?rel=author"
     },
-    "datePublished": "2016-05-17",
-    "description": "Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system.",
-    "wordCount":  110 
+    "datePublished": "2016-04-21",
+    "description": "",
+    "wordCount":  320 
   }
 </script>
 
 
 
-<link rel="canonical" href="/community/" />
+<link rel="canonical" href="/2016/04/21/introduction/" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/ernest-dog.ico">
 <link rel="icon" href="/img/ernest-dog.ico">
 <meta name="generator" content="Hugo 0.16-DEV" />
@@ -130,7 +130,7 @@
           </li>
           
         
-          <li class="active">
+          <li class="">
           
             <a href="/community"
             >
@@ -168,67 +168,118 @@
       <div class="content">
   
 
-<h1 id="community">Community</h1>
+<p>Hugo is written in <a href="http://golang.org/">Go</a> with support for multiple platforms.</p>
 
-<h2 id="discuss">Discuss</h2>
+<p>The latest release can be found at <a href="https://github.com/spf13/hugo/releases">Hugo Releases</a>.
+We currently provide pre-built binaries for
+<i class="fa fa-windows"></i>&nbsp;Windows,
+<i class="fa fa-linux"></i>&nbsp;Linux,
+<i class="fa freebsd-19px"></i>&nbsp;FreeBSD
+and <i class="fa fa-apple"></i>&nbsp;OS&nbsp;X (Darwin)
+for x64, i386 and ARM architectures.</p>
 
-<p>To discuss all things Ernest with other members of the community:</p>
+<p>Hugo may also be compiled from source wherever the Go compiler tool chain can run, e.g. for other operating systems including DragonFly BSD, OpenBSD, Plan&nbsp;9 and Solaris.  See <a href="http://golang.org/doc/install/source">http://golang.org/doc/install/source</a> for the full set of supported combinations of target operating systems and compilation architectures.</p>
+
+<h2 id="installing-hugo-binary">Installing Hugo (binary)</h2>
+
+<p>Installation is very easy. Simply download the appropriate version for your
+platform from <a href="https://github.com/spf13/hugo/releases">Hugo Releases</a>.
+Once downloaded it can be run from anywhere. You don&rsquo;t need to install
+it into a global location. This works well for shared hosts and other systems
+where you don&rsquo;t have a privileged account.</p>
+
+<p>Ideally, you should install it somewhere in your <code>PATH</code> for easy use.
+<code>/usr/local/bin</code> is the most probable location.</p>
+
+<p>On OS&nbsp;X, if you have <a href="http://brew.sh/">Homebrew</a>, installation is even
+easier: just run <code>brew update &amp;&amp; brew install hugo</code>.</p>
+
+<h3 id="installing-pygments-optional">Installing Pygments (optional)</h3>
+
+<p>The Hugo executable has one <em>optional</em> external dependency for source code highlighting (Pygments).</p>
+
+<p>If you want to have source code highlighting using the <a href="/extras/highlighting/">highlight shortcode</a>,
+you need to install the Python-based Pygments program. The procedure is outlined on the <a href="http://pygments.org/">Pygments home page</a>.</p>
+
+<h2 id="upgrading-hugo">Upgrading Hugo</h2>
+
+<p>Upgrading Hugo is as easy as downloading and replacing the executable you’ve
+placed in your <code>PATH</code>.</p>
+
+<h2 id="installing-from-source">Installing from source</h2>
+
+<h3 id="prerequisite-tools-for-downloading-and-building-source-code">Prerequisite tools for downloading and building source code</h3>
 
 <ul>
-<li>join the <a href="http://goo.gl/forms/6ujydAeVGtOr4sm12">Ernest Slack channel</a></li>
-<li>join the <a href="https://groups.google.com/forum/#!forum/ernestio">Ernest Google Group</a></li>
+<li><a href="http://git-scm.com/">Git</a></li>
+<li><a href="http://golang.org/">Go</a> 1.5+</li>
 </ul>
 
-<h2 id="contribute">Contribute</h2>
+<h3 id="get-directly-from-github">Get directly from GitHub</h3>
 
-<p>Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the <a href="/license">Mozilla Public License v2.0</a>. If you would like to help us improve these projects you can do so here:</p>
+<pre><code>$ export GOPATH=$HOME/go
+$ go get -v github.com/spf13/hugo
+</code></pre>
 
-<table>
-<thead>
-<tr>
-<th align="center">Project Name</th>
-<th align="center">Contribute Code</th>
-<th align="center">Request a Feature</th>
-<th align="center">Report a Bug</th>
-</tr>
-</thead>
+<p><code>go get</code> will then fetch Hugo and all its dependent libraries to your
+<code>$GOPATH/src</code> directory, and compile everything into the final <code>hugo</code>
+(or <code>hugo.exe</code>) executable, which you will find sitting in the
+<code>$GOPATH/bin/</code> directory, all ready to go!</p>
 
-<tbody>
-<tr>
-<td align="center">Ernest</td>
-<td align="center"><a href="https://github.com/r3labs/ernest">GitHub</a></td>
-<td align="center"><a href="https://github.com/r3labs/ernest/issues">GitHub Issue</a></td>
-<td align="center"><a href="https://github.com/r3labs/ernest/issues">GitHub Issue</a></td>
-</tr>
+<p>You may run <code>go get</code> with the <code>-u</code> option to update Hugo&rsquo;s dependencies:</p>
 
-<tr>
-<td align="center">Ernest CLI</td>
-<td align="center"><a href="https://github.com/r3labs/ernest-cli">GitHub</a></td>
-<td align="center"><a href="https://github.com/r3labs/ernest-cli/issues">GitHub Issue</a></td>
-<td align="center"><a href="https://github.com/r3labs/ernest-cli/issues">GitHub Issue</a></td>
-</tr>
+<pre><code>$ go get -u -v github.com/spf13/hugo
+</code></pre>
 
-<tr>
-<td align="center">Ernest Site</td>
-<td align="center"><a href="https://github.com/r3labs/ernest-site">GitHub</a></td>
-<td align="center"><a href="https://github.com/r3labs/ernest-site/issues">GitHub Issue</a></td>
-<td align="center"><a href="https://github.com/r3labs/ernest-site/issues">GitHub Issue</a></td>
-</tr>
-</tbody>
-</table>
+<h2 id="contributing">Contributing</h2>
 
-<h2 id="social">Social</h2>
-
-<p>Follow us on <a href="https://twitter.com/r3labs">Twitter</a> and <a href="https://www.facebook.com/r3labsio/">Facebook</a>.</p>
-
-<h2 id="conduct">Conduct</h2>
-
-<p>Please take a moment to read the Ernest community <a href="/conduct">code of conduct</a>.</p>
+<p>Please see the <a href="/doc/contributing/">contributing guide</a>.</p>
 
 </div>
 
 
+      <footer>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       
+  
+    <nav><ul class="pager">
+    
+
+    
+      <li class="next">
+        <a href="/2016/04/24/what-is-hugo/" title="What is Hugo?">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//shortname.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
     </div>
     
   </div>

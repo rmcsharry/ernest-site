@@ -27,9 +27,9 @@ paginatePath = "page"
 # Enable Disqus integration
 disqusShortname = "shortname"
 
-#[permalinks]
-#    post = "/:year/:month/:day/:slug/"
-#    code = "/:slug/"
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+    code = "/:slug/"
 
 [taxonomies]
     tag = "tags"
