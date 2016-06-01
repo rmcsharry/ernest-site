@@ -1093,7 +1093,7 @@ ernest_ip:
 &lt;li&gt;Array of IPs to use as dns servers on this service&lt;/li&gt;
 &lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;This field is optional.&lt;/li&gt;
-&lt;li&gt;This field can be empty and it will default to [&amp;laquo;8.8.8.8&amp;raquo;, &amp;laquo;4.4.4.4&amp;raquo;].&lt;/li&gt;
+&lt;li&gt;This field can be empty and it will default to [&amp;laquo;8.8.8.8&amp;raquo;, &amp;laquo;8.8.4.4&amp;raquo;].&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

@@ -220,7 +220,7 @@ A network is a virtual network that attaches to a router (in vcloud, other provi
  * Array of IPs to use as dns servers on this service
  * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
  * This field is optional.
- * This field can be empty and it will default to ["8.8.8.8", "4.4.4.4"].
+ * This field can be empty and it will default to ["8.8.8.8", "8.8.4.4"].
 
 **port_forwarding**
 
