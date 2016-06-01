@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-05-17",
     "description": "",
-    "wordCount":  1623 
+    "wordCount":  1631 
   }
 </script>
 
@@ -297,13 +297,15 @@ GLOBAL OPTIONS:
 <p>Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider. We will need the following information about our Ernest instance and infrastructure provider:</p>
 
 <ul>
-<li>Ernest IP address (31.210.241.238)</li>
+<li>Ernest IP address (31.210.241.221)</li>
 <li>Ernest username/password (user1/xxxxxx)</li>
 <li>vCloud URL (myvdc.carrenza.net)</li>
 <li>vCloud organisation (r3labs-development)</li>
 <li>vCloud datacenter (r3-jreid2)</li>
 <li>vCloud network (DVS-VCD-EXT-665)</li>
 <li>vCloud username/password (jreid/xxxxxx)</li>
+<li>vCloud router name (test1)</li>
+<li>vCloud sub-allocated IP (195.3.186.42)</li>
 </ul>
 
 <p>The values in brackets are what we will use for this guide. The Carrenza servicedesk can provide you with information for your own usage.</p>
@@ -365,7 +367,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.42
@@ -487,7 +489,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.42
@@ -567,7 +569,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
           
     port_forwarding:
       - source: 195.3.186.44

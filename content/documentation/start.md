@@ -72,13 +72,15 @@ With Ernest CLI installed, let's dive right into it and start creating some infr
 
 Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider. We will need the following information about our Ernest instance and infrastructure provider:
 
-* Ernest IP address (31.210.241.238)
+* Ernest IP address (31.210.241.221)
 * Ernest username/password (user1/xxxxxx)
 * vCloud URL (myvdc.carrenza.net)
 * vCloud organisation (r3labs-development)
 * vCloud datacenter (r3-jreid2)
 * vCloud network (DVS-VCD-EXT-665)
 * vCloud username/password (jreid/xxxxxx)
+* vCloud router name (test1)
+* vCloud sub-allocated IP (195.3.186.42)
 
 The values in brackets are what we will use for this guide. The Carrenza servicedesk can provide you with information for your own usage.
 
@@ -143,7 +145,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.42
@@ -270,7 +272,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.42
@@ -352,7 +354,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
           
     port_forwarding:
       - source: 195.3.186.44

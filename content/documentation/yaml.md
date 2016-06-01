@@ -50,7 +50,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.44
@@ -146,7 +146,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.44

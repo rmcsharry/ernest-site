@@ -424,13 +424,15 @@ GLOBAL OPTIONS:
 &lt;p&gt;Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider. We will need the following information about our Ernest instance and infrastructure provider:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Ernest IP address (31.210.241.238)&lt;/li&gt;
+&lt;li&gt;Ernest IP address (31.210.241.221)&lt;/li&gt;
 &lt;li&gt;Ernest username/password (user1/xxxxxx)&lt;/li&gt;
 &lt;li&gt;vCloud URL (myvdc.carrenza.net)&lt;/li&gt;
 &lt;li&gt;vCloud organisation (r3labs-development)&lt;/li&gt;
 &lt;li&gt;vCloud datacenter (r3-jreid2)&lt;/li&gt;
 &lt;li&gt;vCloud network (DVS-VCD-EXT-665)&lt;/li&gt;
 &lt;li&gt;vCloud username/password (jreid/xxxxxx)&lt;/li&gt;
+&lt;li&gt;vCloud router name (test1)&lt;/li&gt;
+&lt;li&gt;vCloud sub-allocated IP (195.3.186.42)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The values in brackets are what we will use for this guide. The Carrenza servicedesk can provide you with information for your own usage.&lt;/p&gt;
@@ -492,7 +494,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.42
@@ -614,7 +616,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.42
@@ -694,7 +696,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
           
     port_forwarding:
       - source: 195.3.186.44
@@ -874,7 +876,7 @@ routers:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.44
@@ -984,7 +986,7 @@ ernest_ip:
         subnet: 10.1.0.0/24
         dns:
           - 8.8.8.8
-          - 4.4.4.4
+          - 8.8.4.4
 
     port_forwarding:
       - source: 195.3.186.44
