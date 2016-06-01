@@ -1,0 +1,1936 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ernest.r3labs.io</title>
+    <link>/</link>
+    <description>Recent content on ernest.r3labs.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>jason.reid@r3labs.io (Jason Reid)</managingEditor>
+    <webMaster>jason.reid@r3labs.io (Jason Reid)</webMaster>
+    <copyright>(c) 2016 R3 Labs</copyright>
+    <lastBuildDate>Tue, 17 May 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>/community/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/community/</guid>
+      <description>
+
+&lt;h1 id=&#34;community&#34;&gt;Community&lt;/h1&gt;
+
+&lt;h2 id=&#34;discuss&#34;&gt;Discuss&lt;/h2&gt;
+
+&lt;p&gt;To discuss all things Ernest with other members of the community:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;join the &lt;a href=&#34;http://goo.gl/forms/6ujydAeVGtOr4sm12&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;join the &lt;a href=&#34;https://groups.google.com/forum/#!forum/ernestio&#34;&gt;Ernest Google Group&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;contribute&#34;&gt;Contribute&lt;/h2&gt;
+
+&lt;p&gt;Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the &lt;a href=&#34;/license&#34;&gt;Mozilla Public License v2.0&lt;/a&gt;. If you would like to help us improve these projects you can do so here:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;Project Name&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Contribute Code&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Request a Feature&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Report a Bug&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Ernest&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Ernest CLI&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-cli/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-cli/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Ernest Site&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-site&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-site/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-site/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;social&#34;&gt;Social&lt;/h2&gt;
+
+&lt;p&gt;Follow us on &lt;a href=&#34;https://twitter.com/r3labs&#34;&gt;Twitter&lt;/a&gt; and &lt;a href=&#34;https://www.facebook.com/r3labsio/&#34;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conduct&#34;&gt;Conduct&lt;/h2&gt;
+
+&lt;p&gt;Please take a moment to read the Ernest community &lt;a href=&#34;/conduct&#34;&gt;code of conduct&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/conduct/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/conduct/</guid>
+      <description>
+
+&lt;h1 id=&#34;code-of-conduct&#34;&gt;Code of conduct&lt;/h1&gt;
+
+&lt;p&gt;This code of conduct outlines our expectations for participants within the &lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;Ernest&lt;/a&gt; community, as well as steps to reporting unacceptable behavior. We are committed to providing a welcoming and inspiring community for all and expect our code of conduct to be honored. Anyone who violates this code of conduct may be banned from the community.&lt;/p&gt;
+
+&lt;p&gt;Our open source community strives to:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Be friendly and patient.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Be welcoming:&lt;/strong&gt; We strive to be a community that welcomes and supports people of all backgrounds and identities. This includes, but is not limited to members of any race, ethnicity, culture, national origin, colour, immigration status, social and economic class, educational level, sex, sexual orientation, gender identity and expression, age, size, family status, political belief, religion, and mental and physical ability.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Be considerate:&lt;/strong&gt; Your work will be used by other people, and you in turn will depend on the work of others. Any decision you take will affect users and colleagues, and you should take those consequences into account when making decisions. Remember that we&amp;rsquo;re a world-wide community, so you might not be communicating in someone else&amp;rsquo;s primary language.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Be respectful:&lt;/strong&gt; Not all of us will agree all the time, but disagreement is no excuse for poor behavior and poor manners. We might all experience some frustration now and then, but we cannot allow that frustration to turn into a personal attack. It’s important to remember that a community where people feel uncomfortable or threatened is not a productive one.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Be careful in the words that we choose:&lt;/strong&gt; We are a community of professionals, and we conduct ourselves professionally. Be kind to others. Do not insult or put down other participants. Harassment and other exclusionary behavior aren&amp;rsquo;t acceptable.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Try to understand why we disagree:&lt;/strong&gt; Disagreements, both social and technical, happen all the time. It is important that we resolve disagreements and differing views constructively. Remember that we’re different. The strength of our community comes from its diversity, people from a wide range of backgrounds. Different people have different perspectives on issues. Being unable to understand why someone holds a viewpoint doesn’t mean that they’re wrong. Don’t forget that it is human to err and blaming each other doesn’t get us anywhere. Instead, focus on helping to resolve issues and learning from mistakes.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;definitions&#34;&gt;Definitions&lt;/h2&gt;
+
+&lt;p&gt;Harassment includes, but is not limited to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Offensive comments related to gender, gender identity and expression, sexual orientation, disability, mental illness, neuro(a)typicality, physical appearance, body size, race, age, regional discrimination, political or religious affiliation&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Unwelcome comments regarding a person’s lifestyle choices and practices, including those related to food, health, parenting, drugs, and employment&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Deliberate misgendering. This includes deadnaming or persistently using a pronoun that does not correctly reflect a person&amp;rsquo;s gender identity. You must address people by the name they give you when not addressing them by their username or handle&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Physical contact and simulated physical contact (eg, textual descriptions like “hug” or “backrub”) without consent or after a request to stop&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Threats of violence, both physical and psychological&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Incitement of violence towards any individual, including encouraging a person to commit suicide or to engage in self-harm&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Deliberate intimidation&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Stalking or following&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Harassing photography or recording, including logging online activity for harassment purposes&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Sustained disruption of discussion&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Unwelcome sexual attention, including gratuitous or off-topic sexual images or behaviour&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Pattern of inappropriate social contact, such as requesting/assuming inappropriate levels of intimacy with others&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Continued one-on-one communication after requests to cease&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Deliberate “outing” of any aspect of a person’s identity without their consent except as necessary to protect others from intentional abuse&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Publication of non-harassing private communication&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Our open source community prioritizes marginalized people’s safety over privileged people’s comfort. We will not act on complaints regarding:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;‘Reverse’ -isms, including ‘reverse racism,’ ‘reverse sexism,’ and ‘cisphobia’&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Reasonable communication of boundaries, such as “leave me alone,” “go away,” or “I’m not discussing this with you”&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Refusal to explain or debate social justice concepts&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Communicating in a ‘tone’ you don’t find congenial&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Criticizing racist, sexist, cissexist, or otherwise oppressive behavior or assumptions&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;diversity-statement&#34;&gt;Diversity Statement&lt;/h2&gt;
+
+&lt;p&gt;We encourage everyone to participate and are committed to building a community for all. Although we will fail at times, we seek to treat everyone both as fairly and equally as possible. Whenever a participant has made a mistake, we expect them to take responsibility for it. If someone has been harmed or offended, it is our responsibility to listen carefully and respectfully, and do our best to right the wrong.&lt;/p&gt;
+
+&lt;p&gt;Although this list cannot be exhaustive, we explicitly honor diversity in age, gender, gender identity or expression, culture, ethnicity, language, national origin, political beliefs, profession, race, religion, sexual orientation, socioeconomic status, and technical ability. We will not tolerate discrimination based on any of the protected characteristics above, including participants with disabilities.&lt;/p&gt;
+
+&lt;h2 id=&#34;reporting-issues&#34;&gt;Reporting Issues&lt;/h2&gt;
+
+&lt;p&gt;If you experience or witness unacceptable behavior—or have any other concerns—please report it by contacting us via codeofconduct@r3labs.io. All reports will be handled with discretion. In your report please include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Your contact information.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a Slack channel history), please include a link.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Any additional information that may be helpful.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After filing a report, a representative will contact you personally, review the incident, follow up with any additional questions, and make a decision as to how to respond. If the person who is harassing you is part of the response team, they will recuse themselves from handling your incident. If the complaint originates from a member of the response team, it will be handled by a different member of the response team. We will respect confidentiality requests for the purpose of protecting victims of abuse.&lt;/p&gt;
+
+&lt;h2 id=&#34;thanks&#34;&gt;Thanks&lt;/h2&gt;
+
+&lt;p&gt;This code of conduct is based on the &lt;a href=&#34;https://github.com/todogroup/opencodeofconduct&#34;&gt;Open Code of Conduct v1.0&lt;/a&gt; from the &lt;a href=&#34;http://todogroup.org/&#34;&gt;TODOGroup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We are thankful for their work and all the communities who have paved the way with code of conducts.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/download/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/download/</guid>
+      <description>
+
+&lt;h1 id=&#34;download-ernest&#34;&gt;Download Ernest&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GitHub&lt;/li&gt;
+&lt;li&gt;Vagrant&lt;/li&gt;
+&lt;li&gt;OVF&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/license/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/license/</guid>
+      <description>&lt;h1 id=&#34;mozilla-public-license-version-2.0&#34;&gt;Mozilla Public License&lt;br&gt;Version 2.0&lt;/h1&gt;
+&lt;h2 id=&#34;definitions&#34;&gt;1. Definitions&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;1.1. “Contributor”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means each individual or legal entity that creates, contributes to the creation of, or owns Covered Software.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.2. “Contributor Version”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means the combination of the Contributions of others (if any) used by a Contributor and that particular Contributor’s Contribution.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.3. “Contribution”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means Covered Software of a particular Contributor.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.4. “Covered Software”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means Source Code Form to which the initial Contributor has attached the notice in Exhibit A, the Executable Form of such Source Code Form, and Modifications of such Source Code Form, in each case including portions thereof.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.5. “Incompatible With Secondary Licenses”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means&lt;/p&gt;
+&lt;ol type=&#34;a&#34;&gt;
+&lt;li&gt;&lt;p&gt;that the initial Contributor has attached the notice described in Exhibit B to the Covered Software; or&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;that the Covered Software was made available under the terms of version 1.1 or earlier of the License, but not also under the terms of a Secondary License.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.6. “Executable Form”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means any form of the work other than Source Code Form.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.7. “Larger Work”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means a work that combines Covered Software with other material, in a separate file or files, that is not Covered Software.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.8. “License”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means this document.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.9. “Licensable”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means having the right to grant, to the maximum extent possible, whether at the time of the initial grant or subsequently, any and all of the rights conveyed by this License.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.10. “Modifications”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means any of the following:&lt;/p&gt;
+&lt;ol type=&#34;a&#34;&gt;
+&lt;li&gt;&lt;p&gt;any file in Source Code Form that results from an addition to, deletion from, or modification of the contents of Covered Software; or&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;any new file in Source Code Form that contains any Covered Software.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.11. “Patent Claims” of a Contributor&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means any patent claim(s), including without limitation, method, process, and apparatus claims, in any patent Licensable by such Contributor that would be infringed, but for the grant of the License, by the making, using, selling, offering for sale, having made, import, or transfer of either its Contributions or its Contributor Version.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.12. “Secondary License”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means either the GNU General Public License, Version 2.0, the GNU Lesser General Public License, Version 2.1, the GNU Affero General Public License, Version 3.0, or any later versions of those licenses.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.13. “Source Code Form”&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means the form of the work preferred for making modifications.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;1.14. “You” (or “Your”)&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;means an individual or a legal entity exercising rights under this License. For legal entities, “You” includes any entity that controls, is controlled by, or is under common control with You. For purposes of this definition, “control” means (a) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (b) ownership of more than fifty percent (50%) of the outstanding shares or beneficial ownership of such entity.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id=&#34;license-grants-and-conditions&#34;&gt;2. License Grants and Conditions&lt;/h2&gt;
+&lt;h3 id=&#34;grants&#34;&gt;2.1. Grants&lt;/h3&gt;
+&lt;p&gt;Each Contributor hereby grants You a world-wide, royalty-free, non-exclusive license:&lt;/p&gt;
+&lt;ol type=&#34;a&#34;&gt;
+&lt;li&gt;&lt;p&gt;under intellectual property rights (other than patent or trademark) Licensable by such Contributor to use, reproduce, make available, modify, display, perform, distribute, and otherwise exploit its Contributions, either on an unmodified basis, with Modifications, or as part of a Larger Work; and&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;under Patent Claims of such Contributor to make, use, sell, offer for sale, have made, import, and otherwise transfer either its Contributions or its Contributor Version.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;effective-date&#34;&gt;2.2. Effective Date&lt;/h3&gt;
+&lt;p&gt;The licenses granted in Section&amp;nbsp;2.1 with respect to any Contribution become effective for each Contribution on the date the Contributor first distributes such Contribution.&lt;/p&gt;
+&lt;h3 id=&#34;limitations-on-grant-scope&#34;&gt;2.3. Limitations on Grant Scope&lt;/h3&gt;
+&lt;p&gt;The licenses granted in this Section&amp;nbsp;2 are the only rights granted under this License. No additional rights or licenses will be implied from the distribution or licensing of Covered Software under this License. Notwithstanding Section&amp;nbsp;2.1(b) above, no patent license is granted by a Contributor:&lt;/p&gt;
+&lt;ol type=&#34;a&#34;&gt;
+&lt;li&gt;&lt;p&gt;for any code that a Contributor has removed from Covered Software; or&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;for infringements caused by: (i) Your and any other third party’s modifications of Covered Software, or (ii) the combination of its Contributions with other software (except as part of its Contributor Version); or&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;under Patent Claims infringed by Covered Software in the absence of its Contributions.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This License does not grant any rights in the trademarks, service marks, or logos of any Contributor (except as may be necessary to comply with the notice requirements in Section&amp;nbsp;3.4).&lt;/p&gt;
+&lt;h3 id=&#34;subsequent-licenses&#34;&gt;2.4. Subsequent Licenses&lt;/h3&gt;
+&lt;p&gt;No Contributor makes additional grants as a result of Your choice to distribute the Covered Software under a subsequent version of this License (see Section&amp;nbsp;10.2) or under the terms of a Secondary License (if permitted under the terms of Section&amp;nbsp;3.3).&lt;/p&gt;
+&lt;h3 id=&#34;representation&#34;&gt;2.5. Representation&lt;/h3&gt;
+&lt;p&gt;Each Contributor represents that the Contributor believes its Contributions are its original creation(s) or it has sufficient rights to grant the rights to its Contributions conveyed by this License.&lt;/p&gt;
+&lt;h3 id=&#34;fair-use&#34;&gt;2.6. Fair Use&lt;/h3&gt;
+&lt;p&gt;This License is not intended to limit any rights You have under applicable copyright doctrines of fair use, fair dealing, or other equivalents.&lt;/p&gt;
+&lt;h3 id=&#34;conditions&#34;&gt;2.7. Conditions&lt;/h3&gt;
+&lt;p&gt;Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted in Section&amp;nbsp;2.1.&lt;/p&gt;
+&lt;h2 id=&#34;responsibilities&#34;&gt;3. Responsibilities&lt;/h2&gt;
+&lt;h3 id=&#34;distribution-of-source-form&#34;&gt;3.1. Distribution of Source Form&lt;/h3&gt;
+&lt;p&gt;All distribution of Covered Software in Source Code Form, including any Modifications that You create or to which You contribute, must be under the terms of this License. You must inform recipients that the Source Code Form of the Covered Software is governed by the terms of this License, and how they can obtain a copy of this License. You may not attempt to alter or restrict the recipients’ rights in the Source Code Form.&lt;/p&gt;
+&lt;h3 id=&#34;distribution-of-executable-form&#34;&gt;3.2. Distribution of Executable Form&lt;/h3&gt;
+&lt;p&gt;If You distribute Covered Software in Executable Form then:&lt;/p&gt;
+&lt;ol type=&#34;a&#34;&gt;
+&lt;li&gt;&lt;p&gt;such Covered Software must also be made available in Source Code Form, as described in Section&amp;nbsp;3.1, and You must inform recipients of the Executable Form how they can obtain a copy of such Source Code Form by reasonable means in a timely manner, at a charge no more than the cost of distribution to the recipient; and&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You may distribute such Executable Form under the terms of this License, or sublicense it under different terms, provided that the license for the Executable Form does not attempt to limit or alter the recipients’ rights in the Source Code Form under this License.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;distribution-of-a-larger-work&#34;&gt;3.3. Distribution of a Larger Work&lt;/h3&gt;
+&lt;p&gt;You may create and distribute a Larger Work under terms of Your choice, provided that You also comply with the requirements of this License for the Covered Software. If the Larger Work is a combination of Covered Software with a work governed by one or more Secondary Licenses, and the Covered Software is not Incompatible With Secondary Licenses, this License permits You to additionally distribute such Covered Software under the terms of such Secondary License(s), so that the recipient of the Larger Work may, at their option, further distribute the Covered Software under the terms of either this License or such Secondary License(s).&lt;/p&gt;
+&lt;h3 id=&#34;notices&#34;&gt;3.4. Notices&lt;/h3&gt;
+&lt;p&gt;You may not remove or alter the substance of any license notices (including copyright notices, patent notices, disclaimers of warranty, or limitations of liability) contained within the Source Code Form of the Covered Software, except that You may alter any license notices to the extent required to remedy known factual inaccuracies.&lt;/p&gt;
+&lt;h3 id=&#34;application-of-additional-terms&#34;&gt;3.5. Application of Additional Terms&lt;/h3&gt;
+&lt;p&gt;You may choose to offer, and to charge a fee for, warranty, support, indemnity or liability obligations to one or more recipients of Covered Software. However, You may do so only on Your own behalf, and not on behalf of any Contributor. You must make it absolutely clear that any such warranty, support, indemnity, or liability obligation is offered by You alone, and You hereby agree to indemnify every Contributor for any liability incurred by such Contributor as a result of warranty, support, indemnity or liability terms You offer. You may include additional disclaimers of warranty and limitations of liability specific to any jurisdiction.&lt;/p&gt;
+&lt;h2 id=&#34;inability-to-comply-due-to-statute-or-regulation&#34;&gt;4. Inability to Comply Due to Statute or Regulation&lt;/h2&gt;
+&lt;p&gt;If it is impossible for You to comply with any of the terms of this License with respect to some or all of the Covered Software due to statute, judicial order, or regulation then You must: (a) comply with the terms of this License to the maximum extent possible; and (b) describe the limitations and the code they affect. Such description must be placed in a text file included with all distributions of the Covered Software under this License. Except to the extent prohibited by statute or regulation, such description must be sufficiently detailed for a recipient of ordinary skill to be able to understand it.&lt;/p&gt;
+&lt;h2 id=&#34;termination&#34;&gt;5. Termination&lt;/h2&gt;
+&lt;p&gt;5.1. The rights granted under this License will terminate automatically if You fail to comply with any of its terms. However, if You become compliant, then the rights granted under this License from a particular Contributor are reinstated (a) provisionally, unless and until such Contributor explicitly and finally terminates Your grants, and (b) on an ongoing basis, if such Contributor fails to notify You of the non-compliance by some reasonable means prior to 60 days after You have come back into compliance. Moreover, Your grants from a particular Contributor are reinstated on an ongoing basis if such Contributor notifies You of the non-compliance by some reasonable means, this is the first time You have received notice of non-compliance with this License from such Contributor, and You become compliant prior to 30 days after Your receipt of the notice.&lt;/p&gt;
+&lt;p&gt;5.2. If You initiate litigation against any entity by asserting a patent infringement claim (excluding declaratory judgment actions, counter-claims, and cross-claims) alleging that a Contributor Version directly or indirectly infringes any patent, then the rights granted to You by any and all Contributors for the Covered Software under Section&amp;nbsp;2.1 of this License shall terminate.&lt;/p&gt;
+&lt;p&gt;5.3. In the event of termination under Sections&amp;nbsp;5.1 or 5.2 above, all end user license agreements (excluding distributors and resellers) which have been validly granted by You or Your distributors under this License prior to termination shall survive termination.&lt;/p&gt;
+&lt;h2 id=&#34;disclaimer-of-warranty&#34;&gt;6. Disclaimer of Warranty&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Covered Software is provided under this License on an “as is” basis, without warranty of any kind, either expressed, implied, or statutory, including, without limitation, warranties that the Covered Software is free of defects, merchantable, fit for a particular purpose or non-infringing. The entire risk as to the quality and performance of the Covered Software is with You. Should any Covered Software prove defective in any respect, You (not any Contributor) assume the cost of any necessary servicing, repair, or correction. This disclaimer of warranty constitutes an essential part of this License. No use of any Covered Software is authorized under this License except under this disclaimer.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;limitation-of-liability&#34;&gt;7. Limitation of Liability&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Under no circumstances and under no legal theory, whether tort (including negligence), contract, or otherwise, shall any Contributor, or anyone who distributes Covered Software as permitted above, be liable to You for any direct, indirect, special, incidental, or consequential damages of any character including, without limitation, damages for lost profits, loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses, even if such party shall have been informed of the possibility of such damages. This limitation of liability shall not apply to liability for death or personal injury resulting from such party’s negligence to the extent applicable law prohibits such limitation. Some jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so this exclusion and limitation may not apply to You.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;litigation&#34;&gt;8. Litigation&lt;/h2&gt;
+&lt;p&gt;Any litigation relating to this License may be brought only in the courts of a jurisdiction where the defendant maintains its principal place of business and such litigation shall be governed by laws of that jurisdiction, without reference to its conflict-of-law provisions. Nothing in this Section shall prevent a party’s ability to bring cross-claims or counter-claims.&lt;/p&gt;
+&lt;h2 id=&#34;miscellaneous&#34;&gt;9. Miscellaneous&lt;/h2&gt;
+&lt;p&gt;This License represents the complete agreement concerning the subject matter hereof. If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable. Any law or regulation which provides that the language of a contract shall be construed against the drafter shall not be used to construe this License against a Contributor.&lt;/p&gt;
+&lt;h2 id=&#34;versions-of-the-license&#34;&gt;10. Versions of the License&lt;/h2&gt;
+&lt;h3 id=&#34;new-versions&#34;&gt;10.1. New Versions&lt;/h3&gt;
+&lt;p&gt;Mozilla Foundation is the license steward. Except as provided in Section&amp;nbsp;10.3, no one other than the license steward has the right to modify or publish new versions of this License. Each version will be given a distinguishing version number.&lt;/p&gt;
+&lt;h3 id=&#34;effect-of-new-versions&#34;&gt;10.2. Effect of New Versions&lt;/h3&gt;
+&lt;p&gt;You may distribute the Covered Software under the terms of the version of the License under which You originally received the Covered Software, or under the terms of any subsequent version published by the license steward.&lt;/p&gt;
+&lt;h3 id=&#34;modified-versions&#34;&gt;10.3. Modified Versions&lt;/h3&gt;
+&lt;p&gt;If you create software not governed by this License, and you want to create a new license for such software, you may create and use a modified version of this License if you rename the license and remove any references to the name of the license steward (except to note that such modified license differs from this License).&lt;/p&gt;
+&lt;h3 id=&#34;distributing-source-code-form-that-is-incompatible-with-secondary-licenses&#34;&gt;10.4. Distributing Source Code Form that is Incompatible With Secondary Licenses&lt;/h3&gt;
+&lt;p&gt;If You choose to distribute Source Code Form that is Incompatible With Secondary Licenses under the terms of this version of the License, the notice described in Exhibit B of this License must be attached.&lt;/p&gt;
+&lt;h2 id=&#34;exhibit-a---source-code-form-license-notice&#34;&gt;Exhibit A - Source Code Form License Notice&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If it is not possible or desirable to put the notice in a particular file, then You may include the notice in a location (such as a LICENSE file in a relevant directory) where a recipient would be likely to look for such a notice.&lt;/p&gt;
+&lt;p&gt;You may add additional accurate notices of copyright ownership.&lt;/p&gt;
+&lt;h2 id=&#34;exhibit-b---incompatible-with-secondary-licenses-notice&#34;&gt;Exhibit B - “Incompatible With Secondary Licenses” Notice&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/support/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/support/</guid>
+      <description>
+
+&lt;h1 id=&#34;commercial-support&#34;&gt;Commercial Support&lt;/h1&gt;
+
+&lt;p&gt;R3 Labs offer two support plans for Ernest:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Standard&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Premium&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Service term&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Annual subscription&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Annual subscription&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Access to a technical support website&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Maintenance and upgrades&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Web support (email/chat) during standard business hours (9:00AM – 5:00 PM CET)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Maximum number of designated contacts&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Feature priorities&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Prioritized issue resolution&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Response time on non-critical issues&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Best effort&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Within 24 hours&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Response time on critical issues**&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Within 24 hours&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Within 4 business hours&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Pricing&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;mailto:info@r3labs.io?subject=Ernest Support Standard Pricing&#34;&gt;Contact us&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;mailto:info@r3labs.io?subject=Ernest Support Premium Pricing&#34;&gt;Contact us&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;small&gt;**A ‘Critical Issue’ is defined as a system down that impacts your use of Ernest in a production environment. There is no viable workaround, and business is severely impacted.&lt;/small&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CLI Commands</title>
+      <link>/documentation/cli-cmd/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/cli-cmd/</guid>
+      <description>
+
+&lt;h1 id=&#34;ernest-cli-commands&#34;&gt;Ernest CLI Commands&lt;/h1&gt;
+
+&lt;h2 id=&#34;target&#34;&gt;Target&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest target - Configure Ernest target instance.
+
+USAGE:
+   ernest target &amp;lt;ernest_url&amp;gt;
+
+DESCRIPTION:
+   Sets up ernest instance target.
+
+   Example:
+    $ ernest target https://myernest.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;info&#34;&gt;Info&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest info - Display system-wide information.
+
+USAGE:
+   ernest info
+
+DESCRIPTION:
+   Displays ernest instance information.
+
+   Example:
+    $ ernest info
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest login - Login with your Ernest credentials.
+
+USAGE:
+   ernest login [command options]  
+
+DESCRIPTION:
+   Logs an user into Ernest instance.
+
+   Example:
+    $ ernest login
+
+   It can also be used without asking the username and password.
+
+   Example:
+    $ ernest login --user &amp;lt;user&amp;gt; --password &amp;lt;password&amp;gt;
+  
+
+OPTIONS:
+   --user   User credentials
+   --password   Password credentials
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;logout&#34;&gt;Logout&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest logout - Clear local authentication credentials.
+
+USAGE:
+   ernest logout  
+
+DESCRIPTION:
+   Logs out an user from Ernest instance.
+
+   Example:
+    $ ernest logout
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;user&#34;&gt;User&lt;/h2&gt;
+
+&lt;h3 id=&#34;list&#34;&gt;List&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest user list - List available users.
+
+USAGE:
+   ernest user list  
+
+DESCRIPTION:
+   List available users.
+
+   Example:
+    $ ernest user list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create&#34;&gt;Create&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest user create - Create a new user.
+
+USAGE:
+   ernest user create [command options] &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
+
+DESCRIPTION:
+   Create a new user on the targeted instance of Ernest.
+
+   Example:
+    $ ernest user create --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
+
+   You can also add an email to the user with the flag --email
+
+   Example:
+    $ ernest user create --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; --email username@example.com &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
+  
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+   --email  Email for the user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;password&#34;&gt;Password&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest user password - Change password of available users.
+
+USAGE:
+   ernest user password [command options] &amp;lt;user-id&amp;gt;
+
+DESCRIPTION:
+   Change password of available users.
+
+   Example:
+    $ ernest user password &amp;lt;user-id&amp;gt;
+
+    or changing a password by being admin:
+
+    $ ernest user password --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; &amp;lt;user-id&amp;gt;
+  
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;disable&#34;&gt;Disable&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest user disable - Disable available users.
+
+USAGE:
+   ernest user disable [command options] &amp;lt;username&amp;gt;
+
+DESCRIPTION:
+   Disable available users.
+
+  Example:
+   $ ernest user disable --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; &amp;lt;user-id&amp;gt;
+ 
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;group&#34;&gt;Group&lt;/h2&gt;
+
+&lt;h3 id=&#34;list-1&#34;&gt;List&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest group list - List available groups.
+
+USAGE:
+   ernest group list  
+
+DESCRIPTION:
+   List available groups.
+
+   Example:
+    $ ernest group list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;datacenter&#34;&gt;Datacenter&lt;/h2&gt;
+
+&lt;h3 id=&#34;list-2&#34;&gt;List&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest datacenter list - List available datacenters.
+
+USAGE:
+   ernest datacenter list  
+
+DESCRIPTION:
+   List available datacenters.
+
+   Example:
+    $ ernest datacenter list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create-1&#34;&gt;Create&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest datacenter create - Create a new datacenter.
+
+USAGE:
+   ernest datacenter create [command options] &amp;lt;datacenter-name&amp;gt; &amp;lt;vcloud-url&amp;gt; &amp;lt;network-name&amp;gt;
+
+DESCRIPTION:
+   Create a new datacenter on the targeted instance of Ernest.
+
+   Example:
+    $ ernest datacenter create --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
+  
+
+OPTIONS:
+   --datacenter-user    User to be configured with the datacenter
+   --datacenter-password  Password related with user
+   --datacenter-org     vCloud Organization name
+   --vse-url      VSE URL
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;service&#34;&gt;Service&lt;/h2&gt;
+
+&lt;h3 id=&#34;list-3&#34;&gt;List&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service list - List available services.
+
+USAGE:
+   ernest service list  
+
+DESCRIPTION:
+   List available services and shows its most relevant information.
+
+   Example:
+    $ ernest service list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;apply&#34;&gt;Apply&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service apply - Builds or changes infrastructure.
+
+USAGE:
+   ernest service apply &amp;lt;file.yml&amp;gt;
+
+DESCRIPTION:
+   Sends a service YAML description file to Ernest to be executed.
+   You must be logged in to execute this command.
+
+   If the file is not provided, ernest.yml will be used by default.
+
+   Example:
+    $ ernest apply myservice.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;destroy&#34;&gt;Destroy&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service destroy - Destroy a service.
+
+USAGE:
+   ernest service destroy [command options] &amp;lt;service_name&amp;gt;
+
+DESCRIPTION:
+   Destroys a service by its name.
+
+   Example:
+    $ ernest destroy myservice
+  
+
+OPTIONS:
+   --yes, -y  Force destroy command without asking for permission.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;history&#34;&gt;History&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service history - Shows the history of a service, a list of builds
+
+USAGE:
+   ernest service history &amp;lt;service_name&amp;gt;
+
+DESCRIPTION:
+   Shows the history of a service, a list of builds and its status and basic information.
+
+   Example:
+    $ ernest history myservice
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;reset&#34;&gt;Reset&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service reset - Reset an in progress service.
+
+USAGE:
+   ernest service reset &amp;lt;service_name&amp;gt;
+
+DESCRIPTION:
+   Reseting a service creation may cause problems, please make sure you know what are you doing.
+
+   Example:
+    $ ernest reset myservice
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service definition - Show the current definition of a service by its name
+
+USAGE:
+   ernest service definition [command options] &amp;lt;service_name&amp;gt;
+
+DESCRIPTION:
+   Show the current definition of a service by its name getting the definition about the build.
+
+   Example:
+    $ ernest service definition myservice
+  
+
+OPTIONS:
+   --build  Build ID
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;monitor&#34;&gt;Monitor&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service monitor - Monitor a service.
+
+USAGE:
+   ernest service monitor &amp;lt;service_id&amp;gt;
+
+DESCRIPTION:
+   Monitors a service while it is being built by its service id.
+
+   Example:
+    $ ernest monitor F94034CE-1A57-4A66-AF49-E1E99C5010A2
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ernest Index | Application Orchestration</title>
+      <link>/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/</guid>
+      <description>&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;row&#34;&gt;
+    &lt;div class=&#34;homepage col-md-12&#34;&gt;
+        &lt;img class=&#34;homepage-img&#34; alt=&#34;ernest.io&#34; src=&#34;/img/ernest-dog.png&#34;&gt;
+      &lt;h1&gt;Open Source Orchestration&lt;/h1&gt;
+      &lt;br&gt;
+      &lt;h2&gt;Drive software and infrastructure as a unified system.&lt;/h2&gt;
+      &lt;br&gt;
+      &lt;h4&gt;Ernest is an open source, modern and secure orchestration tool for cloud applications. Ernest supports both cloud native and legacy application architectures. The R3 Labs team maintains Ernest (written in Go).&lt;/h4&gt;
+      &lt;br&gt;
+      &lt;h5&gt;Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system.&lt;/h5&gt;
+      &lt;br&gt;
+      &lt;h6&gt;Ernest was created by R3 Labs. We are developers, systems people and entrepreneurs based in London, Barcelona, and Tortosa who are passionate about the power of automation and the cloud. We built our first clouds ten years ago, we’ve delivered complex critical web systems and we’ve built and sold technology businesses. Now we are tackling tooling that frees developers to just build.&lt;/h6&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>/documentation/start/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/start/</guid>
+      <description>
+
+&lt;h1 id=&#34;getting-started-with-ernest&#34;&gt;Getting Started With Ernest&lt;/h1&gt;
+
+&lt;p&gt;We will assume you have a working instance of Ernest. If not you can get Ernest from &lt;a href=&#34;/download&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-ernest-cli&#34;&gt;Install Ernest CLI&lt;/h2&gt;
+
+&lt;p&gt;Ernest CLI is distributed as a binary package for all supported platforms and architectures. This page will not cover how to compile Ernest CLI from source.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;http://artefact.r3labs.io/ernest/&#34;&gt;appropriate package&lt;/a&gt; for your system and download it. Ernest CLI is packaged as an executable.&lt;/p&gt;
+
+&lt;p&gt;After downloading Ernest CLI, move it to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
+
+&lt;h3 id=&#34;verification&#34;&gt;Verification&lt;/h3&gt;
+
+&lt;p&gt;After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest
+NAME:
+   ernest - Command line interface for Ernest
+
+USAGE:
+   ernest [global options] command [command options] [arguments...]
+   
+VERSION:
+   0.14
+   
+COMMANDS:
+    target  Configure Ernest target instance.
+    info  Display system-wide information.
+    login Login with your Ernest credentials.
+    logout  Clear local authentication credentials.
+    user  User related subcommands
+    group Group related subcommands
+    datacenter  Datacenter related subcommands
+    service Service related subcommands
+
+GLOBAL OPTIONS:
+   --help, -h   show help
+   --version, -v  print the version
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you get an error that ernest could not be found, then your PATH environment variable was not setup properly. Please go back and ensure that your PATH variable contains the directory where Ernest CLI was installed.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, Ernest CLI is installed and ready to go.&lt;/p&gt;
+
+&lt;h3 id=&#34;next-step&#34;&gt;Next Step&lt;/h3&gt;
+
+&lt;p&gt;Now lets build some infrastructure.&lt;/p&gt;
+
+&lt;h2 id=&#34;build-infrastructure&#34;&gt;Build Infrastructure&lt;/h2&gt;
+
+&lt;p&gt;With Ernest CLI installed, let&amp;rsquo;s dive right into it and start creating some infrastructure. We&amp;rsquo;ll build infrastructure on Carrenza vCloud for this guide.&lt;/p&gt;
+
+&lt;h3 id=&#34;setup-ernest&#34;&gt;Setup Ernest&lt;/h3&gt;
+
+&lt;p&gt;Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider. We will need the following information about our Ernest instance and infrastructure provider:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ernest IP address (31.210.241.238)&lt;/li&gt;
+&lt;li&gt;Ernest username/password (user1/xxxxxx)&lt;/li&gt;
+&lt;li&gt;vCloud URL (myvdc.carrenza.net)&lt;/li&gt;
+&lt;li&gt;vCloud organisation (r3labs-development)&lt;/li&gt;
+&lt;li&gt;vCloud datacenter (r3-jreid2)&lt;/li&gt;
+&lt;li&gt;vCloud network (DVS-VCD-EXT-665)&lt;/li&gt;
+&lt;li&gt;vCloud username/password (jreid/xxxxxx)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The values in brackets are what we will use for this guide. The Carrenza servicedesk can provide you with information for your own usage.&lt;/p&gt;
+
+&lt;p&gt;The first step is to set the IP address of Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest target https://31.210.241.221
+Target set
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next we login to Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest login
+Username: user1
+Password: ******
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+SUCCESS: Datacenter r3-jreid2 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;define-infrastructure&#34;&gt;Define Infrastructure&lt;/h3&gt;
+
+&lt;p&gt;Now that we have Ernest setup we need to define the infrastructure we want to build. With Ernest infrastructure is defined in the YAML format. The YAML for our example is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo1
+datacenter: r3-jreid2
+bootstrapping: none
+service_ip: 195.3.186.42
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_22
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;22&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create-infrastructure&#34;&gt;Create Infrastructure&lt;/h3&gt;
+
+&lt;p&gt;Now that we have defined our infrastructure we are ready to apply our definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo1.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+Creating routers:
+  195.3.186.42
+Routers successfully created
+Creating networks:
+  - 10.1.0.0/24
+Networks successfully created
+Creating instances:
+   - r3-jreid2-demo1-web-1
+Instances successfully created
+Updating instances:
+   - r3-jreid2-demo1-web-1
+Instances successfully updated
+Setting up firewalls:
+Firewalls Created
+Configuring nats
+Nats Created
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Congratulations! You have built your first infrastructure with Ernest. You can now SSH to the server on IP 195.3.186.42 to install and configure your software.&lt;/p&gt;
+
+&lt;p&gt;If you wish to change the infrastructure update your YAML to show how you want the infrastructure to look, then re-apply the YAML. Ernest will make the appropriate changes to the infrastructure.&lt;/p&gt;
+
+&lt;p&gt;For example if we increase the &amp;lsquo;web&amp;rsquo; instance count from 1 to 2 and re-apply the YAML a new server is created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo1.yml 
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+Creating instances:
+   - r3-jreid2-demo1-web-2
+Instances successfully created
+Updating instances:
+   - r3-jreid2-demo1-web-2
+Instances successfully updated
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can list the services we created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service list
+NAME  UPDATED       STATUS  ENDPOINT
+demo1 2016-05-29 14:52:13 +0100 BST done  195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a given service we can see the history:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service history demo1
+NAME  BUILD ID                UPDATED       STATUS
+demo1 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:52:13 +0100 BST done
+demo1 6799e858-0484-42cb-bbb1-c1bc5f61e500-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:39:56 +0100 BST done
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a given service and build ID we can see the definition we applied:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service definition demo1 --build 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492
+---
+name: demo1
+datacenter: r3-jreid2
+bootstrapping: none
+service_ip: 195.3.186.42
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_22
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;22&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 2
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;destroy-infrastructure&#34;&gt;Destroy Infrastructure&lt;/h3&gt;
+
+&lt;p&gt;We can also delete anything we build:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service destroy demo1
+Are you sure? Please type yes or no and then press enter: yes
+Instances deleted
+Deleting networks:
+  - 10.1.0.0/24
+Networks deleted
+Deleting router:
+Routers deleted
+SUCCESS: your environment has been successfully deleted
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;next-step-1&#34;&gt;Next Step&lt;/h3&gt;
+
+&lt;p&gt;Now that we have created some infrastructure, lets look at how Ernest can be used to install and configure your software for you.&lt;/p&gt;
+
+&lt;h2 id=&#34;build-platform&#34;&gt;Build Platform&lt;/h2&gt;
+
+&lt;p&gt;In the above example the task of installing and configuring software was left to the user to do. In this example we will bootstrap the servers and install our software directly from the YAML.&lt;/p&gt;
+
+&lt;h3 id=&#34;define-platform&#34;&gt;Define Platform&lt;/h3&gt;
+
+&lt;p&gt;We will use SALT as our bootstrap provisioner, and add a provisioner section to the instance that will install the Apache HTTP Server. The new YAML is shown here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo2
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.241.221
+  - 31.210.240.161
+
+routers: 
+  - name: test2
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first thing to notice is that we have changed &amp;lsquo;bootstrapping&amp;rsquo; from &amp;lsquo;none&amp;rsquo; to &amp;lsquo;salt&amp;rsquo;. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the &amp;lsquo;bootstrapping&amp;rsquo; option must be specified when an environment is created and cannot be changed for that environment.&lt;/p&gt;
+
+&lt;p&gt;The next thing we have changed are the firewall and port-forwarding configuration. We have removed the sections needed for SSH access to the server since we are now able to run commands directly from the YAML.&lt;/p&gt;
+
+&lt;p&gt;Finally, we have added a provisioner section to the instance that will install the Apache HTTP Server.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-platform&#34;&gt;Create Platform&lt;/h3&gt;
+
+&lt;p&gt;Now that we have defined our platform we are ready to create it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo2.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+Creating routers:
+  195.3.186.44
+Routers successfully created
+Creating networks:
+  - 10.254.254.0/24
+  - 10.1.0.0/24
+Networks successfully created
+Creating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully created
+Updating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully updated
+Setting up firewalls:
+Firewalls Created
+Configuring nats
+Nats Created
+Bootstrapping
+Instances bootstrapped
+Running executions
+Executions ran
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.44
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.&lt;/p&gt;
+
+&lt;p&gt;You should be able to browse to &lt;a href=&#34;http://195.3.186.44&#34;&gt;http://195.3.186.44&lt;/a&gt;. Congratulations!&lt;/p&gt;
+
+&lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;That concludes the Getting Started With Ernest CLI guide. Hopefully you&amp;rsquo;re now able to not only see what Ernest is useful for, but you&amp;rsquo;re also able to put this knowledge to use to improve building your own infrastructure and platforms.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve covered the basics for all of these features in this guide.&lt;/p&gt;
+
+&lt;p&gt;As a next step, the following resources are available:&lt;/p&gt;
+
+&lt;p&gt;Documentation &lt;em&gt;&lt;strong&gt;[where is this?]&lt;/strong&gt;&lt;/em&gt; - The documentation is an in-depth reference guide to all the features of Ernest, including technical details about the internals of how Ernest operates.&lt;/p&gt;
+
+&lt;p&gt;Examples &lt;em&gt;&lt;strong&gt;[where is this?]&lt;/strong&gt;&lt;/em&gt; - The examples have more full featured configuration files, showing some of the possibilities with Ernest.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/documentation/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/</guid>
+      <description>
+
+&lt;h1 id=&#34;introduction-to-ernest&#34;&gt;Introduction to Ernest&lt;/h1&gt;
+
+&lt;p&gt;Welcome to the intro guide to Ernest! This guide is the best place to start with Ernest. We cover what Ernest is, what problems it can solve, how it compares to existing software, and contains a quick start for using Ernest.&lt;/p&gt;
+
+&lt;p&gt;If you are already familiar with the basics of Ernest, the documentation provides a better reference guide for all available features as well as internals.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-ernest&#34;&gt;What is Ernest?&lt;/h2&gt;
+
+&lt;p&gt;Ernest is an application and infrastructure orchestration and automation engine. Ernest takes the complexity and people out of DevOps, simplifying the process of creating and managing even the most complex environments.&lt;/p&gt;
+
+&lt;p&gt;By delivering everything a development team requires to be able to deploy code and manage its lifecycle Ernest de-risks and accelerates the application development/deployment process, helping developers to deliver value back to the business faster and providing increased business agility&lt;/p&gt;
+
+&lt;p&gt;Ernest has been engineered for flexibility, allowing you to design your environment the way you want. You pick the technologies, the cloud and the architecture then overlay your compliance and governance requirements.&lt;/p&gt;
+
+&lt;p&gt;The Cloud is about freedom of choice and mobility. With Ernest you can easily deploy your environment onto the cloud or infrastructure of your choice and the redeploy it to an alternative cloud as business requirements demand.&lt;/p&gt;
+
+&lt;p&gt;Because Ernest is about developing and then using software reliably and reproducibly it ensures consistency and agility throughout the application lifecycle. Ernest brings the same version control, testing and configuration management tooling you use elsewhere in your development process to your platform; allowing you to utilise version controlled, tested, automated deployments of your environment from the development stage, through testing, to production.&lt;/p&gt;
+
+&lt;p&gt;Ernest key features include;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A Continuous Delivery pipeline for Infrastructure as Code&lt;/li&gt;
+&lt;li&gt;An orchestration tool for any configuration manager and any cloud&lt;/li&gt;
+&lt;li&gt;Fully version controlled&lt;/li&gt;
+&lt;li&gt;Fully automated&lt;/li&gt;
+&lt;li&gt;Works with any technology stack&lt;/li&gt;
+&lt;li&gt;Able to manage the full application life cycle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ernest is built around the idea that DevOps is not a job title, but a methodology, one which Ernest has enshrined in code. Ernest enables digital and SaaS transformation, while removing the complexity of DevOps by delivering it as-a-Service.&lt;/p&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;See the page on &lt;a href=&#34;Ernest use cases&#34;&gt;Ernest use cases&lt;/a&gt; to see the multiple ways Ernest can be used. Then see &lt;a href=&#34;Ernest-compare-competence&#34;&gt;how Ernest compares to other software&lt;/a&gt; to see how it fits into your existing infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Finally, continue onwards with the &lt;a href=&#34;Getting Started With Ernest CLI&#34;&gt;getting started&lt;/a&gt; guide to use Ernest and see how it works in practice.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>YAML Structure</title>
+      <link>/documentation/yaml/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/yaml/</guid>
+      <description>
+
+&lt;h1 id=&#34;ernest-yaml-structure&#34;&gt;Ernest YAML Structure&lt;/h1&gt;
+
+&lt;p&gt;Environments built and managed with Ernest are defined in YAML format.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.240.161
+
+routers: 
+  - name: demo
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;field-reference&#34;&gt;Field Reference&lt;/h2&gt;
+
+&lt;h3 id=&#34;service-options&#34;&gt;Service Options&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;name: demo
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.240.161
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Service Options support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;datacenter&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the datacenter where the service is built.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;bootstrapping&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String [salt, none] that defines if you’re going to be able to execute commands on the servers&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field defaults to none.&lt;/li&gt;
+&lt;li&gt;The value of this is restricted to “salt” or “none”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;service_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the public ip of the router already created on vcloud&lt;/li&gt;
+&lt;li&gt;This field is optional&lt;/li&gt;
+&lt;li&gt;This field defaults to none.&lt;/li&gt;
+&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ernest_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.&lt;/li&gt;
+&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory only if you’ve defined bootstrapping as “salt”&lt;/li&gt;
+&lt;li&gt;This field defaults to an empty array.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;networking&#34;&gt;Networking&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;routers: 
+  - name: demo
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Networking supports the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;name&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
+&lt;li&gt;The value of this field can be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;rules&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A firewall rule controls traffic that is allowed to flow between both internal and external routers and networks.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the rule.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field can’t be null or empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;source&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String the source of the network where this firewall acts&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: external | internal | any | named networks | CIDR&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Source port numbers&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String the destination of the network where this firewall acts&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be:  external | internal | any | named networks | CIDR&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Destination port numbers&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;protocol&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String with the protocol we are firewalling&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: tcp | udp | icmp | any | tcp &amp;amp; udp&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A network is a virtual network that attaches to a router (in vcloud, other providers will differ). This is what allows us to network/isolate VM’s together.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subnet&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a network to add to this service.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;dns&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array of IPs to use as dns servers on this service&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field can be empty and it will default to [&amp;laquo;8.8.8.8&amp;raquo;, &amp;laquo;4.4.4.4&amp;raquo;].&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;port_forwarding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A port forward is something that converts translates a request on a port from one IP to another on a different network. Only tcp port forwarding is supported.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Source port numbers&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String the destination of the IPv4 Address to translate to&lt;/li&gt;
+&lt;li&gt;Values can be: IPv4&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Destination port numbers&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;source&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the IP from the provider-specified sub-allocated list of IPs of the router.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.&lt;/li&gt;
+&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;instances&#34;&gt;Instances&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instances support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the instance to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;image&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of an image to install on the VM.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field is composed in two parts one for the “catalog” and another one for the “image” separated by a slash “/”&lt;/li&gt;
+&lt;li&gt;Both “catalog” and “image” are strings and can’t be null.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;cpus&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integer that defines how many CPUs will have the VM.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be greater or equal than 1&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;memory&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a load balancer to add to this service.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;disks:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A list of sizes of hard disks that belongs to the VM&lt;/li&gt;
+&lt;li&gt;This field can be an empty list&lt;/li&gt;
+&lt;li&gt;This field is a list of strings&lt;/li&gt;
+&lt;li&gt;Each element of the string must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;count&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integer that defines the number of VM to be created.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be greater or equal that 1&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;
+Networks is a map with two fields&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a network to attach this instance.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field should exist on the networks section previously specified.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;start_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the starting IP to allocate the VMs to be built.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be a valid IP.&lt;/li&gt;
+&lt;li&gt;This IP should belong to the network already defined on the instance.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;provisioner&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array that contains provisioner types&lt;/li&gt;
+&lt;li&gt;Each provisioner type will be run in the order they are specified in the document&lt;/li&gt;
+&lt;li&gt;This field is optional&lt;/li&gt;
+&lt;li&gt;This field can be empty&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;exec&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array of strings, any command characters must be escaped with backslashes: (RFC7159, Section 7)&lt;/li&gt;
+&lt;li&gt;Each command in the exec array is concatenated together and delimited by a semicolon.&lt;/li&gt;
+&lt;li&gt;This field is optional&lt;/li&gt;
+&lt;li&gt;If specified as a provisioner type, this array field must contain at least one element&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What is Hugo?</title>
+      <link>/post/what-is-hugo/</link>
+      <pubDate>Sun, 24 Apr 2016 02:50:28 +0200</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/post/what-is-hugo/</guid>
+      <description>
+
+&lt;p&gt;Hugo is a general-purpose website framework. Technically speaking, Hugo is
+a static site generator. Unlike other systems which dynamically build a page
+every time a visitor requests one, Hugo does the building when you create
+your content. Since websites are viewed far more often than they are
+edited, Hugo is optimized for website viewing while providing a great
+writing experience.&lt;/p&gt;
+
+&lt;p&gt;Sites built with Hugo are extremely fast and very secure. Hugo sites can
+be hosted anywhere, including &lt;a href=&#34;https://appernetic.io/&#34;&gt;Appernetic&lt;/a&gt;, &lt;a href=&#34;https://www.heroku.com/&#34;&gt;Heroku&lt;/a&gt;, &lt;a href=&#34;https://www.godaddy.com/&#34;&gt;GoDaddy&lt;/a&gt;, &lt;a href=&#34;http://www.dreamhost.com/&#34;&gt;DreamHost&lt;/a&gt;,
+&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;, &lt;a href=&#34;https://surge.sh&#34;&gt;Surge&lt;/a&gt;, &lt;a href=&#34;https://www.aerobatic.com/&#34;&gt;Aerobatic&lt;/a&gt;, &lt;a href=&#34;http://cloud.google.com/storage/&#34;&gt;Google Cloud Storage&lt;/a&gt;,
+&lt;a href=&#34;http://aws.amazon.com/s3/&#34;&gt;Amazon S3&lt;/a&gt; and &lt;a href=&#34;http://aws.amazon.com/cloudfront/&#34; title=&#34;Amazon CloudFront&#34;&gt;CloudFront&lt;/a&gt;, and work well with CDNs.
+Hugo sites run without dependencies on expensive runtimes like Ruby,
+Python or PHP and without dependencies on any databases.&lt;/p&gt;
+
+&lt;p&gt;We think of Hugo as the ideal website creation tool. With nearly instant
+build times and the ability to rebuild whenever a change is made, Hugo
+provides a very fast feedback loop. This is essential when you are
+designing websites, but also very useful when creating content.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-makes-hugo-different&#34;&gt;What makes Hugo different?&lt;/h2&gt;
+
+&lt;p&gt;Web site generators render content into HTML files. Most are &amp;laquo;dynamic
+site generators.&amp;raquo; That means the HTTP
+server (which is the program running on your website that the user&amp;rsquo;s
+browser talks to) runs the generator to create a new HTML file
+each and every time a user wants to view a page.&lt;/p&gt;
+
+&lt;p&gt;Creating the page dynamically means that the computer hosting
+the HTTP server has to have enough memory and CPU to effectively run
+the generator around the clock. If not, then the user has to wait
+in a queue for the page to be generated.&lt;/p&gt;
+
+&lt;p&gt;Nobody wants users to wait longer than needed, so the dynamic site
+generators programmed their systems to cache the HTML files. When
+a file is cached, a copy of it is temporarily stored on the computer.
+It is much faster for the HTTP server to send that copy the next time
+the page is requested than it is to generate it from scratch.&lt;/p&gt;
+
+&lt;p&gt;Hugo takes caching a step further. All HTML files are rendered on your
+computer. You can review the files before you copy them to the computer
+hosting the HTTP server. Since the HTML files aren&amp;rsquo;t generated dynamically,
+we say that Hugo is a &amp;laquo;static site generator.&amp;raquo;&lt;/p&gt;
+
+&lt;p&gt;Not running a web site generator on your HTTP server has many benefits.
+The most noticeable is performance - HTTP servers are very good at
+sending files. So good that you can effectively serve the same number
+of pages with a fraction of the memory and CPU needed for a dynamic site.&lt;/p&gt;
+
+&lt;p&gt;Hugo has two components to help you build and test your web site. The
+one that you&amp;rsquo;ll probably use most often is the built-in HTTP server.
+When you run &lt;code&gt;hugo server&lt;/code&gt;, Hugo renders all of your content into
+HTML files and then runs an HTTP server on your computer so that you
+can see what the pages look like.&lt;/p&gt;
+
+&lt;p&gt;The second component is used when you&amp;rsquo;re ready to publish your web
+site to the computer running your website. Running Hugo without any
+actions will rebuild your entire web site using the &lt;code&gt;baseurl&lt;/code&gt; setting
+from your site&amp;rsquo;s configuration file. That&amp;rsquo;s required to have your page
+links work properly with most hosting companies.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-fast-is-hugo&#34;&gt;How fast is Hugo?&lt;/h2&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/CdiDYZ51a2o&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;h2 id=&#34;what-does-hugo-do&#34;&gt;What does Hugo do?&lt;/h2&gt;
+
+&lt;p&gt;In technical terms, Hugo takes a source directory of files and
+templates and uses these as input to create a complete website.&lt;/p&gt;
+
+&lt;p&gt;Hugo boasts the following features:&lt;/p&gt;
+
+&lt;h3 id=&#34;general&#34;&gt;General&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Extremely fast build times (~1 ms per page)&lt;/li&gt;
+&lt;li&gt;Completely cross platform: Runs on &lt;i class=&#34;fa fa-apple&#34;&gt;&lt;/i&gt;&amp;nbsp;Mac OS&amp;nbsp;X, &lt;i class=&#34;fa fa-linux&#34;&gt;&lt;/i&gt;&amp;nbsp;Linux, &lt;i class=&#34;fa fa-windows&#34;&gt;&lt;/i&gt;&amp;nbsp;Windows, and more!&lt;/li&gt;
+&lt;li&gt;Easy &lt;a href=&#34;/overview/installing/&#34;&gt;installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Render changes &lt;a href=&#34;/overview/usage/&#34;&gt;on the fly&lt;/a&gt; with &lt;a href=&#34;/extras/livereload/&#34;&gt;LiveReload&lt;/a&gt; as you develop&lt;/li&gt;
+&lt;li&gt;Complete theme support&lt;/li&gt;
+&lt;li&gt;Host your site anywhere&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;organization&#34;&gt;Organization&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Straightforward &lt;a href=&#34;/content/organization/&#34;&gt;organization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support for &lt;a href=&#34;/content/sections/&#34;&gt;website sections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Completely customizable &lt;a href=&#34;/extras/urls/&#34;&gt;URLs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support for configurable &lt;a href=&#34;/taxonomies/overview/&#34;&gt;taxonomies&lt;/a&gt; which includes categories and tags.  Create your own custom organization of content&lt;/li&gt;
+&lt;li&gt;Ability to &lt;a href=&#34;/content/ordering/&#34;&gt;sort content&lt;/a&gt; as you desire&lt;/li&gt;
+&lt;li&gt;Automatic &lt;a href=&#34;/extras/toc/&#34;&gt;table of contents&lt;/a&gt; generation&lt;/li&gt;
+&lt;li&gt;Dynamic menu creation&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/extras/urls/&#34;&gt;Pretty URLs&lt;/a&gt; support&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/extras/permalinks/&#34;&gt;Permalink&lt;/a&gt; pattern support&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/extras/aliases/&#34;&gt;Aliases&lt;/a&gt; (redirects)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;content&#34;&gt;Content&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Native support for content written in &lt;a href=&#34;/content/example/&#34;&gt;Markdown&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for other languages through &lt;em&gt;external helpers&lt;/em&gt;, see &lt;a href=&#34;/content/supported-formats&#34;&gt;supported formats&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Support for TOML, YAML and JSON metadata in &lt;a href=&#34;/content/front-matter/&#34;&gt;frontmatter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Completely &lt;a href=&#34;/layout/homepage/&#34;&gt;customizable homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support for multiple &lt;a href=&#34;/content/types/&#34;&gt;content types&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Automatic and user defined &lt;a href=&#34;/content/summaries/&#34;&gt;summaries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/extras/shortcodes/&#34;&gt;Shortcodes&lt;/a&gt; to enable rich content inside of Markdown&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/layout/variables/&#34;&gt;&amp;laquo;Minutes to Read&amp;raquo;&lt;/a&gt; functionality&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/layout/variables/&#34;&gt;&amp;laquo;Wordcount&amp;raquo;&lt;/a&gt; functionality&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;additional-features&#34;&gt;Additional Features&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integrated &lt;a href=&#34;https://disqus.com/&#34;&gt;Disqus&lt;/a&gt; comment support&lt;/li&gt;
+&lt;li&gt;Integrated &lt;a href=&#34;https://google-analytics.com/&#34;&gt;Google Analytics&lt;/a&gt; support&lt;/li&gt;
+&lt;li&gt;Automatic &lt;a href=&#34;/layout/rss/&#34;&gt;RSS&lt;/a&gt; creation&lt;/li&gt;
+&lt;li&gt;Support for &lt;a href=&#34;http://golang.org/pkg/html/template/&#34;&gt;Go&lt;/a&gt;, &lt;a href=&#34;https://github.com/eknkc/amber&#34;&gt;Amber&lt;/a&gt; and &lt;a href=&#34;http://ace.yoss.si/&#34;&gt;Ace&lt;/a&gt; HTML templates&lt;/li&gt;
+&lt;li&gt;Syntax &lt;a href=&#34;/extras/highlighting/&#34;&gt;highlighting&lt;/a&gt; powered by &lt;a href=&#34;http://pygments.org/&#34;&gt;Pygments&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See what&amp;rsquo;s coming next in the &lt;a href=&#34;/meta/roadmap/&#34;&gt;roadmap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;who-should-use-hugo&#34;&gt;Who should use Hugo?&lt;/h2&gt;
+
+&lt;p&gt;Hugo is for people that prefer writing in a text editor over
+a browser.&lt;/p&gt;
+
+&lt;p&gt;Hugo is for people who want to hand code their own website without
+worrying about setting up complicated runtimes, dependencies and
+databases.&lt;/p&gt;
+
+&lt;p&gt;Hugo is for people building a blog, company site, portfolio, tumblog,
+documentation, single page site or a site with thousands of
+pages.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-did-you-write-hugo&#34;&gt;Why did you write Hugo?&lt;/h2&gt;
+
+&lt;p&gt;I wrote Hugo ultimately for a few reasons. First, I was disappointed with
+WordPress, my then website solution. It rendered slowly. I couldn&amp;rsquo;t create
+content as efficiently as I wanted to and needed to be online to write
+posts. The constant security updates and the horror stories of people&amp;rsquo;s
+hacked blogs. I hated how content was written in HTML instead of the much
+simpler Markdown. Overall, I felt like it got in my way more than it helped
+me from writing great content.&lt;/p&gt;
+
+&lt;p&gt;I looked at existing static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;, &lt;a href=&#34;https://middlemanapp.com/&#34;&gt;Middleman&lt;/a&gt; and &lt;a href=&#34;http://nanoc.ws/&#34;&gt;nanoc&lt;/a&gt;.
+All had complicated dependencies to install and took far longer to render
+my blog with hundreds of posts than I felt was acceptable. I wanted
+a framework to be able to get rapid feedback while making changes to the
+templates, and the 5+-minute render times was just too slow. In general,
+they were also very blog minded and didn&amp;rsquo;t have the ability to have
+different content types and flexible URLs.&lt;/p&gt;
+
+&lt;p&gt;I wanted to develop a fast and full-featured website framework without
+dependencies. The &lt;a href=&#34;http://golang.org/&#34; title=&#34;The Go Programming Language&#34;&gt;Go language&lt;/a&gt; seemed to have all of the features I needed
+in a language. I began developing Hugo in Go and fell in love with the
+language. I hope you will enjoy using (and contributing to) Hugo as much
+as I have writing it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/post/introduction/</link>
+      <pubDate>Thu, 21 Apr 2016 02:50:28 +0200</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/post/introduction/</guid>
+      <description>
+
+&lt;p&gt;Hugo is written in &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt; with support for multiple platforms.&lt;/p&gt;
+
+&lt;p&gt;The latest release can be found at &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;Hugo Releases&lt;/a&gt;.
+We currently provide pre-built binaries for
+&lt;i class=&#34;fa fa-windows&#34;&gt;&lt;/i&gt;&amp;nbsp;Windows,
+&lt;i class=&#34;fa fa-linux&#34;&gt;&lt;/i&gt;&amp;nbsp;Linux,
+&lt;i class=&#34;fa freebsd-19px&#34;&gt;&lt;/i&gt;&amp;nbsp;FreeBSD
+and &lt;i class=&#34;fa fa-apple&#34;&gt;&lt;/i&gt;&amp;nbsp;OS&amp;nbsp;X (Darwin)
+for x64, i386 and ARM architectures.&lt;/p&gt;
+
+&lt;p&gt;Hugo may also be compiled from source wherever the Go compiler tool chain can run, e.g. for other operating systems including DragonFly BSD, OpenBSD, Plan&amp;nbsp;9 and Solaris.  See &lt;a href=&#34;http://golang.org/doc/install/source&#34;&gt;http://golang.org/doc/install/source&lt;/a&gt; for the full set of supported combinations of target operating systems and compilation architectures.&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-hugo-binary&#34;&gt;Installing Hugo (binary)&lt;/h2&gt;
+
+&lt;p&gt;Installation is very easy. Simply download the appropriate version for your
+platform from &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;Hugo Releases&lt;/a&gt;.
+Once downloaded it can be run from anywhere. You don&amp;rsquo;t need to install
+it into a global location. This works well for shared hosts and other systems
+where you don&amp;rsquo;t have a privileged account.&lt;/p&gt;
+
+&lt;p&gt;Ideally, you should install it somewhere in your &lt;code&gt;PATH&lt;/code&gt; for easy use.
+&lt;code&gt;/usr/local/bin&lt;/code&gt; is the most probable location.&lt;/p&gt;
+
+&lt;p&gt;On OS&amp;nbsp;X, if you have &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;, installation is even
+easier: just run &lt;code&gt;brew update &amp;amp;&amp;amp; brew install hugo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;installing-pygments-optional&#34;&gt;Installing Pygments (optional)&lt;/h3&gt;
+
+&lt;p&gt;The Hugo executable has one &lt;em&gt;optional&lt;/em&gt; external dependency for source code highlighting (Pygments).&lt;/p&gt;
+
+&lt;p&gt;If you want to have source code highlighting using the &lt;a href=&#34;/extras/highlighting/&#34;&gt;highlight shortcode&lt;/a&gt;,
+you need to install the Python-based Pygments program. The procedure is outlined on the &lt;a href=&#34;http://pygments.org/&#34;&gt;Pygments home page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;upgrading-hugo&#34;&gt;Upgrading Hugo&lt;/h2&gt;
+
+&lt;p&gt;Upgrading Hugo is as easy as downloading and replacing the executable you’ve
+placed in your &lt;code&gt;PATH&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-from-source&#34;&gt;Installing from source&lt;/h2&gt;
+
+&lt;h3 id=&#34;prerequisite-tools-for-downloading-and-building-source-code&#34;&gt;Prerequisite tools for downloading and building source code&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://git-scm.com/&#34;&gt;Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt; 1.5+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;get-directly-from-github&#34;&gt;Get directly from GitHub&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ export GOPATH=$HOME/go
+$ go get -v github.com/spf13/hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;go get&lt;/code&gt; will then fetch Hugo and all its dependent libraries to your
+&lt;code&gt;$GOPATH/src&lt;/code&gt; directory, and compile everything into the final &lt;code&gt;hugo&lt;/code&gt;
+(or &lt;code&gt;hugo.exe&lt;/code&gt;) executable, which you will find sitting in the
+&lt;code&gt;$GOPATH/bin/&lt;/code&gt; directory, all ready to go!&lt;/p&gt;
+
+&lt;p&gt;You may run &lt;code&gt;go get&lt;/code&gt; with the &lt;code&gt;-u&lt;/code&gt; option to update Hugo&amp;rsquo;s dependencies:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ go get -u -v github.com/spf13/hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;contributing&#34;&gt;Contributing&lt;/h2&gt;
+
+&lt;p&gt;Please see the &lt;a href=&#34;/doc/contributing/&#34;&gt;contributing guide&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

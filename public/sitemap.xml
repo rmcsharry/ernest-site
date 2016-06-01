@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/community/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/conduct/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/download/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/license/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/support/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/cli-cmd/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/start/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/yaml/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/what-is-hugo/</loc>
+    <lastmod>2016-04-24T02:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introduction/</loc>
+    <lastmod>2016-04-21T02:50:28+02:00</lastmod>
+  </url>
+  
+</urlset>
