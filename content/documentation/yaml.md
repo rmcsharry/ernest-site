@@ -48,6 +48,9 @@ routers:
     networks:
       - name: web
         subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 4.4.4.4
 
     port_forwarding:
       - source: 195.3.186.44
@@ -141,6 +144,9 @@ routers:
     networks:
       - name: web
         subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 4.4.4.4
 
     port_forwarding:
       - source: 195.3.186.44
