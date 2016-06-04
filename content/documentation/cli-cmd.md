@@ -13,7 +13,7 @@ showChildren=true
 
 # Ernest CLI Commands
 
-## Target
+`ernest target`
 
 ```
 NAME:
@@ -29,7 +29,7 @@ DESCRIPTION:
     $ ernest target https://myernest.com
 ```
 
-## Info
+`ernest info`
 
 ```
 NAME:
@@ -45,14 +45,14 @@ DESCRIPTION:
     $ ernest info
 ```
 
-## Login
+`ernest login`
 
 ```
 NAME:
    ernest login - Login with your Ernest credentials.
 
 USAGE:
-   ernest login [command options]  
+   ernest login [command options]
 
 DESCRIPTION:
    Logs an user into Ernest instance.
@@ -71,14 +71,14 @@ OPTIONS:
    --password   Password credentials
 ```
 
-## Logout
+`ernest logout`
 
 ```
 NAME:
    ernest logout - Clear local authentication credentials.
 
 USAGE:
-   ernest logout  
+   ernest logout
 
 DESCRIPTION:
    Logs out an user from Ernest instance.
@@ -87,16 +87,14 @@ DESCRIPTION:
     $ ernest logout
 ```
 
-## User
-
-### List
+`ernest user list`
 
 ```
 NAME:
    ernest user list - List available users.
 
 USAGE:
-   ernest user list  
+   ernest user list
 
 DESCRIPTION:
    List available users.
@@ -105,7 +103,7 @@ DESCRIPTION:
     $ ernest user list
 ```
 
-### Create
+`ernest user create`
 
 ```
 NAME:
@@ -132,7 +130,7 @@ OPTIONS:
    --email  Email for the user
 ```
 
-### Password
+`ernest user password`
 
 ```
 NAME:
@@ -157,7 +155,7 @@ OPTIONS:
    --password   Admin password credentials
 ```
 
-### Disable
+`ernest user disable`
 
 ```
 NAME:
@@ -178,16 +176,14 @@ OPTIONS:
    --password   Admin password credentials
 ```
 
-## Group
-
-### List
+`ernest group list`
 
 ```
 NAME:
    ernest group list - List available groups.
 
 USAGE:
-   ernest group list  
+   ernest group list
 
 DESCRIPTION:
    List available groups.
@@ -196,16 +192,14 @@ DESCRIPTION:
     $ ernest group list
 ```
 
-## Datacenter
-
-### List
+`ernest datacenter list`
 
 ```
 NAME:
    ernest datacenter list - List available datacenters.
 
 USAGE:
-   ernest datacenter list  
+   ernest datacenter list
 
 DESCRIPTION:
    List available datacenters.
@@ -214,7 +208,7 @@ DESCRIPTION:
     $ ernest datacenter list
 ```
 
-### Create
+`ernest datacenter create`
 
 ```
 NAME:
@@ -237,16 +231,14 @@ OPTIONS:
    --vse-url      VSE URL
 ```
 
-## Service
-
-### List
+`ernest service list`
 
 ```
 NAME:
    ernest service list - List available services.
 
 USAGE:
-   ernest service list  
+   ernest service list
 
 DESCRIPTION:
    List available services and shows its most relevant information.
@@ -255,7 +247,7 @@ DESCRIPTION:
     $ ernest service list
 ```
 
-### Apply
+`ernest service apply`
 
 ```
 NAME:
@@ -274,7 +266,7 @@ DESCRIPTION:
     $ ernest apply myservice.yml
 ```
 
-### Destroy
+`ernest service destroy`
 
 ```
 NAME:
@@ -294,7 +286,7 @@ OPTIONS:
    --yes, -y  Force destroy command without asking for permission.
 ```
 
-### History
+`ernest service history`
 
 ```
 NAME:
@@ -310,7 +302,7 @@ DESCRIPTION:
     $ ernest history myservice
 ```
 
-### Reset
+`ernest service reset`
 
 ```
 NAME:
@@ -326,7 +318,7 @@ DESCRIPTION:
     $ ernest reset myservice
 ```
 
-### Definition
+`ernest service definition`
 
 ```
 NAME:
@@ -346,7 +338,7 @@ OPTIONS:
    --build  Build ID
 ```
 
-### Monitor
+`ernest service monitor`
 
 ```
 NAME:
