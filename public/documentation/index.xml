@@ -9,20 +9,20 @@
     <managingEditor>jason.reid@r3labs.io (Jason Reid)</managingEditor>
     <webMaster>jason.reid@r3labs.io (Jason Reid)</webMaster>
     <copyright>(c) 2016 R3 Labs</copyright>
-    <lastBuildDate>Tue, 17 May 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jun 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>CLI Commands</title>
-      <link>/documentation/cli-cmd/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <title>CLI Command Reference</title>
+      <link>/documentation/cli-cmds/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/documentation/cli-cmd/</guid>
+      <guid>/documentation/cli-cmds/</guid>
       <description>
 
 &lt;h1 id=&#34;ernest-cli-commands&#34;&gt;Ernest CLI Commands&lt;/h1&gt;
 
-&lt;h2 id=&#34;target&#34;&gt;Target&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ernest target&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest target - Configure Ernest target instance.
@@ -37,7 +37,7 @@ DESCRIPTION:
     $ ernest target https://myernest.com
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;info&#34;&gt;Info&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ernest info&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest info - Display system-wide information.
@@ -52,13 +52,13 @@ DESCRIPTION:
     $ ernest info
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ernest login&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest login - Login with your Ernest credentials.
 
 USAGE:
-   ernest login [command options]  
+   ernest login [command options]
 
 DESCRIPTION:
    Logs an user into Ernest instance.
@@ -77,13 +77,13 @@ OPTIONS:
    --password   Password credentials
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;logout&#34;&gt;Logout&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ernest logout&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest logout - Clear local authentication credentials.
 
 USAGE:
-   ernest logout  
+   ernest logout
 
 DESCRIPTION:
    Logs out an user from Ernest instance.
@@ -92,15 +92,13 @@ DESCRIPTION:
     $ ernest logout
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;user&#34;&gt;User&lt;/h2&gt;
-
-&lt;h3 id=&#34;list&#34;&gt;List&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest user list&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest user list - List available users.
 
 USAGE:
-   ernest user list  
+   ernest user list
 
 DESCRIPTION:
    List available users.
@@ -109,7 +107,7 @@ DESCRIPTION:
     $ ernest user list
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;create&#34;&gt;Create&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest user create&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest user create - Create a new user.
@@ -135,7 +133,7 @@ OPTIONS:
    --email  Email for the user
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;password&#34;&gt;Password&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest user password&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest user password - Change password of available users.
@@ -159,7 +157,7 @@ OPTIONS:
    --password   Admin password credentials
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;disable&#34;&gt;Disable&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest user disable&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest user disable - Disable available users.
@@ -179,15 +177,13 @@ OPTIONS:
    --password   Admin password credentials
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;group&#34;&gt;Group&lt;/h2&gt;
-
-&lt;h3 id=&#34;list-1&#34;&gt;List&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest group list&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest group list - List available groups.
 
 USAGE:
-   ernest group list  
+   ernest group list
 
 DESCRIPTION:
    List available groups.
@@ -196,15 +192,13 @@ DESCRIPTION:
     $ ernest group list
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;datacenter&#34;&gt;Datacenter&lt;/h2&gt;
-
-&lt;h3 id=&#34;list-2&#34;&gt;List&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest datacenter list&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest datacenter list - List available datacenters.
 
 USAGE:
-   ernest datacenter list  
+   ernest datacenter list
 
 DESCRIPTION:
    List available datacenters.
@@ -213,7 +207,7 @@ DESCRIPTION:
     $ ernest datacenter list
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;create-1&#34;&gt;Create&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest datacenter create&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest datacenter create - Create a new datacenter.
@@ -235,15 +229,13 @@ OPTIONS:
    --vse-url      VSE URL
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;service&#34;&gt;Service&lt;/h2&gt;
-
-&lt;h3 id=&#34;list-3&#34;&gt;List&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service list&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service list - List available services.
 
 USAGE:
-   ernest service list  
+   ernest service list
 
 DESCRIPTION:
    List available services and shows its most relevant information.
@@ -252,7 +244,7 @@ DESCRIPTION:
     $ ernest service list
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;apply&#34;&gt;Apply&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service apply&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service apply - Builds or changes infrastructure.
@@ -270,7 +262,7 @@ DESCRIPTION:
     $ ernest apply myservice.yml
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;destroy&#34;&gt;Destroy&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service destroy&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service destroy - Destroy a service.
@@ -289,7 +281,7 @@ OPTIONS:
    --yes, -y  Force destroy command without asking for permission.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;history&#34;&gt;History&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service history&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service history - Shows the history of a service, a list of builds
@@ -304,7 +296,7 @@ DESCRIPTION:
     $ ernest history myservice
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;reset&#34;&gt;Reset&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service reset&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service reset - Reset an in progress service.
@@ -319,7 +311,7 @@ DESCRIPTION:
     $ ernest reset myservice
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service definition&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service definition - Show the current definition of a service by its name
@@ -338,7 +330,7 @@ OPTIONS:
    --build  Build ID
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;monitor&#34;&gt;Monitor&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ernest service monitor&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
    ernest service monitor - Monitor a service.
@@ -356,20 +348,50 @@ DESCRIPTION:
     </item>
     
     <item>
-      <title>Getting Started</title>
-      <link>/documentation/start/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <title>CLI Guide</title>
+      <link>/documentation/cli-guide/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/documentation/start/</guid>
+      <guid>/documentation/cli-guide/</guid>
       <description>
 
-&lt;h1 id=&#34;getting-started-with-ernest&#34;&gt;Getting Started With Ernest&lt;/h1&gt;
+&lt;h1 id=&#34;using-the-cli&#34;&gt;Using the CLI&lt;/h1&gt;
 
-&lt;p&gt;We will assume you have a working instance of Ernest. If not you can get Ernest from &lt;a href=&#34;/download&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;connecting-to-ernest&#34;&gt;Connecting to Ernest&lt;/h2&gt;
 
-&lt;h2 id=&#34;install-ernest-cli&#34;&gt;Install Ernest CLI&lt;/h2&gt;
+&lt;p&gt;target, login, logout, info&lt;/p&gt;
 
-&lt;p&gt;Ernest CLI is distributed as a binary package for all supported platforms and architectures. This page will not cover how to compile Ernest CLI from source.&lt;/p&gt;
+&lt;h2 id=&#34;users-and-groups&#34;&gt;Users and Groups&lt;/h2&gt;
+
+&lt;p&gt;admin, user, create, change password, disable&lt;/p&gt;
+
+&lt;h2 id=&#34;datacenters&#34;&gt;Datacenters&lt;/h2&gt;
+
+&lt;p&gt;definition, create/modify, supported providers&lt;/p&gt;
+
+&lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
+
+&lt;p&gt;yaml, create/modify, history&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>/documentation/install/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/install/</guid>
+      <description>
+
+&lt;h1 id=&#34;installating-ernest&#34;&gt;Installating Ernest&lt;/h1&gt;
+
+&lt;h2 id=&#34;the-server&#34;&gt;The Server&lt;/h2&gt;
+
+&lt;p&gt;The Ernest Server can be &lt;a href=&#34;/download/&#34;&gt;downloaded&lt;/a&gt; as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-cli&#34;&gt;The CLI&lt;/h2&gt;
+
+&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 
@@ -411,393 +433,21 @@ GLOBAL OPTIONS:
 
 &lt;p&gt;Otherwise, Ernest CLI is installed and ready to go.&lt;/p&gt;
 
-&lt;h3 id=&#34;next-step&#34;&gt;Next Step&lt;/h3&gt;
-
-&lt;p&gt;Now lets build some infrastructure.&lt;/p&gt;
-
-&lt;h2 id=&#34;build-infrastructure&#34;&gt;Build Infrastructure&lt;/h2&gt;
-
-&lt;p&gt;With Ernest CLI installed, let&amp;rsquo;s dive right into it and start creating some infrastructure. We&amp;rsquo;ll build infrastructure on Carrenza vCloud for this guide.&lt;/p&gt;
-
-&lt;h3 id=&#34;setup-ernest&#34;&gt;Setup Ernest&lt;/h3&gt;
-
-&lt;p&gt;Before we can create any infrastructure we will need to connect to Ernest and configure it to work with our infrastructure provider. We will need the following information about our Ernest instance and infrastructure provider:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ernest IP address (31.210.241.221)&lt;/li&gt;
-&lt;li&gt;Ernest username/password (user1/xxxxxx)&lt;/li&gt;
-&lt;li&gt;vCloud URL (myvdc.carrenza.net)&lt;/li&gt;
-&lt;li&gt;vCloud organisation (r3labs-development)&lt;/li&gt;
-&lt;li&gt;vCloud datacenter (r3-jreid2)&lt;/li&gt;
-&lt;li&gt;vCloud network (DVS-VCD-EXT-665)&lt;/li&gt;
-&lt;li&gt;vCloud username/password (jreid/xxxxxx)&lt;/li&gt;
-&lt;li&gt;vCloud router name (test1)&lt;/li&gt;
-&lt;li&gt;vCloud sub-allocated IP (195.3.186.42)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The values in brackets are what we will use for this guide. The Carrenza servicedesk can provide you with information for your own usage.&lt;/p&gt;
-
-&lt;p&gt;The first step is to set the IP address of Ernest:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest target https://31.210.241.221
-Target set
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next we login to Ernest:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest login
-Username: user1
-Password: ******
-Log in succesful.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
-SUCCESS: Datacenter r3-jreid2 created
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;define-infrastructure&#34;&gt;Define Infrastructure&lt;/h3&gt;
-
-&lt;p&gt;Now that we have Ernest setup we need to define the infrastructure we want to build. With Ernest infrastructure is defined in the YAML format. The YAML for our example is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-name: demo1
-datacenter: r3-jreid2
-bootstrapping: none
-service_ip: 195.3.186.42
-
-routers: 
-  - name: test1
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
-
-    - name: out_in_22
-      source: any
-      from_port: any
-      destination: internal
-      to_port: &#39;22&#39;
-      protocol: tcp
-      action: allow
-
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-
-    port_forwarding:
-      - source: 195.3.186.42
-        from_port: &#39;22&#39;
-        to_port: &#39;22&#39;
-        destination: 10.1.0.11
-
-instances:
-  - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
-    count: 1
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;create-infrastructure&#34;&gt;Create Infrastructure&lt;/h3&gt;
-
-&lt;p&gt;Now that we have defined our infrastructure we are ready to apply our definition:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service apply demo1.yml
-Environment creation requested
-Ernest will show you all output from your requested service creation
-You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
-Starting environment creation
-Creating routers:
-  195.3.186.42
-Routers successfully created
-Creating networks:
-  - 10.1.0.0/24
-Networks successfully created
-Creating instances:
-   - r3-jreid2-demo1-web-1
-Instances successfully created
-Updating instances:
-   - r3-jreid2-demo1-web-1
-Instances successfully updated
-Setting up firewalls:
-Firewalls Created
-Configuring nats
-Nats Created
-SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.42
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Congratulations! You have built your first infrastructure with Ernest. You can now SSH to the server on IP 195.3.186.42 to install and configure your software.&lt;/p&gt;
-
-&lt;p&gt;If you wish to change the infrastructure update your YAML to show how you want the infrastructure to look, then re-apply the YAML. Ernest will make the appropriate changes to the infrastructure.&lt;/p&gt;
-
-&lt;p&gt;For example if we increase the &amp;lsquo;web&amp;rsquo; instance count from 1 to 2 and re-apply the YAML a new server is created:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service apply demo1.yml 
-Environment creation requested
-Ernest will show you all output from your requested service creation
-You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
-Starting environment creation
-Creating instances:
-   - r3-jreid2-demo1-web-2
-Instances successfully created
-Updating instances:
-   - r3-jreid2-demo1-web-2
-Instances successfully updated
-SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.42
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can list the services we created:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service list
-NAME  UPDATED       STATUS  ENDPOINT
-demo1 2016-05-29 14:52:13 +0100 BST done  195.3.186.42
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For a given service we can see the history:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service history demo1
-NAME  BUILD ID                UPDATED       STATUS
-demo1 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:52:13 +0100 BST done
-demo1 6799e858-0484-42cb-bbb1-c1bc5f61e500-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:39:56 +0100 BST done
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For a given service and build ID we can see the definition we applied:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service definition demo1 --build 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492
----
-name: demo1
-datacenter: r3-jreid2
-bootstrapping: none
-service_ip: 195.3.186.42
-
-routers: 
-  - name: test1
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
-
-    - name: out_in_22
-      source: any
-      from_port: any
-      destination: internal
-      to_port: &#39;22&#39;
-      protocol: tcp
-      action: allow
-
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-
-    port_forwarding:
-      - source: 195.3.186.42
-        from_port: &#39;22&#39;
-        to_port: &#39;22&#39;
-        destination: 10.1.0.11
-
-instances:
-  - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
-    count: 2
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;destroy-infrastructure&#34;&gt;Destroy Infrastructure&lt;/h3&gt;
-
-&lt;p&gt;We can also delete anything we build:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service destroy demo1
-Are you sure? Please type yes or no and then press enter: yes
-Instances deleted
-Deleting networks:
-  - 10.1.0.0/24
-Networks deleted
-Deleting router:
-Routers deleted
-SUCCESS: your environment has been successfully deleted
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;next-step-1&#34;&gt;Next Step&lt;/h3&gt;
-
-&lt;p&gt;Now that we have created some infrastructure, lets look at how Ernest can be used to install and configure your software for you.&lt;/p&gt;
-
-&lt;h2 id=&#34;build-platform&#34;&gt;Build Platform&lt;/h2&gt;
-
-&lt;p&gt;In the above example the task of installing and configuring software was left to the user to do. In this example we will bootstrap the servers and install our software directly from the YAML.&lt;/p&gt;
-
-&lt;h3 id=&#34;define-platform&#34;&gt;Define Platform&lt;/h3&gt;
-
-&lt;p&gt;We will use SALT as our bootstrap provisioner, and add a provisioner section to the instance that will install the Apache HTTP Server. The new YAML is shown here:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-name: demo2
-datacenter: r3-jreid2
-bootstrapping: salt
-service_ip: 195.3.186.44
-ernest_ip:
-  - 31.210.241.221
-  - 31.210.240.161
-
-routers: 
-  - name: test2
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
-
-    - name: out_in_80
-      source: any
-      from_port: any
-      destination: internal
-      to_port: &#39;80&#39;
-      protocol: tcp
-      action: allow
-
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-          
-    port_forwarding:
-      - source: 195.3.186.44
-        from_port: &#39;80&#39;
-        to_port: &#39;80&#39;
-        destination: 10.1.0.11
-
-instances:
-  - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
-    count: 1
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-    provisioner:
-      - exec:
-        - &#39;sudo apt-get update&#39;
-        - &#39;sudo apt-get install apache2 -y&#39;
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The first thing to notice is that we have changed &amp;lsquo;bootstrapping&amp;rsquo; from &amp;lsquo;none&amp;rsquo; to &amp;lsquo;salt&amp;rsquo;. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the &amp;lsquo;bootstrapping&amp;rsquo; option must be specified when an environment is created and cannot be changed for that environment.&lt;/p&gt;
-
-&lt;p&gt;The next thing we have changed are the firewall and port-forwarding configuration. We have removed the sections needed for SSH access to the server since we are now able to run commands directly from the YAML.&lt;/p&gt;
-
-&lt;p&gt;Finally, we have added a provisioner section to the instance that will install the Apache HTTP Server.&lt;/p&gt;
-
-&lt;h3 id=&#34;create-platform&#34;&gt;Create Platform&lt;/h3&gt;
-
-&lt;p&gt;Now that we have defined our platform we are ready to create it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest service apply demo2.yml
-Environment creation requested
-Ernest will show you all output from your requested service creation
-You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
-Starting environment creation
-Creating routers:
-  195.3.186.44
-Routers successfully created
-Creating networks:
-  - 10.254.254.0/24
-  - 10.1.0.0/24
-Networks successfully created
-Creating instances:
-   - r3-jreid2-demo2-salt-master
-   - r3-jreid2-demo2-web-1
-Instances successfully created
-Updating instances:
-   - r3-jreid2-demo2-salt-master
-   - r3-jreid2-demo2-web-1
-Instances successfully updated
-Setting up firewalls:
-Firewalls Created
-Configuring nats
-Nats Created
-Bootstrapping
-Instances bootstrapped
-Running executions
-Executions ran
-SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.44
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.&lt;/p&gt;
-
-&lt;p&gt;You should be able to browse to &lt;a href=&#34;http://195.3.186.44&#34;&gt;http://195.3.186.44&lt;/a&gt;. Congratulations!&lt;/p&gt;
-
-&lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
-
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
 
-&lt;p&gt;That concludes the Getting Started With Ernest CLI guide. Hopefully you&amp;rsquo;re now able to not only see what Ernest is useful for, but you&amp;rsquo;re also able to put this knowledge to use to improve building your own infrastructure and platforms.&lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;ve covered the basics for all of these features in this guide.&lt;/p&gt;
-
-&lt;p&gt;As a next step, the following resources are available:&lt;/p&gt;
-
-&lt;p&gt;Documentation &lt;em&gt;&lt;strong&gt;[where is this?]&lt;/strong&gt;&lt;/em&gt; - The documentation is an in-depth reference guide to all the features of Ernest, including technical details about the internals of how Ernest operates.&lt;/p&gt;
-
-&lt;p&gt;Examples &lt;em&gt;&lt;strong&gt;[where is this?]&lt;/strong&gt;&lt;/em&gt; - The examples have more full featured configuration files, showing some of the possibilities with Ernest.&lt;/p&gt;
+&lt;p&gt;Now that we have the Server and CLI installed we can &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;start working with the CLI&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Introduction</title>
+      <title>Overview</title>
       <link>/documentation/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
       <guid>/documentation/</guid>
       <description>
 
-&lt;h1 id=&#34;introduction-to-ernest&#34;&gt;Introduction to Ernest&lt;/h1&gt;
-
-&lt;p&gt;Welcome to the intro guide to Ernest! This guide is the best place to start with Ernest. We cover what Ernest is, what problems it can solve, how it compares to existing software, and contains a quick start for using Ernest.&lt;/p&gt;
-
-&lt;p&gt;If you are already familiar with the basics of Ernest, the documentation provides a better reference guide for all available features as well as internals.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-ernest&#34;&gt;What is Ernest?&lt;/h2&gt;
+&lt;h1 id=&#34;overview-of-ernest&#34;&gt;Overview of Ernest&lt;/h1&gt;
 
 &lt;p&gt;Ernest is an application and infrastructure orchestration and automation engine. Ernest takes the complexity and people out of DevOps, simplifying the process of creating and managing even the most complex environments.&lt;/p&gt;
 
@@ -824,436 +474,7 @@ Your environment endpoint is: 195.3.186.44
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
 
-&lt;p&gt;See the page on &lt;a href=&#34;Ernest use cases&#34;&gt;Ernest use cases&lt;/a&gt; to see the multiple ways Ernest can be used. Then see &lt;a href=&#34;Ernest-compare-competence&#34;&gt;how Ernest compares to other software&lt;/a&gt; to see how it fits into your existing infrastructure.&lt;/p&gt;
-
-&lt;p&gt;Finally, continue onwards with the &lt;a href=&#34;Getting Started With Ernest CLI&#34;&gt;getting started&lt;/a&gt; guide to use Ernest and see how it works in practice.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>YAML Structure</title>
-      <link>/documentation/yaml/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
-      <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/documentation/yaml/</guid>
-      <description>
-
-&lt;h1 id=&#34;ernest-yaml-structure&#34;&gt;Ernest YAML Structure&lt;/h1&gt;
-
-&lt;p&gt;Environments built and managed with Ernest are defined in YAML format.&lt;/p&gt;
-
-&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-name: demo
-datacenter: r3-jreid2
-bootstrapping: salt
-service_ip: 195.3.186.44
-ernest_ip:
-  - 31.210.240.161
-
-routers: 
-  - name: demo
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
-
-    - name: out_in_80
-      source: any
-      from_port: any
-      destination: internal
-      to_port: &#39;80&#39;
-      protocol: tcp
-      action: allow
-
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-
-    port_forwarding:
-      - source: 195.3.186.44
-        from_port: &#39;80&#39;
-        to_port: &#39;80&#39;
-        destination: 10.1.0.11
-
-instances:
-  - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
-    count: 1
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-    provisioner:
-      - exec:
-        - &#39;sudo apt-get update&#39;
-        - &#39;sudo apt-get install apache2 -y&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;field-reference&#34;&gt;Field Reference&lt;/h2&gt;
-
-&lt;h3 id=&#34;service-options&#34;&gt;Service Options&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;name: demo
-datacenter: r3-jreid2
-bootstrapping: salt
-service_ip: 195.3.186.44
-ernest_ip:
-  - 31.210.240.161
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Service Options support the following fields:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;datacenter&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of the datacenter where the service is built.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;The value of this field must 50 characters maximum.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;bootstrapping&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String [salt, none] that defines if you’re going to be able to execute commands on the servers&lt;/li&gt;
-&lt;li&gt;This field is optional.&lt;/li&gt;
-&lt;li&gt;This field defaults to none.&lt;/li&gt;
-&lt;li&gt;The value of this is restricted to “salt” or “none”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;service_ip&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the public ip of the router already created on vcloud&lt;/li&gt;
-&lt;li&gt;This field is optional&lt;/li&gt;
-&lt;li&gt;This field defaults to none.&lt;/li&gt;
-&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;ernest_ip&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.&lt;/li&gt;
-&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;This field is mandatory only if you’ve defined bootstrapping as “salt”&lt;/li&gt;
-&lt;li&gt;This field defaults to an empty array.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;networking&#34;&gt;Networking&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;routers: 
-  - name: demo
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
-
-    - name: out_in_80
-      source: any
-      from_port: any
-      destination: internal
-      to_port: &#39;80&#39;
-      protocol: tcp
-      action: allow
-
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-
-    port_forwarding:
-      - source: 195.3.186.44
-        from_port: &#39;80&#39;
-        to_port: &#39;80&#39;
-        destination: 10.1.0.11
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Networking supports the following fields:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;name&lt;/strong&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
-&lt;li&gt;The value of this field can be 50 characters maximum.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;rules&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A firewall rule controls traffic that is allowed to flow between both internal and external routers and networks.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of the rule.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field can’t be null or empty.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;source&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String the source of the network where this firewall acts&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;Values can be: external | internal | any | named networks | CIDR&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Source port numbers&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String the destination of the network where this firewall acts&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;Values can be:  external | internal | any | named networks | CIDR&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Destination port numbers&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;protocol&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String with the protocol we are firewalling&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;Values can be: tcp | udp | icmp | any | tcp &amp;amp; udp&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A network is a virtual network that attaches to a router (in vcloud, other providers will differ). This is what allows us to network/isolate VM’s together.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;subnet&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of a network to add to this service.&lt;/li&gt;
-&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;dns&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Array of IPs to use as dns servers on this service&lt;/li&gt;
-&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;This field is optional.&lt;/li&gt;
-&lt;li&gt;This field can be empty and it will default to [&amp;laquo;8.8.8.8&amp;raquo;, &amp;laquo;8.8.4.4&amp;raquo;].&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;port_forwarding&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A port forward is something that converts translates a request on a port from one IP to another on a different network. Only tcp port forwarding is supported.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Source port numbers&lt;/li&gt;
-&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String the destination of the IPv4 Address to translate to&lt;/li&gt;
-&lt;li&gt;Values can be: IPv4&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Destination port numbers&lt;/li&gt;
-&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;source&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the IP from the provider-specified sub-allocated list of IPs of the router.&lt;/li&gt;
-&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;This field is optional.&lt;/li&gt;
-&lt;li&gt;This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.&lt;/li&gt;
-&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;instances&#34;&gt;Instances&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;instances:
-  - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
-    count: 1
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-    provisioner:
-      - exec:
-        - &#39;sudo apt-get update&#39;
-        - &#39;sudo apt-get install apache2 -y&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Instances support the following fields:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of the instance to build.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
-&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;image&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of an image to install on the VM.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field is composed in two parts one for the “catalog” and another one for the “image” separated by a slash “/”&lt;/li&gt;
-&lt;li&gt;Both “catalog” and “image” are strings and can’t be null.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;cpus&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Integer that defines how many CPUs will have the VM.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must be greater or equal than 1&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;memory&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of a load balancer to add to this service.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;disks:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A list of sizes of hard disks that belongs to the VM&lt;/li&gt;
-&lt;li&gt;This field can be an empty list&lt;/li&gt;
-&lt;li&gt;This field is a list of strings&lt;/li&gt;
-&lt;li&gt;Each element of the string must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;count&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Integer that defines the number of VM to be created.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must be greater or equal that 1&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;
-Networks is a map with two fields&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the name of a network to attach this instance.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;The value of this field should exist on the networks section previously specified.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;start_ip&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;String that defines the starting IP to allocate the VMs to be built.&lt;/li&gt;
-&lt;li&gt;This field is mandatory.&lt;/li&gt;
-&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must be a valid IP.&lt;/li&gt;
-&lt;li&gt;This IP should belong to the network already defined on the instance.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;provisioner&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Array that contains provisioner types&lt;/li&gt;
-&lt;li&gt;Each provisioner type will be run in the order they are specified in the document&lt;/li&gt;
-&lt;li&gt;This field is optional&lt;/li&gt;
-&lt;li&gt;This field can be empty&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;exec&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Array of strings, any command characters must be escaped with backslashes: (RFC7159, Section 7)&lt;/li&gt;
-&lt;li&gt;Each command in the exec array is concatenated together and delimited by a semicolon.&lt;/li&gt;
-&lt;li&gt;This field is optional&lt;/li&gt;
-&lt;li&gt;If specified as a provisioner type, this array field must contain at least one element&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Continue with the &lt;a href=&#34;/documentation/install/&#34;&gt;Ernest installation&lt;/a&gt; guide to use Ernest and see how it works in practice.&lt;/p&gt;
 </description>
     </item>
     

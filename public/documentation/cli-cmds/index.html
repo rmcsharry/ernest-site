@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Overview  &middot; ernest.r3labs.io</title>
+  <title>CLI Command Reference  &middot; ernest.r3labs.io</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -17,9 +17,9 @@
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content="Overview  &middot; ernest.r3labs.io ">
+<meta property="og:title" content="CLI Command Reference  &middot; ernest.r3labs.io ">
 <meta property="og:site_name" content="ernest.r3labs.io"/>
-<meta property="og:url" content="/documentation/" />
+<meta property="og:url" content="/documentation/cli-cmds/" />
 <meta property="og:locale" content="en-EN">
 
 
@@ -34,9 +34,9 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@r3labs" />
 <meta name="twitter:creator" content="@r3labs" />
-<meta name="twitter:title" content="Overview" />
+<meta name="twitter:title" content="CLI Command Reference" />
 <meta name="twitter:description" content="" />
-<meta name="twitter:url" content="/documentation/" />
+<meta name="twitter:url" content="/documentation/cli-cmds/" />
 <meta name="twitter:domain" content="/">
   
 
@@ -44,20 +44,20 @@
   {
     "@context": "http://schema.org",
     "@type": "Article",
-    "headline": "Overview",
+    "headline": "CLI Command Reference",
     "author": {
       "@type": "Person",
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  302 
+    "wordCount":  744 
   }
 </script>
 
 
 
-<link rel="canonical" href="/documentation/" />
+<link rel="canonical" href="/documentation/cli-cmds/" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/ernest-dog.ico">
 <link rel="icon" href="/img/ernest-dog.ico">
 <meta name="generator" content="Hugo 0.16-DEV" />
@@ -118,7 +118,7 @@
           </li>
           
         
-          <li class="active">
+          <li class="">
           
             <a href="/documentation"
             >
@@ -182,7 +182,7 @@
     <ul class="list-unstyled">
     
     
-    <li class="active">
+    <li class="">
       <a href="/documentation/">Overview </a>
 
       
@@ -215,7 +215,7 @@
       
       
     
-    <li class="">
+    <li class="active">
       <a href="/documentation/cli-cmds/">CLI Command Reference </a>
 
       
@@ -250,34 +250,330 @@
     <div class="content col-md-9">
       
 
-<h1 id="overview-of-ernest">Overview of Ernest</h1>
+<h1 id="ernest-cli-commands">Ernest CLI Commands</h1>
 
-<p>Ernest is an application and infrastructure orchestration and automation engine. Ernest takes the complexity and people out of DevOps, simplifying the process of creating and managing even the most complex environments.</p>
+<p><code>ernest target</code></p>
 
-<p>By delivering everything a development team requires to be able to deploy code and manage its lifecycle Ernest de-risks and accelerates the application development/deployment process, helping developers to deliver value back to the business faster and providing increased business agility</p>
+<pre><code>NAME:
+   ernest target - Configure Ernest target instance.
 
-<p>Ernest has been engineered for flexibility, allowing you to design your environment the way you want. You pick the technologies, the cloud and the architecture then overlay your compliance and governance requirements.</p>
+USAGE:
+   ernest target &lt;ernest_url&gt;
 
-<p>The Cloud is about freedom of choice and mobility. With Ernest you can easily deploy your environment onto the cloud or infrastructure of your choice and the redeploy it to an alternative cloud as business requirements demand.</p>
+DESCRIPTION:
+   Sets up ernest instance target.
 
-<p>Because Ernest is about developing and then using software reliably and reproducibly it ensures consistency and agility throughout the application lifecycle. Ernest brings the same version control, testing and configuration management tooling you use elsewhere in your development process to your platform; allowing you to utilise version controlled, tested, automated deployments of your environment from the development stage, through testing, to production.</p>
+   Example:
+    $ ernest target https://myernest.com
+</code></pre>
 
-<p>Ernest key features include;</p>
+<p><code>ernest info</code></p>
 
-<ul>
-<li>A Continuous Delivery pipeline for Infrastructure as Code</li>
-<li>An orchestration tool for any configuration manager and any cloud</li>
-<li>Fully version controlled</li>
-<li>Fully automated</li>
-<li>Works with any technology stack</li>
-<li>Able to manage the full application life cycle</li>
-</ul>
+<pre><code>NAME:
+   ernest info - Display system-wide information.
 
-<p>Ernest is built around the idea that DevOps is not a job title, but a methodology, one which Ernest has enshrined in code. Ernest enables digital and SaaS transformation, while removing the complexity of DevOps by delivering it as-a-Service.</p>
+USAGE:
+   ernest info
 
-<h2 id="next-steps">Next Steps</h2>
+DESCRIPTION:
+   Displays ernest instance information.
 
-<p>Continue with the <a href="/documentation/install/">Ernest installation</a> guide to use Ernest and see how it works in practice.</p>
+   Example:
+    $ ernest info
+</code></pre>
+
+<p><code>ernest login</code></p>
+
+<pre><code>NAME:
+   ernest login - Login with your Ernest credentials.
+
+USAGE:
+   ernest login [command options]
+
+DESCRIPTION:
+   Logs an user into Ernest instance.
+
+   Example:
+    $ ernest login
+
+   It can also be used without asking the username and password.
+
+   Example:
+    $ ernest login --user &lt;user&gt; --password &lt;password&gt;
+  
+
+OPTIONS:
+   --user   User credentials
+   --password   Password credentials
+</code></pre>
+
+<p><code>ernest logout</code></p>
+
+<pre><code>NAME:
+   ernest logout - Clear local authentication credentials.
+
+USAGE:
+   ernest logout
+
+DESCRIPTION:
+   Logs out an user from Ernest instance.
+
+   Example:
+    $ ernest logout
+</code></pre>
+
+<p><code>ernest user list</code></p>
+
+<pre><code>NAME:
+   ernest user list - List available users.
+
+USAGE:
+   ernest user list
+
+DESCRIPTION:
+   List available users.
+
+   Example:
+    $ ernest user list
+</code></pre>
+
+<p><code>ernest user create</code></p>
+
+<pre><code>NAME:
+   ernest user create - Create a new user.
+
+USAGE:
+   ernest user create [command options] &lt;username&gt; &lt;password&gt;
+
+DESCRIPTION:
+   Create a new user on the targeted instance of Ernest.
+
+   Example:
+    $ ernest user create --user &lt;adminuser&gt; --password &lt;adminpassword&gt; &lt;username&gt; &lt;password&gt;
+
+   You can also add an email to the user with the flag --email
+
+   Example:
+    $ ernest user create --user &lt;adminuser&gt; --password &lt;adminpassword&gt; --email username@example.com &lt;username&gt; &lt;password&gt;
+  
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+   --email  Email for the user
+</code></pre>
+
+<p><code>ernest user password</code></p>
+
+<pre><code>NAME:
+   ernest user password - Change password of available users.
+
+USAGE:
+   ernest user password [command options] &lt;user-id&gt;
+
+DESCRIPTION:
+   Change password of available users.
+
+   Example:
+    $ ernest user password &lt;user-id&gt;
+
+    or changing a password by being admin:
+
+    $ ernest user password --user &lt;adminuser&gt; --password &lt;adminpassword&gt; &lt;user-id&gt;
+  
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+</code></pre>
+
+<p><code>ernest user disable</code></p>
+
+<pre><code>NAME:
+   ernest user disable - Disable available users.
+
+USAGE:
+   ernest user disable [command options] &lt;username&gt;
+
+DESCRIPTION:
+   Disable available users.
+
+  Example:
+   $ ernest user disable --user &lt;adminuser&gt; --password &lt;adminpassword&gt; &lt;user-id&gt;
+ 
+
+OPTIONS:
+   --user   Admin user credentials
+   --password   Admin password credentials
+</code></pre>
+
+<p><code>ernest group list</code></p>
+
+<pre><code>NAME:
+   ernest group list - List available groups.
+
+USAGE:
+   ernest group list
+
+DESCRIPTION:
+   List available groups.
+
+   Example:
+    $ ernest group list
+</code></pre>
+
+<p><code>ernest datacenter list</code></p>
+
+<pre><code>NAME:
+   ernest datacenter list - List available datacenters.
+
+USAGE:
+   ernest datacenter list
+
+DESCRIPTION:
+   List available datacenters.
+
+   Example:
+    $ ernest datacenter list
+</code></pre>
+
+<p><code>ernest datacenter create</code></p>
+
+<pre><code>NAME:
+   ernest datacenter create - Create a new datacenter.
+
+USAGE:
+   ernest datacenter create [command options] &lt;datacenter-name&gt; &lt;vcloud-url&gt; &lt;network-name&gt;
+
+DESCRIPTION:
+   Create a new datacenter on the targeted instance of Ernest.
+
+   Example:
+    $ ernest datacenter create --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
+  
+
+OPTIONS:
+   --datacenter-user    User to be configured with the datacenter
+   --datacenter-password  Password related with user
+   --datacenter-org     vCloud Organization name
+   --vse-url      VSE URL
+</code></pre>
+
+<p><code>ernest service list</code></p>
+
+<pre><code>NAME:
+   ernest service list - List available services.
+
+USAGE:
+   ernest service list
+
+DESCRIPTION:
+   List available services and shows its most relevant information.
+
+   Example:
+    $ ernest service list
+</code></pre>
+
+<p><code>ernest service apply</code></p>
+
+<pre><code>NAME:
+   ernest service apply - Builds or changes infrastructure.
+
+USAGE:
+   ernest service apply &lt;file.yml&gt;
+
+DESCRIPTION:
+   Sends a service YAML description file to Ernest to be executed.
+   You must be logged in to execute this command.
+
+   If the file is not provided, ernest.yml will be used by default.
+
+   Example:
+    $ ernest apply myservice.yml
+</code></pre>
+
+<p><code>ernest service destroy</code></p>
+
+<pre><code>NAME:
+   ernest service destroy - Destroy a service.
+
+USAGE:
+   ernest service destroy [command options] &lt;service_name&gt;
+
+DESCRIPTION:
+   Destroys a service by its name.
+
+   Example:
+    $ ernest destroy myservice
+  
+
+OPTIONS:
+   --yes, -y  Force destroy command without asking for permission.
+</code></pre>
+
+<p><code>ernest service history</code></p>
+
+<pre><code>NAME:
+   ernest service history - Shows the history of a service, a list of builds
+
+USAGE:
+   ernest service history &lt;service_name&gt;
+
+DESCRIPTION:
+   Shows the history of a service, a list of builds and its status and basic information.
+
+   Example:
+    $ ernest history myservice
+</code></pre>
+
+<p><code>ernest service reset</code></p>
+
+<pre><code>NAME:
+   ernest service reset - Reset an in progress service.
+
+USAGE:
+   ernest service reset &lt;service_name&gt;
+
+DESCRIPTION:
+   Reseting a service creation may cause problems, please make sure you know what are you doing.
+
+   Example:
+    $ ernest reset myservice
+</code></pre>
+
+<p><code>ernest service definition</code></p>
+
+<pre><code>NAME:
+   ernest service definition - Show the current definition of a service by its name
+
+USAGE:
+   ernest service definition [command options] &lt;service_name&gt;
+
+DESCRIPTION:
+   Show the current definition of a service by its name getting the definition about the build.
+
+   Example:
+    $ ernest service definition myservice
+  
+
+OPTIONS:
+   --build  Build ID
+</code></pre>
+
+<p><code>ernest service monitor</code></p>
+
+<pre><code>NAME:
+   ernest service monitor - Monitor a service.
+
+USAGE:
+   ernest service monitor &lt;service_id&gt;
+
+DESCRIPTION:
+   Monitors a service while it is being built by its service id.
+
+   Example:
+    $ ernest monitor F94034CE-1A57-4A66-AF49-E1E99C5010A2
+</code></pre>
 
     </div>
   </div>

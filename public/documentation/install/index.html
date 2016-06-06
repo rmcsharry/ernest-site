@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>ernest.r3labs.io </title>
+  <title>Installation  &middot; ernest.r3labs.io</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -17,19 +17,47 @@
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content="ernest.r3labs.io ">
+<meta property="og:title" content="Installation  &middot; ernest.r3labs.io ">
 <meta property="og:site_name" content="ernest.r3labs.io"/>
-<meta property="og:url" content="/" />
+<meta property="og:url" content="/documentation/install/" />
 <meta property="og:locale" content="en-EN">
 
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2016-06-06T00:00:00Z" />
+<meta property="og:article:modified_time" content="2016-06-06T00:00:00Z" />
+
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@r3labs" />
+<meta name="twitter:creator" content="@r3labs" />
+<meta name="twitter:title" content="Installation" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="/documentation/install/" />
+<meta name="twitter:domain" content="/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Installation",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2016-06-06",
+    "description": "",
+    "wordCount":  284 
+  }
+</script>
 
 
 
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="ernest.r3labs.io" />
-
-<link rel="canonical" href="/" />
+<link rel="canonical" href="/documentation/install/" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/ernest-dog.ico">
 <link rel="icon" href="/img/ernest-dog.ico">
 <meta name="generator" content="Hugo 0.16-DEV" />
@@ -134,45 +162,150 @@
 </header>
 
 
-<div id="main-con">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          <div class="container">
+<div class="container">
   <div class="row">
-    <div class="homepage col-md-12">
-        <img class="homepage-img" alt="ernest.io" src="/img/ernest-dog.png">
-      <h1>Open Source Orchestration</h1>
-      <br>
-      <h2>Drive software and infrastructure as a unified system.</h2>
-      <br>
-      <h4>Ernest is an open source, modern and secure orchestration tool for cloud applications. Ernest supports both cloud native and legacy application architectures. The R3 Labs team maintains Ernest (written in Go).</h4>
-      <br>
-      <h5>Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system.</h5>
-      <br>
-      <h6>Ernest was created by R3 Labs. We are developers, systems people and entrepreneurs based in London, Barcelona, and Tortosa who are passionate about the power of automation and the cloud. We built our first clouds ten years ago, we’ve delivered complex critical web systems and we’ve built and sold technology businesses. Now we are tackling tooling that frees developers to just build.</h6>
+    <div class="left-nav-con col-md-3 hidden-xs hidden-sm">
+      <ul class="sub-menu list-unstyled">
+  
+  
+
+	<li class="main-menu-item active">
+
+    
+    <span class="main-menu-item-title">Introduction</span>
+    
+
+
+    
+    
+    
+    <ul class="list-unstyled">
+    
+    
+    <li class="">
+      <a href="/documentation/">Overview </a>
+
+      
+   		
+   		
+
+      </li>
+      
+      
+    
+    <li class="active">
+      <a href="/documentation/install/">Installation </a>
+
+      
+   		
+   		
+
+      </li>
+      
+      
+    
+    <li class="">
+      <a href="/documentation/cli-guide/">CLI Guide </a>
+
+      
+   		
+   		
+
+      </li>
+      
+      
+    
+    <li class="">
+      <a href="/documentation/cli-cmds/">CLI Command Reference </a>
+
+      
+   		
+   		
+
+      </li>
+      
+      
+    </ul>
+    
+
+  </li>
+  
+
+	<li class="main-menu-item">
+
+    
+    <span class="main-menu-item-title">VCloud Director</span>
+    
+
+
+    
+    
+    
+
+  </li>
+  
+</ul>
+
+    </div>
+    <div class="content col-md-9">
+      
+
+<h1 id="installating-ernest">Installating Ernest</h1>
+
+<h2 id="the-server">The Server</h2>
+
+<p>The Ernest Server can be <a href="/download/">downloaded</a> as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on <a href="https://github.com/r3labs/ernest">GitHub</a>.</p>
+
+<h2 id="the-cli">The CLI</h2>
+
+<p>The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on <a href="https://github.com/r3labs/ernest-cli">GitHub</a>.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>To install Ernest CLI, find the <a href="http://artefact.r3labs.io/ernest/">appropriate package</a> for your system and download it. Ernest CLI is packaged as an executable.</p>
+
+<p>After downloading Ernest CLI, move it to a directory that is on the PATH. See <a href="http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux">this page</a> for instructions on setting the PATH on Linux and Mac. <a href="http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows">This page</a> contains instructions for setting the PATH on Windows.</p>
+
+<h3 id="verification">Verification</h3>
+
+<p>After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:</p>
+
+<pre><code>$ ernest
+NAME:
+   ernest - Command line interface for Ernest
+
+USAGE:
+   ernest [global options] command [command options] [arguments...]
+   
+VERSION:
+   0.14
+   
+COMMANDS:
+    target  Configure Ernest target instance.
+    info  Display system-wide information.
+    login Login with your Ernest credentials.
+    logout  Clear local authentication credentials.
+    user  User related subcommands
+    group Group related subcommands
+    datacenter  Datacenter related subcommands
+    service Service related subcommands
+
+GLOBAL OPTIONS:
+   --help, -h   show help
+   --version, -v  print the version
+
+</code></pre>
+
+<p>If you get an error that ernest could not be found, then your PATH environment variable was not setup properly. Please go back and ensure that your PATH variable contains the directory where Ernest CLI was installed.</p>
+
+<p>Otherwise, Ernest CLI is installed and ready to go.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Now that we have the Server and CLI installed we can <a href="/documentation/cli-guide/">start working with the CLI</a>.</p>
+
     </div>
   </div>
-</div>
-        
-      
 </div>
       <footer class="footer hidden-print">
   <div class="container">
@@ -262,3 +395,4 @@ var COOKIE_NAME = "mycookie1";
 
   </body>
 </html>
+
