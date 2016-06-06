@@ -11,7 +11,7 @@ showChildren=true
 +++
 
 
-# Ernest CLI Commands
+# CLI Command Reference
 
 `ernest target`
 
