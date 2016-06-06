@@ -359,19 +359,86 @@ DESCRIPTION:
 
 &lt;h2 id=&#34;connecting-to-ernest&#34;&gt;Connecting to Ernest&lt;/h2&gt;
 
-&lt;p&gt;target, login, logout, info&lt;/p&gt;
+&lt;p&gt;The first step is to specify the IP address of our Ernest Server:&lt;/p&gt;
 
-&lt;h2 id=&#34;users-and-groups&#34;&gt;Users and Groups&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$ ernest target https://&amp;lt;Ernest Server IP&amp;gt;
+Target set
 
-&lt;p&gt;admin, user, create, change password, disable&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we should login to Ernest with the built-in admin account:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ernest login
+Username: admin
+Password: &amp;lt;admin default password&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and change the admin password:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest user list
+NAME	ID					EMAIL
+admin	&amp;lt;User ID&amp;gt;	&amp;lt;User Email&amp;gt;
+
+$ ernest user password &amp;lt;User ID&amp;gt;
+New Password: &amp;lt;new admin password&amp;gt;
+Repeat new Password: &amp;lt;new admin password&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Note when changing a user password you must identify the user by their User ID.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we can create a user on Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest user create --user admin --password &amp;lt;admin password&amp;gt; &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
+SUCCESS: Group &amp;lt;user&amp;gt; created
+SUCCESS: User &amp;lt;user&amp;gt; created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Note a group is also created with the same name as the user.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we can login with our new user:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest logout
+Log out succesful.
+
+$ ernest login 
+Username: &amp;lt;user&amp;gt;
+Password: &amp;lt;password&amp;gt;
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can confirm our Ernest Server IP and user:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest info
+Current target : https://&amp;lt;Ernest Server IP&amp;gt;
+Current user : &amp;lt;user&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;datacenters&#34;&gt;Datacenters&lt;/h2&gt;
 
-&lt;p&gt;definition, create/modify, supported providers&lt;/p&gt;
+&lt;p&gt;Ernest uses the concept of a datacenter to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for a vCloud Director provider is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user &amp;lt;vcloud user&amp;gt; --datacenter-password &amp;lt;vcloud password&amp;gt; --datacenter-org &amp;lt;vcloud org&amp;gt; &amp;lt;vcloud datacenter&amp;gt; &amp;lt;vcloud API endpoint&amp;gt; &amp;lt;vcloud external network&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
 
-&lt;p&gt;yaml, create/modify, history&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;yaml, create/modify, history&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;See the &lt;a href=&#34;/documentation/cli-cmds/&#34;&gt;reference guide&lt;/a&gt; for a complete list of the commands available for the CLI.&lt;/p&gt;
+
+&lt;p&gt;See the provider-specific documentation for examples of how to use Ernest:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/documentation/vcloud-into/&#34;&gt;vCloud Director&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -411,7 +478,71 @@ USAGE:
    ernest [global options] command [command options] [arguments...]
    
 VERSION:
-   0.14
+   0.15
+   
+COMMANDS:
+    target  Configure Ernest target instance.
+    info  Display system-wide information.
+    login Login with your Ernest credentials.
+    logout  Clear local authentication credentials.
+    user  User related subcommands
+    group Group related subcommands
+    datacenter  Datacenter related subcommands
+    service Service related subcommands
+
+GLOBAL OPTIONS:
+   --help, -h   show help
+   --version, -v  print the version
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you get an error that ernest could not be found, then your PATH environment variable was not setup properly. Please go back and ensure that your PATH variable contains the directory where Ernest CLI was installed.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, Ernest CLI is installed and ready to go.&lt;/p&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;Now that we have the Server and CLI installed we can &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;start working with the CLI&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/documentation/vcloud-into/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/vcloud-into/</guid>
+      <description>
+
+&lt;h1 id=&#34;installating-ernest&#34;&gt;Installating Ernest&lt;/h1&gt;
+
+&lt;h2 id=&#34;the-server&#34;&gt;The Server&lt;/h2&gt;
+
+&lt;p&gt;The Ernest Server can be &lt;a href=&#34;/download/&#34;&gt;downloaded&lt;/a&gt; as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-cli&#34;&gt;The CLI&lt;/h2&gt;
+
+&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;http://artefact.r3labs.io/ernest/&#34;&gt;appropriate package&lt;/a&gt; for your system and download it. Ernest CLI is packaged as an executable.&lt;/p&gt;
+
+&lt;p&gt;After downloading Ernest CLI, move it to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
+
+&lt;h3 id=&#34;verification&#34;&gt;Verification&lt;/h3&gt;
+
+&lt;p&gt;After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest
+NAME:
+   ernest - Command line interface for Ernest
+
+USAGE:
+   ernest [global options] command [command options] [arguments...]
+   
+VERSION:
+   0.15
    
 COMMANDS:
     target  Configure Ernest target instance.

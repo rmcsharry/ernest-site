@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  28 
+    "wordCount":  281 
   }
 </script>
 
@@ -241,6 +241,21 @@
     
     
     
+    <ul class="list-unstyled">
+    
+    
+    <li class="">
+      <a href="/documentation/vcloud-into/">Introduction </a>
+
+      
+   		
+   		
+
+      </li>
+      
+      
+    </ul>
+    
 
   </li>
   
@@ -254,19 +269,86 @@
 
 <h2 id="connecting-to-ernest">Connecting to Ernest</h2>
 
-<p>target, login, logout, info</p>
+<p>The first step is to specify the IP address of our Ernest Server:</p>
 
-<h2 id="users-and-groups">Users and Groups</h2>
+<pre><code>$ ernest target https://&lt;Ernest Server IP&gt;
+Target set
 
-<p>admin, user, create, change password, disable</p>
+</code></pre>
+
+<p>Now we should login to Ernest with the built-in admin account:</p>
+
+<pre><code>ernest login
+Username: admin
+Password: &lt;admin default password&gt;
+
+</code></pre>
+
+<p>and change the admin password:</p>
+
+<pre><code>$ ernest user list
+NAME	ID					EMAIL
+admin	&lt;User ID&gt;	&lt;User Email&gt;
+
+$ ernest user password &lt;User ID&gt;
+New Password: &lt;new admin password&gt;
+Repeat new Password: &lt;new admin password&gt;
+
+</code></pre>
+
+<p><em>Note when changing a user password you must identify the user by their User ID.</em></p>
+
+<p>Now we can create a user on Ernest:</p>
+
+<pre><code>$ ernest user create --user admin --password &lt;admin password&gt; &lt;username&gt; &lt;password&gt;
+SUCCESS: Group &lt;user&gt; created
+SUCCESS: User &lt;user&gt; created
+
+</code></pre>
+
+<p><em>Note a group is also created with the same name as the user.</em></p>
+
+<p>Now we can login with our new user:</p>
+
+<pre><code>$ ernest logout
+Log out succesful.
+
+$ ernest login 
+Username: &lt;user&gt;
+Password: &lt;password&gt;
+Log in succesful.
+
+</code></pre>
+
+<p>We can confirm our Ernest Server IP and user:</p>
+
+<pre><code>$ ernest info
+Current target : https://&lt;Ernest Server IP&gt;
+Current user : &lt;user&gt;
+
+</code></pre>
 
 <h2 id="datacenters">Datacenters</h2>
 
-<p>definition, create/modify, supported providers</p>
+<p>Ernest uses the concept of a datacenter to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for a vCloud Director provider is:</p>
+
+<pre><code>$ ernest datacenter create --datacenter-user &lt;vcloud user&gt; --datacenter-password &lt;vcloud password&gt; --datacenter-org &lt;vcloud org&gt; &lt;vcloud datacenter&gt; &lt;vcloud API endpoint&gt; &lt;vcloud external network&gt;
+
+</code></pre>
 
 <h2 id="services">Services</h2>
 
-<p>yaml, create/modify, history</p>
+<p><strong>yaml, create/modify, history</strong></p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>See the <a href="/documentation/cli-cmds/">reference guide</a> for a complete list of the commands available for the CLI.</p>
+
+<p>See the provider-specific documentation for examples of how to use Ernest:</p>
+
+<ul>
+<li><a href="/documentation/vcloud-into/">vCloud Director</a></li>
+</ul>
 
     </div>
   </div>

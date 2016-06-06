@@ -1,13 +1,13 @@
 +++
 date = "2016-06-06"
-title = "Installation"
+title = "Introduction"
 category = "documentation"
 showChildren=true
 [menu.documentation]
-  name = "Installation"
-  weight = -90
-  identifier = "install"
-  parent = "Introduction"
+  name = "Introduction"
+  weight = -100
+  identifier = "vcloud-intro"
+  parent = "vCloud Director"
 +++
 
 # Installating Ernest
