@@ -434,19 +434,34 @@ Current user : &amp;lt;user&amp;gt;
 
 &lt;h3 id=&#34;how-to-create-modify-services&#34;&gt;How to Create/Modify Services&lt;/h3&gt;
 
-&lt;p&gt;Once we have created a datacenter and defined our service in YAML the process of building the service is &lt;code&gt;ernest service apply &amp;lt;yaml file&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once we have created a datacenter and defined our service in YAML the process of building the service is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply &amp;lt;yaml file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Once the service is created we can modify it by changing the YAML and then re-applying it. Ernest will calculate the differences and apply only those changes necessary to transition the service from the current state to the requested state.&lt;/p&gt;
 
-&lt;p&gt;Finally you can also destroy services if needed: &lt;code&gt;ernest service destroy &amp;lt;service name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Finally you can also destroy services if needed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service destroy &amp;lt;service name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;view-service-state-and-history&#34;&gt;View Service State and History&lt;/h3&gt;
 
-&lt;p&gt;Ernest stores the state of each service, as well as all historical states. You can list the available service with &lt;code&gt;ernest service list&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Ernest stores the state of each service, as well as all historical states. You can list the available service with:&lt;/p&gt;
 
-&lt;p&gt;For a given service you can see the history of all builds for that service &lt;code&gt;ernest service history &amp;lt;service name&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ernest service list
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We can view the YAML for a specific build by `ernest service definition &lt;service name&gt; &amp;ndash;build &lt;build id&gt;.&lt;/p&gt;
+&lt;p&gt;For a given service you can see the history of all builds for that service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service history &amp;lt;service name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can view the YAML for a specific build by:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ernest service definition &amp;lt;service name&amp;gt; --build &amp;lt;build id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
 

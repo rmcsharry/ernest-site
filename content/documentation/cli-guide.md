@@ -96,19 +96,39 @@ With Ernest a **service** is a collection of networking, virtual machines, and c
 
 ### How to Create/Modify Services
 
-Once we have created a datacenter and defined our service in YAML the process of building the service is `ernest service apply <yaml file>`.
+Once we have created a datacenter and defined our service in YAML the process of building the service is:
+
+```
+$ ernest service apply <yaml file>
+```
 
 Once the service is created we can modify it by changing the YAML and then re-applying it. Ernest will calculate the differences and apply only those changes necessary to transition the service from the current state to the requested state.
 
-Finally you can also destroy services if needed: `ernest service destroy <service name>`
+Finally you can also destroy services if needed:
+
+```
+$ ernest service destroy <service name>
+```
 
 ### View Service State and History
 
-Ernest stores the state of each service, as well as all historical states. You can list the available service with `ernest service list`.
+Ernest stores the state of each service, as well as all historical states. You can list the available service with:
 
-For a given service you can see the history of all builds for that service `ernest service history <service name>`.
+```
+$ ernest service list
+```
 
-We can view the YAML for a specific build by `ernest service definition <service name> --build <build id>.
+For a given service you can see the history of all builds for that service:
+
+```
+$ ernest service history <service name>
+```
+
+We can view the YAML for a specific build by:
+
+```
+ernest service definition <service name> --build <build id>
+```
 
 ## Next Steps
 

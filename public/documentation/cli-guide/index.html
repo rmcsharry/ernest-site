@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  473 
+    "wordCount":  480 
   }
 </script>
 
@@ -344,19 +344,34 @@ Current user : &lt;user&gt;
 
 <h3 id="how-to-create-modify-services">How to Create/Modify Services</h3>
 
-<p>Once we have created a datacenter and defined our service in YAML the process of building the service is <code>ernest service apply &lt;yaml file&gt;</code>.</p>
+<p>Once we have created a datacenter and defined our service in YAML the process of building the service is:</p>
+
+<pre><code>$ ernest service apply &lt;yaml file&gt;
+</code></pre>
 
 <p>Once the service is created we can modify it by changing the YAML and then re-applying it. Ernest will calculate the differences and apply only those changes necessary to transition the service from the current state to the requested state.</p>
 
-<p>Finally you can also destroy services if needed: <code>ernest service destroy &lt;service name&gt;</code></p>
+<p>Finally you can also destroy services if needed:</p>
+
+<pre><code>$ ernest service destroy &lt;service name&gt;
+</code></pre>
 
 <h3 id="view-service-state-and-history">View Service State and History</h3>
 
-<p>Ernest stores the state of each service, as well as all historical states. You can list the available service with <code>ernest service list</code>.</p>
+<p>Ernest stores the state of each service, as well as all historical states. You can list the available service with:</p>
 
-<p>For a given service you can see the history of all builds for that service <code>ernest service history &lt;service name&gt;</code>.</p>
+<pre><code>$ ernest service list
+</code></pre>
 
-<p>We can view the YAML for a specific build by `ernest service definition <service name> &ndash;build <build id>.</p>
+<p>For a given service you can see the history of all builds for that service:</p>
+
+<pre><code>$ ernest service history &lt;service name&gt;
+</code></pre>
+
+<p>We can view the YAML for a specific build by:</p>
+
+<pre><code>ernest service definition &lt;service name&gt; --build &lt;build id&gt;
+</code></pre>
 
 <h2 id="next-steps">Next Steps</h2>
 
