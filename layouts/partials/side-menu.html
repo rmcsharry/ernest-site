@@ -7,7 +7,7 @@
     {{ if .URL }}
     <a class="main-menu-item-title" href="{{ .URL }}">{{.Name}}</a>
     {{ else }}
-    <span class="main-menu-item-title">{{ title .Name }}</span>
+    <span class="main-menu-item-title">{{ .Name }}</span>
     {{ end }}
 
 
