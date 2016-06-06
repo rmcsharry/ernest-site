@@ -22,12 +22,22 @@
   </url>
   
   <url>
-    <loc>/documentation/vcloud-into/</loc>
+    <loc>/documentation/vcloud-intro/</loc>
     <lastmod>2016-06-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/documentation/</loc>
+    <lastmod>2016-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/vcloud-examples/</loc>
+    <lastmod>2016-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/vcloud-yaml/</loc>
     <lastmod>2016-06-06T00:00:00+00:00</lastmod>
   </url>
   

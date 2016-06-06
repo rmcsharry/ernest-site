@@ -541,65 +541,17 @@ GLOBAL OPTIONS:
     
     <item>
       <title>Introduction</title>
-      <link>/documentation/vcloud-into/</link>
+      <link>/documentation/vcloud-intro/</link>
       <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/documentation/vcloud-into/</guid>
+      <guid>/documentation/vcloud-intro/</guid>
       <description>
 
-&lt;h1 id=&#34;installating-ernest&#34;&gt;Installating Ernest&lt;/h1&gt;
+&lt;h1 id=&#34;vcloud-director-introduction&#34;&gt;vCloud Director Introduction&lt;/h1&gt;
 
-&lt;h2 id=&#34;the-server&#34;&gt;The Server&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
 
-&lt;p&gt;The Ernest Server can be &lt;a href=&#34;/download/&#34;&gt;downloaded&lt;/a&gt; as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-cli&#34;&gt;The CLI&lt;/h2&gt;
-
-&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
-
-&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;http://artefact.r3labs.io/ernest/&#34;&gt;appropriate package&lt;/a&gt; for your system and download it. Ernest CLI is packaged as an executable.&lt;/p&gt;
-
-&lt;p&gt;After downloading Ernest CLI, move it to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
-
-&lt;h3 id=&#34;verification&#34;&gt;Verification&lt;/h3&gt;
-
-&lt;p&gt;After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest
-NAME:
-   ernest - Command line interface for Ernest
-
-USAGE:
-   ernest [global options] command [command options] [arguments...]
-   
-VERSION:
-   0.15
-   
-COMMANDS:
-    target  Configure Ernest target instance.
-    info  Display system-wide information.
-    login Login with your Ernest credentials.
-    logout  Clear local authentication credentials.
-    user  User related subcommands
-    group Group related subcommands
-    datacenter  Datacenter related subcommands
-    service Service related subcommands
-
-GLOBAL OPTIONS:
-   --help, -h   show help
-   --version, -v  print the version
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you get an error that ernest could not be found, then your PATH environment variable was not setup properly. Please go back and ensure that your PATH variable contains the directory where Ernest CLI was installed.&lt;/p&gt;
-
-&lt;p&gt;Otherwise, Ernest CLI is installed and ready to go.&lt;/p&gt;
-
-&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
-
-&lt;p&gt;Now that we have the Server and CLI installed we can &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;start working with the CLI&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;vCD most network functionality is delivered by the VMWare vShield Edge virtual appliance.&lt;/p&gt;
 </description>
     </item>
     
@@ -639,6 +591,452 @@ GLOBAL OPTIONS:
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
 
 &lt;p&gt;Continue with the &lt;a href=&#34;/documentation/install/&#34;&gt;Ernest installation&lt;/a&gt; guide to use Ernest and see how it works in practice.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vCloud Examples</title>
+      <link>/documentation/vcloud-examples/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/vcloud-examples/</guid>
+      <description>
+
+&lt;h1 id=&#34;vcloud-director-introduction&#34;&gt;vCloud Director Introduction&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;what is it&lt;/li&gt;
+&lt;li&gt;what are the issues and limitations&lt;/li&gt;
+&lt;li&gt;how do we use it&lt;/li&gt;
+&lt;li&gt;where can i find examples&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vCloud YAML</title>
+      <link>/documentation/vcloud-yaml/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/vcloud-yaml/</guid>
+      <description>
+
+&lt;h1 id=&#34;vcloud-director-yaml-reference&#34;&gt;vCloud Director YAML Reference&lt;/h1&gt;
+
+&lt;p&gt;Environments built and managed with Ernest are defined in YAML format.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.240.161
+
+routers: 
+  - name: demo
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;field-reference&#34;&gt;Field Reference&lt;/h2&gt;
+
+&lt;h3 id=&#34;service-options&#34;&gt;Service Options&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;name: demo
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.44
+ernest_ip:
+  - 31.210.240.161
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Service Options support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;datacenter&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the datacenter where the service is built.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;bootstrapping&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String [salt, none] that defines if you’re going to be able to execute commands on the servers&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field defaults to none.&lt;/li&gt;
+&lt;li&gt;The value of this is restricted to “salt” or “none”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;service_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the public ip of the router already created on vcloud&lt;/li&gt;
+&lt;li&gt;This field is optional&lt;/li&gt;
+&lt;li&gt;This field defaults to none.&lt;/li&gt;
+&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ernest_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.&lt;/li&gt;
+&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory only if you’ve defined bootstrapping as “salt”&lt;/li&gt;
+&lt;li&gt;This field defaults to an empty array.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;networking&#34;&gt;Networking&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;routers: 
+  - name: demo
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+
+    port_forwarding:
+      - source: 195.3.186.44
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Networking supports the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;name&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
+&lt;li&gt;The value of this field can be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;rules&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A firewall rule controls traffic that is allowed to flow between both internal and external routers and networks.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the rule.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field can’t be null or empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;source&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String the source of the network where this firewall acts&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: external | internal | any | named networks | CIDR&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Source port numbers&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String the destination of the network where this firewall acts&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be:  external | internal | any | named networks | CIDR&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Destination port numbers&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;protocol&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String with the protocol we are firewalling&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: tcp | udp | icmp | any | tcp &amp;amp; udp&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A network is a virtual network that attaches to a router (in vcloud, other providers will differ). This is what allows us to network/isolate VM’s together.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subnet&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a network to add to this service.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;dns&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array of IPs to use as dns servers on this service&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field can be empty and it will default to [&amp;laquo;8.8.8.8&amp;raquo;, &amp;laquo;8.8.4.4&amp;raquo;].&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;port_forwarding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A port forward is something that converts translates a request on a port from one IP to another on a different network. Only tcp port forwarding is supported.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Source port numbers&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String the destination of the IPv4 Address to translate to&lt;/li&gt;
+&lt;li&gt;Values can be: IPv4&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Destination port numbers&lt;/li&gt;
+&lt;li&gt;Values can be:  an string ( valid port number, 1 - 65535 ) or any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;source&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the IP from the provider-specified sub-allocated list of IPs of the router.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.&lt;/li&gt;
+&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;instances&#34;&gt;Instances&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instances support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the instance to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;image&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of an image to install on the VM.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field is composed in two parts one for the “catalog” and another one for the “image” separated by a slash “/”&lt;/li&gt;
+&lt;li&gt;Both “catalog” and “image” are strings and can’t be null.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;cpus&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integer that defines how many CPUs will have the VM.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be greater or equal than 1&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;memory&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a load balancer to add to this service.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;disks:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A list of sizes of hard disks that belongs to the VM&lt;/li&gt;
+&lt;li&gt;This field can be an empty list&lt;/li&gt;
+&lt;li&gt;This field is a list of strings&lt;/li&gt;
+&lt;li&gt;Each element of the string must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;count&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integer that defines the number of VM to be created.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be greater or equal that 1&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;
+Networks is a map with two fields&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a network to attach this instance.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field should exist on the networks section previously specified.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;start_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the starting IP to allocate the VMs to be built.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be a valid IP.&lt;/li&gt;
+&lt;li&gt;This IP should belong to the network already defined on the instance.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;provisioner&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array that contains provisioner types&lt;/li&gt;
+&lt;li&gt;Each provisioner type will be run in the order they are specified in the document&lt;/li&gt;
+&lt;li&gt;This field is optional&lt;/li&gt;
+&lt;li&gt;This field can be empty&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;exec&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array of strings, any command characters must be escaped with backslashes: (RFC7159, Section 7)&lt;/li&gt;
+&lt;li&gt;Each command in the exec array is concatenated together and delimited by a semicolon.&lt;/li&gt;
+&lt;li&gt;This field is optional&lt;/li&gt;
+&lt;li&gt;If specified as a provisioner type, this array field must contain at least one element&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
