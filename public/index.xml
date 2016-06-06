@@ -549,7 +549,7 @@ GLOBAL OPTIONS:
 
 &lt;h1 id=&#34;vcloud-director&#34;&gt;vCloud Director&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
 
 &lt;h2 id=&#34;network-limitations&#34;&gt;Network Limitations&lt;/h2&gt;
 
