@@ -113,8 +113,8 @@ disqusShortname = "shortname"
     extensionmask = []
 
 [[menu.documentation]]
-  name = "Documentation"
+  name = "Introduction"
   weight = 0
-#[[menu.documentation]]
-#  name = "vCloud"
-#  weight = 1
+[[menu.documentation]]
+  name = "vCloud Director"
+  weight = 1

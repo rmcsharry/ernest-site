@@ -1,13 +1,13 @@
 +++
-date = "2016-05-17"
-title = "CLI Commands"
+date = "2016-06-06"
+title = "CLI Command Reference"
 category = "documentation"
 showChildren=true
 [menu.documentation]
-  name = "CLI Commands"
-  weight = -80
-  identifier = "cli-cmd"
-  parent = "Documentation"
+  name = "CLI Command Reference"
+  weight = -70
+  identifier = "cli-cmds"
+  parent = "Introduction"
 +++
 
 

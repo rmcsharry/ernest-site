@@ -1,16 +1,23 @@
 +++
-date = "2016-06-06"
-title = "Overview"
+date = "2016-05-17"
+title = "Introduction"
 category = "documentation"
 showChildren=true
 [menu.documentation]
-  name = "Overview"
+  name = "Introduction"
   weight = -100
-  identifier = "index"
+  identifier = "intro"
   parent = "Introduction"
 +++
 
-# Overview of Ernest
+
+# Introduction to Ernest
+
+Welcome to the intro guide to Ernest! This guide is the best place to start with Ernest. We cover what Ernest is, what problems it can solve, how it compares to existing software, and contains a quick start for using Ernest.
+
+If you are already familiar with the basics of Ernest, the documentation provides a better reference guide for all available features as well as internals.
+
+## What is Ernest?
 
 Ernest is an application and infrastructure orchestration and automation engine. Ernest takes the complexity and people out of DevOps, simplifying the process of creating and managing even the most complex environments.
 
@@ -35,4 +42,6 @@ Ernest is built around the idea that DevOps is not a job title, but a methodolog
 
 ## Next Steps
 
-Continue with the [Ernest installation](/documentation/install/) guide to use Ernest and see how it works in practice.
+See the page on [Ernest use cases](Ernest use cases) to see the multiple ways Ernest can be used. Then see [how Ernest compares to other software](Ernest-compare-competence) to see how it fits into your existing infrastructure. 
+
+Finally, continue onwards with the [getting started](Getting Started With Ernest CLI) guide to use Ernest and see how it works in practice.
