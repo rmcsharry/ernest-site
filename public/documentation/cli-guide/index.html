@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  281 
+    "wordCount":  473 
   }
 </script>
 
@@ -330,7 +330,7 @@ Current user : &lt;user&gt;
 
 <h2 id="datacenters">Datacenters</h2>
 
-<p>Ernest uses the concept of a datacenter to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for a vCloud Director provider is:</p>
+<p>Ernest uses the concept of a <strong>datacenter</strong> to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for a vCloud Director provider is:</p>
 
 <pre><code>$ ernest datacenter create --datacenter-user &lt;vcloud user&gt; --datacenter-password &lt;vcloud password&gt; --datacenter-org &lt;vcloud org&gt; &lt;vcloud datacenter&gt; &lt;vcloud API endpoint&gt; &lt;vcloud external network&gt;
 
@@ -338,7 +338,25 @@ Current user : &lt;user&gt;
 
 <h2 id="services">Services</h2>
 
-<p><strong>yaml, create/modify, history</strong></p>
+<h3 id="what-is-a-service">What is a Service?</h3>
+
+<p>With Ernest a <strong>service</strong> is a collection of networking, virtual machines, and configuration options that collectively define an environment, and also the datacenter where the environment should be built. A service is defined in YAML format, and you can see examples of this in the provider-specific documentation.</p>
+
+<h3 id="how-to-create-modify-services">How to Create/Modify Services</h3>
+
+<p>Once we have created a datacenter and defined our service in YAML the process of building the service is <code>ernest service apply &lt;yaml file&gt;</code>.</p>
+
+<p>Once the service is created we can modify it by changing the YAML and then re-applying it. Ernest will calculate the differences and apply only those changes necessary to transition the service from the current state to the requested state.</p>
+
+<p>Finally you can also destroy services if needed: <code>ernest service destroy &lt;service name&gt;</code></p>
+
+<h3 id="view-service-state-and-history">View Service State and History</h3>
+
+<p>Ernest stores the state of each service, as well as all historical states. You can list the available service with <code>ernest service list</code>.</p>
+
+<p>For a given service you can see the history of all builds for that service <code>ernest service history &lt;service name&gt;</code>.</p>
+
+<p>We can view the YAML for a specific build by `ernest service definition <service name> &ndash;build <build id>.</p>
 
 <h2 id="next-steps">Next Steps</h2>
 
