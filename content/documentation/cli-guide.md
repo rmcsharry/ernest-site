@@ -26,4 +26,4 @@ definition, create/modify, supported providers
 
 ## Services
 
-yaml, create/modify, history, blah
+yaml, create/modify, history
