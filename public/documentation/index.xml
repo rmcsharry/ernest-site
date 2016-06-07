@@ -652,9 +652,32 @@ GLOBAL OPTIONS:
 
 &lt;p&gt;&lt;em&gt;The values in brackets are what we will use for this example. Your service provider can provide you with this information.&lt;/em&gt;&lt;/p&gt;
 
+&lt;p&gt;The first step is to set the IP address of Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest target https://31.210.241.221
+Target set
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next we login to Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest login
+Username: user1
+Password: ******
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+SUCCESS: Datacenter r3-jreid2 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&#34;infrastructure-only&#34;&gt;Infrastructure Only&lt;/h3&gt;
 
-&lt;p&gt;For our example we will deploy a single Ubuntu server from a template and configure our networking to permit SSH access to the server. Our YAML for this example is:&lt;/p&gt;
+&lt;p&gt;For our example we will deploy a single Ubuntu server from a catalog image (image: r3/ubuntu-1404) and configure our networking to permit SSH access to the server. Our YAML for this example is:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;---
 name: demo1
@@ -855,7 +878,7 @@ instances:
     </item>
     
     <item>
-      <title>vCloud YAML</title>
+      <title>vCloud YAML Reference</title>
       <link>/documentation/vcloud-yaml/</link>
       <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>

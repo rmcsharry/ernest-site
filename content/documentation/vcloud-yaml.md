@@ -1,10 +1,10 @@
 +++
 date = "2016-06-06"
-title = "vCloud YAML"
+title = "vCloud YAML Reference"
 category = "documentation"
 showChildren=true
 [menu.documentation]
-  name = "vCloud YAML"
+  name = "vCloud YAML Reference"
   weight = -60
   identifier = "vcloud-yaml"
   parent = "vCloud Director"

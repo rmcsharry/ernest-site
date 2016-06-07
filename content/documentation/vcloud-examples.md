@@ -28,9 +28,35 @@ Before we get started we will need the following information:
 
 *The values in brackets are what we will use for this example. Your service provider can provide you with this information.*
 
+The first step is to set the IP address of Ernest:
+
+```
+$ ernest target https://31.210.241.221
+Target set
+
+```
+
+Next we login to Ernest:
+
+```
+$ ernest login
+Username: user1
+Password: ******
+Log in succesful.
+
+```
+
+Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:
+
+```
+$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+SUCCESS: Datacenter r3-jreid2 created
+
+```
+
 ### Infrastructure Only
 
-For our example we will deploy a single Ubuntu server from a template and configure our networking to permit SSH access to the server. Our YAML for this example is:
+For our example we will deploy a single Ubuntu server from a catalog image (image: r3/ubuntu-1404) and configure our networking to permit SSH access to the server. Our YAML for this example is:
 
 ```
 ---
