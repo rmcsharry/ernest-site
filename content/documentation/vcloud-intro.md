@@ -28,15 +28,13 @@ All other common network operations are accesible to users, however many of them
 
 ## Supported Configurations
 
-Due to the network limitations Ernest supports 3 different configurations for vCloud Director:
+Due to the network limitations Ernest supports 2 different options for vCloud Director:
 
-1. the user is an Organization Administrator
+1. normal (your service provider has not deployed the VSE Creator Service)
 
-2. the user is not an Organization Administrator
+2. enhanced (your service provider has deployed the VSE Creator Service)
 
-3. the user is an Organization Administrator, and the service provider is running VSE Creator Service
-
-At this point you are probably wondering what a VSE Creator Service is. This is a an additional service that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.
+At this point you are probably wondering what a VSE Creator Service is. This is a an additional service we have created that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.
 
 We will cover each of these configurations off in the [vCloud Examples](/documentation/vcloud-examples/).
 

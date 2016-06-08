@@ -12,7 +12,7 @@ showChildren=true
 
 # vCloud Director Examples
 
-## User is an Organization Administrator
+## Normal (VSE Creator Service is not available)
 
 Before we get started we will need the following information:
 
@@ -53,6 +53,12 @@ $ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx 
 SUCCESS: Datacenter r3-jreid2 created
 
 ```
+
+Now that we have our datacenter created in Ernest we can start building stuff. Below we will show examples for:
+
+* creating infrastructure only
+* creating infrastructure and configuring the servers
+* creating the servers only
 
 ### Infrastructure Only
 
@@ -243,17 +249,167 @@ instances:
 
 ```
 
-### Bootstrapped
+### Infrastructure and Server Configuration
 
-## User is not an Organization Administrator
+In the above example the task of installing and configuring software was left to the user to do. In this example we will bootstrap the servers and install our software directly from the YAML.
 
-### Infrastructure Only
+The new YAML is shown here:
 
-### Bootstrapped
+```
+---
+name: demo2
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.42
+ernest_ip:
+  - 31.210.241.221
+  - 31.210.240.161
 
-Bootstrapped configuration is not supported in this example.
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
 
-## User is an Organization Administrator and VSE Creator Service is available
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: '80'
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+          
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: '80'
+        to_port: '80'
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - 'sudo apt-get update'
+        - 'sudo apt-get install apache2 -y'
+
+```
+
+The first thing to notice is that we have changed 'bootstrapping' from 'none' to 'salt'. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the 'bootstrapping' option must be specified when an environment is created and cannot be changed for that environment.
+
+The next thing we have changed are the firewall and port-forwarding configuration. We have removed the sections needed for SSH access to the server since we are now able to run commands directly from the YAML.
+
+Finally, we have added a provisioner section to the instance that will install the Apache HTTP Server.
+
+Now that we have defined our platform we are ready to create it:
+
+```
+$ ernest service apply demo2.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
+Starting environment creation
+
+Creating routers:
+  195.3.186.42
+Routers successfully created
+
+Creating networks:
+  - 10.254.254.0/24
+  - 10.1.0.0/24
+Networks successfully created
+
+Creating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully updated
+
+Setting up firewalls:
+Firewalls Created
+
+Configuring nats
+Nats Created
+
+Bootstrapping
+Instances bootstrapped
+
+Running executions
+Executions ran
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+```
+
+Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.
+
+You should be able to browse to http://195.3.186.42. Congratulations! 
+
+If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.
+
+### Servers Only
+
+```
+---
+name: demo3
+datacenter: r3-jreid2
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: r3-jreid2-test3-web
+      start_ip: 10.1.0.11
+
+```
+
+```
+$ ernest service apply demo3.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
+Starting environment creation
+
+Creating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully updated
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+```
+
+## Enhanced (VSE Creator Service is available)
 
 ### Infrastructure Only
 

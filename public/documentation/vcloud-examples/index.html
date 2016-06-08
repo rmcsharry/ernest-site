@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  693 
+    "wordCount":  1245 
   }
 </script>
 
@@ -289,7 +289,7 @@
 
 <h1 id="vcloud-director-examples">vCloud Director Examples</h1>
 
-<h2 id="user-is-an-organization-administrator">User is an Organization Administrator</h2>
+<h2 id="normal-vse-creator-service-is-not-available">Normal (VSE Creator Service is not available)</h2>
 
 <p>Before we get started we will need the following information:</p>
 
@@ -329,6 +329,14 @@ Log in succesful.
 SUCCESS: Datacenter r3-jreid2 created
 
 </code></pre>
+
+<p>Now that we have our datacenter created in Ernest we can start building stuff. Below we will show examples for:</p>
+
+<ul>
+<li>creating infrastructure only</li>
+<li>creating infrastructure and configuring the servers</li>
+<li>creating the servers only</li>
+</ul>
 
 <h3 id="infrastructure-only">Infrastructure Only</h3>
 
@@ -514,21 +522,167 @@ instances:
 
 </code></pre>
 
-<h3 id="bootstrapped">Bootstrapped</h3>
+<h3 id="infrastructure-and-server-configuration">Infrastructure and Server Configuration</h3>
 
-<h2 id="user-is-not-an-organization-administrator">User is not an Organization Administrator</h2>
+<p>In the above example the task of installing and configuring software was left to the user to do. In this example we will bootstrap the servers and install our software directly from the YAML.</p>
+
+<p>The new YAML is shown here:</p>
+
+<pre><code>---
+name: demo2
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.42
+ernest_ip:
+  - 31.210.241.221
+  - 31.210.240.161
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: '80'
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+          
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: '80'
+        to_port: '80'
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - 'sudo apt-get update'
+        - 'sudo apt-get install apache2 -y'
+
+</code></pre>
+
+<p>The first thing to notice is that we have changed &lsquo;bootstrapping&rsquo; from &lsquo;none&rsquo; to &lsquo;salt&rsquo;. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the &lsquo;bootstrapping&rsquo; option must be specified when an environment is created and cannot be changed for that environment.</p>
+
+<p>The next thing we have changed are the firewall and port-forwarding configuration. We have removed the sections needed for SSH access to the server since we are now able to run commands directly from the YAML.</p>
+
+<p>Finally, we have added a provisioner section to the instance that will install the Apache HTTP Server.</p>
+
+<p>Now that we have defined our platform we are ready to create it:</p>
+
+<pre><code>$ ernest service apply demo2.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
+Starting environment creation
+
+Creating routers:
+  195.3.186.42
+Routers successfully created
+
+Creating networks:
+  - 10.254.254.0/24
+  - 10.1.0.0/24
+Networks successfully created
+
+Creating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully updated
+
+Setting up firewalls:
+Firewalls Created
+
+Configuring nats
+Nats Created
+
+Bootstrapping
+Instances bootstrapped
+
+Running executions
+Executions ran
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+</code></pre>
+
+<p>Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.</p>
+
+<p>You should be able to browse to <a href="http://195.3.186.42">http://195.3.186.42</a>. Congratulations!</p>
+
+<p>If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.</p>
+
+<h3 id="servers-only">Servers Only</h3>
+
+<pre><code>---
+name: demo3
+datacenter: r3-jreid2
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: r3-jreid2-test3-web
+      start_ip: 10.1.0.11
+
+</code></pre>
+
+<pre><code>$ ernest service apply demo3.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
+Starting environment creation
+
+Creating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully updated
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+</code></pre>
+
+<h2 id="enhanced-vse-creator-service-is-available">Enhanced (VSE Creator Service is available)</h2>
 
 <h3 id="infrastructure-only-1">Infrastructure Only</h3>
 
-<h3 id="bootstrapped-1">Bootstrapped</h3>
-
-<p>Bootstrapped configuration is not supported in this example.</p>
-
-<h2 id="user-is-an-organization-administrator-and-vse-creator-service-is-available">User is an Organization Administrator and VSE Creator Service is available</h2>
-
-<h3 id="infrastructure-only-2">Infrastructure Only</h3>
-
-<h3 id="bootstrapped-2">Bootstrapped</h3>
+<h3 id="bootstrapped">Bootstrapped</h3>
 
     </div>
   </div>

@@ -567,17 +567,15 @@ GLOBAL OPTIONS:
 
 &lt;h2 id=&#34;supported-configurations&#34;&gt;Supported Configurations&lt;/h2&gt;
 
-&lt;p&gt;Due to the network limitations Ernest supports 3 different configurations for vCloud Director:&lt;/p&gt;
+&lt;p&gt;Due to the network limitations Ernest supports 2 different options for vCloud Director:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;the user is an Organization Administrator&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;normal (your service provider has not deployed the VSE Creator Service)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;the user is not an Organization Administrator&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;the user is an Organization Administrator, and the service provider is running VSE Creator Service&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;enhanced (your service provider has deployed the VSE Creator Service)&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;At this point you are probably wondering what a VSE Creator Service is. This is a an additional service that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.&lt;/p&gt;
+&lt;p&gt;At this point you are probably wondering what a VSE Creator Service is. This is a an additional service we have created that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.&lt;/p&gt;
 
 &lt;p&gt;We will cover each of these configurations off in the &lt;a href=&#34;/documentation/vcloud-examples/&#34;&gt;vCloud Examples&lt;/a&gt;.&lt;/p&gt;
 
@@ -634,7 +632,7 @@ GLOBAL OPTIONS:
 
 &lt;h1 id=&#34;vcloud-director-examples&#34;&gt;vCloud Director Examples&lt;/h1&gt;
 
-&lt;h2 id=&#34;user-is-an-organization-administrator&#34;&gt;User is an Organization Administrator&lt;/h2&gt;
+&lt;h2 id=&#34;normal-vse-creator-service-is-not-available&#34;&gt;Normal (VSE Creator Service is not available)&lt;/h2&gt;
 
 &lt;p&gt;Before we get started we will need the following information:&lt;/p&gt;
 
@@ -674,6 +672,14 @@ Log in succesful.
 SUCCESS: Datacenter r3-jreid2 created
 
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have our datacenter created in Ernest we can start building stuff. Below we will show examples for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;creating infrastructure only&lt;/li&gt;
+&lt;li&gt;creating infrastructure and configuring the servers&lt;/li&gt;
+&lt;li&gt;creating the servers only&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;infrastructure-only&#34;&gt;Infrastructure Only&lt;/h3&gt;
 
@@ -859,21 +865,167 @@ instances:
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;bootstrapped&#34;&gt;Bootstrapped&lt;/h3&gt;
+&lt;h3 id=&#34;infrastructure-and-server-configuration&#34;&gt;Infrastructure and Server Configuration&lt;/h3&gt;
 
-&lt;h2 id=&#34;user-is-not-an-organization-administrator&#34;&gt;User is not an Organization Administrator&lt;/h2&gt;
+&lt;p&gt;In the above example the task of installing and configuring software was left to the user to do. In this example we will bootstrap the servers and install our software directly from the YAML.&lt;/p&gt;
+
+&lt;p&gt;The new YAML is shown here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo2
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.42
+ernest_ip:
+  - 31.210.241.221
+  - 31.210.240.161
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+          
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first thing to notice is that we have changed &amp;lsquo;bootstrapping&amp;rsquo; from &amp;lsquo;none&amp;rsquo; to &amp;lsquo;salt&amp;rsquo;. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the &amp;lsquo;bootstrapping&amp;rsquo; option must be specified when an environment is created and cannot be changed for that environment.&lt;/p&gt;
+
+&lt;p&gt;The next thing we have changed are the firewall and port-forwarding configuration. We have removed the sections needed for SSH access to the server since we are now able to run commands directly from the YAML.&lt;/p&gt;
+
+&lt;p&gt;Finally, we have added a provisioner section to the instance that will install the Apache HTTP Server.&lt;/p&gt;
+
+&lt;p&gt;Now that we have defined our platform we are ready to create it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo2.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating routers:
+  195.3.186.42
+Routers successfully created
+
+Creating networks:
+  - 10.254.254.0/24
+  - 10.1.0.0/24
+Networks successfully created
+
+Creating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully updated
+
+Setting up firewalls:
+Firewalls Created
+
+Configuring nats
+Nats Created
+
+Bootstrapping
+Instances bootstrapped
+
+Running executions
+Executions ran
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.&lt;/p&gt;
+
+&lt;p&gt;You should be able to browse to &lt;a href=&#34;http://195.3.186.42&#34;&gt;http://195.3.186.42&lt;/a&gt;. Congratulations!&lt;/p&gt;
+
+&lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
+
+&lt;h3 id=&#34;servers-only&#34;&gt;Servers Only&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo3
+datacenter: r3-jreid2
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: r3-jreid2-test3-web
+      start_ip: 10.1.0.11
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo3.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully updated
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;enhanced-vse-creator-service-is-available&#34;&gt;Enhanced (VSE Creator Service is available)&lt;/h2&gt;
 
 &lt;h3 id=&#34;infrastructure-only-1&#34;&gt;Infrastructure Only&lt;/h3&gt;
 
-&lt;h3 id=&#34;bootstrapped-1&#34;&gt;Bootstrapped&lt;/h3&gt;
-
-&lt;p&gt;Bootstrapped configuration is not supported in this example.&lt;/p&gt;
-
-&lt;h2 id=&#34;user-is-an-organization-administrator-and-vse-creator-service-is-available&#34;&gt;User is an Organization Administrator and VSE Creator Service is available&lt;/h2&gt;
-
-&lt;h3 id=&#34;infrastructure-only-2&#34;&gt;Infrastructure Only&lt;/h3&gt;
-
-&lt;h3 id=&#34;bootstrapped-2&#34;&gt;Bootstrapped&lt;/h3&gt;
+&lt;h3 id=&#34;bootstrapped&#34;&gt;Bootstrapped&lt;/h3&gt;
 </description>
     </item>
     
