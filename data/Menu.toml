@@ -1,0 +1,15 @@
+[1-download]
+Name = "Download"
+URL = "download"
+
+[2-documentation]
+Name = "Documentation"
+URL = "documentation"
+
+[3-community]
+Name = "Community"
+URL = "community"
+
+[4-support]
+Name = "Support"
+URL = "support"
