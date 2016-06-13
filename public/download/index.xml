@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Downloads on ernest.r3labs.io</title>
+    <link>/download/</link>
+    <description>Recent content in Downloads on ernest.r3labs.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>jason.reid@r3labs.io (Jason Reid)</managingEditor>
+    <webMaster>jason.reid@r3labs.io (Jason Reid)</webMaster>
+    <copyright>(c) 2016 R3 Labs</copyright>
+    <lastBuildDate>Tue, 17 May 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/download/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>/download/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/download/</guid>
+      <description>
+
+&lt;h1 id=&#34;download-ernest&#34;&gt;Download Ernest&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GitHub&lt;/li&gt;
+&lt;li&gt;Vagrant&lt;/li&gt;
+&lt;li&gt;OVF&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
