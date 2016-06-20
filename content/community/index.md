@@ -20,9 +20,10 @@ Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source p
 
 | Project Name | Contribute Code | Request a Feature | Report a Bug |
 |:---:|:---:|:---:|:---:|
-| Ernest | [GitHub](https://github.com/r3labs/ernest) | [GitHub Issue](https://github.com/r3labs/ernest/issues) | [GitHub Issue](https://github.com/r3labs/ernest/issues) |
-| Ernest CLI | [GitHub](https://github.com/r3labs/ernest-cli) | [GitHub Issue](https://github.com/r3labs/ernest-cli/issues) | [GitHub Issue](https://github.com/r3labs/ernest-cli/issues) |
-| Ernest Site | [GitHub](https://github.com/r3labs/ernest-site) | [GitHub Issue](https://github.com/r3labs/ernest-site/issues) | [GitHub Issue](https://github.com/r3labs/ernest-site/issues) |
+| Ernest | [GitHub](https://github.com/ernestio/ernest-vagrant) | [GitHub Issue](https://github.com/ernestio/ernest-vagrant/issues) | [GitHub Issue](https://github.com/ernestio/ernest-vagrant/issues) |
+| Ernest CLI | [GitHub](https://github.com/ernestio/ernest-cli) | [GitHub Issue](https://github.com/ernestio/ernest-cli/issues) | [GitHub Issue](https://github.com/ernestio/ernest-cli/issues) |
+| VSE Creator Service | [GitHub](https://github.com/ernestio/vse-creator-service) | [GitHub Issue](https://github.com/ernestio/vse-creator-service/issues) | [GitHub Issue](https://github.com/ernestio/vse-creator-service/issues) |
+| Ernest Site | [GitHub](https://github.com/ernestio/ernest-site) | [GitHub Issue](https://github.com/ernestio/ernest-site/issues) | [GitHub Issue](https://github.com/ernestio/ernest-site/issues) |
 
 ## Social
 
