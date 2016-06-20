@@ -106,7 +106,7 @@ disqusShortname = "shortname"
 [blackfriday]
     angledQuotes = true
     fractions = false
-    hrefTargetBlank = false
+    hrefTargetBlank = true
     latexDashes = true
     plainIdAnchors = true
     extensions = []
