@@ -7,65 +7,61 @@ description = "Ernest makes it easier to develop and deploy applications in the 
 
 <h1 id="support-plan">Support Plan Contact Form</h1>
 
-<form class="form-horizontal">
+<form class="form-horizontal" id="input-form" action="https://docs.google.com/forms/d/1t_F8UU5CebFIWe2rCU7xlBPk-z0ISN_V6v2bcktsoH0/formResponse?" method="POST" target="no-target" onSubmit="alert('Thank you for your query, we will respond shortly.');window.location.href = '/support/';">
 <fieldset>
 
-<!-- Form Name -->
 <legend></legend>
 
-<!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="firstname">First Name</label>  
   <div class="col-md-4">
-  <input id="firstname" name="firstname" type="text" placeholder="First Name" class="form-control input-md" required="">
+  <input id="firstname" name="entry.706791366" type="text" placeholder="First Name" class="form-control input-md" required="">
     
   </div>
 </div>
 
-<!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="lastname">Last Name</label>  
   <div class="col-md-4">
-  <input id="lastname" name="lastname" type="text" placeholder="Last Name" class="form-control input-md" required="">
+  <input id="lastname" name="entry.1072744609" type="text" placeholder="Last Name" class="form-control input-md" required="">
     
   </div>
 </div>
 
-<!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="email">Email Address</label>  
   <div class="col-md-4">
-  <input id="email" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="">
+  <input id="email" name="entry.1586474514" type="text" placeholder="Email Address" class="form-control input-md" required="">
     
   </div>
 </div>
 
-<!-- Multiple Radios -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="plan">Support Plan</label>
   <div class="col-md-4">
   <div class="radio">
     <label for="plan-0">
-      <input type="radio" name="plan" id="plan-0" value="Standard" checked="checked">
+      <input type="radio" name="entry.1568716440" id="plan-0" value="Standard" checked="checked">
       Standard
     </label>
 	</div>
   <div class="radio">
     <label for="plan-1">
-      <input type="radio" name="plan" id="plan-1" value="Premium">
+      <input type="radio" name="entry.1568716440" id="plan-1" value="Premium">
       Premium
     </label>
 	</div>
   </div>
 </div>
 
-<!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-success">Submit</button>
+    <button id="submit" type="submit" class="btn btn-success">Submit</button>
   </div>
 </div>
 
 </fieldset>
 </form>
+
+<iframe src="#" id="no-target" name="no-target" style="visibility:hidden"></iframe>

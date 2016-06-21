@@ -396,14 +396,14 @@ ernest_ip:
 <li>String that defines the public ip of the router already created on vcloud</li>
 <li>This field is optional</li>
 <li>This field defaults to none.</li>
-<li>The value of this field is an IP, internally defined as <a href="https://golang.org/pkg/net/#IP">https://golang.org/pkg/net/#IP</a></li>
+<li>The value of this field is an IP, internally defined as <a href="https://golang.org/pkg/net/#IP" target="_blank">https://golang.org/pkg/net/#IP</a></li>
 </ul></li>
 
 <li><p><strong>ernest_ip</strong></p>
 
 <ul>
 <li>Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.</li>
-<li>The value of this field is an IP, internally defined as <a href="https://golang.org/pkg/net/#IP">https://golang.org/pkg/net/#IP</a><br /></li>
+<li>The value of this field is an IP, internally defined as <a href="https://golang.org/pkg/net/#IP" target="_blank">https://golang.org/pkg/net/#IP</a><br /></li>
 <li>This field is mandatory only if you’ve defined bootstrapping as “salt”</li>
 <li>This field defaults to an empty array.</li>
 </ul></li>
@@ -530,7 +530,7 @@ ernest_ip:
 
 <ul>
 <li>String that defines the name of a network to add to this service.</li>
-<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
+<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
 <li>This field is mandatory.</li>
 <li>This field cannot be null or empty.</li>
 <li>This field must be unique for this user &amp; all the networks on the manifest.</li>
@@ -540,7 +540,7 @@ ernest_ip:
 
 <ul>
 <li>Array of IPs to use as dns servers on this service</li>
-<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
+<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
 <li>This field is optional.</li>
 <li>This field can be empty and it will default to [&laquo;8.8.8.8&raquo;, &laquo;8.8.4.4&raquo;].</li>
 </ul></li>
@@ -576,7 +576,7 @@ ernest_ip:
 
 <ul>
 <li>String that defines the IP from the provider-specified sub-allocated list of IPs of the router.</li>
-<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
+<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
 <li>This field is optional.</li>
 <li>This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.</li>
 <li>This field must be unique for this user &amp; all the networks on the manifest.</li>
@@ -638,7 +638,7 @@ ernest_ip:
 <li>String that defines the name of a load balancer to add to this service.</li>
 <li>This field is mandatory.</li>
 <li>This field cannot be null or empty.</li>
-<li>This field must follow the Binary Prefix format: <a href="https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory">https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory</a></li>
+<li>This field must follow the Binary Prefix format: <a href="https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory" target="_blank">https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory</a></li>
 <li>The possible binary prefixes are MB, GB, TB, PB, YB</li>
 </ul></li>
 
@@ -648,7 +648,7 @@ ernest_ip:
 <li>A list of sizes of hard disks that belongs to the VM</li>
 <li>This field can be an empty list</li>
 <li>This field is a list of strings</li>
-<li>Each element of the string must follow the Binary Prefix format: <a href="https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives">https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives</a></li>
+<li>Each element of the string must follow the Binary Prefix format: <a href="https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives" target="_blank">https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives</a></li>
 <li>The possible binary prefixes are MB, GB, TB, PB, YB</li>
 </ul></li>
 

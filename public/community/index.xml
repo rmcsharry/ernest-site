@@ -27,8 +27,8 @@
 &lt;p&gt;To discuss all things Ernest with other members of the community:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;join the &lt;a href=&#34;http://goo.gl/forms/6ujydAeVGtOr4sm12&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;join the &lt;a href=&#34;https://groups.google.com/forum/#!forum/ernestio&#34;&gt;Ernest Google Group&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;join the &lt;a href=&#34;http://goo.gl/forms/6ujydAeVGtOr4sm12&#34; target=&#34;_blank&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;join the &lt;a href=&#34;https://groups.google.com/forum/#!forum/ernestio&#34; target=&#34;_blank&#34;&gt;Ernest Google Group&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;contribute&#34;&gt;Contribute&lt;/h2&gt;
@@ -48,30 +48,37 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td align=&#34;center&#34;&gt;Ernest&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;center&#34;&gt;Ernest CLI&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-cli/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-cli/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-cli&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-cli/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-cli/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;VSE Creator Service&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/vse-creator-service&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/vse-creator-service/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/vse-creator-service/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;center&#34;&gt;Ernest Site&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-site&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-site/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/r3labs/ernest-site/issues&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-site&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-site/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-site/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&#34;social&#34;&gt;Social&lt;/h2&gt;
 
-&lt;p&gt;Follow us on &lt;a href=&#34;https://twitter.com/r3labs&#34;&gt;Twitter&lt;/a&gt; and &lt;a href=&#34;https://www.facebook.com/r3labsio/&#34;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Follow us on &lt;a href=&#34;https://twitter.com/r3labs&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt; and &lt;a href=&#34;https://www.facebook.com/r3labsio/&#34; target=&#34;_blank&#34;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;conduct&#34;&gt;Conduct&lt;/h2&gt;
 

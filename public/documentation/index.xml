@@ -487,17 +487,17 @@ Current user : &amp;lt;user&amp;gt;
 
 &lt;h2 id=&#34;the-server&#34;&gt;The Server&lt;/h2&gt;
 
-&lt;p&gt;The Ernest Server can be &lt;a href=&#34;/download/&#34;&gt;downloaded&lt;/a&gt; as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Ernest Server can be &lt;a href=&#34;/download/&#34;&gt;downloaded&lt;/a&gt; as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;the-cli&#34;&gt;The CLI&lt;/h2&gt;
 
-&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 
-&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;http://artefact.r3labs.io/ernest/&#34;&gt;appropriate package&lt;/a&gt; for your system and download it. Ernest CLI is packaged as an executable.&lt;/p&gt;
+&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;http://artefact.r3labs.io/ernest/&#34; target=&#34;_blank&#34;&gt;appropriate package&lt;/a&gt; for your system and download it. Ernest CLI is packaged as an executable.&lt;/p&gt;
 
-&lt;p&gt;After downloading Ernest CLI, move it to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
+&lt;p&gt;After downloading Ernest CLI, move it to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34; target=&#34;_blank&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34; target=&#34;_blank&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
 
 &lt;h3 id=&#34;verification&#34;&gt;Verification&lt;/h3&gt;
 
@@ -549,7 +549,7 @@ GLOBAL OPTIONS:
 
 &lt;h1 id=&#34;vcloud-director&#34;&gt;vCloud Director&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34; target=&#34;_blank&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
 
 &lt;h2 id=&#34;network-limitations&#34;&gt;Network Limitations&lt;/h2&gt;
 
@@ -563,7 +563,7 @@ GLOBAL OPTIONS:
 &lt;li&gt;&lt;p&gt;sub-allocating external IP addresses to a vSE&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;All other common network operations are accesible to users, however many of them are limited to users with the &lt;a href=&#34;https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vcloud.api.doc_56%2FGUID-BC504F6B-3D38-4F25-AACF-ED584063754F.html&#34;&gt;Organization Administrator&lt;/a&gt; role assigned to them.&lt;/p&gt;
+&lt;p&gt;All other common network operations are accesible to users, however many of them are limited to users with the &lt;a href=&#34;https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vcloud.api.doc_56%2FGUID-BC504F6B-3D38-4F25-AACF-ED584063754F.html&#34; target=&#34;_blank&#34;&gt;Organization Administrator&lt;/a&gt; role assigned to them.&lt;/p&gt;
 
 &lt;h2 id=&#34;supported-configurations&#34;&gt;Supported Configurations&lt;/h2&gt;
 
@@ -980,7 +980,7 @@ Your environment endpoint is: 195.3.186.42
 
 &lt;p&gt;Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.&lt;/p&gt;
 
-&lt;p&gt;You should be able to browse to &lt;a href=&#34;http://195.3.186.42&#34;&gt;http://195.3.186.42&lt;/a&gt;. Congratulations!&lt;/p&gt;
+&lt;p&gt;You should be able to browse to &lt;a href=&#34;http://195.3.186.42&#34; target=&#34;_blank&#34;&gt;http://195.3.186.42&lt;/a&gt;. Congratulations!&lt;/p&gt;
 
 &lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
 
@@ -1146,14 +1146,14 @@ ernest_ip:
 &lt;li&gt;String that defines the public ip of the router already created on vcloud&lt;/li&gt;
 &lt;li&gt;This field is optional&lt;/li&gt;
 &lt;li&gt;This field defaults to none.&lt;/li&gt;
-&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34; target=&#34;_blank&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;ernest_ip&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.&lt;/li&gt;
-&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;The value of this field is an IP, internally defined as &lt;a href=&#34;https://golang.org/pkg/net/#IP&#34; target=&#34;_blank&#34;&gt;https://golang.org/pkg/net/#IP&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;This field is mandatory only if you’ve defined bootstrapping as “salt”&lt;/li&gt;
 &lt;li&gt;This field defaults to an empty array.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1280,7 +1280,7 @@ ernest_ip:
 
 &lt;ul&gt;
 &lt;li&gt;String that defines the name of a network to add to this service.&lt;/li&gt;
-&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;This field is mandatory.&lt;/li&gt;
 &lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
 &lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
@@ -1290,7 +1290,7 @@ ernest_ip:
 
 &lt;ul&gt;
 &lt;li&gt;Array of IPs to use as dns servers on this service&lt;/li&gt;
-&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;This field is optional.&lt;/li&gt;
 &lt;li&gt;This field can be empty and it will default to [&amp;laquo;8.8.8.8&amp;raquo;, &amp;laquo;8.8.4.4&amp;raquo;].&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1326,7 +1326,7 @@ ernest_ip:
 
 &lt;ul&gt;
 &lt;li&gt;String that defines the IP from the provider-specified sub-allocated list of IPs of the router.&lt;/li&gt;
-&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;This field is optional.&lt;/li&gt;
 &lt;li&gt;This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.&lt;/li&gt;
 &lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
@@ -1388,7 +1388,7 @@ ernest_ip:
 &lt;li&gt;String that defines the name of a load balancer to add to this service.&lt;/li&gt;
 &lt;li&gt;This field is mandatory.&lt;/li&gt;
 &lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
-&lt;li&gt;This field must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
@@ -1398,7 +1398,7 @@ ernest_ip:
 &lt;li&gt;A list of sizes of hard disks that belongs to the VM&lt;/li&gt;
 &lt;li&gt;This field can be an empty list&lt;/li&gt;
 &lt;li&gt;This field is a list of strings&lt;/li&gt;
-&lt;li&gt;Each element of the string must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Each element of the string must follow the Binary Prefix format: &lt;a href=&#34;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The possible binary prefixes are MB, GB, TB, PB, YB&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
