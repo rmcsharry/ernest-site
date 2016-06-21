@@ -11,7 +11,7 @@ description = "Ernest makes it easier to develop and deploy applications in the 
 
 To discuss all things Ernest with other members of the community:
 
-* join the [Ernest Slack channel](http://goo.gl/forms/6ujydAeVGtOr4sm12)
+* join the [Ernest Slack channel](/slack)
 * join the [Ernest Google Group](https://groups.google.com/forum/#!forum/ernestio)
 
 ## Contribute
