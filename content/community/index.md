@@ -16,11 +16,11 @@ To discuss all things Ernest with other members of the community:
 
 ## Contribute
 
-Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the [Mozilla Public License v2.0](/license). If you would like to help us improve these projects you can do so here:
+Ernest, the Ernest CLI, the VSE Creator Service, and the Ernest Site (this website) are all open source projects under the [Mozilla Public License v2.0](/license). If you would like to help us improve these projects you can do so here:
 
 | Project Name | Contribute Code | Request a Feature | Report a Bug |
 |:---:|:---:|:---:|:---:|
-| Ernest | [GitHub](https://github.com/ernestio/ernest-vagrant) | [GitHub Issue](https://github.com/ernestio/ernest-vagrant/issues) | [GitHub Issue](https://github.com/ernestio/ernest-vagrant/issues) |
+| Ernest | [GitHub](https://github.com/ernestio/ernest) | [GitHub Issue](https://github.com/ernestio/ernest/issues) | [GitHub Issue](https://github.com/ernestio/ernest/issues) |
 | Ernest CLI | [GitHub](https://github.com/ernestio/ernest-cli) | [GitHub Issue](https://github.com/ernestio/ernest-cli/issues) | [GitHub Issue](https://github.com/ernestio/ernest-cli/issues) |
 | VSE Creator Service | [GitHub](https://github.com/ernestio/vse-creator-service) | [GitHub Issue](https://github.com/ernestio/vse-creator-service/issues) | [GitHub Issue](https://github.com/ernestio/vse-creator-service/issues) |
 | Ernest Site | [GitHub](https://github.com/ernestio/ernest-site) | [GitHub Issue](https://github.com/ernestio/ernest-site/issues) | [GitHub Issue](https://github.com/ernestio/ernest-site/issues) |
