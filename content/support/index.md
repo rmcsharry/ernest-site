@@ -18,8 +18,8 @@ R3 Labs offer two support plans for Ernest:
 | Maximum number of designated contacts | 1 | 3 |
 | Feature priorities |   | &#x25cf; |
 | Prioritized issue resolution |   | &#x25cf; |
-| Response time on non-critical issues | Best effort | Within 24 hours |
-| Response time on critical issues** | Within 24 hours | Within 4 business hours |
+| Response time on non-critical issues | Best effort | Within 8 business hours |
+| Response time on critical issues** | Within 8 business hours | Within 4 hours |
 | Pricing | [Contact us](/supportplan) | [Contact us](/supportplan) |
 
 <small>**A ‘Critical Issue’ is defined as a system down that impacts your use of Ernest in a production environment. There is no viable workaround, and business is severely impacted.</small>

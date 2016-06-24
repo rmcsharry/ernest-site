@@ -21,8 +21,6 @@ This is the fastest way to get started with Ernest. You will need Vagrant and Vi
 
 Once the box is up Ernest will be available on 10.50.1.11.
 
-### Use OVF Template
-
 ### Build From Source
 
 Ernest requires on Ubuntu 15.10. The minimum recommended spec is: 1 CPU, 2 GB RAM, 10 GB HD. You will need to create a user **ernest** configured with passwordless sudo.
@@ -47,4 +45,8 @@ All commands below are run as **root** user.
 
 ## Get Ernest CLI
 
-## Get VSE Creator Service
+* available for Linux, OS X, and Window
+* source code or binary
+* download from [here](https://github.com/ErnestIO/ernest-cli/releases)
+* stick it in your path
+* move install instructions from 'getting started' docs to this page
