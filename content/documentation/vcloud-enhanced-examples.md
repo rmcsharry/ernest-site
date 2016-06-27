@@ -1,12 +1,12 @@
 +++
 date = "2016-06-06"
-title = "vCloud Examples"
+title = "vCloud Enhanced Examples"
 category = "documentation"
 showChildren=true
 [menu.documentation]
-  name = "vCloud Examples"
-  weight = -90
-  identifier = "vcloud-examples"
+  name = "vCloud Enhanced Examples"
+  weight = -80
+  identifier = "vcloud-enhanced-examples"
   parent = "vCloud Director"
 +++
 

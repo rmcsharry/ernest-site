@@ -12,7 +12,7 @@ showChildren=true
 
 # vCloud Director
 
-[vCloud Director (vCD)](https://www.vmware.com/products/vcloud-director/) is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.
+[vCloud Director (vCD)](https://www.vmware.com/products/vcloud-director/) is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director enables service providers to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.
 
 ## Network Limitations
 
@@ -30,12 +30,12 @@ All other common network operations are accesible to users, however many of them
 
 Due to the network limitations Ernest supports 2 different options for vCloud Director:
 
-1. normal (your service provider has not deployed the VSE Creator Service)
+1. **normal** (your service provider has not deployed the VSE Creator Service)
 
-2. enhanced (your service provider has deployed the VSE Creator Service)
+2. **enhanced** (your service provider has deployed the VSE Creator Service)
 
-At this point you are probably wondering what the VSE Creator Service is. This is a an additional service we have created that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.
+<small>*The VSE Creator Service is an optional service that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.*</small>
 
-We will cover each of these configurations off in the [vCloud Examples](/documentation/vcloud-examples/).
+You can see more information about each option by reviewing the examples of [normal](/documentation/vcloud-normal/) and [enhanced](/documentation/vcloud-enhanced/) configurations.
 
 You can also find a reference YAML for vCloud Director [here](/documentation/vcloud-yaml/).
