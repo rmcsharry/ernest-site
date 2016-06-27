@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-05-17",
     "description": "Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system.",
-    "wordCount":  8 
+    "wordCount":  265 
   }
 </script>
 
@@ -168,13 +168,62 @@
       <div class="content">
   
 
-<h1 id="download-ernest">Download Ernest</h1>
+<h1 id="downloads">Downloads</h1>
 
-<h2 id="ernest">Ernest</h2>
+<h2 id="get-ernest">Get Ernest</h2>
 
-<h2 id="ernest-cli">Ernest CLI</h2>
+<h3 id="use-vagrant-box">Use Vagrant Box</h3>
 
-<h2 id="vse-creator-service">VSE Creator Service</h2>
+<p>This is the fastest way to get started with Ernest. You will need Vagrant and Virtual Box.</p>
+
+<ol>
+<li><p>Clone the repo containing the Vagrantfile: <code>git clone https://github.com/ernestio/ernest.git</code></p></li>
+
+<li><p>Change to the cloned directory: <code>cd ernest</code></p></li>
+
+<li><p>Start the Ernest Vagrant Box: <code>vagrant up</code></p></li>
+</ol>
+
+<p>Once the box is up Ernest will be available on 10.50.1.11.</p>
+
+<h3 id="build-from-source">Build From Source</h3>
+
+<p>Ernest requires on Ubuntu 15.10. The minimum recommended spec is: 1 CPU, 2 GB RAM, 10 GB HD. You will need to create a user <strong>ernest</strong> configured with passwordless sudo.</p>
+
+<p>All commands below are run as <strong>root</strong> user.</p>
+
+<ol>
+<li><p>Update the package list: <code>apt-get update</code></p></li>
+
+<li><p>Install some required packages: <code>apt-get install -y wget git make ruby</code></p></li>
+
+<li><p>Download ChefDK: <code>wget https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.10.0-1_amd64.deb</code></p></li>
+
+<li><p>Install ChefDK: <code>dpkg -i chefdk_0.10.0-1_amd64.deb</code></p></li>
+
+<li><p>Clone the Ernest install repo: <code>git clone https://github.com/ernestio/ernest-vagrant.git</code></p></li>
+
+<li><p>Change to the Ernest install repo dir: <code>cd ernest-vagrant</code></p></li>
+
+<li><p>Switch to the <strong>master</strong> branch: <code>git checkout master</code></p></li>
+
+<li><p>Install Ernest: <code>make deploy</code></p></li>
+</ol>
+
+<h2 id="get-ernest-cli">Get Ernest CLI</h2>
+
+<p>The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on <a href="https://github.com/ernestio/ernest-cli" target="_blank">GitHub</a>.</p>
+
+<p>To install Ernest CLI, find the <a href="https://github.com/ErnestIO/ernest-cli/releases" target="_blank">appropriate package</a> for your system and download it.</p>
+
+<p>After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See <a href="http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux" target="_blank">this page</a> for instructions on setting the PATH on Linux and Mac. <a href="http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows" target="_blank">This page</a> contains instructions for setting the PATH on Windows.</p>
+
+<p>After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available:</p>
+
+<pre><code>$ ernest --version
+ernest version 1.0.0
+
+</code></pre>
 
 </div>
 
@@ -197,8 +246,8 @@
         <div class="col-xs-6">
           <p class="social pull-right">
             <a target="_blank" href="https://twitter.com/r3labs"><img alt="Twitter" src="/img/social/twitter.png"/></a>
-            <a target="_blank" href="http://goo.gl/forms/6ujydAeVGtOr4sm12"><img alt="Slack" src="/img/social/slack.png"/></a>
-            <a target="_blank" href="https://github.com/r3labs"><img alt="GitHub" src="/img/social/github_light.png"/></i></a>
+            <a target="_blank" href="/slack"><img alt="Slack" src="/img/social/slack.png"/></a>
+            <a target="_blank" href="https://github.com/ernestio"><img alt="GitHub" src="/img/social/github_light.png"/></i></a>
             <a target="_blank" href="https://groups.google.com/forum/#!forum/ernestio"><img alt="Google" src="/img/social/google.png"/></a>
             <a target="_blank" href="https://www.facebook.com/r3labsio/"><img alt="Facebook" src="/img/social/facebook.png"/></i></a>
           </p>

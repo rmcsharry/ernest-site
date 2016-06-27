@@ -476,70 +476,6 @@ Current user : &amp;lt;user&amp;gt;
     </item>
     
     <item>
-      <title>Installation</title>
-      <link>/documentation/install/</link>
-      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
-      <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/documentation/install/</guid>
-      <description>
-
-&lt;h1 id=&#34;installating-ernest&#34;&gt;Installating Ernest&lt;/h1&gt;
-
-&lt;h2 id=&#34;the-server&#34;&gt;The Server&lt;/h2&gt;
-
-&lt;p&gt;The Ernest Server can be &lt;a href=&#34;/download/&#34;&gt;downloaded&lt;/a&gt; as a pre-packaged OVF or VirtualBox image. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-cli&#34;&gt;The CLI&lt;/h2&gt;
-
-&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/r3labs/ernest-cli&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
-
-&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;http://artefact.r3labs.io/ernest/&#34; target=&#34;_blank&#34;&gt;appropriate package&lt;/a&gt; for your system and download it. Ernest CLI is packaged as an executable.&lt;/p&gt;
-
-&lt;p&gt;After downloading Ernest CLI, move it to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34; target=&#34;_blank&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34; target=&#34;_blank&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
-
-&lt;h3 id=&#34;verification&#34;&gt;Verification&lt;/h3&gt;
-
-&lt;p&gt;After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available. By executing ernest you should see help output similar to that below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ernest
-NAME:
-   ernest - Command line interface for Ernest
-
-USAGE:
-   ernest [global options] command [command options] [arguments...]
-   
-VERSION:
-   0.15
-   
-COMMANDS:
-    target  Configure Ernest target instance.
-    info  Display system-wide information.
-    login Login with your Ernest credentials.
-    logout  Clear local authentication credentials.
-    user  User related subcommands
-    group Group related subcommands
-    datacenter  Datacenter related subcommands
-    service Service related subcommands
-
-GLOBAL OPTIONS:
-   --help, -h   show help
-   --version, -v  print the version
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you get an error that ernest could not be found, then your PATH environment variable was not setup properly. Please go back and ensure that your PATH variable contains the directory where Ernest CLI was installed.&lt;/p&gt;
-
-&lt;p&gt;Otherwise, Ernest CLI is installed and ready to go.&lt;/p&gt;
-
-&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
-
-&lt;p&gt;Now that we have the Server and CLI installed we can &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;start working with the CLI&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Introduction</title>
       <link>/documentation/vcloud-intro/</link>
       <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
@@ -549,7 +485,7 @@ GLOBAL OPTIONS:
 
 &lt;h1 id=&#34;vcloud-director&#34;&gt;vCloud Director&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34; target=&#34;_blank&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director is popular with service providers as it allows them to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.vmware.com/products/vcloud-director/&#34; target=&#34;_blank&#34;&gt;vCloud Director (vCD)&lt;/a&gt; is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director enables service providers to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.&lt;/p&gt;
 
 &lt;h2 id=&#34;network-limitations&#34;&gt;Network Limitations&lt;/h2&gt;
 
@@ -570,14 +506,14 @@ GLOBAL OPTIONS:
 &lt;p&gt;Due to the network limitations Ernest supports 2 different options for vCloud Director:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;normal (your service provider has not deployed the VSE Creator Service)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;normal&lt;/strong&gt; (your service provider has not deployed the VSE Creator Service)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;enhanced (your service provider has deployed the VSE Creator Service)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;enhanced&lt;/strong&gt; (your service provider has deployed the VSE Creator Service)&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;At this point you are probably wondering what a VSE Creator Service is. This is a an additional service we have created that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;&lt;em&gt;The VSE Creator Service is an optional service that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 
-&lt;p&gt;We will cover each of these configurations off in the &lt;a href=&#34;/documentation/vcloud-examples/&#34;&gt;vCloud Examples&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can see more information about each option by reviewing the examples of &lt;a href=&#34;/documentation/vcloud-normal/&#34;&gt;normal&lt;/a&gt; and &lt;a href=&#34;/documentation/vcloud-enhanced/&#34;&gt;enhanced&lt;/a&gt; configurations.&lt;/p&gt;
 
 &lt;p&gt;You can also find a reference YAML for vCloud Director &lt;a href=&#34;/documentation/vcloud-yaml/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -618,16 +554,16 @@ GLOBAL OPTIONS:
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
 
-&lt;p&gt;Continue with the &lt;a href=&#34;/documentation/install/&#34;&gt;Ernest installation&lt;/a&gt; guide to use Ernest and see how it works in practice.&lt;/p&gt;
+&lt;p&gt;Follow the instructions &lt;a href=&#34;/download/&#34;&gt;here&lt;/a&gt; to get Ernest and the Ernest CLI. Once we have done that we can &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;start working with them&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>vCloud Examples</title>
-      <link>/documentation/vcloud-examples/</link>
+      <title>vCloud Enhanced Examples</title>
+      <link>/documentation/vcloud-enhanced-examples/</link>
       <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/documentation/vcloud-examples/</guid>
+      <guid>/documentation/vcloud-enhanced-examples/</guid>
       <description>
 
 &lt;h1 id=&#34;vcloud-director-examples&#34;&gt;vCloud Director Examples&lt;/h1&gt;
@@ -1026,6 +962,407 @@ Your environment endpoint is:
 &lt;h3 id=&#34;infrastructure-only-1&#34;&gt;Infrastructure Only&lt;/h3&gt;
 
 &lt;h3 id=&#34;bootstrapped&#34;&gt;Bootstrapped&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vCloud Normal Examples</title>
+      <link>/documentation/vcloud-normal-examples/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/vcloud-normal-examples/</guid>
+      <description>
+
+&lt;h1 id=&#34;vcloud-director-normal-examples&#34;&gt;vCloud Director Normal Examples&lt;/h1&gt;
+
+&lt;p&gt;If you would like to try Ernest but do not have access to vCloud you can request a vcloud account &lt;a href=&#34;/vcloud-account&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Before we get started we will need the following information:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ernest IP address (31.210.241.221)&lt;/li&gt;
+&lt;li&gt;Ernest username/password (user1/xxxxxx)&lt;/li&gt;
+&lt;li&gt;vCloud URL (myvdc.carrenza.net)&lt;/li&gt;
+&lt;li&gt;vCloud organisation (r3labs-development)&lt;/li&gt;
+&lt;li&gt;vCloud datacenter (r3-jreid2)&lt;/li&gt;
+&lt;li&gt;vCloud network (DVS-VCD-EXT-665)&lt;/li&gt;
+&lt;li&gt;vCloud username/password (jreid/xxxxxx)&lt;/li&gt;
+&lt;li&gt;vCloud router name (test1)&lt;/li&gt;
+&lt;li&gt;vCloud sub-allocated IP (195.3.186.42)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;The values in brackets are what we will use for this example. Your service provider can provide you with the vCloud information.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The first step is to set the IP address of Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest target https://31.210.241.221
+Target set
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next we login to Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest login
+Username: user1
+Password: ******
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+SUCCESS: Datacenter r3-jreid2 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have our datacenter created in Ernest we can start building stuff. Below we will show examples for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;creating infrastructure only&lt;/li&gt;
+&lt;li&gt;creating infrastructure and configuring the servers&lt;/li&gt;
+&lt;li&gt;creating the servers only&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;infrastructure-only&#34;&gt;Infrastructure Only&lt;/h3&gt;
+
+&lt;p&gt;For our example we will deploy a single Ubuntu server from a catalog image (image: r3/ubuntu-1404) and configure our networking to permit SSH access to the server. Our YAML for this example is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo1
+datacenter: r3-jreid2
+bootstrapping: none
+service_ip: 195.3.186.42
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_22
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;22&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have defined our infrastructure we are ready to apply our definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo1.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating routers:
+  195.3.186.42
+Routers successfully created
+
+Creating networks:
+  - 10.1.0.0/24
+Networks successfully created
+
+Creating instances:
+   - r3-jreid2-demo1-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo1-web-1
+Instances successfully updated
+
+Setting up firewalls:
+Firewalls Created
+
+Configuring nats
+Nats Created
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Congratulations! You have built your first infrastructure with Ernest. You can now SSH to the server on IP 195.3.186.42 to install and configure your software.&lt;/p&gt;
+
+&lt;p&gt;If you wish to change the infrastructure update your YAML to show how you want the infrastructure to look, then re-apply the YAML. Ernest will make the appropriate changes to the infrastructure.&lt;/p&gt;
+
+&lt;p&gt;For example if we increase the &amp;lsquo;web&amp;rsquo; instance count from 1 to 2 and re-apply the YAML a new server is created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo1.yml 
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating instances:
+   - r3-jreid2-demo1-web-2
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo1-web-2
+Instances successfully updated
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can list the services we created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service list
+NAME  UPDATED       STATUS  ENDPOINT
+demo1 2016-05-29 14:52:13 +0100 BST done  195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a given service we can see the history:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service history demo1
+NAME  BUILD ID                UPDATED       STATUS
+demo1 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:52:13 +0100 BST done
+demo1 6799e858-0484-42cb-bbb1-c1bc5f61e500-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:39:56 +0100 BST done
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a given service and build ID we can see the definition we applied:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service definition demo1 --build 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492
+---
+name: demo1
+datacenter: r3-jreid2
+bootstrapping: none
+service_ip: 195.3.186.42
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_22
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;22&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 2
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;infrastructure-and-server-configuration&#34;&gt;Infrastructure and Server Configuration&lt;/h3&gt;
+
+&lt;p&gt;In the above example the task of installing and configuring software was left to the user to do. In this example we will bootstrap the servers and install our software directly from the YAML.&lt;/p&gt;
+
+&lt;p&gt;The new YAML is shown here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo2
+datacenter: r3-jreid2
+bootstrapping: salt
+service_ip: 195.3.186.42
+ernest_ip:
+  - 31.210.241.221
+  - 31.210.240.161
+
+routers: 
+  - name: test1
+    rules:
+    - name: in_out_any
+      source: internal
+      from_port: any
+      destination: external
+      to_port: any
+      protocol: any
+      action: allow
+
+    - name: out_in_80
+      source: any
+      from_port: any
+      destination: internal
+      to_port: &#39;80&#39;
+      protocol: tcp
+      action: allow
+
+    networks:
+      - name: web
+        subnet: 10.1.0.0/24
+        dns:
+          - 8.8.8.8
+          - 8.8.4.4
+          
+    port_forwarding:
+      - source: 195.3.186.42
+        from_port: &#39;80&#39;
+        to_port: &#39;80&#39;
+        destination: 10.1.0.11
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: web
+      start_ip: 10.1.0.11
+    provisioner:
+      - exec:
+        - &#39;sudo apt-get update&#39;
+        - &#39;sudo apt-get install apache2 -y&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first thing to notice is that we have changed &amp;lsquo;bootstrapping&amp;rsquo; from &amp;lsquo;none&amp;rsquo; to &amp;lsquo;salt&amp;rsquo;. This will result in Ernest deploying a SALT instance that we can use to manage our environment. Note that the &amp;lsquo;bootstrapping&amp;rsquo; option must be specified when an environment is created and cannot be changed for that environment.&lt;/p&gt;
+
+&lt;p&gt;The next thing we have changed are the firewall and port-forwarding configuration. We have removed the sections needed for SSH access to the server since we are now able to run commands directly from the YAML.&lt;/p&gt;
+
+&lt;p&gt;Finally, we have added a provisioner section to the instance that will install the Apache HTTP Server.&lt;/p&gt;
+
+&lt;p&gt;Now that we have defined our platform we are ready to create it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo2.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating routers:
+  195.3.186.42
+Routers successfully created
+
+Creating networks:
+  - 10.254.254.0/24
+  - 10.1.0.0/24
+Networks successfully created
+
+Creating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo2-salt-master
+   - r3-jreid2-demo2-web-1
+Instances successfully updated
+
+Setting up firewalls:
+Firewalls Created
+
+Configuring nats
+Nats Created
+
+Bootstrapping
+Instances bootstrapped
+
+Running executions
+Executions ran
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 195.3.186.42
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that Ernest has automatically created a SALT instance for us on network 10.254.254.0/24. It has also trigged the bootstrapping process that installs the SALT minion on each of our servers, and then run the commands we specified in the provisioner section of each instance defined in the YAML.&lt;/p&gt;
+
+&lt;p&gt;You should be able to browse to &lt;a href=&#34;http://195.3.186.42&#34; target=&#34;_blank&#34;&gt;http://195.3.186.42&lt;/a&gt;. Congratulations!&lt;/p&gt;
+
+&lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
+
+&lt;h3 id=&#34;servers-only&#34;&gt;Servers Only&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo3
+datacenter: r3-jreid2
+
+instances:
+  - name: web
+    image: r3/ubuntu-1404
+    cpus: 1
+    memory: 1GB
+    count: 1
+    networks:
+      name: r3-jreid2-test3-web
+      start_ip: 10.1.0.11
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo3.yml
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully created
+
+Updating instances:
+   - r3-jreid2-demo3-web-1
+Instances successfully updated
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -1471,13 +1808,13 @@ Networks is a map with two fields&lt;/p&gt;
 &lt;p&gt;To discuss all things Ernest with other members of the community:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;join the &lt;a href=&#34;http://goo.gl/forms/6ujydAeVGtOr4sm12&#34; target=&#34;_blank&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;join the &lt;a href=&#34;/slack&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;join the &lt;a href=&#34;https://groups.google.com/forum/#!forum/ernestio&#34; target=&#34;_blank&#34;&gt;Ernest Google Group&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;contribute&#34;&gt;Contribute&lt;/h2&gt;
 
-&lt;p&gt;Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the &lt;a href=&#34;/license&#34;&gt;Mozilla Public License v2.0&lt;/a&gt;. If you would like to help us improve these projects you can do so here:&lt;/p&gt;
+&lt;p&gt;Ernest, the Ernest CLI, the VSE Creator Service, and the Ernest Site (this website) are all open source projects under the &lt;a href=&#34;/license&#34;&gt;Mozilla Public License v2.0&lt;/a&gt;. If you would like to help us improve these projects you can do so here:&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1492,9 +1829,9 @@ Networks is a map with two fields&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td align=&#34;center&#34;&gt;Ernest&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1644,13 +1981,62 @@ Networks is a map with two fields&lt;/p&gt;
       <guid>/download/</guid>
       <description>
 
-&lt;h1 id=&#34;download-ernest&#34;&gt;Download Ernest&lt;/h1&gt;
+&lt;h1 id=&#34;downloads&#34;&gt;Downloads&lt;/h1&gt;
 
-&lt;h2 id=&#34;ernest&#34;&gt;Ernest&lt;/h2&gt;
+&lt;h2 id=&#34;get-ernest&#34;&gt;Get Ernest&lt;/h2&gt;
 
-&lt;h2 id=&#34;ernest-cli&#34;&gt;Ernest CLI&lt;/h2&gt;
+&lt;h3 id=&#34;use-vagrant-box&#34;&gt;Use Vagrant Box&lt;/h3&gt;
 
-&lt;h2 id=&#34;vse-creator-service&#34;&gt;VSE Creator Service&lt;/h2&gt;
+&lt;p&gt;This is the fastest way to get started with Ernest. You will need Vagrant and Virtual Box.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Clone the repo containing the Vagrantfile: &lt;code&gt;git clone https://github.com/ernestio/ernest.git&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Change to the cloned directory: &lt;code&gt;cd ernest&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Start the Ernest Vagrant Box: &lt;code&gt;vagrant up&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once the box is up Ernest will be available on 10.50.1.11.&lt;/p&gt;
+
+&lt;h3 id=&#34;build-from-source&#34;&gt;Build From Source&lt;/h3&gt;
+
+&lt;p&gt;Ernest requires on Ubuntu 15.10. The minimum recommended spec is: 1 CPU, 2 GB RAM, 10 GB HD. You will need to create a user &lt;strong&gt;ernest&lt;/strong&gt; configured with passwordless sudo.&lt;/p&gt;
+
+&lt;p&gt;All commands below are run as &lt;strong&gt;root&lt;/strong&gt; user.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Update the package list: &lt;code&gt;apt-get update&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install some required packages: &lt;code&gt;apt-get install -y wget git make ruby&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Download ChefDK: &lt;code&gt;wget https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.10.0-1_amd64.deb&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install ChefDK: &lt;code&gt;dpkg -i chefdk_0.10.0-1_amd64.deb&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Clone the Ernest install repo: &lt;code&gt;git clone https://github.com/ernestio/ernest-vagrant.git&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Change to the Ernest install repo dir: &lt;code&gt;cd ernest-vagrant&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Switch to the &lt;strong&gt;master&lt;/strong&gt; branch: &lt;code&gt;git checkout master&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install Ernest: &lt;code&gt;make deploy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;get-ernest-cli&#34;&gt;Get Ernest CLI&lt;/h2&gt;
+
+&lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on &lt;a href=&#34;https://github.com/ernestio/ernest-cli&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To install Ernest CLI, find the &lt;a href=&#34;https://github.com/ErnestIO/ernest-cli/releases&#34; target=&#34;_blank&#34;&gt;appropriate package&lt;/a&gt; for your system and download it.&lt;/p&gt;
+
+&lt;p&gt;After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34; target=&#34;_blank&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34; target=&#34;_blank&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
+
+&lt;p&gt;After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest --version
+ernest version 1.0.0
+
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -1791,6 +2177,57 @@ Networks is a map with two fields&lt;/p&gt;
     
     <item>
       <title></title>
+      <link>/slack/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/slack/</guid>
+      <description>&lt;h1 id=&#34;slack&#34;&gt;Community Slack Channel Access Form&lt;/h1&gt;
+
+&lt;form class=&#34;form-horizontal&#34; id=&#34;input-form&#34; action=&#34;https://docs.google.com/forms/d/1t0olvu3MQNBdz3oTKLm_NczBeFzL8AnIeMOrQwfAKF4/formResponse?&#34; method=&#34;POST&#34; target=&#34;no-target&#34; onSubmit=&#34;alert(&#39;Thank you for your request, we will process it shortly.&#39;);window.location.href = &#39;/community/&#39;;&#34;&gt;
+&lt;fieldset&gt;
+
+&lt;legend&gt;&lt;/legend&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;firstname&#34;&gt;First Name&lt;/label&gt;  
+  &lt;div class=&#34;col-md-4&#34;&gt;
+  &lt;input id=&#34;firstname&#34; name=&#34;entry.1042863238&#34; type=&#34;text&#34; placeholder=&#34;First Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;lastname&#34;&gt;Last Name&lt;/label&gt;  
+  &lt;div class=&#34;col-md-4&#34;&gt;
+  &lt;input id=&#34;lastname&#34; name=&#34;entry.893089123&#34; type=&#34;text&#34; placeholder=&#34;Last Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;  
+  &lt;div class=&#34;col-md-4&#34;&gt;
+  &lt;input id=&#34;email&#34; name=&#34;entry.1081522787&#34; type=&#34;text&#34; placeholder=&#34;Email Address&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;submit&#34;&gt;&lt;/label&gt;
+  &lt;div class=&#34;col-md-4&#34;&gt;
+    &lt;button id=&#34;submit&#34; type=&#34;submit&#34; class=&#34;btn btn-success&#34;&gt;Submit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/fieldset&gt;
+&lt;/form&gt;
+
+&lt;iframe src=&#34;#&#34; id=&#34;no-target&#34; name=&#34;no-target&#34; style=&#34;visibility:hidden&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/support/</link>
       <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
@@ -1856,13 +2293,13 @@ Networks is a map with two fields&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;Response time on non-critical issues&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;Best effort&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Within 24 hours&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Within 8 business hours&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;Response time on critical issues**&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Within 24 hours&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Within 4 business hours&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Within 8 business hours&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Within 4 hours&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1947,27 +2384,54 @@ Networks is a map with two fields&lt;/p&gt;
     </item>
     
     <item>
-      <title>Ernest Index | Application Orchestration</title>
-      <link>/</link>
+      <title></title>
+      <link>/vcloud-account/</link>
       <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
       <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/</guid>
-      <description>&lt;div class=&#34;container&#34;&gt;
-  &lt;div class=&#34;row&#34;&gt;
-    &lt;div class=&#34;homepage col-md-12&#34;&gt;
-        &lt;img class=&#34;homepage-img&#34; alt=&#34;ernest.io&#34; src=&#34;/img/ernest-dog.png&#34;&gt;
-      &lt;h1&gt;Open Source Orchestration&lt;/h1&gt;
-      &lt;br&gt;
-      &lt;h2&gt;Drive software and infrastructure as a unified system.&lt;/h2&gt;
-      &lt;br&gt;
-      &lt;h4&gt;Ernest is an open source, modern and secure orchestration tool for cloud applications. Ernest supports both cloud native and legacy application architectures. The R3 Labs team maintains Ernest (written in Go).&lt;/h4&gt;
-      &lt;br&gt;
-      &lt;h5&gt;Ernest makes it easier to develop and deploy applications in the Cloud. Ernest supports full-stack application orchestration that allows you to drive software and infrastructure as a unified system.&lt;/h5&gt;
-      &lt;br&gt;
-      &lt;h6&gt;Ernest was created by R3 Labs. We are developers, systems people and entrepreneurs based in London, Barcelona, and Tortosa who are passionate about the power of automation and the cloud. We built our first clouds ten years ago, we’ve delivered complex critical web systems and we’ve built and sold technology businesses. Now we are tackling tooling that frees developers to just build.&lt;/h6&gt;
-    &lt;/div&gt;
+      <guid>/vcloud-account/</guid>
+      <description>&lt;h1 id=&#34;slack&#34;&gt;vCloud Account Creation Request Form&lt;/h1&gt;
+
+&lt;form class=&#34;form-horizontal&#34; id=&#34;input-form&#34; action=&#34;https://docs.google.com/forms/d/1VgjUkBjZQw-xSt1-8debb4Wk7FQhDr2vb-jrH3byKd4/formResponse?&#34; method=&#34;POST&#34; target=&#34;no-target&#34; onSubmit=&#34;alert(&#39;Thank you for your request, we will process it shortly.&#39;);window.location.href = &#39;/documentation/vcloud-normal-examples&#39;;&#34;&gt;
+&lt;fieldset&gt;
+
+&lt;legend&gt;&lt;/legend&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;firstname&#34;&gt;First Name&lt;/label&gt;  
+  &lt;div class=&#34;col-md-4&#34;&gt;
+  &lt;input id=&#34;firstname&#34; name=&#34;entry.1042863238&#34; type=&#34;text&#34; placeholder=&#34;First Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
+    
   &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;lastname&#34;&gt;Last Name&lt;/label&gt;  
+  &lt;div class=&#34;col-md-4&#34;&gt;
+  &lt;input id=&#34;lastname&#34; name=&#34;entry.893089123&#34; type=&#34;text&#34; placeholder=&#34;Last Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;  
+  &lt;div class=&#34;col-md-4&#34;&gt;
+  &lt;input id=&#34;email&#34; name=&#34;entry.1081522787&#34; type=&#34;text&#34; placeholder=&#34;Email Address&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;form-group&#34;&gt;
+  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;submit&#34;&gt;&lt;/label&gt;
+  &lt;div class=&#34;col-md-4&#34;&gt;
+    &lt;button id=&#34;submit&#34; type=&#34;submit&#34; class=&#34;btn btn-success&#34;&gt;Submit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/fieldset&gt;
+&lt;/form&gt;
+
+&lt;iframe src=&#34;#&#34; id=&#34;no-target&#34; name=&#34;no-target&#34; style=&#34;visibility:hidden&#34;&gt;&lt;/iframe&gt;
+</description>
     </item>
     
   </channel>

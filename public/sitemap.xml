@@ -17,11 +17,6 @@
   </url>
   
   <url>
-    <loc>/documentation/install/</loc>
-    <lastmod>2016-06-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/documentation/vcloud-intro/</loc>
     <lastmod>2016-06-06T00:00:00+00:00</lastmod>
   </url>
@@ -32,7 +27,12 @@
   </url>
   
   <url>
-    <loc>/documentation/vcloud-examples/</loc>
+    <loc>/documentation/vcloud-enhanced-examples/</loc>
+    <lastmod>2016-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/documentation/vcloud-normal-examples/</loc>
     <lastmod>2016-06-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -62,12 +62,22 @@
   </url>
   
   <url>
+    <loc>/slack/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/support/</loc>
     <lastmod>2016-05-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/supportplan/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/vcloud-account/</loc>
     <lastmod>2016-05-17T00:00:00+00:00</lastmod>
   </url>
   

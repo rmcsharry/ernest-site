@@ -27,13 +27,13 @@
 &lt;p&gt;To discuss all things Ernest with other members of the community:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;join the &lt;a href=&#34;http://goo.gl/forms/6ujydAeVGtOr4sm12&#34; target=&#34;_blank&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;join the &lt;a href=&#34;/slack&#34;&gt;Ernest Slack channel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;join the &lt;a href=&#34;https://groups.google.com/forum/#!forum/ernestio&#34; target=&#34;_blank&#34;&gt;Ernest Google Group&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;contribute&#34;&gt;Contribute&lt;/h2&gt;
 
-&lt;p&gt;Ernest, the Ernest CLI, and the Ernest Site (this website) are all open source projects under the &lt;a href=&#34;/license&#34;&gt;Mozilla Public License v2.0&lt;/a&gt;. If you would like to help us improve these projects you can do so here:&lt;/p&gt;
+&lt;p&gt;Ernest, the Ernest CLI, the VSE Creator Service, and the Ernest Site (this website) are all open source projects under the &lt;a href=&#34;/license&#34;&gt;Mozilla Public License v2.0&lt;/a&gt;. If you would like to help us improve these projects you can do so here:&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -48,9 +48,9 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td align=&#34;center&#34;&gt;Ernest&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest-vagrant/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;https://github.com/ernestio/ernest/issues&#34; target=&#34;_blank&#34;&gt;GitHub Issue&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
