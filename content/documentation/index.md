@@ -35,4 +35,4 @@ Ernest is built around the idea that DevOps is not a job title, but a methodolog
 
 ## Next Steps
 
-Continue with the [Ernest installation](/documentation/install/) guide to use Ernest and see how it works in practice.
+Follow the instructions [here](/download/) to get Ernest and the Ernest CLI. Once we have done that we can [start working with them](/documentation/cli-guide/).

@@ -34,7 +34,7 @@ Due to the network limitations Ernest supports 2 different options for vCloud Di
 
 2. enhanced (your service provider has deployed the VSE Creator Service)
 
-At this point you are probably wondering what a VSE Creator Service is. This is a an additional service we have created that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.
+At this point you are probably wondering what the VSE Creator Service is. This is a an additional service we have created that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.
 
 We will cover each of these configurations off in the [vCloud Examples](/documentation/vcloud-examples/).
 
