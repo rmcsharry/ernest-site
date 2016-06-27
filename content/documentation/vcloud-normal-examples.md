@@ -12,7 +12,7 @@ showChildren=true
 
 # vCloud Director Normal Examples
 
-If you would like to try Ernest but do not have access to vCloud you can request a vcloud account [here](/vcloud-account).
+If you would like to try Ernest but do not have access to vCloud you can request a demo vCloud account [here](/vcloud-account).
 
 Before we get started we will need the following information:
 

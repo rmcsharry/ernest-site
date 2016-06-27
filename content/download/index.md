@@ -47,7 +47,7 @@ All commands below are run as **root** user.
 
 The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on [GitHub](https://github.com/ernestio/ernest-cli).
 
-To install Ernest CLI, find the [appropriate package](https://github.com/ErnestIO/ernest-cli/releases) for your system and download it.
+To install Ernest CLI, find the newest version of the [appropriate package](https://github.com/ErnestIO/ernest-cli/releases) for your system and download it.
 
 After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See [this page](http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux) for instructions on setting the PATH on Linux and Mac. [This page](http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) contains instructions for setting the PATH on Windows.
 
