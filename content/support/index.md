@@ -11,7 +11,7 @@ R3 Labs offer two support plans for Ernest:
 
 |   | Standard | Premium |
 |---|:---:|:---:|
-| Service term | Annual subscription | Annual subscription |
+| Contract Type | Annual subscription | Annual subscription |
 | Access to a technical support website | &#x25cf; | &#x25cf; |
 | Maintenance and upgrades | &#x25cf; | &#x25cf; |
 | Web support (email/chat) during standard business hours (9:00AM – 5:00 PM CET) | &#x25cf; | &#x25cf; |
