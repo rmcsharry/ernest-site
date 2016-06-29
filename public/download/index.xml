@@ -24,7 +24,7 @@
 
 &lt;h2 id=&#34;get-ernest&#34;&gt;Get Ernest&lt;/h2&gt;
 
-&lt;h3 id=&#34;use-vagrant-box&#34;&gt;Use Vagrant Box&lt;/h3&gt;
+&lt;h3 id=&#34;the-vagrant-box&#34;&gt;The Vagrant Box&lt;/h3&gt;
 
 &lt;p&gt;This is the fastest way to get started with Ernest. You will need Vagrant and Virtual Box.&lt;/p&gt;
 
@@ -37,6 +37,10 @@
 &lt;/ol&gt;
 
 &lt;p&gt;Once the box is up Ernest will be available on 10.50.1.11.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-ovf-appliance&#34;&gt;The OVF Appliance&lt;/h3&gt;
+
+&lt;p&gt;You can download the latest OVF appliance &lt;a href=&#34;/downloads/ernest.ova&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;build-from-source&#34;&gt;Build From Source&lt;/h3&gt;
 
@@ -76,6 +80,10 @@
 ernest version 1.0.0
 
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;get-salt&#34;&gt;Get SALT&lt;/h2&gt;
+
+&lt;p&gt;You can download the latest OVF appliance &lt;a href=&#34;/downloads/r3-salt-master.ova&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

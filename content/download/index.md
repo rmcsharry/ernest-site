@@ -9,7 +9,7 @@ description = "Ernest makes it easier to develop and deploy applications in the 
 
 ## Get Ernest
 
-### Use Vagrant Box
+### The Vagrant Box
 
 This is the fastest way to get started with Ernest. You will need Vagrant and Virtual Box.
 
@@ -20,6 +20,10 @@ This is the fastest way to get started with Ernest. You will need Vagrant and Vi
 3. Start the Ernest Vagrant Box: `vagrant up`
 
 Once the box is up Ernest will be available on 10.50.1.11.
+
+### The OVF Appliance
+
+You can download the latest OVF appliance [here](/downloads/ernest.ova).
 
 ### Build From Source
 
@@ -58,3 +62,7 @@ $ ernest --version
 ernest version 1.0.0
 
 ```
+
+## Get SALT
+
+You can download the latest OVF appliance [here](/downloads/r3-salt-master.ova).
