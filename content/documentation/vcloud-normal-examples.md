@@ -370,7 +370,11 @@ You should be able to browse to http://195.3.186.42. Congratulations!
 
 If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.
 
+> The SALT image can be downloaded from [here](some URL). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.
+
 ### Servers Only
+
+If your vCloud account does not have the Organization Administrator assigned to it most of the network related configuration in the above examples will be impossible. You will be limited to the creation and modification of virtual machines only. An example YAML for this scenario is:
 
 ```
 ---
@@ -388,6 +392,8 @@ instances:
       start_ip: 10.1.0.11
 
 ```
+
+And applying it gives:
 
 ```
 $ ernest service apply demo3.yml
@@ -408,3 +414,7 @@ SUCCESS: rules successfully applied
 Your environment endpoint is: 
 
 ```
+
+## Next Steps
+
+Take a look at the [enhanced examples](/documentation/vcloud-enhanced/).

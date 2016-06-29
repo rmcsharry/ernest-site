@@ -16,7 +16,7 @@ showChildren=true
 
 ## Network Limitations
 
-vCD most network functionality is delivered by the VMWare vShield Edge (vSE) virtual appliance. Unfortunately certain key network operations can only be performed by the service provider and are not available to users. The include:
+vCD most network functionality is delivered by the VMWare vShield Edge (vSE) virtual appliance. Unfortunately certain key network operations can only be performed by the service provider and are not available to users. They include:
 
 * deploying a vSE
 
@@ -36,6 +36,8 @@ Due to the network limitations Ernest supports 2 different options for vCloud Di
 
 <small>*The VSE Creator Service is an optional service that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.*</small>
 
-You can see more information about each option by reviewing the examples of [normal](/documentation/vcloud-normal/) and [enhanced](/documentation/vcloud-enhanced/) configurations.
+## Next Steps
+
+You can see more information about each option by reviewing the [normal](/documentation/vcloud-normal/) and [enhanced](/documentation/vcloud-enhanced/) examples.
 
 You can also find a reference YAML for vCloud Director [here](/documentation/vcloud-yaml/).

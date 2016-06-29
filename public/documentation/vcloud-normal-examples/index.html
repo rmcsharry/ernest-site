@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>vCloud Normal Examples  &middot; ernest.r3labs.io</title>
+  <title>vCloud Normal Examples  &middot; ernest.io</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -17,8 +17,8 @@
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content="vCloud Normal Examples  &middot; ernest.r3labs.io ">
-<meta property="og:site_name" content="ernest.r3labs.io"/>
+<meta property="og:title" content="vCloud Normal Examples  &middot; ernest.io ">
+<meta property="og:site_name" content="ernest.io"/>
 <meta property="og:url" content="/documentation/vcloud-normal-examples/" />
 <meta property="og:locale" content="en-EN">
 
@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  1253 
+    "wordCount":  1356 
   }
 </script>
 
@@ -641,7 +641,13 @@ Your environment endpoint is: 195.3.186.42
 
 <p>If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.</p>
 
+<blockquote>
+<p>The SALT image can be downloaded from <a href="some URL" target="_blank">here</a>. For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named &lsquo;r3&rsquo;.</p>
+</blockquote>
+
 <h3 id="servers-only">Servers Only</h3>
+
+<p>If your vCloud account does not have the Organization Administrator assigned to it most of the network related configuration in the above examples will be impossible. You will be limited to the creation and modification of virtual machines only. An example YAML for this scenario is:</p>
 
 <pre><code>---
 name: demo3
@@ -658,6 +664,8 @@ instances:
       start_ip: 10.1.0.11
 
 </code></pre>
+
+<p>And applying it gives:</p>
 
 <pre><code>$ ernest service apply demo3.yml
 Environment creation requested
@@ -677,6 +685,10 @@ SUCCESS: rules successfully applied
 Your environment endpoint is: 
 
 </code></pre>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Take a look at the <a href="/documentation/vcloud-enhanced/">enhanced examples</a>.</p>
 
     </div>
   </div>

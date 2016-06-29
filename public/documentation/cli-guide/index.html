@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>CLI Guide  &middot; ernest.r3labs.io</title>
+  <title>CLI Guide  &middot; ernest.io</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -17,8 +17,8 @@
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content="CLI Guide  &middot; ernest.r3labs.io ">
-<meta property="og:site_name" content="ernest.r3labs.io"/>
+<meta property="og:title" content="CLI Guide  &middot; ernest.io ">
+<meta property="og:site_name" content="ernest.io"/>
 <meta property="og:url" content="/documentation/cli-guide/" />
 <meta property="og:locale" content="en-EN">
 
@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  480 
+    "wordCount":  484 
   }
 </script>
 
@@ -302,9 +302,11 @@ Target set
 
 <pre><code>ernest login
 Username: admin
-Password: &lt;admin default password&gt;
+Password: *******
 
 </code></pre>
+
+<p><em>(The default admin password is &lsquo;w4rmR3d&rsquo;)</em></p>
 
 <p>and change the admin password:</p>
 
@@ -322,7 +324,7 @@ Repeat new Password: &lt;new admin password&gt;
 
 <p>Now we can create a user on Ernest:</p>
 
-<pre><code>$ ernest user create --user admin --password &lt;admin password&gt; &lt;username&gt; &lt;password&gt;
+<pre><code>$ ernest user create --user admin --password &lt;admin password&gt; &lt;user&gt; &lt;password&gt;
 SUCCESS: Group &lt;user&gt; created
 SUCCESS: User &lt;user&gt; created
 
@@ -402,7 +404,7 @@ Current user : &lt;user&gt;
 <p>See the provider-specific documentation for examples of how to use Ernest:</p>
 
 <ul>
-<li><a href="/documentation/vcloud-into/">vCloud Director</a></li>
+<li><a href="/documentation/vcloud-intro/">vCloud Director</a></li>
 </ul>
 
     </div>

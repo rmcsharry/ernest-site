@@ -27,9 +27,10 @@ Now we should login to Ernest with the built-in admin account:
 ```
 ernest login
 Username: admin
-Password: <admin default password>
+Password: *******
 
 ```
+*(The default admin password is 'w4rmR3d')*
 
 and change the admin password:
 
@@ -49,7 +50,7 @@ Repeat new Password: <new admin password>
 Now we can create a user on Ernest:
 
 ```
-$ ernest user create --user admin --password <admin password> <username> <password>
+$ ernest user create --user admin --password <admin password> <user> <password>
 SUCCESS: Group <user> created
 SUCCESS: User <user> created
 
@@ -136,4 +137,4 @@ See the [reference guide](/documentation/cli-cmds/) for a complete list of the c
 
 See the provider-specific documentation for examples of how to use Ernest:
 
-* [vCloud Director](/documentation/vcloud-into/)
+* [vCloud Director](/documentation/vcloud-intro/)
