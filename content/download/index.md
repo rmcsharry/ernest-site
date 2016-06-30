@@ -21,9 +21,9 @@ This is the fastest way to get started with Ernest. You will need Vagrant and Vi
 
 Once the box is up Ernest will be available on 10.50.1.11.
 
-### The OVF Appliance
+### The Appliance
 
-You can download the OVF appliance [here](/downloads/ernest.ova).
+You can download the OVF appliance [here](/downloads/ernest.zip).
 
 ### Build From Source
 
@@ -55,7 +55,7 @@ To install Ernest CLI, find the newest version of the [appropriate package](http
 
 After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See [this page](http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux) for instructions on setting the PATH on Linux and Mac. [This page](http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) contains instructions for setting the PATH on Windows.
 
-After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking that ernest is available:
+After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking the CLI version:
 
 ```
 $ ernest --version
@@ -65,4 +65,4 @@ ernest version 1.0.0
 
 ## Get SALT
 
-The SALT image can be downloaded from [here](/downloads/r3-salt-master.ova). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.
+The SALT image can be downloaded from [here](/downloads/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.
