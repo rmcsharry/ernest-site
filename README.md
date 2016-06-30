@@ -108,9 +108,9 @@ showChildren=true
 * Use only headers 1 (#), 2 (##) and 3 (###)
 * Use single spaces to separate sentences
 * Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
- * Links: [R3Labs](http://r3labs.io/)
- * Cross references: [Support](/support/)
- * Images: ![dog](/img/ernest-dog.png)
+ * Links: `[R3Labs](http://r3labs.io/)`
+ * Cross references: `[Support](/support/)`
+ * Images: `![dog](/img/ernest-dog.png)`
 * Triple ticks for code, commands to run, user operations, input/output
 * Single ticks for executable names, file paths, inline commands, parameters, etc.
 * Graphics: save as *.png; source in `static/img/`
