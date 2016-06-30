@@ -852,7 +852,7 @@ Your environment endpoint is: 195.3.186.48
 &lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;The SALT image can be downloaded from &lt;a href=&#34;some URL&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;The SALT image can be downloaded from &lt;a href=&#34;/downloads/r3-salt-master.ova&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
@@ -1224,7 +1224,7 @@ Your environment endpoint is: 195.3.186.42
 &lt;p&gt;If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;The SALT image can be downloaded from &lt;a href=&#34;some URL&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;The SALT image can be downloaded from &lt;a href=&#34;/downloads/r3-salt-master.ova&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&#34;servers-only&#34;&gt;Servers Only&lt;/h3&gt;
@@ -1909,7 +1909,7 @@ Networks is a map with two fields&lt;/p&gt;
 
 &lt;h3 id=&#34;the-ovf-appliance&#34;&gt;The OVF Appliance&lt;/h3&gt;
 
-&lt;p&gt;You can download the latest OVF appliance &lt;a href=&#34;/downloads/ernest.ova&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can download the OVF appliance &lt;a href=&#34;/downloads/ernest.ova&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;build-from-source&#34;&gt;Build From Source&lt;/h3&gt;
 
@@ -1952,7 +1952,7 @@ ernest version 1.0.0
 
 &lt;h2 id=&#34;get-salt&#34;&gt;Get SALT&lt;/h2&gt;
 
-&lt;p&gt;You can download the latest OVF appliance &lt;a href=&#34;/downloads/r3-salt-master.ova&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The SALT image can be downloaded from &lt;a href=&#34;/downloads/r3-salt-master.ova&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
 </description>
     </item>
     

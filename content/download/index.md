@@ -23,7 +23,7 @@ Once the box is up Ernest will be available on 10.50.1.11.
 
 ### The OVF Appliance
 
-You can download the latest OVF appliance [here](/downloads/ernest.ova).
+You can download the OVF appliance [here](/downloads/ernest.ova).
 
 ### Build From Source
 
@@ -65,4 +65,4 @@ ernest version 1.0.0
 
 ## Get SALT
 
-You can download the latest OVF appliance [here](/downloads/r3-salt-master.ova).
+The SALT image can be downloaded from [here](/downloads/r3-salt-master.ova). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.

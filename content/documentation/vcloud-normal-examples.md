@@ -370,7 +370,7 @@ You should be able to browse to http://195.3.186.42. Congratulations!
 
 If you wish to change the platform update your YAML to show how you want the platform to look, then re-apply the YAML. Ernest will make the appropriate changes to the platform.
 
-> The SALT image can be downloaded from [here](some URL). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.
+> The SALT image can be downloaded from [here](/downloads/r3-salt-master.ova). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.
 
 ### Servers Only
 
