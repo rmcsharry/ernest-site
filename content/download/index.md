@@ -63,6 +63,6 @@ ernest version 1.0.0
 
 ```
 
-## Get SALT
+## Get Salt
 
-The SALT image can be downloaded from [here](/downloads/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the catalog name that Ernest will get the SALT image from, you will need to place the image in a catalog named 'r3'.
+The Salt image can be downloaded from [here](/downloads/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named 'r3'.

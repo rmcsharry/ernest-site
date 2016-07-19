@@ -1,10 +1,10 @@
-[1-download]
-Name = "Download"
-URL = "download"
-
-[2-documentation]
+[1-documentation]
 Name = "Documentation"
 URL = "documentation"
+
+[2-download]
+Name = "Download"
+URL = "download"
 
 [3-community]
 Name = "Community"
