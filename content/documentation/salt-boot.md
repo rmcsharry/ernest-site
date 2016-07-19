@@ -29,4 +29,4 @@ If you wish to use Salt bootstrapping the supported OS versions and OS-specific 
 | Privilege Level | local administrator | passwordless sudo | passwordless sudo |
 | Notes | - | disable sudo tty req | disable sudo tty req |
 
-You can download the salt-master appliance from the [Download page](/download).
+You can download the Salt Master image from the [Download page](/download).
