@@ -24,12 +24,39 @@ body {
   //margin-top: 20px;
   //padding-bottom: 1rem;
   //padding-top: 1rem;
-  background-color: #000000;
+  background-color: #222222;
 }
 
 
 body > .container {
   padding: 75px 15px 0;
+}
+
+.navbar-left {
+  font-size: 32px;
+  color: #9D9D9D
+}
+
+.navbar-left img{
+  display: inline-block;
+  vertical-align: middle;
+  width: 36px;
+  padding-left: 5px;
+}
+
+.navbar-left a{
+  color: #9D9D9D
+}
+
+.navbar-left .active a,
+.navbar-left .active a:hover,
+.navbar-left .active a:focus {
+  color: #ffffff;
+  background-color: transparent
+}
+
+.navbar-right {
+  font-size: 14px;
 }
 
 .left-nav-con {

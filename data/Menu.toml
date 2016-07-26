@@ -1,15 +1,15 @@
 [1-documentation]
-Name = "Documentation"
+Name = "DOCUMENTATION"
 URL = "documentation"
 
 [2-download]
-Name = "Download"
+Name = "DOWNLOAD"
 URL = "download"
 
 [3-community]
-Name = "Community"
+Name = "COMMUNITY"
 URL = "community"
 
 [4-support]
-Name = "Support"
+Name = "SUPPORT"
 URL = "support"
