@@ -13,22 +13,18 @@
           <img src="/img/dog-round.png" alt="Ernest logo">
           ernest
         </a>
-
       </div>
       <div id="navbar" class="collapse navbar-collapse navbar-right">
         {{ $currentUrl := .Permalink }}
         <ul class="nav navbar-nav navbar-right">
         {{ range $item := .Site.Data.Menu }}
         {{ $itemPath := printf "%s%s/" $baseUrl $item.URL }}
-          <li class="{{ if eq $currentUrl $itemPath }}active{{ end }}">
-          
+          <li class="{{ if eq $currentUrl $itemPath }}active{{ end }}">          
             <a href="{{ .URL | absURL }}"
             {{ if and ( isset . "Title" ) ( ne .Title "" ) }} title="{{ .Title }}"{{ end }}>
-
             {{ if and ( isset . "IconClass" ) ( ne .IconClass "" )  }}
                 <i class="fa {{ .IconClass }}"></i>
             {{ end }}
-
             {{ .Name }}
             </a>
           </li>
@@ -38,5 +34,4 @@
       <!--/.nav-collapse -->
     </div>
   </nav>
-
 </header>
