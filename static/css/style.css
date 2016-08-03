@@ -16,6 +16,13 @@ body {
   color: #666666;
 }
 
+:root {
+/*
+  --main-color: #ff1a1a;
+*/
+  --main-color: #0E80C4;
+}
+
 .jumbotron p {
   vertical-align: middle;
 }
@@ -73,6 +80,10 @@ body {
 
 .newsbar .container {
     max-width: 100%
+}
+
+.fa-color {
+  color: var(--main-color);
 }
 
 .footer {
