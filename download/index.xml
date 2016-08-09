@@ -40,7 +40,7 @@
 
 &lt;h3 id=&#34;the-appliance&#34;&gt;The Appliance&lt;/h3&gt;
 
-&lt;p&gt;You can download the OVF appliance &lt;a href=&#34;/downloads/ernest.zip&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can download the OVF appliance &lt;a href=&#34;http://download.ernest.io/ernest.zip&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;build-from-source&#34;&gt;Build From Source&lt;/h3&gt;
 
@@ -83,7 +83,7 @@ ernest version 1.0.0
 
 &lt;h2 id=&#34;get-salt&#34;&gt;Get Salt&lt;/h2&gt;
 
-&lt;p&gt;The Salt image can be downloaded from &lt;a href=&#34;/downloads/r3-salt-master.zip&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;The Salt image can be downloaded from &lt;a href=&#34;http://download.ernest.io/r3-salt-master.zip&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
 </description>
     </item>
     
