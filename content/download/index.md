@@ -23,7 +23,7 @@ Once the box is up Ernest will be available on 10.50.1.11.
 
 ### The Appliance
 
-You can download the OVF appliance [here](/downloads/ernest.zip).
+You can download the OVF appliance [here](http://download.ernest.io/ernest.zip).
 
 ### Build From Source
 
@@ -65,4 +65,4 @@ ernest version 1.0.0
 
 ## Get Salt
 
-The Salt image can be downloaded from [here](/downloads/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named 'r3'.
+The Salt image can be downloaded from [here](http://download.ernest.io/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named 'r3'.
