@@ -115,6 +115,9 @@ disqusShortname = "shortname"
 [[menu.documentation]]
   name = "Introduction"
   weight = 0
+#[[menu.documentation]]
+#  name = "Amazon Web Services"
+#  weight = 1
 [[menu.documentation]]
   name = "vCloud Director"
-  weight = 1
+  weight = 2
