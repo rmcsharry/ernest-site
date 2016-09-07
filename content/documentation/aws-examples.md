@@ -11,7 +11,7 @@ showChildren=true
   parent = "Amazon Web Services"
 +++
 
-# vCloud Director Normal Examples
+# Amazon Web Services Examples
 
 If you would like to try Ernest but do not have access to vCloud you can request a demo vCloud account [here](/vcloud-account).
 

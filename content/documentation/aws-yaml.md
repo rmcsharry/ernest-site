@@ -88,6 +88,7 @@ instances:
     key_pair: db-key
     security_groups:
       - db-sg
+
 ```
 
 ## Field Reference
@@ -97,6 +98,7 @@ instances:
 ```
 name: demo
 datacenter: vpc-abcdef01
+
 ```
 
 Service Options support the following fields:
@@ -128,6 +130,7 @@ networks:
 nat_gateways:
   - name: db-nat
     public_network: web
+
 ```
 
 Networking supports the following fields:
@@ -191,6 +194,7 @@ security_groups:
         protocol: any
         from_port: '0'
         to_port: '65535'
+
 ```
 
 Security Groups support the following fields:
@@ -267,6 +271,7 @@ instances:
     key_pair: web-key
     security_groups:
       - web-sg
+
 ```
 
 Instances support the following fields:
