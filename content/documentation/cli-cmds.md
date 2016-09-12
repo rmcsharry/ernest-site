@@ -67,8 +67,8 @@ DESCRIPTION:
   
 
 OPTIONS:
-   --user   User credentials
-   --password   Password credentials
+   --user value      User credentials
+   --password value  Password credentials
 ```
 
 `ernest logout`
@@ -116,18 +116,16 @@ DESCRIPTION:
    Create a new user on the targeted instance of Ernest.
 
    Example:
-    $ ernest user create --user <adminuser> --password <adminpassword> <username> <password>
+    $ ernest user create <username> <password>
 
    You can also add an email to the user with the flag --email
 
    Example:
-    $ ernest user create --user <adminuser> --password <adminpassword> --email username@example.com <username> <password>
+    $ ernest user create --email username@example.com <username> <password>
   
 
 OPTIONS:
-   --user   Admin user credentials
-   --password   Admin password credentials
-   --email  Email for the user
+   --email value  Email for the user
 ```
 
 `ernest user password`
@@ -151,8 +149,8 @@ DESCRIPTION:
   
 
 OPTIONS:
-   --user   Admin user credentials
-   --password   Admin password credentials
+   --user value      Admin user credentials
+   --password value  Admin password credentials
 ```
 
 `ernest user disable`
@@ -172,24 +170,104 @@ DESCRIPTION:
  
 
 OPTIONS:
-   --user   Admin user credentials
-   --password   Admin password credentials
+   --user value      Admin user credentials
+   --password value  Admin password credentials
 ```
 
-`ernest group list`
+`ernest group delete`
 
 ```
 NAME:
-   ernest group list - List available groups.
+   ernest group delete - Deletes a group.
 
 USAGE:
-   ernest group list
+   ernest group delete
 
 DESCRIPTION:
-   List available groups.
+   Deletes a group.
+
+    Example:
+      $ ernest group delete <group-id>
+```
+
+`ernest group create`
+
+```
+NAME:
+   ernest group create - Create a group.
+
+USAGE:
+   ernest group create
+
+DESCRIPTION:
+   Create a group.
 
    Example:
-    $ ernest group list
+    $ ernest group create <name>
+```
+
+`ernest group add-user`
+
+```
+NAME:
+   ernest group add-user - Adds a user to a group.
+
+USAGE:
+   ernest group add-user
+
+DESCRIPTION:
+   Adds a user to a group.
+
+    Example:
+      $ ernest group add-user <user-id> <group-id>
+```
+
+`ernest group remove-user`
+
+```
+NAME:
+   ernest group remove-user - Removes an user from a group.
+
+USAGE:
+   ernest group remove-user
+
+DESCRIPTION:
+   Removes an user from a group.
+
+    Example:
+      $ ernest group remove-user <user-id> <group-id>
+```
+
+`ernest group add-datacenter`
+
+```
+NAME:
+   ernest group add-datacenter - Adds a datacenter to a group.
+
+USAGE:
+   ernest group add-datacenter
+
+DESCRIPTION:
+   Adds a datacenter to a group.
+
+    Example:
+      $ ernest group add-datacenter <datacenter-id> <group-id>
+```
+
+`ernest group remove-datacenter`
+
+```
+NAME:
+   ernest group remove-datacenter - Removes a datacenter from a group.
+
+USAGE:
+   ernest group remove-datacenter
+
+DESCRIPTION:
+   Removes an datacenter from a group.
+
+    Example:
+      $ ernest group remove-datacenter <datacenter-id> <group-id>
 ```
 
 `ernest datacenter list`
@@ -208,27 +286,51 @@ DESCRIPTION:
     $ ernest datacenter list
 ```
 
-`ernest datacenter create`
+`ernest datacenter create aws`
 
 ```
 NAME:
-   ernest datacenter create - Create a new datacenter.
+   ernest datacenter create aws - Create a new aws datacenter.
 
 USAGE:
-   ernest datacenter create [command options] <datacenter-name> <vcloud-url> <network-name>
+   ernest datacenter create aws [command options] <datacenter-name>
 
 DESCRIPTION:
-   Create a new datacenter on the targeted instance of Ernest.
+   Create a new AWS datacenter on the targeted instance of Ernest.
+
+  Example:
+   $ ernest datacenter create aws --region region --token token --secret secret my_datacenter
+   
+
+OPTIONS:
+   --region value  Datacenter region
+   --token value   AWS Token
+   --secret value  AWS Secret
+   --fake          Fake datacenter
+```
+
+`ernest datacenter create vcloud`
+
+```
+NAME:
+   ernest datacenter create vcloud - Create a new vcloud datacenter.
+
+USAGE:
+   ernest datacenter create vcloud [command options] <datacenter-name> <vcloud-url> <network-name>
+
+DESCRIPTION:
+   Create a new vcloud datacenter on the targeted instance of Ernest.
 
    Example:
-    $ ernest datacenter create --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
+    $ ernest datacenter create vcloud --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
   
 
 OPTIONS:
-   --datacenter-user    User to be configured with the datacenter
-   --datacenter-password  Password related with user
-   --datacenter-org     vCloud Organization name
-   --vse-url      VSE URL
+   --datacenter-user value      User to be configured with the datacenter
+   --datacenter-password value  Password related with user
+   --datacenter-org value       vCloud Organization name
+   --vse-url value              VSE URL
+   --fake                       Fake datacenter
 ```
 
 `ernest service list`
@@ -335,7 +437,29 @@ DESCRIPTION:
   
 
 OPTIONS:
-   --build  Build ID
+   --build value  Build ID
+```
+
+`ernest service info`
+
+```
+NAME:
+   ernest service info - $ ernest service info <my_service> --build <specific build>
+
+USAGE:
+   ernest service info [command options] <service_name>
+
+DESCRIPTION:
+   Will show detailed information of the last build of a specified service.
+  In case you specify --build option you will be able to output the detailed information of specific build of a service.
+
+   Examples:
+    $ ernest service definition myservice
+    $ ernest service definition myservice --build build1
+  
+
+OPTIONS:
+   --build value  Build ID
 ```
 
 `ernest service monitor`

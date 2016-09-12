@@ -1,5 +1,4 @@
 +++
-draft = true
 date = "2016-06-06"
 title = "Introduction"
 category = "documentation"

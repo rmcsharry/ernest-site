@@ -82,10 +82,10 @@ Current user : <user>
 
 ## Datacenters
 
-Ernest uses the concept of a **datacenter** to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for a vCloud Director provider is:
+Ernest uses the concept of a **datacenter** to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for Amazon Web Services is:
 
 ```
-$ ernest datacenter create --datacenter-user <vcloud user> --datacenter-password <vcloud password> --datacenter-org <vcloud org> <vcloud datacenter> <vcloud API endpoint> <vcloud external network>
+$ ernest datacenter create aws --region region --token token --secret secret my_datacenter
 
 ```
 
@@ -137,4 +137,5 @@ See the [reference guide](/documentation/cli-cmds/) for a complete list of the c
 
 See the provider-specific documentation for examples of how to use Ernest:
 
+* [Amazon Web Services](/documentation/aws-intro/)
 * [vCloud Director](/documentation/vcloud-intro/)

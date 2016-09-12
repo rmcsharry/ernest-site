@@ -1,5 +1,4 @@
 +++
-draft = true
 date = "2016-06-06"
 title = "Quickstart"
 category = "documentation"
@@ -115,10 +114,10 @@ nat_gateways:
 security_groups:
   - name: public-sg
     egress:
-      - ip: 10.0.0.0/16
-        protocol: tcp
-        from_port: '22'
-        to_port: '22'
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
     ingress:
       - ip: 52.211.19.211/32
         protocol: tcp
@@ -126,10 +125,10 @@ security_groups:
         to_port: '22'
   - name: private-sg
     egress:
-      - ip: 10.0.0.0/16
-        protocol: tcp
-        from_port: '22'
-        to_port: '22'
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
     ingress:
       - ip: 10.0.0.0/16
         protocol: tcp
@@ -144,7 +143,7 @@ instances:
     network: public
     start_ip: 10.0.10.11
     count: 1
-    key_pair: public-key
+    key_pair: my-key
     security_groups:
       - public-sg
 
@@ -154,7 +153,7 @@ instances:
     network: private
     start_ip: 10.0.11.11
     count: 1
-    key_pair: private-key
+    key_pair: my-key
     security_groups:
       - private-sg
 
