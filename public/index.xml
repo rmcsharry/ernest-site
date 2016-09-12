@@ -13,6 +13,875 @@
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>AWS Examples</title>
+      <link>/documentation/aws-examples/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/aws-examples/</guid>
+      <description>
+
+&lt;h1 id=&#34;amazon-web-services-examples&#34;&gt;Amazon Web Services Examples&lt;/h1&gt;
+
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;Before we get started we will need the following information:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AWS access key&lt;/li&gt;
+&lt;li&gt;AWS secret key&lt;/li&gt;
+&lt;li&gt;AWS VPC ID&lt;/li&gt;
+&lt;li&gt;Ernest IP address&lt;/li&gt;
+&lt;li&gt;Ernest username/password&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first step is to set the IP address of Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest target https://10.50.1.11
+Target set
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next we login to Ernest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest login
+Username: user1
+Password: ******
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we have logged in to Ernest we can setup the AWS datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY vpc-abcdef01
+SUCCESS: Datacenter vpc-abcdef01 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have our datacenter created in Ernest we can start building stuff.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-service&#34;&gt;Creating a Service&lt;/h2&gt;
+
+&lt;p&gt;We will create a simple environment with one Ubuntu server, a public IP assigned to it, and the ability to ssh to that server from our IP (52.211.19.211).&lt;/p&gt;
+
+&lt;p&gt;Our environment is defined in the following YAML:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo
+datacenter: vpc-abcdef01
+
+networks:
+  - name: public
+    subnet: 10.0.10.0/24
+    public: true
+
+security_groups:
+  - name: public-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+
+instances:
+  - name: public
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: public
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - public-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lets apply our definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo.yml 
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating networks:
+  - 10.0.10.0/24
+Networks successfully created
+
+Setting up firewalls:
+Firewalls Created
+
+Creating instances:
+   - vpc-abcdef01-demo-public-1
+Instances successfully created
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can list the services we have built:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service list
+NAME  UPDATED         STATUS  ENDPOINT
+demo  2016-09-12 15:57:46.195942 +0000 UTC  done
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can see detailed provider-generated information related to our service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service info demo
+Name : demo
+Datacenter : vpc-abcdef01
+
+Networks:
++---------------------------+-----------------+
+|           NAME            |       ID        |
++---------------------------+-----------------+
+| vpc-abcdef01-demo-public  | subnet-defabc01 |
++---------------------------+-----------------+
+
+Instances:
++-----------------------------+---------------------+---------------+------------+
+|            NAME             |         ID          |   PUBLIC IP   | PRIVATE IP |
++-----------------------------+---------------------+---------------+------------+
+| vpc-abcdef01-demo-public-1  | i-abcdef01abcdef011 | 52.210.179.96 | 10.0.10.11 |
++-----------------------------+---------------------+---------------+------------+
+
+NAT gateways (empty)
+
+Security groups:
++------------------------------+-------------+
+|             NAME             |  GROUP ID   |
++------------------------------+-------------+
+| vpc-abcdef01-demo-public-sg  | sg-01234567 |
++------------------------------+-------------+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can view the history of applies for our service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service history demo
+NAME  BUILD ID                UPDATED         STATUS
+demo  89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde 2016-09-12 15:57:46.195942 +0000 UTC  done
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For our service we can show the definition applied for a given Build ID:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service definition demo --build 89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde
+---
+name: demo
+datacenter: vpc-abcdef01
+
+networks:
+  - name: public
+    subnet: 10.0.10.0/24
+    public: true
+
+security_groups:
+  - name: public-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+
+instances:
+  - name: public
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: public
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - public-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;modifying-a-service&#34;&gt;Modifying a Service&lt;/h2&gt;
+
+&lt;p&gt;Lets modify the service we create above. We will add a private network with a server on it and a NAT gateway attached to it.&lt;/p&gt;
+
+&lt;p&gt;Our modified YAML file is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo
+datacenter: vpc-abcdef01
+
+networks:
+  - name: public
+    subnet: 10.0.10.0/24
+    public: true
+  - name: private
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: private-nat
+
+nat_gateways:
+  - name: private-nat
+    public_network: public
+
+security_groups:
+  - name: public-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+  - name: private-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+
+instances:
+  - name: public
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: public
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - public-sg
+
+  - name: private
+    type: t2.micro
+    image: ami-ed82e39e
+    network: private
+    start_ip: 10.0.11.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - private-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We we apply this YAML we can see Ernest make the necessary changes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo.yml 
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating networks:
+  - 10.0.11.0/24
+Networks successfully created
+
+Setting up firewalls:
+Firewalls Created
+
+Creating instances:
+   - vpc-abcdef01-demo-private-1
+Instances successfully created
+
+Configuring nats
+Nats Created
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can see our service in the list, with the most recent update time:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service list
+NAME  UPDATED         STATUS  ENDPOINT
+demo  2016-09-12 16:03:40.195942 +0000 UTC  done
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The service info has also updated with the new information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service info demo
+Name : demo
+Datacenter : vpc-abcdef01
+
+Networks:
++---------------------------+-----------------+
+|           NAME            |       ID        |
++---------------------------+-----------------+
+| vpc-abcdef01-demo-public  | subnet-defabc01 |
+| vpc-abcdef01-demo-private | subnet-defabc02 |
++---------------------------+-----------------+
+
+Instances:
++-----------------------------+---------------------+---------------+------------+
+|            NAME             |         ID          |   PUBLIC IP   | PRIVATE IP |
++-----------------------------+---------------------+---------------+------------+
+| vpc-abcdef01-demo-public-1  | i-abcdef01abcdef011 | 52.210.179.96 | 10.0.10.11 |
+| vpc-abcdef01-demo-private-1 | i-abcdef01abcdef012 |               | 10.0.11.11 |
++-----------------------------+---------------------+---------------+------------+
+
+NAT gateways:
++-------------------------------+-----------------------+
+|             NAME              |       GROUP ID        |
++-------------------------------+-----------------------+
+| vpc-abcdef01-demo-private-nat | nat-abcdef01abcdef013 |
++-------------------------------+-----------------------+
+
+Security groups:
++------------------------------+-------------+
+|             NAME             |  GROUP ID   |
++------------------------------+-------------+
+| vpc-abcdef01-demo-public-sg  | sg-01234567 |
+| vpc-abcdef01-demo-private-sg | sg-89012345 |
++------------------------------+-------------+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The history shows both of the applies we have done for this service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service history demo
+NAME  BUILD ID                UPDATED         STATUS
+demo  72c1306c-c6ee-4d9b-4230-617d0e969ea9-abf663d6c173d4af98e3ff20bb7e8dde 2016-09-12 16:03:40.235144 +0000 UTC  done
+demo  89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde 2016-09-12 15:57:46.195942 +0000 UTC  done
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The definition for the most recent build can be displayed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service definition demo --build 72c1306c-c6ee-4d9b-4230-617d0e969ea9-abf663d6c173d4af98e3ff20bb7e8dde
+---
+name: demo
+datacenter: vpc-abcdef01
+
+networks:
+  - name: public
+    subnet: 10.0.10.0/24
+    public: true
+  - name: private
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: private-nat
+
+nat_gateways:
+  - name: private-nat
+    public_network: public
+
+security_groups:
+  - name: public-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+  - name: private-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+
+instances:
+  - name: public
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: public
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - public-sg
+
+  - name: private
+    type: t2.micro
+    image: ami-ed82e39e
+    network: private
+    start_ip: 10.0.11.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - private-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clean-up&#34;&gt;Clean-up&lt;/h2&gt;
+
+&lt;p&gt;After we have finished with our service we can remove it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service destroy demo
+Are you sure? Please type yes or no and then press enter: yes
+
+Deleting nats
+Nats Deleted
+
+Deleting instances:
+   - vpc-abcdef01-demo-public-1
+   - vpc-abcdef01-demo-private-1
+Instances deleted
+
+Deleting networks:
+  - 10.0.10.0/24
+  - 10.0.11.0/24
+Networks deleted
+
+Deleting firewalls:
+Firewalls Deleted
+
+SUCCESS: your environment has been successfully deleted
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;Take a look at the &lt;a href=&#34;/documentation/aws-yaml/&#34;&gt;AWS YAML reference&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AWS YAML Reference</title>
+      <link>/documentation/aws-yaml/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/aws-yaml/</guid>
+      <description>
+
+&lt;h1 id=&#34;amazon-web-services-yaml-reference&#34;&gt;Amazon Web Services YAML Reference&lt;/h1&gt;
+
+&lt;p&gt;Environments built and managed with Ernest are defined in YAML format.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo
+datacenter: vpc-abcdef01
+
+networks:
+  - name: web
+    subnet: 10.0.10.0/24
+    public: true
+  - name: db
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: db-nat
+
+nat_gateways:
+  - name: db-nat
+    public_network: web
+
+security_groups:
+  - name: web-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+  - name: db-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+
+instances:
+  - name: web
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: web
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: web-key
+    security_groups:
+      - web-sg
+
+  - name: db
+    type: t2.micro
+    image: ami-ed82e39e
+    network: db
+    start_ip: 10.0.11.11
+    count: 1
+    key_pair: db-key
+    security_groups:
+      - db-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;field-reference&#34;&gt;Field Reference&lt;/h2&gt;
+
+&lt;h3 id=&#34;service-options&#34;&gt;Service Options&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;name: demo
+datacenter: vpc-abcdef01
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Service Options support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the service to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;datacenter&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the datacenter where the service is built.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;networking&#34;&gt;Networking&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;networks:
+  - name: web
+    subnet: 10.0.10.0/24
+    public: true
+  - name: db
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: db-nat
+
+nat_gateways:
+  - name: db-nat
+    public_network: web
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Networking supports the following fields:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;networks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A network is a subnet that our instances can connect to. This is what allows us to network/isolate VM’s together.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the subnet to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subnet&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the IP address range of the subnet.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique for this user &amp;amp; all the networks on the manifest.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;public&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines if the subnet will be public or private.&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;Values can be: “true“ or “false“.&lt;/li&gt;
+&lt;li&gt;This field will default to “false“.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;nat_gateway&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the NAT gateway to use for this subnet.&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field can be empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;nat_gateways&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;NAT gateways enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the NAT gateway to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;public_network&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the public network the NAT gateway will reside.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;security-groups&#34;&gt;Security Groups&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;security_groups:
+  - name: web-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Security Groups support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;name&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the security group to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;egress&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Security group egress rules.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the IP address range for this rule.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;protocol&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the protocol for this rule.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;Values can be: tcp | udp | icmp | any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Starting port-range number.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: 0 - 65535.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ending port-range number.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: 0 - 65535.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ingress&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Security group ingress rules.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the IP address range for this rule.&lt;/li&gt;
+&lt;li&gt;It must follow CIDR notation as described at: &lt;a href=&#34;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;protocol&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the protocol for this rule.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;Values can be: tcp | udp | icmp | any&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;from_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Starting port-range number.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: 0 - 65535.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;to_port&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ending port-range number.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;Values can be: 0 - 65535.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;instances&#34;&gt;Instances&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;instances:
+  - name: web
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: web
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: web-key
+    security_groups:
+      - web-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instances support the following fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of the instance to build.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be unique by user &amp;amp; manifest.&lt;/li&gt;
+&lt;li&gt;The value of this field must be 50 characters maximum.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;elastic_ip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines if the instance will be assigned an elastic IP.&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;Values can be: “true“ or “false“.&lt;/li&gt;
+&lt;li&gt;This field will default to “false“.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;type&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the instance size.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be a valid AWS EC2 size.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;image&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of an AMI to install.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;network:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the name of a network to attach this instance.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;The value of this field should exist on the networks section previously specified.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;start_ip:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that defines the starting IP to allocate the VMs to be built.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be a valid IP.&lt;/li&gt;
+&lt;li&gt;This IP should belong to the network already defined on the instance.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;count&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integer that defines the number of instances to be created.&lt;/li&gt;
+&lt;li&gt;This field is mandatory.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;li&gt;This field must be greater or equal that 1&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;key_pair&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;String that specifies the key pair to be used to login to the instances.&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field cannot be null or empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;security_groups&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Array that contains security groups that will be applied to the instances.&lt;/li&gt;
+&lt;li&gt;This field is optional.&lt;/li&gt;
+&lt;li&gt;This field can be empty.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Bootstrapping with Salt</title>
       <link>/documentation/salt-boot/</link>
       <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
@@ -150,8 +1019,8 @@ DESCRIPTION:
   
 
 OPTIONS:
-   --user   User credentials
-   --password   Password credentials
+   --user value      User credentials
+   --password value  Password credentials
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest logout&lt;/code&gt;&lt;/p&gt;
@@ -196,18 +1065,16 @@ DESCRIPTION:
    Create a new user on the targeted instance of Ernest.
 
    Example:
-    $ ernest user create --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
+    $ ernest user create &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
 
    You can also add an email to the user with the flag --email
 
    Example:
-    $ ernest user create --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; --email username@example.com &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
+    $ ernest user create --email username@example.com &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;
   
 
 OPTIONS:
-   --user   Admin user credentials
-   --password   Admin password credentials
-   --email  Email for the user
+   --email value  Email for the user
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest user password&lt;/code&gt;&lt;/p&gt;
@@ -230,8 +1097,8 @@ DESCRIPTION:
   
 
 OPTIONS:
-   --user   Admin user credentials
-   --password   Admin password credentials
+   --user value      Admin user credentials
+   --password value  Admin password credentials
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest user disable&lt;/code&gt;&lt;/p&gt;
@@ -250,23 +1117,98 @@ DESCRIPTION:
  
 
 OPTIONS:
-   --user   Admin user credentials
-   --password   Admin password credentials
+   --user value      Admin user credentials
+   --password value  Admin password credentials
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;ernest group list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ernest group delete&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
-   ernest group list - List available groups.
+   ernest group delete - Deletes a group.
 
 USAGE:
-   ernest group list
+   ernest group delete
 
 DESCRIPTION:
-   List available groups.
+   Deletes a group.
+
+    Example:
+      $ ernest group delete &amp;lt;group-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest group create&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest group create - Create a group.
+
+USAGE:
+   ernest group create
+
+DESCRIPTION:
+   Create a group.
 
    Example:
-    $ ernest group list
+    $ ernest group create &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest group add-user&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest group add-user - Adds a user to a group.
+
+USAGE:
+   ernest group add-user
+
+DESCRIPTION:
+   Adds a user to a group.
+
+    Example:
+      $ ernest group add-user &amp;lt;user-id&amp;gt; &amp;lt;group-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest group remove-user&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest group remove-user - Removes an user from a group.
+
+USAGE:
+   ernest group remove-user
+
+DESCRIPTION:
+   Removes an user from a group.
+
+    Example:
+      $ ernest group remove-user &amp;lt;user-id&amp;gt; &amp;lt;group-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest group add-datacenter&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest group add-datacenter - Adds a datacenter to a group.
+
+USAGE:
+   ernest group add-datacenter
+
+DESCRIPTION:
+   Adds a datacenter to a group.
+
+    Example:
+      $ ernest group add-datacenter &amp;lt;datacenter-id&amp;gt; &amp;lt;group-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest group remove-datacenter&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest group remove-datacenter - Removes a datacenter from a group.
+
+USAGE:
+   ernest group remove-datacenter
+
+DESCRIPTION:
+   Removes an datacenter from a group.
+
+    Example:
+      $ ernest group remove-datacenter &amp;lt;datacenter-id&amp;gt; &amp;lt;group-id&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest datacenter list&lt;/code&gt;&lt;/p&gt;
@@ -284,26 +1226,49 @@ DESCRIPTION:
     $ ernest datacenter list
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;ernest datacenter create&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ernest datacenter create aws&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
-   ernest datacenter create - Create a new datacenter.
+   ernest datacenter create aws - Create a new aws datacenter.
 
 USAGE:
-   ernest datacenter create [command options] &amp;lt;datacenter-name&amp;gt; &amp;lt;vcloud-url&amp;gt; &amp;lt;network-name&amp;gt;
+   ernest datacenter create aws [command options] &amp;lt;datacenter-name&amp;gt;
 
 DESCRIPTION:
-   Create a new datacenter on the targeted instance of Ernest.
+   Create a new AWS datacenter on the targeted instance of Ernest.
+
+  Example:
+   $ ernest datacenter create aws --region region --token token --secret secret my_datacenter
+   
+
+OPTIONS:
+   --region value  Datacenter region
+   --token value   AWS Token
+   --secret value  AWS Secret
+   --fake          Fake datacenter
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest datacenter create vcloud&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest datacenter create vcloud - Create a new vcloud datacenter.
+
+USAGE:
+   ernest datacenter create vcloud [command options] &amp;lt;datacenter-name&amp;gt; &amp;lt;vcloud-url&amp;gt; &amp;lt;network-name&amp;gt;
+
+DESCRIPTION:
+   Create a new vcloud datacenter on the targeted instance of Ernest.
 
    Example:
-    $ ernest datacenter create --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
+    $ ernest datacenter create vcloud --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
   
 
 OPTIONS:
-   --datacenter-user    User to be configured with the datacenter
-   --datacenter-password  Password related with user
-   --datacenter-org     vCloud Organization name
-   --vse-url      VSE URL
+   --datacenter-user value      User to be configured with the datacenter
+   --datacenter-password value  Password related with user
+   --datacenter-org value       vCloud Organization name
+   --vse-url value              VSE URL
+   --fake                       Fake datacenter
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest service list&lt;/code&gt;&lt;/p&gt;
@@ -404,7 +1369,28 @@ DESCRIPTION:
   
 
 OPTIONS:
-   --build  Build ID
+   --build value  Build ID
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ernest service info&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME:
+   ernest service info - $ ernest service info &amp;lt;my_service&amp;gt; --build &amp;lt;specific build&amp;gt;
+
+USAGE:
+   ernest service info [command options] &amp;lt;service_name&amp;gt;
+
+DESCRIPTION:
+   Will show detailed information of the last build of a specified service.
+  In case you specify --build option you will be able to output the detailed information of specific build of a service.
+
+   Examples:
+    $ ernest service definition myservice
+    $ ernest service definition myservice --build build1
+  
+
+OPTIONS:
+   --build value  Build ID
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest service monitor&lt;/code&gt;&lt;/p&gt;
@@ -499,9 +1485,9 @@ Current user : &amp;lt;user&amp;gt;
 
 &lt;h2 id=&#34;datacenters&#34;&gt;Datacenters&lt;/h2&gt;
 
-&lt;p&gt;Ernest uses the concept of a &lt;strong&gt;datacenter&lt;/strong&gt; to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for a vCloud Director provider is:&lt;/p&gt;
+&lt;p&gt;Ernest uses the concept of a &lt;strong&gt;datacenter&lt;/strong&gt; to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for Amazon Web Services is:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user &amp;lt;vcloud user&amp;gt; --datacenter-password &amp;lt;vcloud password&amp;gt; --datacenter-org &amp;lt;vcloud org&amp;gt; &amp;lt;vcloud datacenter&amp;gt; &amp;lt;vcloud API endpoint&amp;gt; &amp;lt;vcloud external network&amp;gt;
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create aws --region region --token token --secret secret my_datacenter
 
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -549,8 +1535,38 @@ Current user : &amp;lt;user&amp;gt;
 &lt;p&gt;See the provider-specific documentation for examples of how to use Ernest:&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/documentation/aws-intro/&#34;&gt;Amazon Web Services&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;/documentation/vcloud-intro/&#34;&gt;vCloud Director&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/documentation/aws-intro/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/aws-intro/</guid>
+      <description>
+
+&lt;h1 id=&#34;amazon-web-services&#34;&gt;Amazon Web Services&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/&#34; target=&#34;_blank&#34;&gt;Amazon Web Services&lt;/a&gt; (AWS) is a secure cloud services platform, offering compute power, database storage, content delivery and other functionality to help businesses scale and grow.&lt;/p&gt;
+
+&lt;h2 id=&#34;supported-services&#34;&gt;Supported Services&lt;/h2&gt;
+
+&lt;p&gt;The following AWS services are supported by Ernest:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/ec2/&#34; target=&#34;_blank&#34;&gt;EC2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/vpc/&#34; target=&#34;_blank&#34;&gt;VPC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;You can see more information about each option by reviewing the &lt;a href=&#34;/documentation/aws-examples/&#34;&gt;examples&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can also find a reference YAML for AWS &lt;a href=&#34;/documentation/aws-yaml/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -635,7 +1651,202 @@ Current user : &amp;lt;user&amp;gt;
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
 
-&lt;p&gt;Follow the instructions &lt;a href=&#34;/download/&#34;&gt;here&lt;/a&gt; to get Ernest and the Ernest CLI. Once we have done that we can &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;start working with them&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Follow the instructions &lt;a href=&#34;/download/&#34;&gt;here&lt;/a&gt; to get Ernest and the Ernest CLI. Once we have done that we can &lt;a href=&#34;/documentation/quickstart/&#34;&gt;start working with them&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quickstart</title>
+      <link>/documentation/quickstart/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jason.reid@r3labs.io (Jason Reid)</author>
+      <guid>/documentation/quickstart/</guid>
+      <description>
+
+&lt;h1 id=&#34;quickstart-guide&#34;&gt;Quickstart Guide&lt;/h1&gt;
+
+&lt;p&gt;In this quickstart guide we will build a simple environment consisting of a public server and private server on AWS, and allow SSH access from our IP. You will need a working copy of Ernest and the Ernest CLI, your AWS Access Key and Secret Key, and an AWS VPC.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-ernest&#34;&gt;Get Ernest&lt;/h2&gt;
+
+&lt;p&gt;Follow the instructions &lt;a href=&#34;/download/&#34;&gt;here&lt;/a&gt; to get Ernest and the Ernest CLI.&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-your-user&#34;&gt;Setup Your User&lt;/h2&gt;
+
+&lt;p&gt;Target your Ernest instance:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest target https://10.50.1.11
+Target set
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;10.50.1.11 is the IP address Ernest will be on if you are using the Vagrant Box. If you download the OVF or build Ernest from source then Ernest may be run of a different IP.&lt;/p&gt;
+
+&lt;p&gt;Login to Ernest as admin:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest login --user admin --password w4rmR3d
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a user:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest user create user1 abc123
+SUCCESS: User user1 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a group:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest group create group1
+SUCCESS: Group group1 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add the user to the group:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest user list
+NAME	ID
+admin	1
+user1	2
+
+$ ernest group list
+NAME	ID
+admin	1
+group1	2
+
+$ ernest group add-user 2 2
+SUCCESS: Added user 2 to group 2
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;setup-your-datacenter&#34;&gt;Setup Your Datacenter&lt;/h2&gt;
+
+&lt;p&gt;Login as the user:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest login --user user1 --password abc123
+Log in succesful.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Configure the datacenter on Ernest using your Access Key, Secret Key, and VPC ID:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY vpc-abcdef01
+SUCCESS: Datacenter vpc-abcdef01 created
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;create-your-environment&#34;&gt;Create Your Environment&lt;/h2&gt;
+
+&lt;p&gt;We will use this YAML (demo.yml) to create our environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+name: demo
+datacenter: vpc-abcdef01
+
+networks:
+  - name: public
+    subnet: 10.0.10.0/24
+    public: true
+  - name: private
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: private-nat
+
+nat_gateways:
+  - name: private-nat
+    public_network: public
+
+security_groups:
+  - name: public-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+  - name: private-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: &#39;0&#39;
+        to_port: &#39;65535&#39;
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: tcp
+        from_port: &#39;22&#39;
+        to_port: &#39;22&#39;
+
+instances:
+  - name: public
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: public
+    start_ip: 10.0.10.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - public-sg
+
+  - name: private
+    type: t2.micro
+    image: ami-ed82e39e
+    network: private
+    start_ip: 10.0.11.11
+    count: 1
+    key_pair: my-key
+    security_groups:
+      - private-sg
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can apply our YAML:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ernest service apply demo.yml 
+Environment creation requested
+Ernest will show you all output from your requested service creation
+You can cancel at any moment with Ctrl+C, even the service is still being created, you won&#39;t have any output
+Starting environment creation
+
+Creating networks:
+	- 10.0.10.0/24
+	- 10.0.11.0/24
+Networks successfully created
+
+Setting up firewalls:
+Firewalls Created
+
+Creating instances:
+	 - vpc-abcdef01-demo-public-1
+	 - vpc-abcdef01-demo-private-1
+Instances successfully created
+
+Configuring nats
+Nats Created
+
+Configuring nats
+Nats Updated
+
+SUCCESS: rules successfully applied
+Your environment endpoint is: 
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Congratulations you have built something with Ernest!&lt;/p&gt;
+
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;Find out how to use the CLI &lt;a href=&#34;/documentation/cli-guide/&#34;&gt;here&lt;/a&gt;. Then dive into the detailed examples for the supported providers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/documentation/aws-intro/&#34;&gt;Amazon Web Services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/documentation/vcloud-intro/&#34;&gt;vCloud Director&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -684,7 +1895,7 @@ Log in succesful.
 
 &lt;p&gt;Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development --vse-url https://vse-creator-service.carrenza.net r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create vcloud --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development --vse-url https://vse-creator-service.carrenza.net r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
 SUCCESS: Datacenter r3-jreid2 created
 
 &lt;/code&gt;&lt;/pre&gt;
@@ -984,7 +2195,7 @@ Log in succesful.
 
 &lt;p&gt;Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+&lt;pre&gt;&lt;code&gt;$ ernest datacenter create vcloud --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
 SUCCESS: Datacenter r3-jreid2 created
 
 &lt;/code&gt;&lt;/pre&gt;
@@ -2023,356 +3234,13 @@ Networks is a map with two fields&lt;/p&gt;
 &lt;p&gt;After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking the CLI version:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ernest --version
-ernest version 1.0.0
+ernest version 1.3.0
 
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;get-salt&#34;&gt;Get Salt&lt;/h2&gt;
 
 &lt;p&gt;The Salt image can be downloaded from &lt;a href=&#34;http://download.ernest.io/r3-salt-master.zip&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/license/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
-      <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/license/</guid>
-      <description>&lt;h1 id=&#34;mozilla-public-license-version-2.0&#34;&gt;Mozilla Public License&lt;br&gt;Version 2.0&lt;/h1&gt;
-&lt;h2 id=&#34;definitions&#34;&gt;1. Definitions&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;1.1. “Contributor”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means each individual or legal entity that creates, contributes to the creation of, or owns Covered Software.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.2. “Contributor Version”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means the combination of the Contributions of others (if any) used by a Contributor and that particular Contributor’s Contribution.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.3. “Contribution”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means Covered Software of a particular Contributor.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.4. “Covered Software”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means Source Code Form to which the initial Contributor has attached the notice in Exhibit A, the Executable Form of such Source Code Form, and Modifications of such Source Code Form, in each case including portions thereof.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.5. “Incompatible With Secondary Licenses”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means&lt;/p&gt;
-&lt;ol type=&#34;a&#34;&gt;
-&lt;li&gt;&lt;p&gt;that the initial Contributor has attached the notice described in Exhibit B to the Covered Software; or&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;that the Covered Software was made available under the terms of version 1.1 or earlier of the License, but not also under the terms of a Secondary License.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.6. “Executable Form”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means any form of the work other than Source Code Form.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.7. “Larger Work”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means a work that combines Covered Software with other material, in a separate file or files, that is not Covered Software.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.8. “License”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means this document.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.9. “Licensable”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means having the right to grant, to the maximum extent possible, whether at the time of the initial grant or subsequently, any and all of the rights conveyed by this License.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.10. “Modifications”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means any of the following:&lt;/p&gt;
-&lt;ol type=&#34;a&#34;&gt;
-&lt;li&gt;&lt;p&gt;any file in Source Code Form that results from an addition to, deletion from, or modification of the contents of Covered Software; or&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;any new file in Source Code Form that contains any Covered Software.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.11. “Patent Claims” of a Contributor&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means any patent claim(s), including without limitation, method, process, and apparatus claims, in any patent Licensable by such Contributor that would be infringed, but for the grant of the License, by the making, using, selling, offering for sale, having made, import, or transfer of either its Contributions or its Contributor Version.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.12. “Secondary License”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means either the GNU General Public License, Version 2.0, the GNU Lesser General Public License, Version 2.1, the GNU Affero General Public License, Version 3.0, or any later versions of those licenses.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.13. “Source Code Form”&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means the form of the work preferred for making modifications.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;1.14. “You” (or “Your”)&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;means an individual or a legal entity exercising rights under this License. For legal entities, “You” includes any entity that controls, is controlled by, or is under common control with You. For purposes of this definition, “control” means (a) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (b) ownership of more than fifty percent (50%) of the outstanding shares or beneficial ownership of such entity.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2 id=&#34;license-grants-and-conditions&#34;&gt;2. License Grants and Conditions&lt;/h2&gt;
-&lt;h3 id=&#34;grants&#34;&gt;2.1. Grants&lt;/h3&gt;
-&lt;p&gt;Each Contributor hereby grants You a world-wide, royalty-free, non-exclusive license:&lt;/p&gt;
-&lt;ol type=&#34;a&#34;&gt;
-&lt;li&gt;&lt;p&gt;under intellectual property rights (other than patent or trademark) Licensable by such Contributor to use, reproduce, make available, modify, display, perform, distribute, and otherwise exploit its Contributions, either on an unmodified basis, with Modifications, or as part of a Larger Work; and&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;under Patent Claims of such Contributor to make, use, sell, offer for sale, have made, import, and otherwise transfer either its Contributions or its Contributor Version.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;effective-date&#34;&gt;2.2. Effective Date&lt;/h3&gt;
-&lt;p&gt;The licenses granted in Section&amp;nbsp;2.1 with respect to any Contribution become effective for each Contribution on the date the Contributor first distributes such Contribution.&lt;/p&gt;
-&lt;h3 id=&#34;limitations-on-grant-scope&#34;&gt;2.3. Limitations on Grant Scope&lt;/h3&gt;
-&lt;p&gt;The licenses granted in this Section&amp;nbsp;2 are the only rights granted under this License. No additional rights or licenses will be implied from the distribution or licensing of Covered Software under this License. Notwithstanding Section&amp;nbsp;2.1(b) above, no patent license is granted by a Contributor:&lt;/p&gt;
-&lt;ol type=&#34;a&#34;&gt;
-&lt;li&gt;&lt;p&gt;for any code that a Contributor has removed from Covered Software; or&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;for infringements caused by: (i) Your and any other third party’s modifications of Covered Software, or (ii) the combination of its Contributions with other software (except as part of its Contributor Version); or&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;under Patent Claims infringed by Covered Software in the absence of its Contributions.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This License does not grant any rights in the trademarks, service marks, or logos of any Contributor (except as may be necessary to comply with the notice requirements in Section&amp;nbsp;3.4).&lt;/p&gt;
-&lt;h3 id=&#34;subsequent-licenses&#34;&gt;2.4. Subsequent Licenses&lt;/h3&gt;
-&lt;p&gt;No Contributor makes additional grants as a result of Your choice to distribute the Covered Software under a subsequent version of this License (see Section&amp;nbsp;10.2) or under the terms of a Secondary License (if permitted under the terms of Section&amp;nbsp;3.3).&lt;/p&gt;
-&lt;h3 id=&#34;representation&#34;&gt;2.5. Representation&lt;/h3&gt;
-&lt;p&gt;Each Contributor represents that the Contributor believes its Contributions are its original creation(s) or it has sufficient rights to grant the rights to its Contributions conveyed by this License.&lt;/p&gt;
-&lt;h3 id=&#34;fair-use&#34;&gt;2.6. Fair Use&lt;/h3&gt;
-&lt;p&gt;This License is not intended to limit any rights You have under applicable copyright doctrines of fair use, fair dealing, or other equivalents.&lt;/p&gt;
-&lt;h3 id=&#34;conditions&#34;&gt;2.7. Conditions&lt;/h3&gt;
-&lt;p&gt;Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted in Section&amp;nbsp;2.1.&lt;/p&gt;
-&lt;h2 id=&#34;responsibilities&#34;&gt;3. Responsibilities&lt;/h2&gt;
-&lt;h3 id=&#34;distribution-of-source-form&#34;&gt;3.1. Distribution of Source Form&lt;/h3&gt;
-&lt;p&gt;All distribution of Covered Software in Source Code Form, including any Modifications that You create or to which You contribute, must be under the terms of this License. You must inform recipients that the Source Code Form of the Covered Software is governed by the terms of this License, and how they can obtain a copy of this License. You may not attempt to alter or restrict the recipients’ rights in the Source Code Form.&lt;/p&gt;
-&lt;h3 id=&#34;distribution-of-executable-form&#34;&gt;3.2. Distribution of Executable Form&lt;/h3&gt;
-&lt;p&gt;If You distribute Covered Software in Executable Form then:&lt;/p&gt;
-&lt;ol type=&#34;a&#34;&gt;
-&lt;li&gt;&lt;p&gt;such Covered Software must also be made available in Source Code Form, as described in Section&amp;nbsp;3.1, and You must inform recipients of the Executable Form how they can obtain a copy of such Source Code Form by reasonable means in a timely manner, at a charge no more than the cost of distribution to the recipient; and&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;You may distribute such Executable Form under the terms of this License, or sublicense it under different terms, provided that the license for the Executable Form does not attempt to limit or alter the recipients’ rights in the Source Code Form under this License.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;distribution-of-a-larger-work&#34;&gt;3.3. Distribution of a Larger Work&lt;/h3&gt;
-&lt;p&gt;You may create and distribute a Larger Work under terms of Your choice, provided that You also comply with the requirements of this License for the Covered Software. If the Larger Work is a combination of Covered Software with a work governed by one or more Secondary Licenses, and the Covered Software is not Incompatible With Secondary Licenses, this License permits You to additionally distribute such Covered Software under the terms of such Secondary License(s), so that the recipient of the Larger Work may, at their option, further distribute the Covered Software under the terms of either this License or such Secondary License(s).&lt;/p&gt;
-&lt;h3 id=&#34;notices&#34;&gt;3.4. Notices&lt;/h3&gt;
-&lt;p&gt;You may not remove or alter the substance of any license notices (including copyright notices, patent notices, disclaimers of warranty, or limitations of liability) contained within the Source Code Form of the Covered Software, except that You may alter any license notices to the extent required to remedy known factual inaccuracies.&lt;/p&gt;
-&lt;h3 id=&#34;application-of-additional-terms&#34;&gt;3.5. Application of Additional Terms&lt;/h3&gt;
-&lt;p&gt;You may choose to offer, and to charge a fee for, warranty, support, indemnity or liability obligations to one or more recipients of Covered Software. However, You may do so only on Your own behalf, and not on behalf of any Contributor. You must make it absolutely clear that any such warranty, support, indemnity, or liability obligation is offered by You alone, and You hereby agree to indemnify every Contributor for any liability incurred by such Contributor as a result of warranty, support, indemnity or liability terms You offer. You may include additional disclaimers of warranty and limitations of liability specific to any jurisdiction.&lt;/p&gt;
-&lt;h2 id=&#34;inability-to-comply-due-to-statute-or-regulation&#34;&gt;4. Inability to Comply Due to Statute or Regulation&lt;/h2&gt;
-&lt;p&gt;If it is impossible for You to comply with any of the terms of this License with respect to some or all of the Covered Software due to statute, judicial order, or regulation then You must: (a) comply with the terms of this License to the maximum extent possible; and (b) describe the limitations and the code they affect. Such description must be placed in a text file included with all distributions of the Covered Software under this License. Except to the extent prohibited by statute or regulation, such description must be sufficiently detailed for a recipient of ordinary skill to be able to understand it.&lt;/p&gt;
-&lt;h2 id=&#34;termination&#34;&gt;5. Termination&lt;/h2&gt;
-&lt;p&gt;5.1. The rights granted under this License will terminate automatically if You fail to comply with any of its terms. However, if You become compliant, then the rights granted under this License from a particular Contributor are reinstated (a) provisionally, unless and until such Contributor explicitly and finally terminates Your grants, and (b) on an ongoing basis, if such Contributor fails to notify You of the non-compliance by some reasonable means prior to 60 days after You have come back into compliance. Moreover, Your grants from a particular Contributor are reinstated on an ongoing basis if such Contributor notifies You of the non-compliance by some reasonable means, this is the first time You have received notice of non-compliance with this License from such Contributor, and You become compliant prior to 30 days after Your receipt of the notice.&lt;/p&gt;
-&lt;p&gt;5.2. If You initiate litigation against any entity by asserting a patent infringement claim (excluding declaratory judgment actions, counter-claims, and cross-claims) alleging that a Contributor Version directly or indirectly infringes any patent, then the rights granted to You by any and all Contributors for the Covered Software under Section&amp;nbsp;2.1 of this License shall terminate.&lt;/p&gt;
-&lt;p&gt;5.3. In the event of termination under Sections&amp;nbsp;5.1 or 5.2 above, all end user license agreements (excluding distributors and resellers) which have been validly granted by You or Your distributors under this License prior to termination shall survive termination.&lt;/p&gt;
-&lt;h2 id=&#34;disclaimer-of-warranty&#34;&gt;6. Disclaimer of Warranty&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Covered Software is provided under this License on an “as is” basis, without warranty of any kind, either expressed, implied, or statutory, including, without limitation, warranties that the Covered Software is free of defects, merchantable, fit for a particular purpose or non-infringing. The entire risk as to the quality and performance of the Covered Software is with You. Should any Covered Software prove defective in any respect, You (not any Contributor) assume the cost of any necessary servicing, repair, or correction. This disclaimer of warranty constitutes an essential part of this License. No use of any Covered Software is authorized under this License except under this disclaimer.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;limitation-of-liability&#34;&gt;7. Limitation of Liability&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Under no circumstances and under no legal theory, whether tort (including negligence), contract, or otherwise, shall any Contributor, or anyone who distributes Covered Software as permitted above, be liable to You for any direct, indirect, special, incidental, or consequential damages of any character including, without limitation, damages for lost profits, loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses, even if such party shall have been informed of the possibility of such damages. This limitation of liability shall not apply to liability for death or personal injury resulting from such party’s negligence to the extent applicable law prohibits such limitation. Some jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so this exclusion and limitation may not apply to You.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;litigation&#34;&gt;8. Litigation&lt;/h2&gt;
-&lt;p&gt;Any litigation relating to this License may be brought only in the courts of a jurisdiction where the defendant maintains its principal place of business and such litigation shall be governed by laws of that jurisdiction, without reference to its conflict-of-law provisions. Nothing in this Section shall prevent a party’s ability to bring cross-claims or counter-claims.&lt;/p&gt;
-&lt;h2 id=&#34;miscellaneous&#34;&gt;9. Miscellaneous&lt;/h2&gt;
-&lt;p&gt;This License represents the complete agreement concerning the subject matter hereof. If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable. Any law or regulation which provides that the language of a contract shall be construed against the drafter shall not be used to construe this License against a Contributor.&lt;/p&gt;
-&lt;h2 id=&#34;versions-of-the-license&#34;&gt;10. Versions of the License&lt;/h2&gt;
-&lt;h3 id=&#34;new-versions&#34;&gt;10.1. New Versions&lt;/h3&gt;
-&lt;p&gt;Mozilla Foundation is the license steward. Except as provided in Section&amp;nbsp;10.3, no one other than the license steward has the right to modify or publish new versions of this License. Each version will be given a distinguishing version number.&lt;/p&gt;
-&lt;h3 id=&#34;effect-of-new-versions&#34;&gt;10.2. Effect of New Versions&lt;/h3&gt;
-&lt;p&gt;You may distribute the Covered Software under the terms of the version of the License under which You originally received the Covered Software, or under the terms of any subsequent version published by the license steward.&lt;/p&gt;
-&lt;h3 id=&#34;modified-versions&#34;&gt;10.3. Modified Versions&lt;/h3&gt;
-&lt;p&gt;If you create software not governed by this License, and you want to create a new license for such software, you may create and use a modified version of this License if you rename the license and remove any references to the name of the license steward (except to note that such modified license differs from this License).&lt;/p&gt;
-&lt;h3 id=&#34;distributing-source-code-form-that-is-incompatible-with-secondary-licenses&#34;&gt;10.4. Distributing Source Code Form that is Incompatible With Secondary Licenses&lt;/h3&gt;
-&lt;p&gt;If You choose to distribute Source Code Form that is Incompatible With Secondary Licenses under the terms of this version of the License, the notice described in Exhibit B of this License must be attached.&lt;/p&gt;
-&lt;h2 id=&#34;exhibit-a---source-code-form-license-notice&#34;&gt;Exhibit A - Source Code Form License Notice&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;If it is not possible or desirable to put the notice in a particular file, then You may include the notice in a location (such as a LICENSE file in a relevant directory) where a recipient would be likely to look for such a notice.&lt;/p&gt;
-&lt;p&gt;You may add additional accurate notices of copyright ownership.&lt;/p&gt;
-&lt;h2 id=&#34;exhibit-b---incompatible-with-secondary-licenses-notice&#34;&gt;Exhibit B - “Incompatible With Secondary Licenses” Notice&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/slack/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
-      <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/slack/</guid>
-      <description>&lt;h1 id=&#34;slack&#34;&gt;Community Slack Channel Access Form&lt;/h1&gt;
-
-&lt;form class=&#34;form-horizontal&#34; id=&#34;input-form&#34; action=&#34;https://docs.google.com/forms/d/1t0olvu3MQNBdz3oTKLm_NczBeFzL8AnIeMOrQwfAKF4/formResponse?&#34; method=&#34;POST&#34; target=&#34;no-target&#34; onSubmit=&#34;alert(&#39;Thank you for your request, we will process it shortly.&#39;);window.location.href = &#39;/community/&#39;;&#34;&gt;
-&lt;fieldset&gt;
-
-&lt;legend&gt;&lt;/legend&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;firstname&#34;&gt;First Name&lt;/label&gt;  
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;input id=&#34;firstname&#34; name=&#34;entry.1042863238&#34; type=&#34;text&#34; placeholder=&#34;First Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
-    
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;lastname&#34;&gt;Last Name&lt;/label&gt;  
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;input id=&#34;lastname&#34; name=&#34;entry.893089123&#34; type=&#34;text&#34; placeholder=&#34;Last Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
-    
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;  
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;input id=&#34;email&#34; name=&#34;entry.1081522787&#34; type=&#34;text&#34; placeholder=&#34;Email Address&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
-    
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;submit&#34;&gt;&lt;/label&gt;
-  &lt;div class=&#34;col-md-4&#34;&gt;
-    &lt;button id=&#34;submit&#34; type=&#34;submit&#34; class=&#34;btn btn-success&#34;&gt;Submit&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/fieldset&gt;
-&lt;/form&gt;
-
-&lt;iframe src=&#34;#&#34; id=&#34;no-target&#34; name=&#34;no-target&#34; style=&#34;visibility:hidden&#34;&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/support/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
-      <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/support/</guid>
-      <description>
-
-&lt;h1 id=&#34;commercial-support&#34;&gt;Commercial Support&lt;/h1&gt;
-
-&lt;p&gt;R3 Labs offer two support plans for Ernest:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;Standard&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;Premium&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Contract Type&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Annual subscription&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Annual subscription&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Access to a technical support website&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Maintenance and upgrades&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Web support (email/chat) during standard business hours (9:00AM – 5:00 PM CET)&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Maximum number of designated contacts&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Feature priorities&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Prioritized issue resolution&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&amp;#x25cf;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Response time on non-critical issues&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Best effort&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Within 8 business hours&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Response time on critical issues**&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Within 8 business hours&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Within 4 hours&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Pricing&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;/supportplan&#34;&gt;Contact us&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;&lt;a href=&#34;/supportplan&#34;&gt;Contact us&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;small&gt;**A ‘Critical Issue’ is defined as a system down that impacts your use of Ernest in a production environment. There is no viable workaround, and business is severely impacted.&lt;/small&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/supportplan/</link>
-      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
-      <author>jason.reid@r3labs.io (Jason Reid)</author>
-      <guid>/supportplan/</guid>
-      <description>&lt;h1 id=&#34;support-plan&#34;&gt;Support Plan Contact Form&lt;/h1&gt;
-
-&lt;form class=&#34;form-horizontal&#34; id=&#34;input-form&#34; action=&#34;https://docs.google.com/forms/d/1t_F8UU5CebFIWe2rCU7xlBPk-z0ISN_V6v2bcktsoH0/formResponse?&#34; method=&#34;POST&#34; target=&#34;no-target&#34; onSubmit=&#34;alert(&#39;Thank you for your query, we will respond shortly.&#39;);window.location.href = &#39;/support/&#39;;&#34;&gt;
-&lt;fieldset&gt;
-
-&lt;legend&gt;&lt;/legend&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;firstname&#34;&gt;First Name&lt;/label&gt;  
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;input id=&#34;firstname&#34; name=&#34;entry.706791366&#34; type=&#34;text&#34; placeholder=&#34;First Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
-    
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;lastname&#34;&gt;Last Name&lt;/label&gt;  
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;input id=&#34;lastname&#34; name=&#34;entry.1072744609&#34; type=&#34;text&#34; placeholder=&#34;Last Name&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
-    
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;  
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;input id=&#34;email&#34; name=&#34;entry.1586474514&#34; type=&#34;text&#34; placeholder=&#34;Email Address&#34; class=&#34;form-control input-md&#34; required=&#34;&#34;&gt;
-    
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;plan&#34;&gt;Support Plan&lt;/label&gt;
-  &lt;div class=&#34;col-md-4&#34;&gt;
-  &lt;div class=&#34;radio&#34;&gt;
-    &lt;label for=&#34;plan-0&#34;&gt;
-      &lt;input type=&#34;radio&#34; name=&#34;entry.1568716440&#34; id=&#34;plan-0&#34; value=&#34;Standard&#34; checked=&#34;checked&#34;&gt;
-      Standard
-    &lt;/label&gt;
-	&lt;/div&gt;
-  &lt;div class=&#34;radio&#34;&gt;
-    &lt;label for=&#34;plan-1&#34;&gt;
-      &lt;input type=&#34;radio&#34; name=&#34;entry.1568716440&#34; id=&#34;plan-1&#34; value=&#34;Premium&#34;&gt;
-      Premium
-    &lt;/label&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&#34;form-group&#34;&gt;
-  &lt;label class=&#34;col-md-4 control-label&#34; for=&#34;submit&#34;&gt;&lt;/label&gt;
-  &lt;div class=&#34;col-md-4&#34;&gt;
-    &lt;button id=&#34;submit&#34; type=&#34;submit&#34; class=&#34;btn btn-success&#34;&gt;Submit&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/fieldset&gt;
-&lt;/form&gt;
-
-&lt;iframe src=&#34;#&#34; id=&#34;no-target&#34; name=&#34;no-target&#34; style=&#34;visibility:hidden&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
