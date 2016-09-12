@@ -48,7 +48,7 @@ Log in succesful.
 Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:
 
 ```
-$ ernest datacenter create --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development --vse-url https://vse-creator-service.carrenza.net r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+$ ernest datacenter create vcloud --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development --vse-url https://vse-creator-service.carrenza.net r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
 SUCCESS: Datacenter r3-jreid2 created
 
 ```

@@ -12,7 +12,7 @@ showChildren=true
 
 # Quickstart Guide
 
-In this quickstart guide we will build a simple environment consisting of a public server and private server on AWS, and allow SSH access from our IP. You will need a working copy of Ernest and the Ernest CLI, AWS Access Key and Secret Key, and an AWS VPC.
+In this quickstart guide we will build a simple environment consisting of a public server and private server on AWS, and allow SSH access from our IP. You will need a working copy of Ernest and the Ernest CLI, your AWS Access Key and Secret Key, and an AWS VPC.
 
 ## Get Ernest
 
@@ -193,3 +193,10 @@ Your environment endpoint is:
 ```
 
 Congratulations you have built something with Ernest!
+
+## Next Steps
+
+Find out how to use the CLI [here](/documentation/cli-guide/). Then dive into the detailed examples for the supported providers:
+
+* [Amazon Web Services](/documentation/aws-intro/)
+* [vCloud Director](/documentation/vcloud-intro/)

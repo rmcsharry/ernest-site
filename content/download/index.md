@@ -59,7 +59,7 @@ After installing Ernest CLI, verify the installation worked by opening a new ter
 
 ```
 $ ernest --version
-ernest version 1.4.0
+ernest version 1.3.0
 
 ```
 

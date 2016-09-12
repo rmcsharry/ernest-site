@@ -12,7 +12,49 @@ showChildren=true
 
 # Amazon Web Services Examples
 
-First YAML:
+## Setup
+
+Before we get started we will need the following information:
+
+* AWS access key
+* AWS secret key
+* AWS VPC ID
+* Ernest IP address
+* Ernest username/password
+
+The first step is to set the IP address of Ernest:
+
+```
+$ ernest target https://10.50.1.11
+Target set
+
+```
+
+Next we login to Ernest:
+
+```
+$ ernest login
+Username: user1
+Password: ******
+Log in succesful.
+
+```
+
+Once we have logged in to Ernest we can setup the AWS datacenter and credentials that Ernest will use to create our infrastructure:
+
+```
+$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY vpc-abcdef01
+SUCCESS: Datacenter vpc-abcdef01 created
+
+```
+
+Now that we have our datacenter created in Ernest we can start building stuff.
+
+## Creating a Service
+
+We will create a simple environment with one Ubuntu server, a public IP assigned to it, and the ability to ssh to that server from our IP (52.211.19.211).
+
+Our environment is defined in the following YAML:
 
 ```
 ---
@@ -51,7 +93,7 @@ instances:
 
 ```
 
-First YAML apply:
+Lets apply our definition:
 
 ```
 $ ernest service apply demo.yml 
@@ -76,7 +118,7 @@ Your environment endpoint is:
 
 ```
 
-First YAML list:
+We can list the services we have built:
 
 ```
 $ ernest service list
@@ -85,7 +127,7 @@ demo  2016-09-12 15:57:46.195942 +0000 UTC  done
 
 ```
 
-First YAML info:
+We can see detailed provider-generated information related to our service:
 
 ```
 $ ernest service info demo
@@ -117,7 +159,7 @@ Security groups:
 
 ```
 
-First YAML history:
+We can view the history of applies for our service:
 
 ```
 $ ernest service history demo
@@ -126,7 +168,7 @@ demo  89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde 2016
 
 ```
 
-First YAML definition:
+For our service we can show the definition applied for a given Build ID:
 
 ```
 $ ernest service definition demo --build 89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde
@@ -166,7 +208,11 @@ instances:
 
 ```
 
-Second YAML:
+## Modifying a Service
+
+Lets modify the service we create above. We will add a private network with a server on it and a NAT gateway attached to it.
+
+Our modified YAML file is:
 
 ```
 ---
@@ -234,7 +280,7 @@ instances:
 
 ```
 
-Second YAML apply:
+We we apply this YAML we can see Ernest make the necessary changes:
 
 ```
 $ ernest service apply demo.yml 
@@ -262,16 +308,16 @@ Your environment endpoint is:
 
 ```
 
-First YAML list:
+We can see our service in the list, with the most recent update time:
 
 ```
 $ ernest service list
 NAME  UPDATED         STATUS  ENDPOINT
-demo  2016-09-12 15:57:46.195942 +0000 UTC  done
+demo  2016-09-12 16:03:40.195942 +0000 UTC  done
 
 ```
 
-Second YAML info:
+The service info has also updated with the new information:
 
 ```
 $ ernest service info demo
@@ -311,7 +357,7 @@ Security groups:
 
 ```
 
-Second YAML history:
+The history shows both of the applies we have done for this service:
 
 ```
 $ ernest service history demo
@@ -321,7 +367,7 @@ demo  89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde 2016
 
 ```
 
-Second YAML definition:
+The definition for the most recent build can be displayed:
 
 ```
 $ ernest service definition demo --build 72c1306c-c6ee-4d9b-4230-617d0e969ea9-abf663d6c173d4af98e3ff20bb7e8dde
@@ -389,3 +435,35 @@ instances:
       - private-sg
 
 ```
+
+## Clean-up
+
+After we have finished with our service we can remove it:
+
+```
+$ ernest service destroy demo
+Are you sure? Please type yes or no and then press enter: yes
+
+Deleting nats
+Nats Deleted
+
+Deleting instances:
+   - vpc-abcdef01-demo-public-1
+   - vpc-abcdef01-demo-private-1
+Instances deleted
+
+Deleting networks:
+  - 10.0.10.0/24
+  - 10.0.11.0/24
+Networks deleted
+
+Deleting firewalls:
+Firewalls Deleted
+
+SUCCESS: your environment has been successfully deleted
+
+```
+
+## Next Steps
+
+Take a look at the [AWS YAML reference](/documentation/aws-yaml/).
