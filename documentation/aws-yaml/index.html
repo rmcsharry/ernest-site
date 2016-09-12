@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>vCloud YAML Reference  &middot; ernest.io</title>
+  <title>AWS YAML Reference  &middot; ernest.io</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -17,9 +17,9 @@
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content="vCloud YAML Reference  &middot; ernest.io ">
+<meta property="og:title" content="AWS YAML Reference  &middot; ernest.io ">
 <meta property="og:site_name" content="ernest.io"/>
-<meta property="og:url" content="/documentation/vcloud-yaml/" />
+<meta property="og:url" content="/documentation/aws-yaml/" />
 <meta property="og:locale" content="en-EN">
 
 
@@ -34,9 +34,9 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@r3labs" />
 <meta name="twitter:creator" content="@r3labs" />
-<meta name="twitter:title" content="vCloud YAML Reference" />
+<meta name="twitter:title" content="AWS YAML Reference" />
 <meta name="twitter:description" content="" />
-<meta name="twitter:url" content="/documentation/vcloud-yaml/" />
+<meta name="twitter:url" content="/documentation/aws-yaml/" />
 <meta name="twitter:domain" content="/">
   
 
@@ -44,20 +44,20 @@
   {
     "@context": "http://schema.org",
     "@type": "Article",
-    "headline": "vCloud YAML Reference",
+    "headline": "AWS YAML Reference",
     "author": {
       "@type": "Person",
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  1354 
+    "wordCount":  1066 
   }
 </script>
 
 
 
-<link rel="canonical" href="/documentation/vcloud-yaml/" />
+<link rel="canonical" href="/documentation/aws-yaml/" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/ernest-dog.ico">
 <link rel="icon" href="/img/ernest-dog.ico">
 <meta name="generator" content="Hugo 0.16-DEV" />
@@ -226,7 +226,7 @@
   </li>
   
 
-	<li class="main-menu-item">
+	<li class="main-menu-item active">
 
     
     <span class="main-menu-item-title">Amazon Web Services</span>
@@ -261,7 +261,7 @@
       
       
     
-    <li class="">
+    <li class="active">
       <a href="/documentation/aws-yaml/">AWS YAML Reference </a>
 
       
@@ -277,7 +277,7 @@
   </li>
   
 
-	<li class="main-menu-item active">
+	<li class="main-menu-item">
 
     
     <span class="main-menu-item-title">vCloud Director</span>
@@ -323,7 +323,7 @@
       
       
     
-    <li class="active">
+    <li class="">
       <a href="/documentation/vcloud-yaml/">vCloud YAML Reference </a>
 
       
@@ -344,7 +344,7 @@
     <div class="content col-md-9">
       
 
-<h1 id="vcloud-director-yaml-reference">vCloud Director YAML Reference</h1>
+<h1 id="amazon-web-services-yaml-reference">Amazon Web Services YAML Reference</h1>
 
 <p>Environments built and managed with Ernest are defined in YAML format.</p>
 
@@ -352,57 +352,75 @@
 
 <pre><code>---
 name: demo
-datacenter: r3-jreid2
-bootstrapping: salt
-service_ip: 195.3.186.44
-ernest_ip:
-  - 31.210.240.161
+datacenter: vpc-abcdef01
 
-routers: 
-  - name: demo
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
+networks:
+  - name: web
+    subnet: 10.0.10.0/24
+    public: true
+  - name: db
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: db-nat
 
-    - name: out_in_80
-      source: any
-      from_port: any
-      destination: internal
-      to_port: '80'
-      protocol: tcp
-      action: allow
+nat_gateways:
+  - name: db-nat
+    public_network: web
 
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-
-    port_forwarding:
-      - source: 195.3.186.44
-        from_port: '80'
-        to_port: '80'
-        destination: 10.1.0.11
+security_groups:
+  - name: web-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: '22'
+        to_port: '22'
+  - name: db-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
+      - ip: 52.211.19.211/32
+        protocol: tcp
+        from_port: '22'
+        to_port: '22'
 
 instances:
   - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: web
+    start_ip: 10.0.10.11
     count: 1
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-    provisioner:
-      - exec:
-        - 'sudo apt-get update'
-        - 'sudo apt-get install apache2 -y'
+    key_pair: web-key
+    security_groups:
+      - web-sg
+
+  - name: db
+    type: t2.micro
+    image: ami-ed82e39e
+    network: db
+    start_ip: 10.0.11.11
+    count: 1
+    key_pair: db-key
+    security_groups:
+      - db-sg
+
 </code></pre>
 
 <h2 id="field-reference">Field Reference</h2>
@@ -410,11 +428,8 @@ instances:
 <h3 id="service-options">Service Options</h3>
 
 <pre><code>name: demo
-datacenter: r3-jreid2
-bootstrapping: salt
-service_ip: 195.3.186.44
-ernest_ip:
-  - 31.210.240.161
+datacenter: vpc-abcdef01
+
 </code></pre>
 
 <p>Service Options support the following fields:</p>
@@ -437,147 +452,36 @@ ernest_ip:
 <li>This field cannot be null or empty.</li>
 <li>The value of this field must 50 characters maximum.</li>
 </ul></li>
-
-<li><p><strong>bootstrapping</strong></p>
-
-<ul>
-<li>String [salt, none] that defines if you’re going to be able to execute commands on the servers</li>
-<li>This field is optional.</li>
-<li>This field defaults to none.</li>
-<li>The value of this is restricted to “salt” or “none”</li>
-</ul></li>
-
-<li><p><strong>service_ip</strong></p>
-
-<ul>
-<li>String that defines the public ip of the router already created on vcloud</li>
-<li>This field is optional</li>
-<li>This field defaults to none.</li>
-<li>The value of this field is an IP, internally defined as <a href="https://golang.org/pkg/net/#IP" target="_blank">https://golang.org/pkg/net/#IP</a></li>
-</ul></li>
-
-<li><p><strong>ernest_ip</strong></p>
-
-<ul>
-<li>Array of IPs that defines the ernest instance public ip, so it will be allowed through the created service firewall rules.</li>
-<li>The value of this field is an IP, internally defined as <a href="https://golang.org/pkg/net/#IP" target="_blank">https://golang.org/pkg/net/#IP</a><br /></li>
-<li>This field is mandatory only if you’ve defined bootstrapping as “salt”</li>
-<li>This field defaults to an empty array.</li>
-</ul></li>
 </ul>
 
 <h3 id="networking">Networking</h3>
 
-<pre><code>routers: 
-  - name: demo
-    rules:
-    - name: in_out_any
-      source: internal
-      from_port: any
-      destination: external
-      to_port: any
-      protocol: any
-      action: allow
+<pre><code>networks:
+  - name: web
+    subnet: 10.0.10.0/24
+    public: true
+  - name: db
+    subnet: 10.0.11.0/24
+    public: false
+    nat_gateway: db-nat
 
-    - name: out_in_80
-      source: any
-      from_port: any
-      destination: internal
-      to_port: '80'
-      protocol: tcp
-      action: allow
+nat_gateways:
+  - name: db-nat
+    public_network: web
 
-    networks:
-      - name: web
-        subnet: 10.1.0.0/24
-        dns:
-          - 8.8.8.8
-          - 8.8.4.4
-
-    port_forwarding:
-      - source: 195.3.186.44
-        from_port: '80'
-        to_port: '80'
-        destination: 10.1.0.11
 </code></pre>
 
 <p>Networking supports the following fields:</p>
 
-<ul>
-<li><strong>name</strong>
-
-<ul>
-<li>String that defines the name of the service to build.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>This field must be unique by user &amp; manifest.</li>
-<li>The value of this field can be 50 characters maximum.</li>
-</ul></li>
-</ul>
-
-<p><strong>rules</strong></p>
-
-<p>A firewall rule controls traffic that is allowed to flow between both internal and external routers and networks.</p>
-
-<ul>
-<li><p><strong>name</strong></p>
-
-<ul>
-<li>String that defines the name of the rule.</li>
-<li>This field is mandatory.</li>
-<li>This field can’t be null or empty.</li>
-</ul></li>
-
-<li><p><strong>source</strong></p>
-
-<ul>
-<li>String the source of the network where this firewall acts</li>
-<li>This field is mandatory.</li>
-<li>Values can be: external | internal | any | named networks | CIDR</li>
-</ul></li>
-
-<li><p><strong>from_port</strong></p>
-
-<ul>
-<li>Source port numbers</li>
-<li>This field is mandatory.</li>
-<li>Values can be:  an string ( valid port number, 1 - 65535 ) or any</li>
-</ul></li>
-
-<li><p><strong>destination</strong></p>
-
-<ul>
-<li>String the destination of the network where this firewall acts</li>
-<li>This field is mandatory.</li>
-<li>Values can be:  external | internal | any | named networks | CIDR</li>
-</ul></li>
-
-<li><p><strong>to_port</strong></p>
-
-<ul>
-<li>Destination port numbers</li>
-<li>This field is mandatory.</li>
-<li>Values can be:  an string ( valid port number, 1 - 65535 ) or any</li>
-</ul></li>
-
-<li><p><strong>protocol</strong></p>
-
-<ul>
-<li>String with the protocol we are firewalling</li>
-<li>This field is mandatory.</li>
-<li>Values can be: tcp | udp | icmp | any | tcp &amp; udp</li>
-</ul></li>
-</ul>
-
 <p><strong>networks</strong></p>
 
-<p>A network is a virtual network that attaches to a router (in vcloud, other providers will differ). This is what allows us to network/isolate VM’s together.</p>
+<p>A network is a subnet that our instances can connect to. This is what allows us to network/isolate VM’s together.</p>
 
 <ul>
 <li><p><strong>name</strong></p>
 
 <ul>
-<li>String that defines the name of the service to build.</li>
+<li>String that defines the name of the subnet to build.</li>
 <li>This field is mandatory.</li>
 <li>This field cannot be null or empty.</li>
 <li>The value of this field must be 50 characters maximum.</li>
@@ -586,57 +490,162 @@ ernest_ip:
 <li><p><strong>subnet</strong></p>
 
 <ul>
-<li>String that defines the name of a network to add to this service.</li>
+<li>String that defines the IP address range of the subnet.</li>
 <li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
 <li>This field is mandatory.</li>
 <li>This field cannot be null or empty.</li>
 <li>This field must be unique for this user &amp; all the networks on the manifest.</li>
 </ul></li>
 
-<li><p><strong>dns</strong></p>
+<li><p><strong>public</strong></p>
 
 <ul>
-<li>Array of IPs to use as dns servers on this service</li>
-<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
+<li>String that defines if the subnet will be public or private.</li>
 <li>This field is optional.</li>
-<li>This field can be empty and it will default to [&laquo;8.8.8.8&raquo;, &laquo;8.8.4.4&raquo;].</li>
+<li>Values can be: “true“ or “false“.</li>
+<li>This field will default to “false“.</li>
+</ul></li>
+
+<li><p><strong>nat_gateway</strong></p>
+
+<ul>
+<li>String that defines the name of the NAT gateway to use for this subnet.</li>
+<li>This field is optional.</li>
+<li>This field can be empty.</li>
 </ul></li>
 </ul>
 
-<p><strong>port_forwarding</strong></p>
+<p><strong>nat_gateways</strong></p>
 
-<p>A port forward is something that converts translates a request on a port from one IP to another on a different network. Only tcp port forwarding is supported.</p>
+<p>NAT gateways enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.</p>
 
 <ul>
+<li><p><strong>name</strong></p>
+
+<ul>
+<li>String that defines the name of the NAT gateway to build.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>The value of this field must be 50 characters maximum.</li>
+</ul></li>
+
+<li><p><strong>public_network</strong></p>
+
+<ul>
+<li>String that defines the name of the public network the NAT gateway will reside.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>The value of this field must be 50 characters maximum.</li>
+</ul></li>
+</ul>
+
+<h3 id="security-groups">Security Groups</h3>
+
+<pre><code>security_groups:
+  - name: web-sg
+    egress:
+      - ip: 0.0.0.0/0
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
+    ingress:
+      - ip: 10.0.0.0/16
+        protocol: any
+        from_port: '0'
+        to_port: '65535'
+
+</code></pre>
+
+<p>Security Groups support the following fields:</p>
+
+<ul>
+<li><strong>name</strong>
+
+<ul>
+<li>String that defines the name of the security group to build.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>The value of this field must be 50 characters maximum.</li>
+</ul></li>
+</ul>
+
+<p><strong>egress</strong></p>
+
+<p>Security group egress rules.</p>
+
+<ul>
+<li><p><strong>ip</strong></p>
+
+<ul>
+<li>String that defines the IP address range for this rule.</li>
+<li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+</ul></li>
+
+<li><p><strong>protocol</strong></p>
+
+<ul>
+<li>String that defines the protocol for this rule.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>Values can be: tcp | udp | icmp | any</li>
+</ul></li>
+
 <li><p><strong>from_port</strong></p>
 
 <ul>
-<li>Source port numbers</li>
-<li>Values can be:  an string ( valid port number, 1 - 65535 ) or any</li>
-</ul></li>
-
-<li><p><strong>destination</strong></p>
-
-<ul>
-<li>String the destination of the IPv4 Address to translate to</li>
-<li>Values can be: IPv4</li>
+<li>Starting port-range number.</li>
+<li>This field is mandatory.</li>
+<li>Values can be: 0 - 65535.</li>
 </ul></li>
 
 <li><p><strong>to_port</strong></p>
 
 <ul>
-<li>Destination port numbers</li>
-<li>Values can be:  an string ( valid port number, 1 - 65535 ) or any</li>
+<li>Ending port-range number.</li>
+<li>This field is mandatory.</li>
+<li>Values can be: 0 - 65535.</li>
 </ul></li>
+</ul>
 
-<li><p><strong>source</strong></p>
+<p><strong>ingress</strong></p>
+
+<p>Security group ingress rules.</p>
 
 <ul>
-<li>String that defines the IP from the provider-specified sub-allocated list of IPs of the router.</li>
+<li><p><strong>ip</strong></p>
+
+<ul>
+<li>String that defines the IP address range for this rule.</li>
 <li>It must follow CIDR notation as described at: <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing</a></li>
-<li>This field is optional.</li>
-<li>This field can be null or empty, in case a router is created by Ernest it will default to the created one, on the other hand this value will be used.</li>
-<li>This field must be unique for this user &amp; all the networks on the manifest.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+</ul></li>
+
+<li><p><strong>protocol</strong></p>
+
+<ul>
+<li>String that defines the protocol for this rule.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>Values can be: tcp | udp | icmp | any</li>
+</ul></li>
+
+<li><p><strong>from_port</strong></p>
+
+<ul>
+<li>Starting port-range number.</li>
+<li>This field is mandatory.</li>
+<li>Values can be: 0 - 65535.</li>
+</ul></li>
+
+<li><p><strong>to_port</strong></p>
+
+<ul>
+<li>Ending port-range number.</li>
+<li>This field is mandatory.</li>
+<li>Values can be: 0 - 65535.</li>
 </ul></li>
 </ul>
 
@@ -644,17 +653,16 @@ ernest_ip:
 
 <pre><code>instances:
   - name: web
-    image: r3/ubuntu-1404
-    cpus: 1
-    memory: 1GB
+    elastic_ip: true
+    type: t2.micro
+    image: ami-ed82e39e
+    network: web
+    start_ip: 10.0.10.11
     count: 1
-    networks:
-      name: web
-      start_ip: 10.1.0.11
-    provisioner:
-      - exec:
-        - 'sudo apt-get update'
-        - 'sudo apt-get install apache2 -y'
+    key_pair: web-key
+    security_groups:
+      - web-sg
+
 </code></pre>
 
 <p>Instances support the following fields:</p>
@@ -670,60 +678,33 @@ ernest_ip:
 <li>The value of this field must be 50 characters maximum.</li>
 </ul></li>
 
+<li><p><strong>elastic_ip</strong></p>
+
+<ul>
+<li>String that defines if the instance will be assigned an elastic IP.</li>
+<li>This field is optional.</li>
+<li>Values can be: “true“ or “false“.</li>
+<li>This field will default to “false“.</li>
+</ul></li>
+
+<li><p><strong>type</strong></p>
+
+<ul>
+<li>String that defines the instance size.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>This field must be a valid AWS EC2 size.</li>
+</ul></li>
+
 <li><p><strong>image</strong></p>
 
 <ul>
-<li>String that defines the name of an image to install on the VM.</li>
+<li>String that defines the name of an AMI to install.</li>
 <li>This field is mandatory.</li>
 <li>This field cannot be null or empty.</li>
-<li>This field is composed in two parts one for the “catalog” and another one for the “image” separated by a slash “/”</li>
-<li>Both “catalog” and “image” are strings and can’t be null.</li>
 </ul></li>
 
-<li><p><strong>cpus</strong></p>
-
-<ul>
-<li>Integer that defines how many CPUs will have the VM.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>This field must be greater or equal than 1</li>
-</ul></li>
-
-<li><p><strong>memory</strong></p>
-
-<ul>
-<li>String that defines the name of a load balancer to add to this service.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>This field must follow the Binary Prefix format: <a href="https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory" target="_blank">https://en.wikipedia.org/wiki/Binary_prefix#Computer_memory</a></li>
-<li>The possible binary prefixes are MB, GB, TB, PB, YB</li>
-</ul></li>
-
-<li><p><strong>disks:</strong></p>
-
-<ul>
-<li>A list of sizes of hard disks that belongs to the VM</li>
-<li>This field can be an empty list</li>
-<li>This field is a list of strings</li>
-<li>Each element of the string must follow the Binary Prefix format: <a href="https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives" target="_blank">https://en.wikipedia.org/wiki/Binary_prefix#Hard_disk_drives</a></li>
-<li>The possible binary prefixes are MB, GB, TB, PB, YB</li>
-</ul></li>
-
-<li><p><strong>count</strong></p>
-
-<ul>
-<li>Integer that defines the number of VM to be created.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>This field must be greater or equal that 1</li>
-</ul></li>
-</ul>
-
-<p><strong>networks</strong>
-Networks is a map with two fields</p>
-
-<ul>
-<li><p><strong>name</strong></p>
+<li><p><strong>network:</strong></p>
 
 <ul>
 <li>String that defines the name of a network to attach this instance.</li>
@@ -732,7 +713,7 @@ Networks is a map with two fields</p>
 <li>The value of this field should exist on the networks section previously specified.</li>
 </ul></li>
 
-<li><p><strong>start_ip</strong></p>
+<li><p><strong>start_ip:</strong></p>
 
 <ul>
 <li>String that defines the starting IP to allocate the VMs to be built.</li>
@@ -742,22 +723,29 @@ Networks is a map with two fields</p>
 <li>This IP should belong to the network already defined on the instance.</li>
 </ul></li>
 
-<li><p><strong>provisioner</strong></p>
+<li><p><strong>count</strong></p>
 
 <ul>
-<li>Array that contains provisioner types</li>
-<li>Each provisioner type will be run in the order they are specified in the document</li>
-<li>This field is optional</li>
-<li>This field can be empty</li>
+<li>Integer that defines the number of instances to be created.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>This field must be greater or equal that 1</li>
 </ul></li>
 
-<li><p><strong>exec</strong></p>
+<li><p><strong>key_pair</strong></p>
 
 <ul>
-<li>Array of strings, any command characters must be escaped with backslashes: (RFC7159, Section 7)</li>
-<li>Each command in the exec array is concatenated together and delimited by a semicolon.</li>
-<li>This field is optional</li>
-<li>If specified as a provisioner type, this array field must contain at least one element</li>
+<li>String that specifies the key pair to be used to login to the instances.</li>
+<li>This field is optional.</li>
+<li>This field cannot be null or empty.</li>
+</ul></li>
+
+<li><p><strong>security_groups</strong></p>
+
+<ul>
+<li>Array that contains security groups that will be applied to the instances.</li>
+<li>This field is optional.</li>
+<li>This field can be empty.</li>
 </ul></li>
 </ul>
 
