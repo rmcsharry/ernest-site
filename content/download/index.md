@@ -9,20 +9,6 @@ description = "Ernest makes it easier to develop and deploy applications in the 
 
 ## Get Ernest
 
-### Virtual Box
-
-Ideal for: testing Ernest.
-
-Requirements: Vagrant and Virtual Box.
-
-1. Clone the repo containing the Vagrantfile: `git clone https://github.com/ernestio/ernest.git`
-
-2. Change to the cloned directory: `cd ernest`
-
-3. Start the Ernest Vagrant Box: `vagrant up`
-
-Once the box is up Ernest will be available on 10.50.1.11.
-
 ### Docker
 
 Ideal for: production Ernest.
@@ -39,6 +25,19 @@ Requirements: [Docker](https://docs.docker.com/engine/installation/), [Docker Co
 
 Once the box is up Ernest will be available on IP of the Docker host.
 
+### Virtual Box
+
+Ideal for: testing Ernest.
+
+Requirements: Vagrant and Virtual Box.
+
+1. Clone the repo containing the Vagrantfile: `git clone https://github.com/ernestio/ernest.git`
+
+2. Change to the cloned directory: `cd ernest`
+
+3. Start the Ernest Vagrant Box: `vagrant up`
+
+Once the box is up Ernest will be available on 10.50.1.11.
 
 ## Get Ernest CLI
 
