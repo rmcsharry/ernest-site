@@ -9,9 +9,11 @@ description = "Ernest makes it easier to develop and deploy applications in the 
 
 ## Get Ernest
 
-### The Vagrant Box
+### Virtual Box
 
-This is the fastest way to get started with Ernest. You will need Vagrant and Virtual Box.
+Ideal for: testing Ernest.
+
+Requirements: Vagrant and Virtual Box.
 
 1. Clone the repo containing the Vagrantfile: `git clone https://github.com/ernestio/ernest.git`
 
@@ -21,48 +23,25 @@ This is the fastest way to get started with Ernest. You will need Vagrant and Vi
 
 Once the box is up Ernest will be available on 10.50.1.11.
 
-### The Appliance
+### Docker
 
-You can download the OVF appliance [here](http://download.ernest.io/ernest.zip).
+Ideal for: production Ernest.
 
-### Build From Source
+Requirements: [Docker](https://docs.docker.com/engine/installation/), [Docker Compose](https://docs.docker.com/compose/install/), OpenSSL.
 
-Ernest requires on Ubuntu 15.10. The minimum recommended spec is: 1 CPU, 2 GB RAM, 10 GB HD. You will need to create a user **ernest** configured with passwordless sudo.
+1. Clone the repo containing the Vagrantfile: `git clone https://github.com/ernestio/ernest.git`
 
-All commands below are run as **root** user.
+2. Change to the cloned directory: `cd ernest`
 
-1. Update the package list: `apt-get update`
+3. Run the setup script: `./setup`
 
-2. Install some required packages: `apt-get install -y wget git make ruby`
+4. Enter the hostname when prompted.
 
-3. Download ChefDK: `wget https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.10.0-1_amd64.deb`
+Once the box is up Ernest will be available on IP of the Docker host.
 
-4. Install ChefDK: `dpkg -i chefdk_0.10.0-1_amd64.deb`
-
-5. Clone the Ernest install repo: `git clone https://github.com/ernestio/ernest-vagrant.git`
-
-6. Change to the Ernest install repo dir: `cd ernest-vagrant`
-
-7. Switch to the **master** branch: `git checkout master`
-
-8. Install Ernest: `make deploy`
 
 ## Get Ernest CLI
 
-The Ernest CLI is distributed as a binary package for all supported platforms and architectures. It can also be built from source by following the instructions on [GitHub](https://github.com/ernestio/ernest-cli).
-
-To install Ernest CLI, find the newest version of the [appropriate package](https://github.com/ErnestIO/ernest-cli/releases) for your system and download it.
+The Ernest CLI is distributed as a binary package for all supported platforms and architectures. To install Ernest CLI, find the newest version of the [appropriate package](https://github.com/ErnestIO/ernest-cli/releases) for your system and download it.
 
 After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See [this page](http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux) for instructions on setting the PATH on Linux and Mac. [This page](http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) contains instructions for setting the PATH on Windows.
-
-After installing Ernest CLI, verify the installation worked by opening a new terminal session and checking the CLI version:
-
-```
-$ ernest --version
-ernest version 1.3.0
-
-```
-
-## Get Salt
-
-The Salt image can be downloaded from [here](http://download.ernest.io/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named 'r3'.
