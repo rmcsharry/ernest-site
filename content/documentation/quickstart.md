@@ -66,8 +66,8 @@ NAME	ID
 admin	1
 group1	2
 
-$ ernest group add-user 2 2
-SUCCESS: Added user 2 to group 2
+$ ernest group add-user user1 group1
+SUCCESS: Added user1 to group1
 
 ```
 

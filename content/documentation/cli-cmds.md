@@ -219,7 +219,7 @@ DESCRIPTION:
    Adds a user to a group.
 
     Example:
-      $ ernest group add-user <user-id> <group-id>
+      $ ernest group add-user <user-name> <group-name>
 ```
 
 `ernest group remove-user`
