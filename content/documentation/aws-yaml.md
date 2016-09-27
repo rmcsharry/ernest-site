@@ -19,7 +19,9 @@ Environments built and managed with Ernest are defined in YAML format.
 ```
 ---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
+vpc_subnet: 10.0.0.0/16
 
 networks:
   - name: web
@@ -96,7 +98,9 @@ instances:
 
 ```
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
+vpc_subnet: 10.0.0.0/16
 
 ```
 
@@ -111,6 +115,18 @@ Service Options support the following fields:
 * **datacenter**
  * String that defines the name of the datacenter where the service is built.
  * This field is mandatory.
+ * This field cannot be null or empty.
+ * The value of this field must 50 characters maximum.
+
+* **vpc_id**
+ * String that defines the ID of the existing VPC the service will use.
+ * This field is mandatory, unless **vpc_subnet** is present.
+ * This field cannot be null or empty.
+ * The value of this field must be 50 characters maximum.
+
+* **vpc_subnet**
+ * String that defines the subnet of the VPC that will be created for the service to use.
+ * This field is mandatory, unless **vpc_id** is present.
  * This field cannot be null or empty.
  * The value of this field must 50 characters maximum.
 

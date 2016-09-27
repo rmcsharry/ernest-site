@@ -23,6 +23,6 @@ The following AWS services are supported by Ernest:
 
 ## Next Steps
 
-You can see more information about each option by reviewing the [examples](/documentation/aws-examples/).
+Review the [AWS examples](/documentation/aws-examples/).
 
 You can also find a reference YAML for AWS [here](/documentation/aws-yaml/).

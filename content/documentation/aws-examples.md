@@ -43,7 +43,7 @@ Log in succesful.
 Once we have logged in to Ernest we can setup the AWS datacenter and credentials that Ernest will use to create our infrastructure:
 
 ```
-$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY vpc-abcdef01
+$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY my-dc
 SUCCESS: Datacenter vpc-abcdef01 created
 
 ```
@@ -59,7 +59,8 @@ Our environment is defined in the following YAML:
 ```
 ---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
 
 networks:
   - name: public
@@ -110,7 +111,7 @@ Setting up firewalls:
 Firewalls Created
 
 Creating instances:
-   - vpc-abcdef01-demo-public-1
+   - my-dc-demo-public-1
 Instances successfully created
 
 SUCCESS: rules successfully applied
@@ -132,20 +133,20 @@ We can see detailed provider-generated information related to our service:
 ```
 $ ernest service info demo
 Name : demo
-Datacenter : vpc-abcdef01
+VPC : vpc-abcdef01
 
 Networks:
 +---------------------------+-----------------+
 |           NAME            |       ID        |
 +---------------------------+-----------------+
-| vpc-abcdef01-demo-public  | subnet-defabc01 |
+| my-dc-demo-public         | subnet-defabc01 |
 +---------------------------+-----------------+
 
 Instances:
 +-----------------------------+---------------------+---------------+------------+
 |            NAME             |         ID          |   PUBLIC IP   | PRIVATE IP |
 +-----------------------------+---------------------+---------------+------------+
-| vpc-abcdef01-demo-public-1  | i-abcdef01abcdef011 | 52.210.179.96 | 10.0.10.11 |
+| my-dc-demo-public-1         | i-abcdef01abcdef011 | 52.210.179.96 | 10.0.10.11 |
 +-----------------------------+---------------------+---------------+------------+
 
 NAT gateways (empty)
@@ -154,7 +155,7 @@ Security groups:
 +------------------------------+-------------+
 |             NAME             |  GROUP ID   |
 +------------------------------+-------------+
-| vpc-abcdef01-demo-public-sg  | sg-01234567 |
+| my-dc-demo-public-sg         | sg-01234567 |
 +------------------------------+-------------+
 
 ```
@@ -174,7 +175,8 @@ For our service we can show the definition applied for a given Build ID:
 $ ernest service definition demo --build 89389b76-cc25-4add-55e5-b7647217b4b1-abf663d6c173d4af98e3ff20bb7e8dde
 ---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
 
 networks:
   - name: public
@@ -217,7 +219,8 @@ Our modified YAML file is:
 ```
 ---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
 
 networks:
   - name: public
@@ -280,7 +283,7 @@ instances:
 
 ```
 
-We we apply this YAML we can see Ernest make the necessary changes:
+When we apply this YAML we can see Ernest make the necessary changes:
 
 ```
 $ ernest service apply demo.yml 
@@ -297,7 +300,7 @@ Setting up firewalls:
 Firewalls Created
 
 Creating instances:
-   - vpc-abcdef01-demo-private-1
+   - my-dc-demo-private-1
 Instances successfully created
 
 Configuring nats
@@ -322,37 +325,37 @@ The service info has also updated with the new information:
 ```
 $ ernest service info demo
 Name : demo
-Datacenter : vpc-abcdef01
+VPC : vpc-abcdef01
 
 Networks:
 +---------------------------+-----------------+
 |           NAME            |       ID        |
 +---------------------------+-----------------+
-| vpc-abcdef01-demo-public  | subnet-defabc01 |
-| vpc-abcdef01-demo-private | subnet-defabc02 |
+| my-dc-demo-public         | subnet-defabc01 |
+| my-dc-demo-private        | subnet-defabc02 |
 +---------------------------+-----------------+
 
 Instances:
 +-----------------------------+---------------------+---------------+------------+
 |            NAME             |         ID          |   PUBLIC IP   | PRIVATE IP |
 +-----------------------------+---------------------+---------------+------------+
-| vpc-abcdef01-demo-public-1  | i-abcdef01abcdef011 | 52.210.179.96 | 10.0.10.11 |
-| vpc-abcdef01-demo-private-1 | i-abcdef01abcdef012 |               | 10.0.11.11 |
+| my-dc-demo-public-1         | i-abcdef01abcdef011 | 52.210.179.96 | 10.0.10.11 |
+| my-dc-demo-private-1        | i-abcdef01abcdef012 |               | 10.0.11.11 |
 +-----------------------------+---------------------+---------------+------------+
 
 NAT gateways:
 +-------------------------------+-----------------------+
 |             NAME              |       GROUP ID        |
 +-------------------------------+-----------------------+
-| vpc-abcdef01-demo-private-nat | nat-abcdef01abcdef013 |
+| my-dc-demo-private-nat        | nat-abcdef01abcdef013 |
 +-------------------------------+-----------------------+
 
 Security groups:
 +------------------------------+-------------+
 |             NAME             |  GROUP ID   |
 +------------------------------+-------------+
-| vpc-abcdef01-demo-public-sg  | sg-01234567 |
-| vpc-abcdef01-demo-private-sg | sg-89012345 |
+| my-dc-demo-public-sg         | sg-01234567 |
+| my-dc-demo-private-sg        | sg-89012345 |
 +------------------------------+-------------+
 
 ```
@@ -373,7 +376,8 @@ The definition for the most recent build can be displayed:
 $ ernest service definition demo --build 72c1306c-c6ee-4d9b-4230-617d0e969ea9-abf663d6c173d4af98e3ff20bb7e8dde
 ---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
 
 networks:
   - name: public
@@ -448,8 +452,8 @@ Deleting nats
 Nats Deleted
 
 Deleting instances:
-   - vpc-abcdef01-demo-public-1
-   - vpc-abcdef01-demo-private-1
+   - my-dc-demo-public-1
+   - my-dc-demo-private-1
 Instances deleted
 
 Deleting networks:

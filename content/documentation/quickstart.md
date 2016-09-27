@@ -56,16 +56,6 @@ SUCCESS: Group group1 created
 Add the user to the group:
 
 ```
-$ ernest user list
-NAME	ID
-admin	1
-user1	2
-
-$ ernest group list
-NAME	ID
-admin	1
-group1	2
-
 $ ernest group add-user user1 group1
 SUCCESS: Added user1 to group1
 
@@ -84,8 +74,8 @@ Log in succesful.
 Configure the datacenter on Ernest using your Access Key, Secret Key, and VPC ID:
 
 ```
-$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY vpc-abcdef01
-SUCCESS: Datacenter vpc-abcdef01 created
+$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY my-dc
+SUCCESS: Datacenter my-dc created
 
 ```
 
@@ -96,7 +86,8 @@ We will use this YAML (demo.yml) to create our environment:
 ```
 ---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
 
 networks:
   - name: public
@@ -177,8 +168,8 @@ Setting up firewalls:
 Firewalls Created
 
 Creating instances:
-	 - vpc-abcdef01-demo-public-1
-	 - vpc-abcdef01-demo-private-1
+	 - my-dc-demo-public-1
+	 - my-dc-demo-private-1
 Instances successfully created
 
 Configuring nats

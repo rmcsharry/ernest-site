@@ -47,16 +47,20 @@ Repeat new Password: <new admin password>
 
 *Note when changing a user password you must identify the user by their User ID.*
 
-Now we can create a user on Ernest:
+Now we can create a user, a group, and add the user to the group:
 
 ```
-$ ernest user create --user admin --password <admin password> <user> <password>
-SUCCESS: Group <user> created
+$ ernest user create <user> <password>
 SUCCESS: User <user> created
 
-```
+$ ernest group create <group>
+SUCCESS: Group <group> created
 
-*Note a group is also created with the same name as the user.*
+$ ernest group add-user <user> <group>
+SUCCESS: User <user> added to Group <group>
+
+
+```
 
 Now we can login with our new user:
 
@@ -85,7 +89,7 @@ Current user : <user>
 Ernest uses the concept of a **datacenter** to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for Amazon Web Services is:
 
 ```
-$ ernest datacenter create aws --region region --token token --secret secret my_datacenter
+$ ernest datacenter create aws --region region --token token --secret secret <dc name>
 
 ```
 
@@ -101,6 +105,7 @@ Once we have created a datacenter and defined our service in YAML the process of
 
 ```
 $ ernest service apply <yaml file>
+
 ```
 
 Once the service is created we can modify it by changing the YAML and then re-applying it. Ernest will calculate the differences and apply only those changes necessary to transition the service from the current state to the requested state.
@@ -109,6 +114,7 @@ Finally you can also destroy services if needed:
 
 ```
 $ ernest service destroy <service name>
+
 ```
 
 ### View Service State and History
@@ -117,18 +123,28 @@ Ernest stores the state of each service, as well as all historical states. You c
 
 ```
 $ ernest service list
+
 ```
 
 For a given service you can see the history of all builds for that service:
 
 ```
 $ ernest service history <service name>
+
 ```
 
 We can view the YAML for a specific build by:
 
 ```
-ernest service definition <service name> --build <build id>
+$ ernest service definition <service name> --build <build id>
+
+```
+
+We can view provider-generated information related to our service:
+
+```
+$ ernest service info <service name>
+
 ```
 
 ## Next Steps

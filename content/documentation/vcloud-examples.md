@@ -1,16 +1,16 @@
 +++
 date = "2016-06-06"
-title = "vCloud Normal Examples"
+title = "vCloud Examples"
 category = "documentation"
 showChildren=true
 [menu.documentation]
-  name = "vCloud Normal Examples"
+  name = "vCloud Examples"
   weight = -90
-  identifier = "vcloud-normal-examples"
+  identifier = "vcloud-examples"
   parent = "vCloud Director"
 +++
 
-# vCloud Director Normal Examples
+# vCloud Director Examples
 
 If you would like to try Ernest but do not have access to vCloud you can request a demo vCloud account [here](/vcloud-account).
 
@@ -49,7 +49,7 @@ Log in succesful.
 Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:
 
 ```
-$ ernest datacenter create vcloud --datacenter-user jreid --datacenter-password xxxxxx --datacenter-org r3labs-development r3-jreid2 https://myvdc.carrenza.net DVS-VCD-EXT-665
+$ ernest datacenter create vcloud --datacenter-user my-user --datacenter-password xxxxxx --datacenter-org my-org my-dc https://myvdc.carrenza.net DVS-VCD-EXT-665
 SUCCESS: Datacenter r3-jreid2 created
 
 ```
@@ -67,7 +67,7 @@ For our example we will deploy a single Ubuntu server from a catalog image (imag
 ```
 ---
 name: demo1
-datacenter: r3-jreid2
+datacenter: my-dc
 bootstrapping: none
 service_ip: 195.3.186.42
 
@@ -189,19 +189,19 @@ For a given service we can see the history:
 
 ```
 $ ernest service history demo1
-NAME  BUILD ID                UPDATED       STATUS
-demo1 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:52:13 +0100 BST done
-demo1 6799e858-0484-42cb-bbb1-c1bc5f61e500-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:39:56 +0100 BST done
+NAME  BUILD ID                                                              UPDATED             STATUS
+demo1 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:52:13 done
+demo1 6799e858-0484-42cb-bbb1-c1bc5f61e500-8c22343f8f9d3dfb68e41cc033e7b492 2016-05-29 14:39:56 done
 
 ```
 
 For a given service and build ID we can see the definition we applied:
 
 ```
-$ ernest service definition demo1 --build 488249c2-63c2-484e-b6e0-c690ba859dab-8c22343f8f9d3dfb68e41cc033e7b492
+$ ernest service definition demo1
 ---
 name: demo1
-datacenter: r3-jreid2
+datacenter: my-dc
 bootstrapping: none
 service_ip: 195.3.186.42
 
@@ -417,4 +417,4 @@ Your environment endpoint is:
 
 ## Next Steps
 
-Take a look at the [enhanced examples](/documentation/vcloud-enhanced/).
+Take a look at the [vCloud YAML reference](/documentation/vcloud-yaml/).
