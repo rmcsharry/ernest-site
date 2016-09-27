@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  485 
+    "wordCount":  465 
   }
 </script>
 
@@ -302,18 +302,7 @@
       
     
     <li class="">
-      <a href="/documentation/vcloud-normal-examples/">vCloud Normal Examples </a>
-
-      
-   		
-   		
-
-      </li>
-      
-      
-    
-    <li class="">
-      <a href="/documentation/vcloud-enhanced-examples/">vCloud Enhanced Examples </a>
+      <a href="/documentation/vcloud-examples/">vCloud Examples </a>
 
       
    		
@@ -386,18 +375,8 @@ SUCCESS: Group group1 created
 
 <p>Add the user to the group:</p>
 
-<pre><code>$ ernest user list
-NAME	ID
-admin	1
-user1	2
-
-$ ernest group list
-NAME	ID
-admin	1
-group1	2
-
-$ ernest group add-user 2 2
-SUCCESS: Added user 2 to group 2
+<pre><code>$ ernest group add-user user1 group1
+SUCCESS: Added user1 to group1
 
 </code></pre>
 
@@ -412,8 +391,8 @@ Log in succesful.
 
 <p>Configure the datacenter on Ernest using your Access Key, Secret Key, and VPC ID:</p>
 
-<pre><code>$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY vpc-abcdef01
-SUCCESS: Datacenter vpc-abcdef01 created
+<pre><code>$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY my-dc
+SUCCESS: Datacenter my-dc created
 
 </code></pre>
 
@@ -423,7 +402,8 @@ SUCCESS: Datacenter vpc-abcdef01 created
 
 <pre><code>---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
 
 networks:
   - name: public
@@ -503,8 +483,8 @@ Setting up firewalls:
 Firewalls Created
 
 Creating instances:
-	 - vpc-abcdef01-demo-public-1
-	 - vpc-abcdef01-demo-private-1
+	 - my-dc-demo-public-1
+	 - my-dc-demo-private-1
 Instances successfully created
 
 Configuring nats

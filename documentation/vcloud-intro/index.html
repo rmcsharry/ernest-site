@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  237 
+    "wordCount":  154 
   }
 </script>
 
@@ -302,18 +302,7 @@
       
     
     <li class="">
-      <a href="/documentation/vcloud-normal-examples/">vCloud Normal Examples </a>
-
-      
-   		
-   		
-
-      </li>
-      
-      
-    
-    <li class="">
-      <a href="/documentation/vcloud-enhanced-examples/">vCloud Enhanced Examples </a>
+      <a href="/documentation/vcloud-examples/">vCloud Examples </a>
 
       
    		
@@ -348,9 +337,9 @@
 
 <p><a href="https://www.vmware.com/products/vcloud-director/" target="_blank">vCloud Director (vCD)</a> is cloud management tool from VMWare that acts as an overlay on top of vSphere, providing users with a self-service GUI and API. vCloud Director enables service providers to offer Infrastructure as a Service to their customers by providing users with direct control of virtual machine provisioning, and some aspects of networking.</p>
 
-<h2 id="network-limitations">Network Limitations</h2>
+<h2 id="vcloud-limitations">vCloud Limitations</h2>
 
-<p>vCD most network functionality is delivered by the VMWare vShield Edge (vSE) virtual appliance. Unfortunately certain key network operations can only be performed by the service provider and are not available to users. They include:</p>
+<p>With vCD most network functionality is delivered by the VMWare vShield Edge (vSE) virtual appliance. Unfortunately certain key network operations can only be performed by the service provider and are not available to users. They include:</p>
 
 <ul>
 <li><p>deploying a vSE</p></li>
@@ -362,21 +351,9 @@
 
 <p>All other common network operations are accesible to users, however many of them are limited to users with the <a href="https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vcloud.api.doc_56%2FGUID-BC504F6B-3D38-4F25-AACF-ED584063754F.html" target="_blank">Organization Administrator</a> role assigned to them.</p>
 
-<h2 id="supported-configurations">Supported Configurations</h2>
-
-<p>Due to the network limitations Ernest supports 2 different options for vCloud Director:</p>
-
-<ol>
-<li><p><strong>normal</strong> (your service provider has not deployed the VSE Creator Service)</p></li>
-
-<li><p><strong>enhanced</strong> (your service provider has deployed the VSE Creator Service)</p></li>
-</ol>
-
-<p><small><em>The VSE Creator Service is an optional service that can give users the ability to create their own vSE and assign an IP to it. The VSE Creator Service is installed and operated by the service provider.</em></small></p>
-
 <h2 id="next-steps">Next Steps</h2>
 
-<p>You can see more information about each option by reviewing the <a href="/documentation/vcloud-normal/">normal</a> and <a href="/documentation/vcloud-enhanced/">enhanced</a> examples.</p>
+<p>Review the <a href="/documentation/vcloud-examples/">vCloud examples</a>.</p>
 
 <p>You can also find a reference YAML for vCloud Director <a href="/documentation/vcloud-yaml/">here</a>.</p>
 

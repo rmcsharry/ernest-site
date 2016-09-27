@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  1066 
+    "wordCount":  1155 
   }
 </script>
 
@@ -302,18 +302,7 @@
       
     
     <li class="">
-      <a href="/documentation/vcloud-normal-examples/">vCloud Normal Examples </a>
-
-      
-   		
-   		
-
-      </li>
-      
-      
-    
-    <li class="">
-      <a href="/documentation/vcloud-enhanced-examples/">vCloud Enhanced Examples </a>
+      <a href="/documentation/vcloud-examples/">vCloud Examples </a>
 
       
    		
@@ -352,7 +341,9 @@
 
 <pre><code>---
 name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
+vpc_subnet: 10.0.0.0/16
 
 networks:
   - name: web
@@ -428,7 +419,9 @@ instances:
 <h3 id="service-options">Service Options</h3>
 
 <pre><code>name: demo
-datacenter: vpc-abcdef01
+datacenter: my-dc
+vpc_id: vpc-abcdef01
+vpc_subnet: 10.0.0.0/16
 
 </code></pre>
 
@@ -449,6 +442,24 @@ datacenter: vpc-abcdef01
 <ul>
 <li>String that defines the name of the datacenter where the service is built.</li>
 <li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>The value of this field must 50 characters maximum.</li>
+</ul></li>
+
+<li><p><strong>vpc_id</strong></p>
+
+<ul>
+<li>String that defines the ID of the existing VPC the service will use.</li>
+<li>This field is mandatory, unless <strong>vpc_subnet</strong> is present.</li>
+<li>This field cannot be null or empty.</li>
+<li>The value of this field must be 50 characters maximum.</li>
+</ul></li>
+
+<li><p><strong>vpc_subnet</strong></p>
+
+<ul>
+<li>String that defines the subnet of the VPC that will be created for the service to use.</li>
+<li>This field is mandatory, unless <strong>vpc_id</strong> is present.</li>
 <li>This field cannot be null or empty.</li>
 <li>The value of this field must 50 characters maximum.</li>
 </ul></li>

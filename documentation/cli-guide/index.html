@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  477 
+    "wordCount":  501 
   }
 </script>
 
@@ -302,18 +302,7 @@
       
     
     <li class="">
-      <a href="/documentation/vcloud-normal-examples/">vCloud Normal Examples </a>
-
-      
-   		
-   		
-
-      </li>
-      
-      
-    
-    <li class="">
-      <a href="/documentation/vcloud-enhanced-examples/">vCloud Enhanced Examples </a>
+      <a href="/documentation/vcloud-examples/">vCloud Examples </a>
 
       
    		
@@ -379,15 +368,19 @@ Repeat new Password: &lt;new admin password&gt;
 
 <p><em>Note when changing a user password you must identify the user by their User ID.</em></p>
 
-<p>Now we can create a user on Ernest:</p>
+<p>Now we can create a user, a group, and add the user to the group:</p>
 
-<pre><code>$ ernest user create --user admin --password &lt;admin password&gt; &lt;user&gt; &lt;password&gt;
-SUCCESS: Group &lt;user&gt; created
+<pre><code>$ ernest user create &lt;user&gt; &lt;password&gt;
 SUCCESS: User &lt;user&gt; created
 
-</code></pre>
+$ ernest group create &lt;group&gt;
+SUCCESS: Group &lt;group&gt; created
 
-<p><em>Note a group is also created with the same name as the user.</em></p>
+$ ernest group add-user &lt;user&gt; &lt;group&gt;
+SUCCESS: User &lt;user&gt; added to Group &lt;group&gt;
+
+
+</code></pre>
 
 <p>Now we can login with our new user:</p>
 
@@ -413,7 +406,7 @@ Current user : &lt;user&gt;
 
 <p>Ernest uses the concept of a <strong>datacenter</strong> to specify an infrastructure service provider, the provider API endpoint, credentials to access the provider API, and information specific to certain provider types. An example of creating a datacenter in Ernest for Amazon Web Services is:</p>
 
-<pre><code>$ ernest datacenter create aws --region region --token token --secret secret my_datacenter
+<pre><code>$ ernest datacenter create aws --region region --token token --secret secret &lt;dc name&gt;
 
 </code></pre>
 
@@ -428,6 +421,7 @@ Current user : &lt;user&gt;
 <p>Once we have created a datacenter and defined our service in YAML the process of building the service is:</p>
 
 <pre><code>$ ernest service apply &lt;yaml file&gt;
+
 </code></pre>
 
 <p>Once the service is created we can modify it by changing the YAML and then re-applying it. Ernest will calculate the differences and apply only those changes necessary to transition the service from the current state to the requested state.</p>
@@ -435,6 +429,7 @@ Current user : &lt;user&gt;
 <p>Finally you can also destroy services if needed:</p>
 
 <pre><code>$ ernest service destroy &lt;service name&gt;
+
 </code></pre>
 
 <h3 id="view-service-state-and-history">View Service State and History</h3>
@@ -442,16 +437,25 @@ Current user : &lt;user&gt;
 <p>Ernest stores the state of each service, as well as all historical states. You can list the available service with:</p>
 
 <pre><code>$ ernest service list
+
 </code></pre>
 
 <p>For a given service you can see the history of all builds for that service:</p>
 
 <pre><code>$ ernest service history &lt;service name&gt;
+
 </code></pre>
 
 <p>We can view the YAML for a specific build by:</p>
 
-<pre><code>ernest service definition &lt;service name&gt; --build &lt;build id&gt;
+<pre><code>$ ernest service definition &lt;service name&gt; --build &lt;build id&gt;
+
+</code></pre>
+
+<p>We can view provider-generated information related to our service:</p>
+
+<pre><code>$ ernest service info &lt;service name&gt;
+
 </code></pre>
 
 <h2 id="next-steps">Next Steps</h2>
