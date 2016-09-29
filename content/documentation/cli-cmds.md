@@ -128,29 +128,30 @@ OPTIONS:
    --email value  Email for the user
 ```
 
-`ernest user password`
+`ernest user change-password`
 
 ```
 NAME:
-   ernest user password - Change password of available users.
+   ernest user change-password - Change password of available users.
 
 USAGE:
-   ernest user password [command options] <user-id>
+   ernest user change-password [command options] [arguments...]
 
 DESCRIPTION:
    Change password of available users.
 
    Example:
-    $ ernest user password <user-id>
+    $ ernest user change-password
 
-    or changing a password by being admin:
+    or changing a change-password by being admin:
 
-    $ ernest user password --user <adminuser> --password <adminpassword> <user-id>
-  
+    $ ernest user change-password --user <username> --current-password <current-password> --password <new-password>
+
 
 OPTIONS:
-   --user value      Admin user credentials
-   --password value  Admin password credentials
+   --user value              The username of the user to change password
+   --password value          The new user password
+   --current-password value  The current user password
 ```
 
 `ernest user disable`

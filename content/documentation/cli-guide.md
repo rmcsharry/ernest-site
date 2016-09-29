@@ -35,17 +35,11 @@ Password: *******
 and change the admin password:
 
 ```
-$ ernest user list
-NAME	ID					EMAIL
-admin	<User ID>	<User Email>
-
-$ ernest user password <User ID>
+$ ernest user change-password
 New Password: <new admin password>
 Repeat new Password: <new admin password>
 
 ```
-
-*Note when changing a user password you must identify the user by their User ID.*
 
 Now we can create a user, a group, and add the user to the group:
 
