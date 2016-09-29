@@ -161,18 +161,13 @@ NAME:
    ernest user disable - Disable available users.
 
 USAGE:
-   ernest user disable [command options] <username>
+   ernest user disable <username>
 
 DESCRIPTION:
    Disable available users.
 
   Example:
-   $ ernest user disable --user <adminuser> --password <adminpassword> <user-id>
- 
-
-OPTIONS:
-   --user value      Admin user credentials
-   --password value  Admin password credentials
+   $ ernest user disable <user-name>
 ```
 
 `ernest group delete`
