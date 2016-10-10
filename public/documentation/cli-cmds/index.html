@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  1042 
+    "wordCount":  1037 
   }
 </script>
 
@@ -444,28 +444,29 @@ OPTIONS:
    --email value  Email for the user
 </code></pre>
 
-<p><code>ernest user password</code></p>
+<p><code>ernest user change-password</code></p>
 
 <pre><code>NAME:
-   ernest user password - Change password of available users.
+   ernest user change-password - Change password of available users.
 
 USAGE:
-   ernest user password [command options] &lt;user-id&gt;
+   ernest user change-password [command options] [arguments...]
 
 DESCRIPTION:
    Change password of available users.
 
    Example:
-    $ ernest user password &lt;user-id&gt;
+    $ ernest user change-password
 
-    or changing a password by being admin:
+    or changing a change-password by being admin:
 
-    $ ernest user password --user &lt;adminuser&gt; --password &lt;adminpassword&gt; &lt;user-id&gt;
-  
+    $ ernest user change-password --user &lt;username&gt; --current-password &lt;current-password&gt; --password &lt;new-password&gt;
+
 
 OPTIONS:
-   --user value      Admin user credentials
-   --password value  Admin password credentials
+   --user value              The username of the user to change password
+   --password value          The new user password
+   --current-password value  The current user password
 </code></pre>
 
 <p><code>ernest user disable</code></p>
@@ -474,18 +475,13 @@ OPTIONS:
    ernest user disable - Disable available users.
 
 USAGE:
-   ernest user disable [command options] &lt;username&gt;
+   ernest user disable &lt;username&gt;
 
 DESCRIPTION:
    Disable available users.
 
   Example:
-   $ ernest user disable --user &lt;adminuser&gt; --password &lt;adminpassword&gt; &lt;user-id&gt;
- 
-
-OPTIONS:
-   --user value      Admin user credentials
-   --password value  Admin password credentials
+   $ ernest user disable &lt;user-name&gt;
 </code></pre>
 
 <p><code>ernest group delete</code></p>

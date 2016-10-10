@@ -44,3 +44,7 @@ Once the box is up Ernest will be available on 10.50.1.11.
 The Ernest CLI is distributed as a binary package for all supported platforms and architectures. To install Ernest CLI, find the newest version of the [appropriate package](https://github.com/ErnestIO/ernest-cli/releases) for your system and download it.
 
 After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See [this page](http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux) for instructions on setting the PATH on Linux and Mac. [This page](http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) contains instructions for setting the PATH on Windows.
+
+## Get Salt
+
+The Salt image can be downloaded from [here](http://download.ernest.io/r3-salt-master.zip). For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named 'r3'.

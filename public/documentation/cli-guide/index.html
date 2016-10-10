@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  501 
+    "wordCount":  472 
   }
 </script>
 
@@ -356,17 +356,11 @@ Password: *******
 
 <p>and change the admin password:</p>
 
-<pre><code>$ ernest user list
-NAME	ID					EMAIL
-admin	&lt;User ID&gt;	&lt;User Email&gt;
-
-$ ernest user password &lt;User ID&gt;
+<pre><code>$ ernest user change-password
 New Password: &lt;new admin password&gt;
 Repeat new Password: &lt;new admin password&gt;
 
 </code></pre>
-
-<p><em>Note when changing a user password you must identify the user by their User ID.</em></p>
 
 <p>Now we can create a user, a group, and add the user to the group:</p>
 
