@@ -180,10 +180,10 @@ USAGE:
    ernest group delete
 
 DESCRIPTION:
-   Deletes a group.
+   Deletes a group by name
 
     Example:
-      $ ernest group delete <group-id>
+      $ ernest group delete <name>
 ```
 
 `ernest group create`
@@ -231,7 +231,7 @@ DESCRIPTION:
    Removes an user from a group.
 
     Example:
-      $ ernest group remove-user <user-id> <group-id>
+      $ ernest group remove-user <username> <group name>
 ```
 
 `ernest group add-datacenter`
@@ -247,7 +247,7 @@ DESCRIPTION:
    Adds a datacenter to a group.
 
     Example:
-      $ ernest group add-datacenter <datacenter-id> <group-id>
+      $ ernest group add-datacenter <datacenter-name> <group-name>
 ```
 
 `ernest group remove-datacenter`
@@ -263,7 +263,7 @@ DESCRIPTION:
    Removes an datacenter from a group.
 
     Example:
-      $ ernest group remove-datacenter <datacenter-id> <group-id>
+      $ ernest group remove-datacenter <datacenter name> <group name>
 ```
 
 `ernest datacenter list`
@@ -296,13 +296,23 @@ DESCRIPTION:
 
   Example:
    $ ernest datacenter create aws --region region --token token --secret secret my_datacenter
-   
+
+   Template example:
+    $ ernest datacenter create aws --template mydatacenter.yml mydatacenter
+    Where mydatacenter.yaml will look like:
+      ---
+      fake: true
+      token: token
+      secret: secret
+      region: region
+
 
 OPTIONS:
-   --region value  Datacenter region
-   --token value   AWS Token
-   --secret value  AWS Secret
-   --fake          Fake datacenter
+   --region value    Datacenter region
+   --token value     AWS Token
+   --secret value    AWS Secret
+   --template value  Datacenter template
+   --fake            Fake datacenter
 ```
 
 `ernest datacenter create vcloud`
@@ -312,21 +322,37 @@ NAME:
    ernest datacenter create vcloud - Create a new vcloud datacenter.
 
 USAGE:
-   ernest datacenter create vcloud [command options] <datacenter-name> <vcloud-url> <network-name>
+   ernest datacenter create vcloud [command options] <datacenter-name>
 
 DESCRIPTION:
    Create a new vcloud datacenter on the targeted instance of Ernest.
 
    Example:
-    $ ernest datacenter create vcloud --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
-  
+    $ ernest datacenter create vcloud --user username --password xxxx --org MY-ORG-NAME --vse-url http://vse.url --vcloud-url https://myernest.com --public-network MY-PUBLIC-NETWORK mydatacenter
+
+   Template example:
+    $ ernest datacenter create vcloud --template mydatacenter.yml mydatacenter
+    Where mydatacenter.yaml will look like:
+      ---
+      fake: true
+      org: org
+      password: pwd
+      public-network: MY-NETWORK
+      user: bla
+      vcloud-url: "http://ss.com"
+      vse-url: "http://ss.com"
+
+
 
 OPTIONS:
-   --datacenter-user value      User to be configured with the datacenter
-   --datacenter-password value  Password related with user
-   --datacenter-org value       vCloud Organization name
-   --vse-url value              VSE URL
-   --fake                       Fake datacenter
+   --user value            Your VCloud valid user name
+   --password value        Your VCloud valid password
+   --org value             Your vCloud Organization
+   --vse-url value         VSE URL
+   --vcloud-url value      VCloud URL
+   --public-network value  Public Network
+   --template value        Datacenter template
+   --fake                  Fake datacenter
 ```
 
 `ernest service list`
@@ -462,14 +488,20 @@ OPTIONS:
 
 ```
 NAME:
-   ernest service monitor - Monitor a service.
+   ernest service info - $ ernest service info <my_service> --build <specific build>
 
 USAGE:
-   ernest service monitor <service_id>
+   ernest service info [command options] <service_name>
 
 DESCRIPTION:
-   Monitors a service while it is being built by its service id.
+   Will show detailed information of the last build of a specified service.
+  In case you specify --build option you will be able to output the detailed information of specific build of a service.
 
-   Example:
-    $ ernest monitor F94034CE-1A57-4A66-AF49-E1E99C5010A2
+   Examples:
+    $ ernest service definition myservice
+    $ ernest service definition myservice --build build1
+
+
+OPTIONS:
+   --build value  Build ID
 ```
