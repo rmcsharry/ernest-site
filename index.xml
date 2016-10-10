@@ -1103,28 +1103,29 @@ OPTIONS:
    --email value  Email for the user
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;ernest user password&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ernest user change-password&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;NAME:
-   ernest user password - Change password of available users.
+   ernest user change-password - Change password of available users.
 
 USAGE:
-   ernest user password [command options] &amp;lt;user-id&amp;gt;
+   ernest user change-password [command options] [arguments...]
 
 DESCRIPTION:
    Change password of available users.
 
    Example:
-    $ ernest user password &amp;lt;user-id&amp;gt;
+    $ ernest user change-password
 
-    or changing a password by being admin:
+    or changing a change-password by being admin:
 
-    $ ernest user password --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; &amp;lt;user-id&amp;gt;
-  
+    $ ernest user change-password --user &amp;lt;username&amp;gt; --current-password &amp;lt;current-password&amp;gt; --password &amp;lt;new-password&amp;gt;
+
 
 OPTIONS:
-   --user value      Admin user credentials
-   --password value  Admin password credentials
+   --user value              The username of the user to change password
+   --password value          The new user password
+   --current-password value  The current user password
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest user disable&lt;/code&gt;&lt;/p&gt;
@@ -1133,18 +1134,13 @@ OPTIONS:
    ernest user disable - Disable available users.
 
 USAGE:
-   ernest user disable [command options] &amp;lt;username&amp;gt;
+   ernest user disable &amp;lt;username&amp;gt;
 
 DESCRIPTION:
    Disable available users.
 
   Example:
-   $ ernest user disable --user &amp;lt;adminuser&amp;gt; --password &amp;lt;adminpassword&amp;gt; &amp;lt;user-id&amp;gt;
- 
-
-OPTIONS:
-   --user value      Admin user credentials
-   --password value  Admin password credentials
+   $ ernest user disable &amp;lt;user-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;ernest group delete&lt;/code&gt;&lt;/p&gt;
@@ -1467,17 +1463,11 @@ Password: *******
 
 &lt;p&gt;and change the admin password:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ernest user list
-NAME	ID					EMAIL
-admin	&amp;lt;User ID&amp;gt;	&amp;lt;User Email&amp;gt;
-
-$ ernest user password &amp;lt;User ID&amp;gt;
+&lt;pre&gt;&lt;code&gt;$ ernest user change-password
 New Password: &amp;lt;new admin password&amp;gt;
 Repeat new Password: &amp;lt;new admin password&amp;gt;
 
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Note when changing a user password you must identify the user by their User ID.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Now we can create a user, a group, and add the user to the group:&lt;/p&gt;
 
@@ -2941,6 +2931,10 @@ Networks is a map with two fields&lt;/p&gt;
 &lt;p&gt;The Ernest CLI is distributed as a binary package for all supported platforms and architectures. To install Ernest CLI, find the newest version of the &lt;a href=&#34;https://github.com/ErnestIO/ernest-cli/releases&#34; target=&#34;_blank&#34;&gt;appropriate package&lt;/a&gt; for your system and download it.&lt;/p&gt;
 
 &lt;p&gt;After downloading Ernest CLI, unzip it and move the binary to a directory that is on the PATH. See &lt;a href=&#34;http://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux&#34; target=&#34;_blank&#34;&gt;this page&lt;/a&gt; for instructions on setting the PATH on Linux and Mac. &lt;a href=&#34;http://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows&#34; target=&#34;_blank&#34;&gt;This page&lt;/a&gt; contains instructions for setting the PATH on Windows.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-salt&#34;&gt;Get Salt&lt;/h2&gt;
+
+&lt;p&gt;The Salt image can be downloaded from &lt;a href=&#34;http://download.ernest.io/r3-salt-master.zip&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. For the current version of Ernest (1.0) it is not possible to specify the vCloud catalog name that Ernest will get the Salt image from, you will need to place the image in a catalog named &amp;lsquo;r3&amp;rsquo;.&lt;/p&gt;
 </description>
     </item>
     
