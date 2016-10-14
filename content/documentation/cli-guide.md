@@ -36,8 +36,11 @@ and change the admin password:
 
 ```
 $ ernest user change-password
-New Password: <new admin password>
-Repeat new Password: <new admin password>
+You're about to change your password, please respond the questions below: 
+Current password: <old admin password>
+New password: <new admin password>
+Confirm new password: <new admin password>
+Your password has been changed
 
 ```
 
@@ -45,14 +48,13 @@ Now we can create a user, a group, and add the user to the group:
 
 ```
 $ ernest user create <user> <password>
-SUCCESS: User <user> created
+User <user> successfully created
 
 $ ernest group create <group>
-SUCCESS: Group <group> created
+Group <group> successfully created, you can add users with 'ernest group add-user username <group>'
 
 $ ernest group add-user <user> <group>
-SUCCESS: User <user> added to Group <group>
-
+User <user> is now assigned to group <group>
 
 ```
 
@@ -60,12 +62,12 @@ Now we can login with our new user:
 
 ```
 $ ernest logout
-Log out succesful.
+Bye.
 
 $ ernest login 
 Username: <user>
 Password: <password>
-Log in succesful.
+Welcome back <user>
 
 ```
 
