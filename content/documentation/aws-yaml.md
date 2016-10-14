@@ -90,6 +90,22 @@ instances:
     security_groups:
       - db-sg
 
+loadbalancers:
+  - name: elb-1
+    private: false
+    instances:
+      - web
+    listeners:
+      - from_port: 80
+        to_port: 80
+        protocol: http
+      - from_port: 443
+        to_port: 443
+        protocol: https
+        ssl_cert: ssl-cert-id
+    security_groups:
+      - web-sg
+
 ```
 
 ## Field Reference
@@ -343,3 +359,74 @@ Instances support the following fields:
  * Array that contains security groups that will be applied to the instances.
  * This field is optional.
  * This field can be empty.
+
+### Load Balancers
+
+```
+loadbalancers:
+  - name: elb-1
+    private: false
+    instances:
+      - web
+    listeners:
+      - from_port: 80
+        to_port: 80
+        protocol: http
+      - from_port: 443
+        to_port: 443
+        protocol: https
+        ssl_cert: ssl-cert-id
+    security_groups:
+      - web-sg
+
+```
+Loadbalancers support the following fields:
+
+* **name**
+ * String that defines the name of the instance to build.
+ * This field is mandatory.
+ * This field cannot be null or empty.
+ * This field must be unique by user &amp; manifest.
+ * The value of this field must be 50 characters maximum.
+
+* **private**
+ * Boolean that defines if the loadbalancer will be private or public.
+ * This field is optional.
+ * Values can be: “true“ or “false“.
+ * This field will default to “false“.
+
+* **instances**
+ * Array of String's that defines which group of instances to add to the ELB.
+ * This field is mandatory.
+ * This field cannot be null or empty.
+ * This field must specify an instance group that exists on the yaml.
+
+* **security_groups**
+ * Array of String's that defines which security groups to apply to the ELB.
+ * This field not is mandatory.
+ * This field must specify a security group that exists on the yaml.
+
+**listeners**
+
+ELB Listeners.
+
+* **protocol**
+ * String that defines the protocol for this rule.
+ * This field is mandatory.
+ * This field cannot be null or empty.
+ * Values can be: http | https | ssl | tcp
+ * If https or ssl is specified, an ssl_cert must be specified.
+
+* **from_port**
+ * Starting port-range number.
+ * This field is mandatory.
+ * Values can be: 1 - 65535.
+
+* **to_port**
+ * Ending port-range number.
+ * This field is mandatory.
+ * Values can be: 1 - 65535.
+
+* **ssl_cert**
+ * The ssl certificate ID of a valid AWS Certificate Manager (ACM) cert.
+ * This field is mandatory only if protocol is set to https or ssl.
