@@ -36,7 +36,7 @@ Next we login to Ernest:
 $ ernest login
 Username: user1
 Password: ******
-Log in succesful.
+Welcome back user1
 
 ```
 
@@ -44,7 +44,7 @@ Once we have logged in to Ernest we can setup the AWS datacenter and credentials
 
 ```
 $ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY my-dc
-SUCCESS: Datacenter vpc-abcdef01 created
+Datacenter 'my-dc' successfully created
 
 ```
 
@@ -104,16 +104,31 @@ You can cancel at any moment with Ctrl+C, even the service is still being create
 Starting environment creation
 
 Creating networks:
-  - 10.0.10.0/24
+ - my-dc-demo-public
+   IP     : 10.0.10.0/24
+   AWS ID : subnet-defabc01
+   Status : completed
 Networks successfully created
 
-Setting up firewalls:
-Firewalls Created
+Creating firewalls:
+ - my-dc-demo-public-sg
+   Status    : completed
+Firewalls created
 
 Creating instances:
-   - my-dc-demo-public-1
+ - my-dc-demo-public-1
+   IP        : 10.0.10.11
+   AWS ID    : i-abcdef01abcdef011
+   Status    : completed
 Instances successfully created
 
+Updating instances:
+ - my-dc-demo-public-1
+   IP        : 10.0.10.11
+   PUBLIC IP : 52.210.179.96
+   AWS ID    : i-abcdef01abcdef011
+   Status    : completed
+Instances successfully updated
 SUCCESS: rules successfully applied
 Your environment endpoint is: 
 
@@ -134,6 +149,8 @@ We can see detailed provider-generated information related to our service:
 $ ernest service info demo
 Name : demo
 VPC : vpc-abcdef01
+
+ELBs (empty)
 
 Networks:
 +---------------------------+-----------------+
@@ -293,19 +310,36 @@ You can cancel at any moment with Ctrl+C, even the service is still being create
 Starting environment creation
 
 Creating networks:
-  - 10.0.11.0/24
+ - my-dc-demo-private
+   IP     : 10.0.11.0/24
+   AWS ID : subnet-defabc02
+   Status : completed
 Networks successfully created
 
-Setting up firewalls:
-Firewalls Created
+Creating firewalls:
+ - my-dc-demo-private-sg
+   Status    : completed
+Firewalls created
 
 Creating instances:
-   - my-dc-demo-private-1
+ - my-dc-demo-private-1
+   IP        : 10.0.11.11
+   AWS ID    : i-abcdef01abcdef012
+   Status    : completed
 Instances successfully created
 
-Configuring nats
-Nats Created
+Updating instances:
+ - my-dc-demo-private-1
+   IP        : 10.0.11.11
+   PUBLIC IP : 
+   AWS ID    : i-abcdef01abcdef012
+   Status    : completed
+Instances successfully updated
 
+Creating nats:
+ - my-dc-demo-private-nat
+   Status    : completed
+Nats created
 SUCCESS: rules successfully applied
 Your environment endpoint is: 
 
@@ -326,6 +360,8 @@ The service info has also updated with the new information:
 $ ernest service info demo
 Name : demo
 VPC : vpc-abcdef01
+
+ELBs (empty)
 
 Networks:
 +---------------------------+-----------------+
@@ -448,22 +484,41 @@ After we have finished with our service we can remove it:
 $ ernest service destroy demo
 Are you sure? Please type yes or no and then press enter: yes
 
-Deleting nats
-Nats Deleted
+Deleting nats:
+ - my-dc-demo-private-nat
+   Status    : completed
+Nats deleted
 
 Deleting instances:
-   - my-dc-demo-public-1
-   - my-dc-demo-private-1
+ - my-dc-demo-public-1
+   IP        : 10.0.10.11
+   PUBLIC IP : 52.210.179.96
+   AWS ID    : i-abcdef01abcdef011
+   Status    : completed
+ - my-dc-demo-private-1
+   IP        : 10.0.11.11
+   PUBLIC IP : 
+   AWS ID    : i-abcdef01abcdef012
+   Status    : completed
 Instances deleted
 
 Deleting networks:
-  - 10.0.10.0/24
-  - 10.0.11.0/24
+ - my-dc-demo-public
+   IP     : 10.0.10.0/24
+   AWS ID : subnet-defabc01
+   Status : completed
+ - my-dc-demo-private
+   IP     : 10.0.11.0/24
+   AWS ID : subnet-defabc02
+   Status : completed
 Networks deleted
 
 Deleting firewalls:
-Firewalls Deleted
-
+ - my-dc-demo-public-sg
+   Status    : completed
+ - my-dc-demo-private-sg
+   Status    : completed
+Firewalls deleted
 SUCCESS: your environment has been successfully deleted
 
 ```
