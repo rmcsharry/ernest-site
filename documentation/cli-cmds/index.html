@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  1037 
+    "wordCount":  1151 
   }
 </script>
 
@@ -493,10 +493,10 @@ USAGE:
    ernest group delete
 
 DESCRIPTION:
-   Deletes a group.
+   Deletes a group by name
 
     Example:
-      $ ernest group delete &lt;group-id&gt;
+      $ ernest group delete &lt;name&gt;
 </code></pre>
 
 <p><code>ernest group create</code></p>
@@ -541,7 +541,7 @@ DESCRIPTION:
    Removes an user from a group.
 
     Example:
-      $ ernest group remove-user &lt;user-id&gt; &lt;group-id&gt;
+      $ ernest group remove-user &lt;username&gt; &lt;group name&gt;
 </code></pre>
 
 <p><code>ernest group add-datacenter</code></p>
@@ -556,7 +556,7 @@ DESCRIPTION:
    Adds a datacenter to a group.
 
     Example:
-      $ ernest group add-datacenter &lt;datacenter-id&gt; &lt;group-id&gt;
+      $ ernest group add-datacenter &lt;datacenter-name&gt; &lt;group-name&gt;
 </code></pre>
 
 <p><code>ernest group remove-datacenter</code></p>
@@ -571,7 +571,7 @@ DESCRIPTION:
    Removes an datacenter from a group.
 
     Example:
-      $ ernest group remove-datacenter &lt;datacenter-id&gt; &lt;group-id&gt;
+      $ ernest group remove-datacenter &lt;datacenter name&gt; &lt;group name&gt;
 </code></pre>
 
 <p><code>ernest datacenter list</code></p>
@@ -602,13 +602,23 @@ DESCRIPTION:
 
   Example:
    $ ernest datacenter create aws --region region --token token --secret secret my_datacenter
-   
+
+   Template example:
+    $ ernest datacenter create aws --template mydatacenter.yml mydatacenter
+    Where mydatacenter.yaml will look like:
+      ---
+      fake: true
+      token: token
+      secret: secret
+      region: region
+
 
 OPTIONS:
-   --region value  Datacenter region
-   --token value   AWS Token
-   --secret value  AWS Secret
-   --fake          Fake datacenter
+   --region value    Datacenter region
+   --token value     AWS Token
+   --secret value    AWS Secret
+   --template value  Datacenter template
+   --fake            Fake datacenter
 </code></pre>
 
 <p><code>ernest datacenter create vcloud</code></p>
@@ -617,21 +627,37 @@ OPTIONS:
    ernest datacenter create vcloud - Create a new vcloud datacenter.
 
 USAGE:
-   ernest datacenter create vcloud [command options] &lt;datacenter-name&gt; &lt;vcloud-url&gt; &lt;network-name&gt;
+   ernest datacenter create vcloud [command options] &lt;datacenter-name&gt;
 
 DESCRIPTION:
    Create a new vcloud datacenter on the targeted instance of Ernest.
 
    Example:
-    $ ernest datacenter create vcloud --datacenter-user username --datacenter-password xxxx --datacenter-org MY-ORG-NAME --vse-url http://vse.url mydatacenter https://myernest.com MY-PUBLIC-NETWORK
-  
+    $ ernest datacenter create vcloud --user username --password xxxx --org MY-ORG-NAME --vse-url http://vse.url --vcloud-url https://myernest.com --public-network MY-PUBLIC-NETWORK mydatacenter
+
+   Template example:
+    $ ernest datacenter create vcloud --template mydatacenter.yml mydatacenter
+    Where mydatacenter.yaml will look like:
+      ---
+      fake: true
+      org: org
+      password: pwd
+      public-network: MY-NETWORK
+      user: bla
+      vcloud-url: &quot;http://ss.com&quot;
+      vse-url: &quot;http://ss.com&quot;
+
+
 
 OPTIONS:
-   --datacenter-user value      User to be configured with the datacenter
-   --datacenter-password value  Password related with user
-   --datacenter-org value       vCloud Organization name
-   --vse-url value              VSE URL
-   --fake                       Fake datacenter
+   --user value            Your VCloud valid user name
+   --password value        Your VCloud valid password
+   --org value             Your vCloud Organization
+   --vse-url value         VSE URL
+   --vcloud-url value      VCloud URL
+   --public-network value  Public Network
+   --template value        Datacenter template
+   --fake                  Fake datacenter
 </code></pre>
 
 <p><code>ernest service list</code></p>
@@ -759,16 +785,22 @@ OPTIONS:
 <p><code>ernest service monitor</code></p>
 
 <pre><code>NAME:
-   ernest service monitor - Monitor a service.
+   ernest service info - $ ernest service info &lt;my_service&gt; --build &lt;specific build&gt;
 
 USAGE:
-   ernest service monitor &lt;service_id&gt;
+   ernest service info [command options] &lt;service_name&gt;
 
 DESCRIPTION:
-   Monitors a service while it is being built by its service id.
+   Will show detailed information of the last build of a specified service.
+  In case you specify --build option you will be able to output the detailed information of specific build of a service.
 
-   Example:
-    $ ernest monitor F94034CE-1A57-4A66-AF49-E1E99C5010A2
+   Examples:
+    $ ernest service definition myservice
+    $ ernest service definition myservice --build build1
+
+
+OPTIONS:
+   --build value  Build ID
 </code></pre>
 
     </div>
