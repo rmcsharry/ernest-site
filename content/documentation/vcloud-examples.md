@@ -42,15 +42,15 @@ Next we login to Ernest:
 $ ernest login
 Username: user1
 Password: ******
-Log in succesful.
+Welcome back user1
 
 ```
 
 Once we have logged in to Ernest we can setup the vCloud datacenter and credentials that Ernest will use to create our infrastructure:
 
 ```
-$ ernest datacenter create vcloud --datacenter-user my-user --datacenter-password xxxxxx --datacenter-org my-org my-dc https://myvdc.carrenza.net DVS-VCD-EXT-665
-SUCCESS: Datacenter r3-jreid2 created
+$ ernest datacenter create vcloud --user jreid --password xxxxxx --org r3labs-development --vcloud-url https://myvdc.carrenza.net --public-network DVS-VCD-EXT-665 r3-jreid2
+Datacenter 'r3-jreid2' successfully created
 
 ```
 
@@ -67,7 +67,7 @@ For our example we will deploy a single Ubuntu server from a catalog image (imag
 ```
 ---
 name: demo1
-datacenter: my-dc
+datacenter: r3-jreid2
 bootstrapping: none
 service_ip: 195.3.186.42
 
@@ -123,29 +123,29 @@ Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
 Starting environment creation
-
-Creating routers:
-  195.3.186.42
-Routers successfully created
-
 Creating networks:
-  - 10.1.0.0/24
+ - r3-jreid2-demo1-web
+   IP     : 10.1.0.0/24
+   Status : completed
 Networks successfully created
-
 Creating instances:
-   - r3-jreid2-demo1-web-1
+ - r3-jreid2-demo1-web-1
+   IP        : 10.1.0.11
+   Status    : completed
 Instances successfully created
-
 Updating instances:
-   - r3-jreid2-demo1-web-1
+ - r3-jreid2-demo1-web-1
+   IP        : 10.1.0.11
+   Status    : completed
 Instances successfully updated
-
-Setting up firewalls:
-Firewalls Created
-
-Configuring nats
-Nats Created
-
+Creating firewalls:
+ - r3-jreid2-demo1-test2
+   Status    : completed
+Firewalls created
+Creating nats:
+ - r3-jreid2-demo1-test2
+   Status    : completed
+Nats created
 SUCCESS: rules successfully applied
 Your environment endpoint is: 195.3.186.42
 
@@ -157,20 +157,21 @@ If you wish to change the infrastructure update your YAML to show how you want t
 For example if we increase the 'web' instance count from 1 to 2 and re-apply the YAML a new server is created:
 
 ```
-$ ernest service apply demo1.yml 
+$ ernest service apply demo1.yml
 Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
 Starting environment creation
-
 Creating instances:
-   - r3-jreid2-demo1-web-2
+ - r3-jreid2-demo1-web-2
+   IP        : 10.1.0.12
+   Status    : completed
 Instances successfully created
-
 Updating instances:
-   - r3-jreid2-demo1-web-2
+ - r3-jreid2-demo1-web-2
+   IP        : 10.1.0.12
+   Status    : completed
 Instances successfully updated
-
 SUCCESS: rules successfully applied
 Your environment endpoint is: 195.3.186.42
 
@@ -201,7 +202,7 @@ For a given service and build ID we can see the definition we applied:
 $ ernest service definition demo1
 ---
 name: demo1
-datacenter: my-dc
+datacenter: r3-jreid2
 bootstrapping: none
 service_ip: 195.3.186.42
 
@@ -327,40 +328,48 @@ Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
 Starting environment creation
-
-Creating routers:
-  195.3.186.42
-Routers successfully created
-
 Creating networks:
-  - 10.254.254.0/24
-  - 10.1.0.0/24
+ - r3-jreid2-demo2-salt
+   IP     : 10.254.254.0/24
+   Status : completed
+ - r3-jreid2-demo2-web
+   IP     : 10.1.0.0/24
+   Status : completed
 Networks successfully created
-
 Creating instances:
-   - r3-jreid2-demo2-salt-master
-   - r3-jreid2-demo2-web-1
+ - r3-jreid2-demo2-salt-master
+   IP        : 10.254.254.100
+   Status    : completed
+ - r3-jreid2-demo2-web-1
+   IP        : 10.1.0.11
+   Status    : completed
 Instances successfully created
-
 Updating instances:
-   - r3-jreid2-demo2-salt-master
-   - r3-jreid2-demo2-web-1
+ - r3-jreid2-demo2-salt-master
+   IP        : 10.254.254.100
+   Status    : completed
+ - r3-jreid2-demo2-web-1
+   IP        : 10.1.0.11
+   Status    : completed
 Instances successfully updated
-
-Setting up firewalls:
-Firewalls Created
-
-Configuring nats
-Nats Created
-
-Bootstrapping
-Instances bootstrapped
-
-Running executions
+Creating firewalls:
+ - r3-jreid2-demo2-test2
+   Status    : completed
+Firewalls created
+Creating nats:
+ - r3-jreid2-demo2-test2
+   Status    : completed
+Nats created
+Running bootstraps:
+ - Bootstrap r3-jreid2-demo2-web-1
+   Status    : completed
+Bootstrap ran
+Running executions:
+ - Execution web 1
+   Status    : completed
 Executions ran
-
 SUCCESS: rules successfully applied
-Your environment endpoint is: 195.3.186.42
+Your environment endpoint is: 195.3.186.44
 
 ```
 
@@ -401,17 +410,18 @@ Environment creation requested
 Ernest will show you all output from your requested service creation
 You can cancel at any moment with Ctrl+C, even the service is still being created, you won't have any output
 Starting environment creation
-
 Creating instances:
-   - r3-jreid2-demo3-web-1
+ - r3-jreid2-demo3-web-1
+   IP        : 10.1.0.11
+   Status    : completed
 Instances successfully created
-
 Updating instances:
-   - r3-jreid2-demo3-web-1
+ - r3-jreid2-demo3-web-1
+   IP        : 10.1.0.11
+   Status    : completed
 Instances successfully updated
-
 SUCCESS: rules successfully applied
-Your environment endpoint is: 
+Your environment endpoint is:
 
 ```
 
