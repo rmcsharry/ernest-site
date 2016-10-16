@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  472 
+    "wordCount":  502 
   }
 </script>
 
@@ -357,34 +357,36 @@ Password: *******
 <p>and change the admin password:</p>
 
 <pre><code>$ ernest user change-password
-New Password: &lt;new admin password&gt;
-Repeat new Password: &lt;new admin password&gt;
+You're about to change your password, please respond the questions below: 
+Current password: &lt;old admin password&gt;
+New password: &lt;new admin password&gt;
+Confirm new password: &lt;new admin password&gt;
+Your password has been changed
 
 </code></pre>
 
 <p>Now we can create a user, a group, and add the user to the group:</p>
 
 <pre><code>$ ernest user create &lt;user&gt; &lt;password&gt;
-SUCCESS: User &lt;user&gt; created
+User &lt;user&gt; successfully created
 
 $ ernest group create &lt;group&gt;
-SUCCESS: Group &lt;group&gt; created
+Group &lt;group&gt; successfully created, you can add users with 'ernest group add-user username &lt;group&gt;'
 
 $ ernest group add-user &lt;user&gt; &lt;group&gt;
-SUCCESS: User &lt;user&gt; added to Group &lt;group&gt;
-
+User &lt;user&gt; is now assigned to group &lt;group&gt;
 
 </code></pre>
 
 <p>Now we can login with our new user:</p>
 
 <pre><code>$ ernest logout
-Log out succesful.
+Bye.
 
 $ ernest login 
 Username: &lt;user&gt;
 Password: &lt;password&gt;
-Log in succesful.
+Welcome back &lt;user&gt;
 
 </code></pre>
 

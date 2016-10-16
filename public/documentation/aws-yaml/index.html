@@ -28,9 +28,9 @@
 <meta property="og:article:published_time" content="2016-06-06T00:00:00Z" />
 <meta property="og:article:modified_time" content="2016-06-06T00:00:00Z" />
 
+  
 
-
-
+  
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@r3labs" />
 <meta name="twitter:creator" content="@r3labs" />
@@ -38,7 +38,7 @@
 <meta name="twitter:description" content="" />
 <meta name="twitter:url" content="/documentation/aws-yaml/" />
 <meta name="twitter:domain" content="/">
-
+  
 
 <script type="application/ld+json">
   {
@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  1155
+    "wordCount":  1456 
   }
 </script>
 
@@ -82,7 +82,7 @@
   <script src="https://use.fontawesome.com/2abc4da92a.js"></script>
 </head>
 <body class="map[name:ernest]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
-
+    
 <header id="main-header">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -99,48 +99,48 @@
         </a>
       </div>
       <div id="navbar" class="collapse navbar-collapse navbar-right">
-
+        
         <ul class="nav navbar-nav navbar-right">
-
-
-          <li class="">
+        
+        
+          <li class="">          
             <a href="/documentation"
             >
-
+            
             DOCUMENTATION
             </a>
           </li>
-
-
-          <li class="">
+          
+        
+          <li class="">          
             <a href="/download"
             >
-
+            
             DOWNLOAD
             </a>
           </li>
-
-
-          <li class="">
+          
+        
+          <li class="">          
             <a href="/community"
             >
-
+            
             COMMUNITY
             </a>
           </li>
-
-
-          <li class="">
+          
+        
+          <li class="">          
             <a href="/support"
             >
-
+            
             SUPPORT
             </a>
           </li>
-
+          
         </ul>
       </div>
-
+      
     </div>
   </nav>
 </header>
@@ -150,188 +150,188 @@
   <div class="row">
     <div class="left-nav-con col-md-3 hidden-xs hidden-sm">
       <ul class="sub-menu list-unstyled">
-
-
+  
+  
 
 	<li class="main-menu-item">
 
-
+    
     <span class="main-menu-item-title">Introduction</span>
+    
 
 
-
-
-
-
+    
+    
+    
     <ul class="list-unstyled">
-
-
+    
+    
     <li class="">
       <a href="/documentation/">Overview </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/quickstart/">Quickstart </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/cli-guide/">CLI Guide </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/cli-cmds/">CLI Command Reference </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/salt-boot/">Bootstrapping with Salt </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
+      
+      
     </ul>
-
+    
 
   </li>
-
+  
 
 	<li class="main-menu-item active">
 
-
+    
     <span class="main-menu-item-title">Amazon Web Services</span>
+    
 
 
-
-
-
-
+    
+    
+    
     <ul class="list-unstyled">
-
-
+    
+    
     <li class="">
       <a href="/documentation/aws-intro/">Introduction </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/aws-examples/">AWS Examples </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="active">
       <a href="/documentation/aws-yaml/">AWS YAML Reference </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
+      
+      
     </ul>
-
+    
 
   </li>
-
+  
 
 	<li class="main-menu-item">
 
-
+    
     <span class="main-menu-item-title">vCloud Director</span>
+    
 
 
-
-
-
-
+    
+    
+    
     <ul class="list-unstyled">
-
-
+    
+    
     <li class="">
       <a href="/documentation/vcloud-intro/">Introduction </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/vcloud-examples/">vCloud Examples </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
-
+      
+      
+    
     <li class="">
       <a href="/documentation/vcloud-yaml/">vCloud YAML Reference </a>
 
-
-
-
+      
+   		
+   		
 
       </li>
-
-
+      
+      
     </ul>
-
+    
 
   </li>
-
+  
 </ul>
 
     </div>
     <div class="content col-md-9">
-
+      
 
 <h1 id="amazon-web-services-yaml-reference">Amazon Web Services YAML Reference</h1>
 
@@ -390,22 +390,6 @@ security_groups:
         from_port: '22'
         to_port: '22'
 
-loadbalancers:
-  - name: elb-1
-    private: false
-    instances:
-      - web
-    listeners:
-      - from_port: 80
-        to_port: 80
-        protocol: http
-      - from_port: 443
-        to_port: 443
-        protocol: https
-        ssl_cert: ssl-cert-id
-    security_groups:
-      - web-sg
-
 instances:
   - name: web
     elastic_ip: true
@@ -428,6 +412,21 @@ instances:
     security_groups:
       - db-sg
 
+loadbalancers:
+  - name: elb-1
+    private: false
+    instances:
+      - web
+    listeners:
+      - from_port: 80
+        to_port: 80
+        protocol: http
+      - from_port: 443
+        to_port: 443
+        protocol: https
+        ssl_cert: ssl-cert-id
+    security_groups:
+      - web-sg
 
 </code></pre>
 
@@ -528,7 +527,7 @@ nat_gateways:
 <li><p><strong>public</strong></p>
 
 <ul>
-<li>Boolean that defines if the subnet will be public or private.</li>
+<li>String that defines if the subnet will be public or private.</li>
 <li>This field is optional.</li>
 <li>Values can be: “true“ or “false“.</li>
 <li>This field will default to “false“.</li>
@@ -677,105 +676,6 @@ nat_gateways:
 </ul></li>
 </ul>
 
-<h3 id="elbs">Loadbalancers (ELB)</h3>
-
-<pre><code>loadbalancers:
-  - name: elb-1
-    private: false
-    instances:
-      - web
-    listeners:
-      - from_port: 80
-        to_port: 80
-        protocol: http
-      - from_port: 443
-        to_port: 443
-        protocol: https
-        ssl_cert: ssl-cert-id
-    security_groups:
-      - web-sg
-
-</code></pre>
-
-<p>Loadbalancers support the following fields:</p>
-
-<ul>
-<li><p><strong>name</strong></p>
-
-<ul>
-<li>String that defines the name of the instance to build.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>This field must be unique by user &amp; manifest.</li>
-<li>The value of this field must be 50 characters maximum.</li>
-</ul></li>
-
-<li><p><strong>private</strong></p>
-
-<ul>
-<li>Boolean that defines if the loadbalancer will be private or public.</li>
-<li>This field is optional.</li>
-<li>Values can be: “true“ or “false“.</li>
-<li>This field will default to “false“.</li>
-</ul></li>
-
-<li><p><strong>instances</strong></p>
-
-<ul>
-<li>Array of String's that defines which group of instances to add to the ELB.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>This field must specify an instance group that exists on the yaml.</li>
-</ul></li>
-
-<li><p><strong>security_groups</strong></p>
-
-<ul>
-<li>Array of String's that defines which security groups to apply to the ELB.</li>
-<li>This field not is mandatory.</li>
-<li>This field must specify a security group that exists on the yaml.</li>
-</ul></li>
-</ul>
-
-<p><strong>listeners</strong></p>
-
-<p>ELB Listeners.</p>
-
-<ul>
-<li><p><strong>protocol</strong></p>
-
-<ul>
-<li>String that defines the protocol for this rule.</li>
-<li>This field is mandatory.</li>
-<li>This field cannot be null or empty.</li>
-<li>Values can be: http | https | ssl | tcp</li>
-<li>If https or ssl is specified, an ssl_cert must be specified.</li>
-</ul></li>
-
-<li><p><strong>from_port</strong></p>
-
-<ul>
-<li>Starting port-range number.</li>
-<li>This field is mandatory.</li>
-<li>Values can be: 1 - 65535.</li>
-</ul></li>
-
-<li><p><strong>to_port</strong></p>
-
-<ul>
-<li>Ending port-range number.</li>
-<li>This field is mandatory.</li>
-<li>Values can be: 1 - 65535.</li>
-</ul></li>
-
-<li><p><strong>ssl_cert</strong></p>
-
-<ul>
-<li>The ssl certificate ID of a valid AWS Certificate Manager (ACM) cert.</li>
-<li>This field is mandatory only if protocol is set to https or ssl.</li>
-</ul></li>
-</ul>
-
 <h3 id="instances">Instances</h3>
 
 <pre><code>instances:
@@ -876,6 +776,105 @@ nat_gateways:
 </ul></li>
 </ul>
 
+<h3 id="load-balancers">Load Balancers</h3>
+
+<pre><code>loadbalancers:
+  - name: elb-1
+    private: false
+    instances:
+      - web
+    listeners:
+      - from_port: 80
+        to_port: 80
+        protocol: http
+      - from_port: 443
+        to_port: 443
+        protocol: https
+        ssl_cert: ssl-cert-id
+    security_groups:
+      - web-sg
+
+</code></pre>
+
+<p>Loadbalancers support the following fields:</p>
+
+<ul>
+<li><p><strong>name</strong></p>
+
+<ul>
+<li>String that defines the name of the instance to build.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>This field must be unique by user &amp; manifest.</li>
+<li>The value of this field must be 50 characters maximum.</li>
+</ul></li>
+
+<li><p><strong>private</strong></p>
+
+<ul>
+<li>Boolean that defines if the loadbalancer will be private or public.</li>
+<li>This field is optional.</li>
+<li>Values can be: “true“ or “false“.</li>
+<li>This field will default to “false“.</li>
+</ul></li>
+
+<li><p><strong>instances</strong></p>
+
+<ul>
+<li>Array of String&rsquo;s that defines which group of instances to add to the ELB.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>This field must specify an instance group that exists on the yaml.</li>
+</ul></li>
+
+<li><p><strong>security_groups</strong></p>
+
+<ul>
+<li>Array of String&rsquo;s that defines which security groups to apply to the ELB.</li>
+<li>This field not is mandatory.</li>
+<li>This field must specify a security group that exists on the yaml.</li>
+</ul></li>
+</ul>
+
+<p><strong>listeners</strong></p>
+
+<p>ELB Listeners.</p>
+
+<ul>
+<li><p><strong>protocol</strong></p>
+
+<ul>
+<li>String that defines the protocol for this rule.</li>
+<li>This field is mandatory.</li>
+<li>This field cannot be null or empty.</li>
+<li>Values can be: http | https | ssl | tcp</li>
+<li>If https or ssl is specified, an ssl_cert must be specified.</li>
+</ul></li>
+
+<li><p><strong>from_port</strong></p>
+
+<ul>
+<li>Starting port-range number.</li>
+<li>This field is mandatory.</li>
+<li>Values can be: 1 - 65535.</li>
+</ul></li>
+
+<li><p><strong>to_port</strong></p>
+
+<ul>
+<li>Ending port-range number.</li>
+<li>This field is mandatory.</li>
+<li>Values can be: 1 - 65535.</li>
+</ul></li>
+
+<li><p><strong>ssl_cert</strong></p>
+
+<ul>
+<li>The ssl certificate ID of a valid AWS Certificate Manager (ACM) cert.</li>
+<li>This field is mandatory only if protocol is set to https or ssl.</li>
+</ul></li>
+</ul>
+
     </div>
   </div>
 </div>
@@ -898,7 +897,7 @@ nat_gateways:
   </div>
 </footer>
 
-
+    
 
 <script src="//s3.amazonaws.com/mailmunch/static/site.js" id="mailmunch-script" data-mailmunch-site-id="" async="async"></script>
 
@@ -914,8 +913,8 @@ nat_gateways:
 
 <script type="text/javascript">
   (function() {
-
-
+    
+    
     if (window.location.hostname == "localhost")
       return;
 
@@ -940,12 +939,12 @@ nat_gateways:
 </script>
 
 <script>
-var ENABLE_POPOVER =  false ;
-var EXPIRE_COOKIE =  5 ;
-var SHOW_MODAL_TIMEOUT =  10000 ;
-var MOUSE_LEAVE =  true ;
-var MODAL_SIZE = "";
-var POST_URL = "https://zapier.com/hooks/catch/1227563/";
+var ENABLE_POPOVER =  false ; 
+var EXPIRE_COOKIE =  5 ; 
+var SHOW_MODAL_TIMEOUT =  10000 ; 
+var MOUSE_LEAVE =  true ; 
+var MODAL_SIZE = ""; 
+var POST_URL = "https://zapier.com/hooks/catch/1227563/"; 
 var SIGNUP_HEADER = "Join Our Newsletter";
 var HEADER_IMAGE = "//placehold.it/1000x600";
 var IMG_DESCRIPTION = "Placeholder image for this popover modal optin form";
@@ -963,3 +962,4 @@ var COOKIE_NAME = "mycookie1";
 
   </body>
 </html>
+

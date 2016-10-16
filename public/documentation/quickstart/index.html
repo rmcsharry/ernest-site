@@ -51,7 +51,7 @@
     },
     "datePublished": "2016-06-06",
     "description": "",
-    "wordCount":  465 
+    "wordCount":  564 
   }
 </script>
 
@@ -355,28 +355,28 @@ Target set
 <p>Login to Ernest as admin:</p>
 
 <pre><code>$ ernest login --user admin --password w4rmR3d
-Log in succesful.
+Welcome back admin
 
 </code></pre>
 
 <p>Create a user:</p>
 
 <pre><code>$ ernest user create user1 abc123
-SUCCESS: User user1 created
+User user1 successfully created
 
 </code></pre>
 
 <p>Create a group:</p>
 
 <pre><code>$ ernest group create group1
-SUCCESS: Group group1 created
+Group 'group1' successfully created, you can add users with 'ernest group add-user username group1'
 
 </code></pre>
 
 <p>Add the user to the group:</p>
 
 <pre><code>$ ernest group add-user user1 group1
-SUCCESS: Added user1 to group1
+User 'user1' is now assigned to group 'group1'
 
 </code></pre>
 
@@ -385,14 +385,14 @@ SUCCESS: Added user1 to group1
 <p>Login as the user:</p>
 
 <pre><code>$ ernest login --user user1 --password abc123
-Log in succesful.
+Welcome back user1
 
 </code></pre>
 
 <p>Configure the datacenter on Ernest using your Access Key, Secret Key, and VPC ID:</p>
 
 <pre><code>$ ernest datacenter create aws --region eu-west-1 --token XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --secret YYYYYYYYYYYYYYYYYYYY my-dc
-SUCCESS: Datacenter my-dc created
+Datacenter 'my-dc' successfully created 
 
 </code></pre>
 
@@ -475,24 +475,51 @@ You can cancel at any moment with Ctrl+C, even the service is still being create
 Starting environment creation
 
 Creating networks:
-	- 10.0.10.0/24
-	- 10.0.11.0/24
+ - my-dc-demo-public
+   IP     : 10.0.10.0/24
+   AWS ID : subnet-defabc01
+   Status : completed
+ - my-dc-demo-private
+   IP     : 10.0.11.0/24
+   AWS ID : subnet-defabc02
+   Status : completed
 Networks successfully created
 
-Setting up firewalls:
-Firewalls Created
+Creating firewalls:
+ - my-dc-demo-public-sg
+   Status    : completed
+ - my-dc-demo-private-sg
+   Status    : completed
+Firewalls created
 
 Creating instances:
-	 - my-dc-demo-public-1
-	 - my-dc-demo-private-1
+ - my-dc-demo-public-1
+   IP        : 10.0.10.11
+   AWS ID    : i-abcdef01abcdef011
+   Status    : completed
+ - my-dc-demo-private-1
+   IP        : 10.0.11.11
+   AWS ID    : i-abcdef01abcdef012
+   Status    : completed
 Instances successfully created
 
-Configuring nats
-Nats Created
+Updating instances:
+ - my-dc-demo-public-1
+   IP        : 10.0.10.11
+   PUBLIC IP : 52.210.179.96
+   AWS ID    : i-abcdef01abcdef011
+   Status    : completed
+ - my-dc-demo-private-1
+   IP        : 10.0.11.11
+   PUBLIC IP : 
+   AWS ID    : i-abcdef01abcdef012
+   Status    : completed
+Instances successfully updated
 
-Configuring nats
-Nats Updated
-
+Creating nats:
+ - my-dc-demo-private-nat
+   Status    : completed
+Nats created
 SUCCESS: rules successfully applied
 Your environment endpoint is: 
 
