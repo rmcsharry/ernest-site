@@ -9,6 +9,8 @@ description = "Ernest makes it easier to develop and deploy applications in the 
 
 ## Get Ernest
 
+Below are instructions for installing the latest stable release of Ernest ([Release Notes](https://github.com/ernestio/ernest/releases)).
+
 ### Docker
 
 Ideal for: production Ernest.

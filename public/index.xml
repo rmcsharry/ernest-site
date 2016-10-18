@@ -3133,6 +3133,8 @@ Networks is a map with two fields&lt;/p&gt;
 
 &lt;h2 id=&#34;get-ernest&#34;&gt;Get Ernest&lt;/h2&gt;
 
+&lt;p&gt;Below are instructions for installing the latest stable release of Ernest (&lt;a href=&#34;https://github.com/ernestio/ernest/releases&#34; target=&#34;_blank&#34;&gt;Release Notes&lt;/a&gt;).&lt;/p&gt;
+
 &lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
 
 &lt;p&gt;Ideal for: production Ernest.&lt;/p&gt;
