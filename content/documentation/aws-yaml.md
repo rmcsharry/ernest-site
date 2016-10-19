@@ -106,6 +106,17 @@ loadbalancers:
     security_groups:
       - web-sg
 
+s3_buckets:
+  - name: bucket-1
+    acl: private
+    bucket_location: eu-west-1
+    grantees:
+      - id: foo
+        type: emailaddress, id, uri
+        permissions: full, read, read-acl, write-acl
+```
+
+
 ```
 
 ## Field Reference
@@ -430,3 +441,51 @@ ELB Listeners.
 * **ssl_cert**
  * The ssl certificate ID of a valid AWS Certificate Manager (ACM) cert.
  * This field is mandatory only if protocol is set to https or ssl.
+
+
+### S3 Buckets
+
+```
+s3_buckets:
+  - name: bucket-1
+    acl: private
+    bucket_location: eu-west-1
+    grantees:
+      - id: foo
+        type: emailaddress, id, uri
+        permissions: full, read, read-acl, write-acl
+```
+
+S3 support the following fields:
+
+* **name**
+ * (string) name of the bucket.
+ * This field is mandatory.
+ * This field cannot be null or empty.
+ * This field must be unique by user &amp; manifest.
+ * The value of this field must be 50 characters maximum.
+
+* **acl**
+ * (string) the canned ACL to apply to the bucket.
+ * The value of this field can be private, public-read, public-read-write 
+ * or authenticated-read
+
+* **bucket_location**
+ * (string) the location constraint
+ * The value of this field can be EU, eu-west-1, us-west-1, us-west-2, 
+ * ap-south-1, ap-southeast-2, ap-northeast-1, sa-east-1, cn-north-1 or 
+ * eu-central-1
+
+* **grantees**
+ * (collection) List of permissions on the bucket.
+
+* **id**
+ * (string) Grantee name
+
+* **type** 
+ * (string) Grantee type
+ * Possible values : email address, id or uri
+
+* **permissions**  
+ * (string) Permissions for this grantee on the bucket
+ * Possible values: full, read, read-acl and write-acl
