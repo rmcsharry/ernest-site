@@ -91,7 +91,7 @@ disqusShortname = "shortname"
     highlight = "solarized_dark"
 
     # Google Analytics.
-    googleAnalytics = "Your Google Analytics tracking code"
+    googleAnalytics = "UA-86033085-1"
 
     # Sidebar social links.
     github = "r3labs" # Your Github profile ID
