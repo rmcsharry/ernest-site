@@ -189,7 +189,7 @@ A network is a subnet that our instances can connect to. This is what allows us 
 
 * **subnet**
  * String that defines the IP address range of the subnet.
- * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
+ * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
  * This field is mandatory.
  * This field cannot be null or empty.
  * This field must be unique for this user & all the networks on the manifest.
@@ -253,7 +253,7 @@ Security group egress rules.
 
 * **ip**
  * String that defines the IP address range for this rule.
- * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
+ * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
  * This field is mandatory.
  * This field cannot be null or empty.
 
@@ -279,7 +279,7 @@ Security group ingress rules.
 
 * **ip**
  * String that defines the IP address range for this rule.
- * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing 
+ * It must follow CIDR notation as described at: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
  * This field is mandatory.
  * This field cannot be null or empty.
 
@@ -377,6 +377,8 @@ Instances support the following fields:
 loadbalancers:
   - name: elb-1
     private: false
+    subnets:
+      - web-subnet
     instances:
       - web
     listeners:
@@ -405,6 +407,13 @@ Loadbalancers support the following fields:
  * This field is optional.
  * Values can be: “true“ or “false“.
  * This field will default to “false“.
+
+ * **subnets**
+  * Array of String's that defines which public subnet to attach to the ELB.
+  * This field is mandatory if private is set to false.
+  * This field cannot be null or empty.
+  * This field must specify a network/subnet that exists on the yaml.
+  * Only one subnet can be deployed per availablilty zone. It is advised that you specify an AZ when defining a network/subnet.
 
 * **instances**
  * Array of String's that defines which group of instances to add to the ELB.
@@ -467,13 +476,13 @@ S3 support the following fields:
 
 * **acl**
  * (string) the canned ACL to apply to the bucket.
- * The value of this field can be private, public-read, public-read-write 
+ * The value of this field can be private, public-read, public-read-write
  * or authenticated-read
 
 * **bucket_location**
  * (string) the location constraint
- * The value of this field can be EU, eu-west-1, us-west-1, us-west-2, 
- * ap-south-1, ap-southeast-2, ap-northeast-1, sa-east-1, cn-north-1 or 
+ * The value of this field can be EU, eu-west-1, us-west-1, us-west-2,
+ * ap-south-1, ap-southeast-2, ap-northeast-1, sa-east-1, cn-north-1 or
  * eu-central-1
 
 * **grantees**
@@ -482,7 +491,7 @@ S3 support the following fields:
 * **id**
  * (string) Grantee name
 
-* **type** 
+* **type**
  * (string) Grantee type
  * Possible values : email address, id or uri
 
